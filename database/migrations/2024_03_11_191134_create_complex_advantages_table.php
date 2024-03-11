@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('offices', function (Blueprint $table) {
+        Schema::create('complex_advantages', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->string('image');
-            $table->string('phone');
-            $table->string('address');
-            $table->string('time');
-            $table->point('coordinates')->nullable();
-            $table->foreignId('city_id')->nullable()->constrained()->onDelete('set null');
+            $table->text('description');
+            $table->foreignId('complex_id')->nullable()->constrained()->onDelete('set null');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('offices');
+        Schema::dropIfExists('complex_advantages');
     }
 };

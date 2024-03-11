@@ -61,7 +61,9 @@ class MainController extends Controller
         $sales = SalesDepartment::first();
         $helpline = Helpline::first();
 
-        $offices->getCoordinates();
+        foreach ($offices as $office) {
+            $office->coordinates = "";
+        };
 
         return response(
             [

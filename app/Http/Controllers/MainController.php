@@ -18,17 +18,36 @@ use App\Models\{
     Office,
     SalesDepartment,
     Helpline,
+
+    Complex,
 };
 use TCG\Voyager\Traits\Spatial;
 
 class MainController extends Controller
 {
-    public function index() {
+    public function index(Request $request) {
         $mainBlock = MainBlock::first();
         $secondaryBlocks = SecondaryBlock::all(); 
         $slider = Slider::all();
         $purchasingMethods = PurchasingMethod::all(); 
         $banner = Banner::first();
+        $complexes = Complex::query();
+
+        if ($request->input('city_id') != null) {
+            $complexes->where('city_id', $request->input('city_id'));
+        }
+
+        $complexes = $complexes->get();
+
+        // TODO: get only one image
+        // foreach ($results as $result) {
+        //     $jsonString = $result->image;
+        //     $imageArray = json_decode($jsonString, true);
+
+        //     dd($jsonString);
+        //     $result->image = $imageArray[0];
+        // }
+
 
         return response(
             [
@@ -37,6 +56,7 @@ class MainController extends Controller
                 'slider' => $slider,
                 'purchasing_methods' => $purchasingMethods,
                 'banner' => $banner,
+                'complexes' => $complexes,
             ], 200
         );
     }

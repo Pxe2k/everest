@@ -4,7 +4,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\{
-    MainController
+    MainController,
+    ComplexController,
+    AppartmentController,
 };
 
 /*
@@ -26,4 +28,12 @@ Route::group(['prefix' => 'page'], function() {
     Route::get('/main', [MainController::class, 'index']);
     Route::get('/mortgage', [MainController::class, 'mortgage']);
     Route::get('/office', [MainController::class, 'office']);
+});
+
+Route::group(['prefix' => 'catalog'], function() {
+    Route::get('/complex/{complex}', [ComplexController::class, 'getComplex']);
+    Route::get('/complexes', [ComplexController::class, 'allComplexes']);
+
+    Route::get('/appartment/{appartment}', [AppartmentController::class, 'getAppartment']);
+    Route::get('/appartments', [AppartmentController::class, 'allAppartments']);
 });

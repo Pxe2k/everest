@@ -92,7 +92,7 @@ class MainController extends Controller
 
         return response(
             [
-                'cities' => $cities,
+                'cities' => $city,
                 'offices' => $offices,
                 'sales' => $sales,
                 'helpline' => $helpline,

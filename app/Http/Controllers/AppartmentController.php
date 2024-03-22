@@ -37,6 +37,9 @@ class AppartmentController extends Controller
         if ($request->input('type') != null) {
             $appartments->where('type', $request->input('type'));
         }
+        if ($request->input('appartments_number') != null) {
+            $appartments->take($request->input('appartments_number'));
+        }
 
         $appartments = $appartments->get();
         $count = $appartments->count();

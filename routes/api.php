@@ -28,6 +28,8 @@ Route::group(['prefix' => 'page'], function() {
     Route::get('/main', [MainController::class, 'index']);
     Route::get('/mortgage', [MainController::class, 'mortgage']);
     Route::get('/office', [MainController::class, 'office']);
+    Route::get('/live', [MainController::class, 'live']);
+    Route::get('about-us', [MainController::class, 'aboutUs']);
 });
 
 Route::group(['prefix' => 'catalog'], function() {

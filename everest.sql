@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 14 2024 г., 03:10
+-- Время создания: Мар 23 2024 г., 01:04
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -20,6 +20,111 @@ SET time_zone = "+00:00";
 --
 -- База данных: `everest`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `about_us_advantages`
+--
+
+CREATE TABLE `about_us_advantages` (
+  `id` bigint UNSIGNED NOT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `about_us_banners`
+--
+
+CREATE TABLE `about_us_banners` (
+  `id` bigint UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `about_us_blocks`
+--
+
+CREATE TABLE `about_us_blocks` (
+  `id` bigint UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `about_us_companies`
+--
+
+CREATE TABLE `about_us_companies` (
+  `id` bigint UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `about_us_descriptions`
+--
+
+CREATE TABLE `about_us_descriptions` (
+  `id` bigint UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `about_us_geographies`
+--
+
+CREATE TABLE `about_us_geographies` (
+  `id` bigint UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `about_us_geography_districts`
+--
+
+CREATE TABLE `about_us_geography_districts` (
+  `id` bigint UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -149,16 +254,17 @@ CREATE TABLE `complexes` (
   `description_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `city_id` bigint UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `stream_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `complexes`
 --
 
-INSERT INTO `complexes` (`id`, `images`, `title`, `description`, `type`, `description_image`, `city_id`, `created_at`, `updated_at`) VALUES
-(1, '[\"complexes\\\\March2024\\\\o7qrBAmkwsa2dGyzTknu.png\",\"complexes\\\\March2024\\\\JAd6ioh83hq9YHpEaGmy.png\"]', 'Жилой комплекс \"Belle View\"', '<p>О проекте</p>\r\n<p>&nbsp;</p>\r\n<p>&laquo;Квартал Герцена&raquo;&nbsp;&mdash; это жилой комплекс комфорт-класса с&nbsp;корпусами переменной этажности, собственной инфраструктурой и&nbsp;шикарными видами на&nbsp;Бирюлевский лесопарк.<br><br>Изучая локацию и&nbsp;продумывая концепцию проекта, мы&nbsp;вдохновлялись местной историей. Ее&nbsp;частью стал публицист и&nbsp;философ Александр Герцен, который проводил много времени в&nbsp;этом районе.</p>', 'in_sale', 'complexes\\March2024\\azAIRiDw9dyfdxwEBCFv.png', 1, '2024-03-11 16:50:06', '2024-03-11 16:55:49'),
-(2, '[\"complexes\\\\March2024\\\\o7qrBAmkwsa2dGyzTknu.png\",\"complexes\\\\March2024\\\\JAd6ioh83hq9YHpEaGmy.png\"]', 'Жилой комплекс \"Beerkhan View\"', '<p>О проекте</p>\r\n<p>&nbsp;</p>\r\n<p>&laquo;Квартал Герцена&raquo;&nbsp;&mdash; это жилой комплекс комфорт-класса с&nbsp;корпусами переменной этажности, собственной инфраструктурой и&nbsp;шикарными видами на&nbsp;Бирюлевский лесопарк.<br><br>Изучая локацию и&nbsp;продумывая концепцию проекта, мы&nbsp;вдохновлялись местной историей. Ее&nbsp;частью стал публицист и&nbsp;философ Александр Герцен, который проводил много времени в&nbsp;этом районе.</p>', 'in_sale', 'complexes\\March2024\\azAIRiDw9dyfdxwEBCFv.png', 1, '2024-03-11 16:50:06', '2024-03-11 16:55:49');
+INSERT INTO `complexes` (`id`, `images`, `title`, `description`, `type`, `description_image`, `city_id`, `created_at`, `updated_at`, `stream_link`) VALUES
+(1, '[\"complexes\\\\March2024\\\\o7qrBAmkwsa2dGyzTknu.png\",\"complexes\\\\March2024\\\\JAd6ioh83hq9YHpEaGmy.png\"]', 'Жилой комплекс \"Belle View\"', '<p>О проекте</p>\r\n<p>&nbsp;</p>\r\n<p>&laquo;Квартал Герцена&raquo;&nbsp;&mdash; это жилой комплекс комфорт-класса с&nbsp;корпусами переменной этажности, собственной инфраструктурой и&nbsp;шикарными видами на&nbsp;Бирюлевский лесопарк.<br><br>Изучая локацию и&nbsp;продумывая концепцию проекта, мы&nbsp;вдохновлялись местной историей. Ее&nbsp;частью стал публицист и&nbsp;философ Александр Герцен, который проводил много времени в&nbsp;этом районе.</p>', 'in_sale', 'complexes\\March2024\\azAIRiDw9dyfdxwEBCFv.png', 1, '2024-03-11 16:50:06', '2024-03-11 16:55:49', NULL),
+(2, '[\"complexes\\\\March2024\\\\o7qrBAmkwsa2dGyzTknu.png\",\"complexes\\\\March2024\\\\JAd6ioh83hq9YHpEaGmy.png\"]', 'Жилой комплекс \"Beerkhan View\"', '<p>О проекте</p>\r\n<p>&nbsp;</p>\r\n<p>&laquo;Квартал Герцена&raquo;&nbsp;&mdash; это жилой комплекс комфорт-класса с&nbsp;корпусами переменной этажности, собственной инфраструктурой и&nbsp;шикарными видами на&nbsp;Бирюлевский лесопарк.<br><br>Изучая локацию и&nbsp;продумывая концепцию проекта, мы&nbsp;вдохновлялись местной историей. Ее&nbsp;частью стал публицист и&nbsp;философ Александр Герцен, который проводил много времени в&nbsp;этом районе.</p>', 'in_sale', 'complexes\\March2024\\azAIRiDw9dyfdxwEBCFv.png', 1, '2024-03-11 16:50:06', '2024-03-11 16:55:49', NULL);
 
 -- --------------------------------------------------------
 
@@ -384,7 +490,62 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (169, 25, 'appartment_id', 'text', 'Appartment Id', 0, 1, 1, 1, 1, 1, '{}', 2),
 (170, 25, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 6),
 (171, 25, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
-(172, 25, 'appartment_advantage_belongsto_appartment_relationship', 'relationship', 'Квартира', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Appartment\",\"table\":\"appartments\",\"type\":\"belongsTo\",\"column\":\"appartment_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"appartment_advantages\",\"pivot\":\"0\",\"taggable\":\"0\"}', 8);
+(172, 25, 'appartment_advantage_belongsto_appartment_relationship', 'relationship', 'Квартира', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Appartment\",\"table\":\"appartments\",\"type\":\"belongsTo\",\"column\":\"appartment_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"appartment_advantages\",\"pivot\":\"0\",\"taggable\":\"0\"}', 8),
+(173, 17, 'stream_link', 'text', 'Трансляция', 0, 1, 1, 1, 1, 1, '{}', 10),
+(174, 26, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(175, 26, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 2),
+(176, 26, 'description', 'text_area', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 3),
+(177, 26, 'link', 'text', 'Ссылка', 0, 1, 1, 1, 1, 1, '{}', 4),
+(178, 26, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 5),
+(179, 26, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
+(180, 27, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(181, 27, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 2),
+(182, 27, 'image', 'text', 'Изображение', 1, 1, 1, 1, 1, 1, '{}', 3),
+(183, 27, 'description', 'text_area', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 4),
+(184, 27, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 5),
+(185, 27, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
+(186, 28, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(187, 28, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 2),
+(188, 28, 'description', 'text_area', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 3),
+(189, 28, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 4),
+(190, 28, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 5),
+(191, 29, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(192, 29, 'type', 'select_dropdown', 'Тип', 1, 1, 1, 1, 1, 1, '{}', 2),
+(193, 29, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 3),
+(194, 29, 'image', 'image', 'Изображение', 0, 1, 1, 1, 1, 1, '{}', 4),
+(195, 29, 'description', 'text_area', 'Оп', 1, 1, 1, 1, 1, 1, '{}', 5),
+(196, 29, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 6),
+(197, 29, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
+(198, 31, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(199, 31, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 2),
+(200, 31, 'description', 'text_area', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 3),
+(201, 31, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 4),
+(202, 31, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 5),
+(203, 32, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(204, 32, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 2),
+(205, 32, 'description', 'text_area', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 3),
+(206, 32, 'image', 'image', 'Изображение', 1, 1, 1, 1, 1, 1, '{}', 4),
+(207, 32, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 5),
+(208, 32, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
+(209, 33, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(210, 33, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 2),
+(211, 33, 'description', 'text_area', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 3),
+(212, 33, 'icon', 'image', 'Иконка', 1, 1, 1, 1, 1, 1, '{}', 4),
+(213, 33, 'link', 'text', 'Ссылка', 1, 1, 1, 1, 1, 1, '{}', 5),
+(214, 33, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 6),
+(215, 33, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
+(216, 34, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(217, 34, 'address', 'text', 'Адрес', 0, 1, 1, 1, 1, 1, '{}', 2),
+(218, 34, '2gis_link', 'text', '2Gis', 0, 1, 1, 1, 1, 1, '{}', 3),
+(219, 34, 'phone_number', 'text', 'Номер телефона', 0, 1, 1, 1, 1, 1, '{}', 4),
+(220, 34, 'email', 'text', 'E-mail', 0, 1, 1, 1, 1, 1, '{}', 5),
+(221, 34, 'fb_link', 'text', 'Facebook', 0, 1, 1, 1, 1, 1, '{}', 6),
+(222, 34, 'ig_link', 'text', 'Instagram', 0, 1, 1, 1, 1, 1, '{}', 7),
+(223, 34, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 8),
+(224, 34, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 9),
+(225, 4, 'link', 'text', 'Ссылка', 0, 1, 1, 1, 1, 1, '{}', 6),
+(226, 5, 'link', 'text', 'Ссылка', 0, 1, 1, 1, 1, 1, '{}', 7),
+(227, 6, 'link', 'text', 'Ссылка', 1, 1, 1, 1, 1, 1, '{}', 7);
 
 -- --------------------------------------------------------
 
@@ -418,23 +579,31 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (1, 'users', 'users', 'User', 'Users', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', '', 1, 0, NULL, '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
 (2, 'menus', 'menus', 'Menu', 'Menus', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
 (3, 'roles', 'roles', 'Role', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, 'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController', '', 1, 0, NULL, '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(4, 'main_blocks', 'main-blocks', 'Ипотека', 'Ипотека', NULL, 'App\\Models\\MainBlock', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-09 18:59:29', '2024-03-09 18:59:29'),
-(5, 'secondary_blocks', 'secondary-blocks', 'Типы', 'Типы', NULL, 'App\\Models\\SecondaryBlock', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-09 19:00:49', '2024-03-09 19:00:49'),
-(6, 'sliders', 'sliders', 'Слайдер', 'Слайдер', NULL, 'App\\Models\\Slider', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-09 19:01:34', '2024-03-09 19:01:34'),
+(4, 'main_blocks', 'main-blocks', 'Ипотека', 'Ипотека', NULL, 'App\\Models\\MainBlock', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-09 18:59:29', '2024-03-22 18:58:00'),
+(5, 'secondary_blocks', 'secondary-blocks', 'Типы', 'Типы', NULL, 'App\\Models\\SecondaryBlock', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-09 19:00:49', '2024-03-22 18:58:34'),
+(6, 'sliders', 'sliders', 'Слайдер', 'Слайдер', NULL, 'App\\Models\\Slider', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-09 19:01:34', '2024-03-22 18:58:59'),
 (7, 'purchasing_methods', 'purchasing-methods', 'Способы покупки', 'Способы покупки', NULL, 'App\\Models\\PurchasingMethod', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-09 19:02:27', '2024-03-09 19:02:27'),
 (8, 'banners', 'banners', 'Баннер', 'Баннер', NULL, 'App\\Models\\Banner', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-09 19:03:00', '2024-03-09 19:03:00'),
 (10, 'mortgage_banners', 'mortgage-banners', 'Баннер', 'Баннер', NULL, 'App\\Models\\MortgageBanner', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-09 19:55:14', '2024-03-09 19:55:14'),
 (11, 'mortgage_advantages', 'mortgage-advantages', 'Преимущество', 'Преимущество', NULL, 'App\\Models\\MortgageAdvantage', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-09 19:55:58', '2024-03-09 19:55:58'),
 (12, 'mortgage_steps', 'mortgage-steps', 'Шаги', 'Шаги', NULL, 'App\\Models\\MortgageStep', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-09 19:56:40', '2024-03-09 20:03:56'),
 (13, 'cities', 'cities', 'Города', 'Города', NULL, 'App\\Models\\City', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-09 20:28:57', '2024-03-11 16:09:48'),
-(14, 'offices', 'offices', 'Офисы', 'Офисы', NULL, 'App\\Models\\Office', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-09 20:30:14', '2024-03-11 16:57:15'),
+(14, 'offices', 'offices', 'Офисы', 'Офисы', NULL, 'App\\Models\\Office', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-09 20:30:14', '2024-03-18 17:09:54'),
 (15, 'helplines', 'helplines', 'Служба доверия', 'Служба доверия', NULL, 'App\\Models\\Helpline', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-09 20:48:28', '2024-03-11 16:49:16'),
 (16, 'sales_departments', 'sales-departments', 'Sales Department', 'Sales Departments', NULL, 'App\\Models\\SalesDepartment', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-09 21:05:13', '2024-03-11 16:49:24'),
-(17, 'complexes', 'complexes', 'Проекты', 'Проекты', NULL, 'App\\Models\\Complex', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-11 16:34:52', '2024-03-13 20:03:45'),
+(17, 'complexes', 'complexes', 'Проекты', 'Проекты', NULL, 'App\\Models\\Complex', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-11 16:34:52', '2024-03-22 17:28:42'),
 (18, 'complex_advantages', 'complex-advantages', 'Преимущество', 'Преимущество', NULL, 'App\\Models\\ComplexAdvantage', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-11 16:54:04', '2024-03-13 18:30:48'),
 (20, 'complex_peculiarities', 'complex-peculiarities', 'Преимущество', 'Преимущество', NULL, 'App\\Models\\ComplexPeculiarity', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-11 16:54:44', '2024-03-13 18:32:13'),
 (24, 'appartments', 'appartments', 'Квартиры', 'Квартиры', NULL, 'App\\Models\\Appartment', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-13 20:03:16', '2024-03-13 20:20:33'),
-(25, 'appartment_advantages', 'appartment-advantages', 'Преимущество', 'Преимущество', NULL, 'App\\Models\\AppartmentAdvantage', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-13 20:20:27', '2024-03-13 20:20:54');
+(25, 'appartment_advantages', 'appartment-advantages', 'Преимущество', 'Преимущество', NULL, 'App\\Models\\AppartmentAdvantage', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-13 20:20:27', '2024-03-13 20:20:54'),
+(26, 'about_us_banners', 'about-us-banners', 'Баннер', 'Баннер', NULL, 'App\\Models\\AboutUsBanner', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-22 18:05:59', '2024-03-22 18:09:31'),
+(27, 'about_us_blocks', 'about-us-blocks', 'Блоки', 'Блоки', NULL, 'App\\Models\\AboutUsBlock', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-22 18:09:20', '2024-03-22 18:09:20'),
+(28, 'about_us_descriptions', 'about-us-descriptions', 'Описание', 'Описание', NULL, 'App\\Models\\AboutUsDescription', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-22 18:10:09', '2024-03-22 18:10:09'),
+(29, 'about_us_advantages', 'about-us-advantages', 'Пр', 'Преимущество', NULL, 'App\\Models\\AboutUsAdvantage', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-22 18:11:39', '2024-03-22 18:11:39'),
+(31, 'about_us_geographies', 'about-us-geographies', 'География', 'География', NULL, 'App\\Models\\AboutUsGeography', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-22 18:12:30', '2024-03-22 18:12:30'),
+(32, 'about_us_geography_districts', 'about-us-geography-districts', 'Районы', 'Районы', NULL, 'App\\Models\\AboutUsGeographyDistrict', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-22 18:13:07', '2024-03-22 18:13:07'),
+(33, 'about_us_companies', 'about-us-companies', 'Компания', 'Компания', NULL, 'App\\Models\\AboutUsCompany', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-22 18:14:52', '2024-03-22 18:14:52'),
+(34, 'footers', 'footers', 'Футер', 'Футер', NULL, 'App\\Models\\Footer', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-22 18:16:17', '2024-03-22 18:16:17');
 
 -- --------------------------------------------------------
 
@@ -450,6 +619,24 @@ CREATE TABLE `failed_jobs` (
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `footers`
+--
+
+CREATE TABLE `footers` (
+  `id` bigint UNSIGNED NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `2gis_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone_number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fb_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ig_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -478,15 +665,16 @@ CREATE TABLE `main_blocks` (
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `title2` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `main_blocks`
 --
 
-INSERT INTO `main_blocks` (`id`, `title`, `title2`, `created_at`, `updated_at`) VALUES
-(1, 'Ипотека 14,5%', 'Мы предоставляем выгодные условия приобретения жилья под низкий процент', '2024-03-09 19:06:12', '2024-03-09 19:06:12');
+INSERT INTO `main_blocks` (`id`, `title`, `title2`, `created_at`, `updated_at`, `link`) VALUES
+(1, 'Ипотека 14,5%', 'Мы предоставляем выгодные условия приобретения жилья под низкий процент', '2024-03-09 19:06:12', '2024-03-09 19:06:12', NULL);
 
 -- --------------------------------------------------------
 
@@ -556,7 +744,7 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (19, 1, 'Преимущество', '', '_self', NULL, NULL, 17, 2, '2024-03-09 19:55:58', '2024-03-09 19:56:47', 'voyager.mortgage-advantages.index', NULL),
 (20, 1, 'Шаги', '', '_self', NULL, NULL, 17, 3, '2024-03-09 19:56:40', '2024-03-09 19:56:48', 'voyager.mortgage-steps.index', NULL),
 (21, 1, 'Офисы', '', '_self', 'voyager-compass', '#000000', NULL, 9, '2024-03-09 20:28:31', '2024-03-09 20:28:31', NULL, ''),
-(22, 1, 'Города', '', '_self', 'voyager-world', '#000000', NULL, 12, '2024-03-09 20:28:57', '2024-03-13 20:22:49', 'voyager.cities.index', 'null'),
+(22, 1, 'Города', '', '_self', 'voyager-world', '#000000', NULL, 13, '2024-03-09 20:28:57', '2024-03-22 18:07:44', 'voyager.cities.index', 'null'),
 (23, 1, 'Офисы', '', '_self', NULL, NULL, 21, 1, '2024-03-09 20:30:14', '2024-03-09 20:31:25', 'voyager.offices.index', NULL),
 (24, 1, 'Служба доверия', '', '_self', NULL, NULL, 21, 2, '2024-03-09 20:48:28', '2024-03-09 21:03:17', 'voyager.helplines.index', NULL),
 (25, 1, 'Сотрудник', '', '_self', NULL, '#000000', 21, 3, '2024-03-09 21:05:13', '2024-03-09 21:05:32', 'voyager.sales-departments.index', 'null'),
@@ -566,7 +754,16 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (29, 1, 'Особенности', '', '_self', NULL, '#000000', 26, 3, '2024-03-11 16:54:44', '2024-03-11 17:00:24', 'voyager.complex-peculiarities.index', 'null'),
 (33, 1, 'Квартиры', '', '_self', NULL, NULL, 35, 1, '2024-03-13 20:03:16', '2024-03-13 20:22:49', 'voyager.appartments.index', NULL),
 (34, 1, 'Преимущество', '', '_self', NULL, NULL, 35, 2, '2024-03-13 20:20:27', '2024-03-13 20:22:50', 'voyager.appartment-advantages.index', NULL),
-(35, 1, 'Апартаменты', '', '_self', 'voyager-home', '#000000', NULL, 11, '2024-03-13 20:22:41', '2024-03-13 20:22:46', NULL, '');
+(35, 1, 'Апартаменты', '', '_self', 'voyager-home', '#000000', NULL, 11, '2024-03-13 20:22:41', '2024-03-13 20:22:46', NULL, ''),
+(36, 1, 'Баннер', '', '_self', NULL, NULL, 37, 1, '2024-03-22 18:05:59', '2024-03-22 18:06:18', 'voyager.about-us-banners.index', NULL),
+(37, 1, 'О нас', '', '_self', 'voyager-list', '#000000', NULL, 12, '2024-03-22 18:06:14', '2024-03-22 18:07:44', NULL, ''),
+(38, 1, 'Блоки', '', '_self', NULL, NULL, 37, 2, '2024-03-22 18:09:20', '2024-03-22 18:16:28', 'voyager.about-us-blocks.index', NULL),
+(39, 1, 'Описание', '', '_self', NULL, NULL, 37, 3, '2024-03-22 18:10:09', '2024-03-22 18:16:34', 'voyager.about-us-descriptions.index', NULL),
+(40, 1, 'Преимущество', '', '_self', NULL, NULL, 37, 4, '2024-03-22 18:11:39', '2024-03-22 18:16:37', 'voyager.about-us-advantages.index', NULL),
+(41, 1, 'География', '', '_self', NULL, NULL, 37, 5, '2024-03-22 18:12:30', '2024-03-22 18:16:39', 'voyager.about-us-geographies.index', NULL),
+(42, 1, 'Районы', '', '_self', NULL, NULL, 37, 6, '2024-03-22 18:13:07', '2024-03-22 18:16:41', 'voyager.about-us-geography-districts.index', NULL),
+(43, 1, 'Компания', '', '_self', NULL, NULL, 37, 7, '2024-03-22 18:14:52', '2024-03-22 18:16:44', 'voyager.about-us-companies.index', NULL),
+(44, 1, 'Футер', '', '_self', 'voyager-download', '#000000', NULL, 14, '2024-03-22 18:16:17', '2024-03-22 18:17:11', 'voyager.footers.index', 'null');
 
 -- --------------------------------------------------------
 
@@ -625,7 +822,19 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (55, '2024_03_11_191134_create_complex_advantages_table', 5),
 (56, '2024_03_11_191201_create_complex_peculiarities_table', 5),
 (60, '2024_03_13_223237_create_appartments_table', 6),
-(61, '2024_03_13_224307_create_appartment_advantages_table', 6);
+(61, '2024_03_13_224307_create_appartment_advantages_table', 6),
+(62, '2024_03_22_202619_add_stream_link_to_complex_table', 7),
+(63, '2024_03_22_203631_create_about_us_banners_table', 8),
+(64, '2024_03_22_204004_create_about_us_descriptions_table', 8),
+(65, '2024_03_22_204408_create_about_us_advantages_table', 8),
+(66, '2024_03_22_204936_create_about_us_blocks_table', 8),
+(67, '2024_03_22_205120_create_about_us_geographies_table', 8),
+(68, '2024_03_22_205140_create_about_us_geography_districts_table', 8),
+(71, '2024_03_22_205834_create_about_us_companies_table', 9),
+(72, '2024_03_22_205957_create_footers_table', 9),
+(73, '2024_03_22_215515_add_link_field_to_main_blocks_table;', 10),
+(74, '2024_03_22_215524_add_link_field_to_secondary_blocks_table;', 10),
+(75, '2024_03_22_215531_add_link_field_to_sliders_table;', 10);
 
 -- --------------------------------------------------------
 
@@ -857,7 +1066,47 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (117, 'read_appartment_advantages', 'appartment_advantages', '2024-03-13 20:20:27', '2024-03-13 20:20:27'),
 (118, 'edit_appartment_advantages', 'appartment_advantages', '2024-03-13 20:20:27', '2024-03-13 20:20:27'),
 (119, 'add_appartment_advantages', 'appartment_advantages', '2024-03-13 20:20:27', '2024-03-13 20:20:27'),
-(120, 'delete_appartment_advantages', 'appartment_advantages', '2024-03-13 20:20:27', '2024-03-13 20:20:27');
+(120, 'delete_appartment_advantages', 'appartment_advantages', '2024-03-13 20:20:27', '2024-03-13 20:20:27'),
+(121, 'browse_about_us_banners', 'about_us_banners', '2024-03-22 18:05:59', '2024-03-22 18:05:59'),
+(122, 'read_about_us_banners', 'about_us_banners', '2024-03-22 18:05:59', '2024-03-22 18:05:59'),
+(123, 'edit_about_us_banners', 'about_us_banners', '2024-03-22 18:05:59', '2024-03-22 18:05:59'),
+(124, 'add_about_us_banners', 'about_us_banners', '2024-03-22 18:05:59', '2024-03-22 18:05:59'),
+(125, 'delete_about_us_banners', 'about_us_banners', '2024-03-22 18:05:59', '2024-03-22 18:05:59'),
+(126, 'browse_about_us_blocks', 'about_us_blocks', '2024-03-22 18:09:20', '2024-03-22 18:09:20'),
+(127, 'read_about_us_blocks', 'about_us_blocks', '2024-03-22 18:09:20', '2024-03-22 18:09:20'),
+(128, 'edit_about_us_blocks', 'about_us_blocks', '2024-03-22 18:09:20', '2024-03-22 18:09:20'),
+(129, 'add_about_us_blocks', 'about_us_blocks', '2024-03-22 18:09:20', '2024-03-22 18:09:20'),
+(130, 'delete_about_us_blocks', 'about_us_blocks', '2024-03-22 18:09:20', '2024-03-22 18:09:20'),
+(131, 'browse_about_us_descriptions', 'about_us_descriptions', '2024-03-22 18:10:09', '2024-03-22 18:10:09'),
+(132, 'read_about_us_descriptions', 'about_us_descriptions', '2024-03-22 18:10:09', '2024-03-22 18:10:09'),
+(133, 'edit_about_us_descriptions', 'about_us_descriptions', '2024-03-22 18:10:09', '2024-03-22 18:10:09'),
+(134, 'add_about_us_descriptions', 'about_us_descriptions', '2024-03-22 18:10:09', '2024-03-22 18:10:09'),
+(135, 'delete_about_us_descriptions', 'about_us_descriptions', '2024-03-22 18:10:09', '2024-03-22 18:10:09'),
+(136, 'browse_about_us_advantages', 'about_us_advantages', '2024-03-22 18:11:39', '2024-03-22 18:11:39'),
+(137, 'read_about_us_advantages', 'about_us_advantages', '2024-03-22 18:11:39', '2024-03-22 18:11:39'),
+(138, 'edit_about_us_advantages', 'about_us_advantages', '2024-03-22 18:11:39', '2024-03-22 18:11:39'),
+(139, 'add_about_us_advantages', 'about_us_advantages', '2024-03-22 18:11:39', '2024-03-22 18:11:39'),
+(140, 'delete_about_us_advantages', 'about_us_advantages', '2024-03-22 18:11:39', '2024-03-22 18:11:39'),
+(141, 'browse_about_us_geographies', 'about_us_geographies', '2024-03-22 18:12:30', '2024-03-22 18:12:30'),
+(142, 'read_about_us_geographies', 'about_us_geographies', '2024-03-22 18:12:30', '2024-03-22 18:12:30'),
+(143, 'edit_about_us_geographies', 'about_us_geographies', '2024-03-22 18:12:30', '2024-03-22 18:12:30'),
+(144, 'add_about_us_geographies', 'about_us_geographies', '2024-03-22 18:12:30', '2024-03-22 18:12:30'),
+(145, 'delete_about_us_geographies', 'about_us_geographies', '2024-03-22 18:12:30', '2024-03-22 18:12:30'),
+(146, 'browse_about_us_geography_districts', 'about_us_geography_districts', '2024-03-22 18:13:07', '2024-03-22 18:13:07'),
+(147, 'read_about_us_geography_districts', 'about_us_geography_districts', '2024-03-22 18:13:07', '2024-03-22 18:13:07'),
+(148, 'edit_about_us_geography_districts', 'about_us_geography_districts', '2024-03-22 18:13:07', '2024-03-22 18:13:07'),
+(149, 'add_about_us_geography_districts', 'about_us_geography_districts', '2024-03-22 18:13:07', '2024-03-22 18:13:07'),
+(150, 'delete_about_us_geography_districts', 'about_us_geography_districts', '2024-03-22 18:13:07', '2024-03-22 18:13:07'),
+(151, 'browse_about_us_companies', 'about_us_companies', '2024-03-22 18:14:52', '2024-03-22 18:14:52'),
+(152, 'read_about_us_companies', 'about_us_companies', '2024-03-22 18:14:52', '2024-03-22 18:14:52'),
+(153, 'edit_about_us_companies', 'about_us_companies', '2024-03-22 18:14:52', '2024-03-22 18:14:52'),
+(154, 'add_about_us_companies', 'about_us_companies', '2024-03-22 18:14:52', '2024-03-22 18:14:52'),
+(155, 'delete_about_us_companies', 'about_us_companies', '2024-03-22 18:14:52', '2024-03-22 18:14:52'),
+(156, 'browse_footers', 'footers', '2024-03-22 18:16:17', '2024-03-22 18:16:17'),
+(157, 'read_footers', 'footers', '2024-03-22 18:16:17', '2024-03-22 18:16:17'),
+(158, 'edit_footers', 'footers', '2024-03-22 18:16:17', '2024-03-22 18:16:17'),
+(159, 'add_footers', 'footers', '2024-03-22 18:16:17', '2024-03-22 18:16:17'),
+(160, 'delete_footers', 'footers', '2024-03-22 18:16:17', '2024-03-22 18:16:17');
 
 -- --------------------------------------------------------
 
@@ -1003,7 +1252,47 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (117, 1),
 (118, 1),
 (119, 1),
-(120, 1);
+(120, 1),
+(121, 1),
+(122, 1),
+(123, 1),
+(124, 1),
+(125, 1),
+(126, 1),
+(127, 1),
+(128, 1),
+(129, 1),
+(130, 1),
+(131, 1),
+(132, 1),
+(133, 1),
+(134, 1),
+(135, 1),
+(136, 1),
+(137, 1),
+(138, 1),
+(139, 1),
+(140, 1),
+(141, 1),
+(142, 1),
+(143, 1),
+(144, 1),
+(145, 1),
+(146, 1),
+(147, 1),
+(148, 1),
+(149, 1),
+(150, 1),
+(151, 1),
+(152, 1),
+(153, 1),
+(154, 1),
+(155, 1),
+(156, 1),
+(157, 1),
+(158, 1),
+(159, 1),
+(160, 1);
 
 -- --------------------------------------------------------
 
@@ -1099,16 +1388,17 @@ CREATE TABLE `secondary_blocks` (
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `icon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `secondary_blocks`
 --
 
-INSERT INTO `secondary_blocks` (`id`, `title`, `description`, `icon`, `created_at`, `updated_at`) VALUES
-(1, 'Жилье', 'Широкий выбор премиальных апартаментов', 'secondary-blocks\\March2024\\ttBRAZ7vE8Q5wEYDhmx0.png', '2024-03-09 19:07:18', '2024-03-09 19:07:18'),
-(2, 'Коммерция', 'Покупка коммерческих помещений под любой вид бизнеса', 'secondary-blocks\\March2024\\X4B5Ib2gxOFK3Pn9SEfD.png', '2024-03-09 19:07:43', '2024-03-09 19:07:43');
+INSERT INTO `secondary_blocks` (`id`, `title`, `description`, `icon`, `created_at`, `updated_at`, `link`) VALUES
+(1, 'Жилье', 'Широкий выбор премиальных апартаментов', 'secondary-blocks\\March2024\\ttBRAZ7vE8Q5wEYDhmx0.png', '2024-03-09 19:07:18', '2024-03-09 19:07:18', NULL),
+(2, 'Коммерция', 'Покупка коммерческих помещений под любой вид бизнеса', 'secondary-blocks\\March2024\\X4B5Ib2gxOFK3Pn9SEfD.png', '2024-03-09 19:07:43', '2024-03-09 19:07:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -1155,16 +1445,17 @@ CREATE TABLE `sliders` (
   `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `sliders`
 --
 
-INSERT INTO `sliders` (`id`, `title`, `description`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'Вершина вашего комфорта!', 'Премиальные апартаменты в Алматы', 'sliders\\March2024\\fy4ebr2qJeGFzoZb0ivE.jpg', '2024-03-09 19:08:29', '2024-03-09 19:08:29'),
-(2, 'Вершина вашего комфорта!1', 'Премиальные апартаменты в Алматы111', 'sliders\\March2024\\fy4ebr2qJeGFzoZb0ivE.jpg', '2024-03-09 19:08:29', '2024-03-09 19:08:29');
+INSERT INTO `sliders` (`id`, `title`, `description`, `image`, `created_at`, `updated_at`, `link`) VALUES
+(1, 'Вершина вашего комфорта!', 'Премиальные апартаменты в Алматы', 'sliders\\March2024\\fy4ebr2qJeGFzoZb0ivE.jpg', '2024-03-09 19:08:29', '2024-03-09 19:08:29', ''),
+(2, 'Вершина вашего комфорта!1', 'Премиальные апартаменты в Алматы111', 'sliders\\March2024\\fy4ebr2qJeGFzoZb0ivE.jpg', '2024-03-09 19:08:29', '2024-03-09 19:08:29', '');
 
 -- --------------------------------------------------------
 
@@ -1224,6 +1515,48 @@ CREATE TABLE `user_roles` (
 --
 -- Индексы сохранённых таблиц
 --
+
+--
+-- Индексы таблицы `about_us_advantages`
+--
+ALTER TABLE `about_us_advantages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `about_us_banners`
+--
+ALTER TABLE `about_us_banners`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `about_us_blocks`
+--
+ALTER TABLE `about_us_blocks`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `about_us_companies`
+--
+ALTER TABLE `about_us_companies`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `about_us_descriptions`
+--
+ALTER TABLE `about_us_descriptions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `about_us_geographies`
+--
+ALTER TABLE `about_us_geographies`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `about_us_geography_districts`
+--
+ALTER TABLE `about_us_geography_districts`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `appartments`
@@ -1294,6 +1627,12 @@ ALTER TABLE `data_types`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Индексы таблицы `footers`
+--
+ALTER TABLE `footers`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `helplines`
@@ -1447,6 +1786,48 @@ ALTER TABLE `user_roles`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `about_us_advantages`
+--
+ALTER TABLE `about_us_advantages`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `about_us_banners`
+--
+ALTER TABLE `about_us_banners`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `about_us_blocks`
+--
+ALTER TABLE `about_us_blocks`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `about_us_companies`
+--
+ALTER TABLE `about_us_companies`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `about_us_descriptions`
+--
+ALTER TABLE `about_us_descriptions`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `about_us_geographies`
+--
+ALTER TABLE `about_us_geographies`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `about_us_geography_districts`
+--
+ALTER TABLE `about_us_geography_districts`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT для таблицы `appartments`
 --
 ALTER TABLE `appartments`
@@ -1492,18 +1873,24 @@ ALTER TABLE `complex_peculiarities`
 -- AUTO_INCREMENT для таблицы `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=228;
 
 --
 -- AUTO_INCREMENT для таблицы `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT для таблицы `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `footers`
+--
+ALTER TABLE `footers`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -1528,13 +1915,13 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT для таблицы `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT для таблицы `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT для таблицы `mortgage_advantages`
@@ -1564,7 +1951,7 @@ ALTER TABLE `offices`
 -- AUTO_INCREMENT для таблицы `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
 
 --
 -- AUTO_INCREMENT для таблицы `personal_access_tokens`

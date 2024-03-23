@@ -70,8 +70,11 @@ class ComplexController extends Controller
             }
         }])->has('apartments')->get();
     
+        foreach ($complexes as $complex) {
+            $complex->coordinates = $complex->getCoordinates();
+        }
+
         $count = $complexes->count();
-    
         $footer = Footer::first();
 
         return response()->json([

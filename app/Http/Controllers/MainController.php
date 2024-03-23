@@ -50,6 +50,10 @@ class MainController extends Controller
         $complexes = $complexes->get()->translate($language);
         $footer = Footer::first()->translate($language);
 
+        foreach ($complexes as $complex) {
+            $complex->coordinates = $complex->getCoordinates();
+        }
+
         // TODO: get only one image
         // foreach ($results as $result) {
         //     $jsonString = $result->image;

@@ -95,7 +95,7 @@ class MainController extends Controller
         $helpline = Helpline::first();
 
         foreach ($city->offices as $office) {
-            $office->getCoordinates();
+            $office->coordinates = $office->getCoordinates();
         }
 
         return response(

@@ -10,7 +10,7 @@ use App\Models\{
 
 class AppartmentController extends Controller
 {
-    public function getAppartment(Appartment $appartment) {
+    public function getAppartment(Request $request, Appartment $appartment) {
         $language = $request->header('Accept-Language');
 
         $appartment = Appartment::with('complex')

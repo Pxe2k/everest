@@ -8,7 +8,7 @@ use App\Models\Application;
 
 class ApplicationController extends Controller
 {
-    public funtction createApplication(Request $request) {
+    public function createApplication(Request $request) {
         $fields = $request->validate([
             'phone_number' => 'required|string',
             'text' => 'string',

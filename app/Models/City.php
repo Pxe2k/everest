@@ -10,6 +10,6 @@ class City extends Model
     use HasFactory;
 
     public function offices(){
-        return $this->HasMany('App\Models\Office');
+        return $this->hasMany('App\Models\Office');
     }
 }

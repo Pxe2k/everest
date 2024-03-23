@@ -87,21 +87,16 @@ class MainController extends Controller
         );
     }
 
-    public function office(City $city) {
-        $city = City::with('offices')
-            ->where('id', $city->id)
-            ->first();
-    
+    public function office() {
+        $cities = City::with('offices')->get();
         $sales = SalesDepartment::first();
         $helpline = Helpline::first();
-        $footer = Footer::first();
 
         return response(
             [
-                'city' => $city,
+                'cities' => $cities,
                 'sales' => $sales,
                 'helpline' => $helpline,
-                'footer' => $footer
             ], 200
         );
     }

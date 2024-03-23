@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\{
     Appartment,
+    Footer,
 };
 
 class AppartmentController extends Controller
@@ -14,8 +15,11 @@ class AppartmentController extends Controller
         ->where('id', $appartment->id)
         ->first();
 
+        $footer = Footer::first();
+
         return response ([
-            'appartment' => $appartment
+            'appartment' => $appartment,
+            'footer' => $footer
         ]);
     }
 
@@ -43,10 +47,12 @@ class AppartmentController extends Controller
 
         $appartments = $appartments->get();
         $count = $appartments->count();
+        $footer = Footer::first();
 
         return response ([
             'appartments' => $appartments,
             'counts' => $count,
+            'footer' => $footer
         ]);
     }
 }

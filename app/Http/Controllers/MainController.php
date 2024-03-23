@@ -46,6 +46,7 @@ class MainController extends Controller
             $complexes->where('city_id', $request->input('city_id'));
         }
         $complexes = $complexes->get();
+        $footer = Footer::first();
 
         // TODO: get only one image
         // foreach ($results as $result) {
@@ -65,6 +66,7 @@ class MainController extends Controller
                 'purchasing_methods' => $purchasingMethods,
                 'banner' => $banner,
                 'complexes' => $complexes,
+                'footer' => $footer
             ], 200
         );
     }
@@ -73,12 +75,14 @@ class MainController extends Controller
         $banner = MortgageBanner::first();
         $advantages = MortgageAdvantage::all();
         $steps = MortgageStep::all();
+        $footer = Footer::first();
 
         return response(
             [
                 'banner' => $banner,
                 'advantages' => $advantages,
                 'steps' => $steps,
+                'footer' => $footer
             ], 200
         );
     }
@@ -90,22 +94,26 @@ class MainController extends Controller
     
         $sales = SalesDepartment::first();
         $helpline = Helpline::first();
-    
+        $footer = Footer::first();
+
         return response(
             [
                 'city' => $city,
                 'sales' => $sales,
                 'helpline' => $helpline,
+                'footer' => $footer
             ], 200
         );
     }
 
     public function live() {
         $complexes = Complex::whereNotNull('stream_link')->get();
-        
+        $footer = Footer::first();
+
         return response(
             [
                 'complexes' => $complexes,
+                'footer' => $footer
             ], 200
         );
     }

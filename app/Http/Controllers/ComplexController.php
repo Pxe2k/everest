@@ -10,6 +10,7 @@ use App\Models\{
     ComplexPeculiarity,
 
     Office,
+    Footer,
 };
 
 class ComplexController extends Controller
@@ -27,9 +28,12 @@ class ComplexController extends Controller
             $office->coordinates = "";
         };
 
+        $footer = Footer::first();
+
         return response()->json([
             'complex' => $complexWithInfo,
             'offices' => $offices,
+            'footer' => $footer
         ]);
     }
 
@@ -63,9 +67,12 @@ class ComplexController extends Controller
     
         $count = $complexes->count();
     
+        $footer = Footer::first();
+
         return response()->json([
             'complexes' => $complexes,
             'counts' => $count,
+            'footer' => $footer
         ]);
     }
 }

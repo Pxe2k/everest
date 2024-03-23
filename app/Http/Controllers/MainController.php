@@ -84,7 +84,7 @@ class MainController extends Controller
     }
 
     public function office(Request $request) {
-        $city = City::with('office')
+        $city = City::with('offices')
         ->where('id', $request->input('city_id'))
         ->first();
         $sales = SalesDepartment::first();

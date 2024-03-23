@@ -9,7 +9,7 @@ class City extends Model
 {
     use HasFactory;
 
-    public function office() {
+    public function offices() {
         return $this->hasMany(Office::class);
     }
 }

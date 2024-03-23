@@ -126,8 +126,7 @@ class MainController extends Controller
         $language = $request->header('Accept-Language');
 
         $complexes = Complex::whereNotNull('stream_link')
-        ->get()
-        ->translate($language);
+        ->get();
 
 foreach ($complexes as $complex) {
             $complex->coordinates = $complex->getCoordinates();

@@ -37,7 +37,7 @@ class ComplexController extends Controller
 
         return response()->json([
             'complex' => $complexWithInfo,
-            'offices' => $offices,
+            // 'offices' => $offices,
             'footer' => $footer
         ]);
     }

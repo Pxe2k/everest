@@ -115,7 +115,7 @@ class MainController extends Controller
         );
     }
 
-    public function live() {
+    public function live(Request $request) {
         $language = $request->header('Accept-Language');
 
         $complexes = Complex::whereNotNull('stream_link')
@@ -132,7 +132,7 @@ class MainController extends Controller
         );
     }
 
-    public function aboutUs() {
+    public function aboutUs(Request $request) {
         $language = $request->header('Accept-Language');
 
         $banner = AboutUsBanner::first()->translate($language);

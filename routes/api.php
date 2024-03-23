@@ -41,4 +41,4 @@ Route::group(['prefix' => 'catalog'], function() {
     Route::get('/appartments', [AppartmentController::class, 'allAppartments']);
 });
 
-Route::get('/application', [ApplicationController::class, 'createApplication']);
+Route::post('/application', [ApplicationController::class, 'createApplication']);

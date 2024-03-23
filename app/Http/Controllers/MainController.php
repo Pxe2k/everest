@@ -100,7 +100,7 @@ class MainController extends Controller
     public function office(Request $request) {
         $language = $request->header('Accept-Language');
 
-        $city = City::with('offices')
+        $cities = City::with('offices')
         ->get();
 
         $sales = SalesDepartment::first()->translate($language);
@@ -113,11 +113,9 @@ class MainController extends Controller
         $city->translate($language);
     }
 
-        $city = $city->translate($language);
-
         return response(
             [
-                'city' => $city,
+                'city' => $cities,
                 'sales' => $sales,
                 'helpline' => $helpline,
             ], 200

@@ -88,15 +88,19 @@ class MainController extends Controller
     }
 
     public function office(Request $request) {
-        $cities = City::with('offices')
+        $city = City::with('offices')
         ->where('id', $request->input('city_id'))
-        ->get();
+        ->first();
         $sales = SalesDepartment::first();
         $helpline = Helpline::first();
 
+        foreach ($city->offices as $office) {
+            $office->getCoordintates();
+        }
+
         return response(
             [
-                'cities' => $cities,
+                'city' => $city,
                 'sales' => $sales,
                 'helpline' => $helpline,
             ], 200

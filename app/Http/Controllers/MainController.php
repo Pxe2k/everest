@@ -116,7 +116,7 @@ class MainController extends Controller
         $description = AboutUsDescription::all();
         $advantages = AboutUsAdvantage::all();
         $geography = AboutUsGeography::first();
-        $district = AboutUsDistrict::all();
+        $district = AboutUsGeographyDistrict::all();
         $complexes = Complex::where('type', 'implemented')->get();
         $company = AboutUsCompany::all();
         $footer = Footer::first();

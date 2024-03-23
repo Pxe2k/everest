@@ -102,8 +102,7 @@ class MainController extends Controller
 
         $city = City::with('offices')
         ->where('id', $request->input('city_id'))
-        ->first()
-        ->translate($language);
+        ->first();
 
         $sales = SalesDepartment::first()->translate($language);
         $helpline = Helpline::first()->translate($language);
@@ -111,6 +110,8 @@ class MainController extends Controller
         foreach ($city->offices as $office) {
             $office->coordinates = $office->getCoordinates();
         }
+
+        $city = $city->translate($language);
 
         return response(
             [

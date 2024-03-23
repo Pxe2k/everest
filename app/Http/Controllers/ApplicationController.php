@@ -16,7 +16,7 @@ class ApplicationController extends Controller
 
         $application = Application::create([
             'phone_number' => $fields ['phone_number'],
-            'text' => $fields ['text']
+            'text' => $fields['text'] ?? null,
         ]);
 
         return response([

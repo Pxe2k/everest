@@ -101,8 +101,7 @@ class MainController extends Controller
         $language = $request->header('Accept-Language');
 
         $city = City::with('offices')
-        ->where('id', $request->input('city_id'))
-        ->first();
+        ->all();
 
         $sales = SalesDepartment::first()->translate($language);
         $helpline = Helpline::first()->translate($language);

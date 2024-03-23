@@ -27,11 +27,12 @@ class ComplexController extends Controller
         ->first()
         ->translate($language);
 
-        $offices = Office::where('city_id', $complexWithInfo->city_id)->translate($language);
+        $offices = Office::where('city_id', $complexWithInfo->city_id);
         foreach ($offices as $office) {
             $office->coordinates = $office->getCoordinates();
         }
 
+$offices = $offices->translate($language);
         $footer = Footer::first()->translate($language);
 
         return response()->json([

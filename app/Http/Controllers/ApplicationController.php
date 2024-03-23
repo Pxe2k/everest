@@ -21,6 +21,6 @@ class ApplicationController extends Controller
 
         return response([
             'application' => $application
-        ], 201)
+        ], 201);
     }
 }

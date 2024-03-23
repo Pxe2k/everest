@@ -17,6 +17,6 @@ class City extends Model
     ];
 
     public function offices(){
-        return $this->hasMany('App\Models\Office');
+        return $this->hasMany(Office::class);
     }
 }

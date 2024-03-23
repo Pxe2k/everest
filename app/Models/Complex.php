@@ -18,6 +18,8 @@ class Complex extends Model
         'description',
     ];
 
+    protected $spatial = ['coordinates'];
+
     public function complexAdvantage() {
         return $this->hasMany(ComplexAdvantage::class);
     }

@@ -11,7 +11,7 @@ class ApplicationController extends Controller
     public function createApplication(Request $request) {
         $fields = $request->validate([
             'phone_number' => 'required|string',
-            'text' => 'string',
+            'text' => 'sometimes|string',
         ]);
 
         $application = Application::create([

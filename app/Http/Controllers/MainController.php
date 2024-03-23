@@ -47,12 +47,14 @@ class MainController extends Controller
         if ($request->input('city_id') != null) {
             $complexes->where('city_id', $request->input('city_id'));
         }
-        $complexes = $complexes->get()->translate($language);
+        $complexes = $complexes->get()
         $footer = Footer::first()->translate($language);
 
         foreach ($complexes as $complex) {
             $complex->coordinates = $complex->getCoordinates();
         }
+
+        $complexes = $complexes->translate($language);
 
         // TODO: get only one image
         // foreach ($results as $result) {

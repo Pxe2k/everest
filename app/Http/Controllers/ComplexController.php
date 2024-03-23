@@ -12,6 +12,7 @@ use App\Models\{
     Office,
     Footer,
 };
+use TCG\Voyager\Traits\Spatial;
 
 class ComplexController extends Controller
 {

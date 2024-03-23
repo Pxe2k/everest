@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use TCG\Voyager\Traits\Spatial;
 use App\Models\{
     MainBlock,
     SecondaryBlock,
@@ -30,7 +31,6 @@ use App\Models\{
     AboutUsCompany,
     Footer,
 };
-use TCG\Voyager\Traits\Spatial;
 
 class MainController extends Controller
 {

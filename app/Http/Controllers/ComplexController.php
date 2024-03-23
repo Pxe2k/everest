@@ -32,7 +32,7 @@ class ComplexController extends Controller
             $office->coordinates = $office->getCoordinates();
         }
 
-$offices = $offices->translate($language);
+// $offices = $offices->translate($language);
         $footer = Footer::first()->translate($language);
 
         return response()->json([

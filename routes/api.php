@@ -7,6 +7,7 @@ use App\Http\Controllers\{
     MainController,
     ComplexController,
     AppartmentController,
+    ApplicationController
 };
 
 /*
@@ -39,3 +40,5 @@ Route::group(['prefix' => 'catalog'], function() {
     Route::get('/appartment/{appartment}', [AppartmentController::class, 'getAppartment']);
     Route::get('/appartments', [AppartmentController::class, 'allAppartments']);
 });
+
+Route::get('/application', [ApplicationController::class, 'createApplication']);

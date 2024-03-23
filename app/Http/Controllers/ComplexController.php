@@ -24,8 +24,7 @@ class ComplexController extends Controller
 
         $complexWithInfo = Complex::with('complexAdvantage', 'complexPeculiarity')
         ->where('id', $complex->id)
-        ->first()
-        ->translate($language);
+        ->first();
 
 $complexWithInfo->coordinates = $complexWithInfo->getCoordinates();
        // $offices = Office::where('city_id', $complexWithInfo->city_id);

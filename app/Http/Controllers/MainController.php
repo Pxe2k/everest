@@ -114,7 +114,7 @@ class MainController extends Controller
         $banner = AboutUsBanner::first();
         $blocks = AboutUsBlock::all();
         $description = AboutUsDescription::all();
-        $advantages = AboutUsAdvantages::all();
+        $advantages = AboutUsAdvantage::all();
         $geography = AboutUsGeography::first();
         $district = AboutUsDistrict::all();
         $complexes = Complex::where('type', 'implemented')->get();

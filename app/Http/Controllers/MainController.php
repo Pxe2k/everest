@@ -106,9 +106,12 @@ class MainController extends Controller
         $sales = SalesDepartment::first()->translate($language);
         $helpline = Helpline::first()->translate($language);
 
+        foreach ($cities as $city) {
         foreach ($city->offices as $office) {
             $office->coordinates = $office->getCoordinates();
         }
+        $city->translate($language);
+    }
 
         $city = $city->translate($language);
 

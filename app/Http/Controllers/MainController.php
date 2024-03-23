@@ -37,18 +37,18 @@ class MainController extends Controller
     public function index(Request $request) {
         $language = $request->header('Accept-Language');
 
-        $mainBlock = MainBlock::first()->withTranslation($language);
-        $secondaryBlocks = SecondaryBlock::all()->withTranslation($language); 
-        $slider = Slider::all()->withTranslation($language);
-        $purchasingMethods = PurchasingMethod::all()->withTranslation($language); 
-        $banner = Banner::first()->withTranslation($language);
+        $mainBlock = MainBlock::first()->translate($language);
+        $secondaryBlocks = SecondaryBlock::all()->translate($language); 
+        $slider = Slider::all()->translate($language);
+        $purchasingMethods = PurchasingMethod::all()->translate($language); 
+        $banner = Banner::first()->translate($language);
         $complexes = Complex::query();
 
         if ($request->input('city_id') != null) {
             $complexes->where('city_id', $request->input('city_id'));
         }
-        $complexes = $complexes->get()->withTranslation($language);
-        $footer = Footer::first()->withTranslation($language);
+        $complexes = $complexes->get()->translate($language);
+        $footer = Footer::first()->translate($language);
 
         // TODO: get only one image
         // foreach ($results as $result) {
@@ -76,10 +76,10 @@ class MainController extends Controller
     public function mortgage () {
         $language = $request->header('Accept-Language');
 
-        $banner = MortgageBanner::first()->withTranslation($language);
-        $advantages = MortgageAdvantage::all()->withTranslation($language);
-        $steps = MortgageStep::all()->withTranslation($language);
-        $footer = Footer::first()->withTranslation($language);
+        $banner = MortgageBanner::first()->translate($language);
+        $advantages = MortgageAdvantage::all()->translate($language);
+        $steps = MortgageStep::all()->translate($language);
+        $footer = Footer::first()->translate($language);
 
         return response(
             [
@@ -97,10 +97,10 @@ class MainController extends Controller
         $city = City::with('offices')
         ->where('id', $request->input('city_id'))
         ->first()
-        ->withTranslation($language);
+        ->translate($language);
 
-        $sales = SalesDepartment::first()->withTranslation($language);
-        $helpline = Helpline::first()->withTranslation($language);
+        $sales = SalesDepartment::first()->translate($language);
+        $helpline = Helpline::first()->translate($language);
 
         foreach ($city->offices as $office) {
             $office->coordinates = $office->getCoordinates();
@@ -120,7 +120,7 @@ class MainController extends Controller
 
         $complexes = Complex::whereNotNull('stream_link')
         ->get()
-        ->withTranslation($language);
+        ->translate($language);
 
         $footer = Footer::first();
 
@@ -135,15 +135,15 @@ class MainController extends Controller
     public function aboutUs() {
         $language = $request->header('Accept-Language');
 
-        $banner = AboutUsBanner::first()->withTranslation($language);
-        $blocks = AboutUsBlock::all()->withTranslation($language);
-        $description = AboutUsDescription::all()->withTranslation($language);
-        $advantages = AboutUsAdvantage::all()->withTranslation($language);
-        $geography = AboutUsGeography::first()->withTranslation($language);
-        $district = AboutUsGeographyDistrict::all()->withTranslation($language);
-        $complexes = Complex::where('type', 'implemented')->get()->withTranslation($language);
-        $company = AboutUsCompany::all()->withTranslation($language);
-        $footer = Footer::first()->withTranslation($language);
+        $banner = AboutUsBanner::first()->translate($language);
+        $blocks = AboutUsBlock::all()->translate($language);
+        $description = AboutUsDescription::all()->translate($language);
+        $advantages = AboutUsAdvantage::all()->translate($language);
+        $geography = AboutUsGeography::first()->translate($language);
+        $district = AboutUsGeographyDistrict::all()->translate($language);
+        $complexes = Complex::where('type', 'implemented')->get()->translate($language);
+        $company = AboutUsCompany::all()->translate($language);
+        $footer = Footer::first()->translate($language);
 
 
         return response(

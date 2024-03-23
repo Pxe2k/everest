@@ -24,14 +24,14 @@ class ComplexController extends Controller
         $complexWithInfo = Complex::with('complexAdvantage', 'complexPeculiarity')
         ->where('id', $complex->id)
         ->first()
-        ->withTranslation($language);
+        ->translate($language);
 
-        $offices = Office::where('city_id', $complexWithInfo->city_id)->withTranslation($language);
+        $offices = Office::where('city_id', $complexWithInfo->city_id)->translate($language);
         foreach ($offices as $office) {
             $office->coordinates = $office->getCoordinates();
         }
 
-        $footer = Footer::first()->withTranslation($language);
+        $footer = Footer::first()->translate($language);
 
         return response()->json([
             'complex' => $complexWithInfo,

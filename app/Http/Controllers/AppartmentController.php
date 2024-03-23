@@ -16,9 +16,9 @@ class AppartmentController extends Controller
         $appartment = Appartment::with('complex')
         ->where('id', $appartment->id)
         ->first()
-        ->withTranslation($language);
+        ->translate($language);
 
-        $footer = Footer::first()->withTranslation($language);
+        $footer = Footer::first()->translate($language);
 
         return response ([
             'appartment' => $appartment,
@@ -50,9 +50,9 @@ class AppartmentController extends Controller
             $appartments->take($request->input('appartments_number'));
         }
 
-        $appartments = $appartments->get()->withTranslation($language);
+        $appartments = $appartments->get()->translate($language);
         $count = $appartments->count();
-        $footer = Footer::first()->withTranslation($language);
+        $footer = Footer::first()->translate($language);
 
         return response ([
             'appartments' => $appartments,

@@ -129,6 +129,10 @@ class MainController extends Controller
         ->get()
         ->translate($language);
 
+foreach ($complexes as $complex) {
+            $complex->coordinates = $complex->getCoordinates();
+        }
+
         $footer = Footer::first();
 
         return response(

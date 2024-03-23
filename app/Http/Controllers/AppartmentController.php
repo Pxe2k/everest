@@ -11,11 +11,14 @@ use App\Models\{
 class AppartmentController extends Controller
 {
     public function getAppartment(Appartment $appartment) {
+        $language = $request->header('Accept-Language');
+
         $appartment = Appartment::with('complex')
         ->where('id', $appartment->id)
-        ->first();
+        ->first()
+        ->withTranslation($language);
 
-        $footer = Footer::first();
+        $footer = Footer::first()->withTranslation($language);
 
         return response ([
             'appartment' => $appartment,
@@ -24,6 +27,8 @@ class AppartmentController extends Controller
     }
 
     public function allAppartments(Request $request) {
+        $language = $request->header('Accept-Language');
+
         $appartments = Appartment::query();
 
         if ($request->input('city_id') != null) {
@@ -45,9 +50,9 @@ class AppartmentController extends Controller
             $appartments->take($request->input('appartments_number'));
         }
 
-        $appartments = $appartments->get();
+        $appartments = $appartments->get()->withTranslation($language);
         $count = $appartments->count();
-        $footer = Footer::first();
+        $footer = Footer::first()->withTranslation($language);
 
         return response ([
             'appartments' => $appartments,

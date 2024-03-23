@@ -16,19 +16,22 @@ use App\Models\{
 class ComplexController extends Controller
 {
     public function getComplex(Complex $complex, Request $request) {
+        $language = $request->header('Accept-Language');
+        
         $rooms = $request->input('rooms');
         $settlementYear = $request->input('settlement_year');
 
         $complexWithInfo = Complex::with('complexAdvantage', 'complexPeculiarity')
         ->where('id', $complex->id)
-        ->first();
+        ->first()
+        ->withTranslation($language);
 
-        $offices = Office::all();
+        $offices = Office::where('city_id', $complexWithInfo->city_id)->withTranslation($language);
         foreach ($offices as $office) {
-            $office->coordinates = "";
-        };
+            $office->coordinates = $office->getCoordinates();
+        }
 
-        $footer = Footer::first();
+        $footer = Footer::first()->withTranslation($language);
 
         return response()->json([
             'complex' => $complexWithInfo,
@@ -38,6 +41,8 @@ class ComplexController extends Controller
     }
 
     public function allComplexes(Request $request) {
+        $language = $request->header('Accept-Language');
+
         $complexes = Complex::query();
     
         $rooms = $request->input('rooms');

@@ -85,14 +85,15 @@ class MainController extends Controller
 
     public function office(City $city) {
         $city = City::with('offices')
-        ->where('id', $city->id)
-        ->first();
+            ->where('id', $city->id)
+            ->first();
+    
         $sales = SalesDepartment::first();
         $helpline = Helpline::first();
-
+    
         return response(
             [
-                'cities' => $city,
+                'city' => $city,
                 'sales' => $sales,
                 'helpline' => $helpline,
             ], 200
@@ -100,7 +101,7 @@ class MainController extends Controller
     }
 
     public function live() {
-        $complexes = Complex::all()->whereNotNull('stream_link')->get();
+        $complexes = Complex::whereNotNull('stream_link')->get();
         
         return response(
             [
@@ -116,7 +117,7 @@ class MainController extends Controller
         $advantages = AboutUsAdvantages::all();
         $geography = AboutUsGeography::first();
         $district = AboutUsDistrict::all();
-        $complexes = Complex::all()->where()->get();
+        $complexes = Complex::where('type', 'implemented')->get();
         $company = AboutUsCompany::all();
         $footer = Footer::first();
 

@@ -27,6 +27,7 @@ class ComplexController extends Controller
         ->first()
         ->translate($language);
 
+$complexWithInfo->coordinates = $complexWithInfo->getCoordinates();
        // $offices = Office::where('city_id', $complexWithInfo->city_id);
        // foreach ($offices as $office) {
        //     $office->coordinates = $office->getCoordinates();

@@ -47,7 +47,7 @@ class MainController extends Controller
         if ($request->input('city_id') != null) {
             $complexes->where('city_id', $request->input('city_id'));
         }
-        $complexes = $complexes->get()
+        $complexes = $complexes->get();
         $footer = Footer::first()->translate($language);
 
         foreach ($complexes as $complex) {

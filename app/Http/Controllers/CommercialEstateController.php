@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\{
     CommercialEstate,
     Complex,
-    CommercialEstateAdvantage
+    CommercialEstateAdvantage,
+
+    Footer
 };
 
 class CommercialEstateController extends Controller

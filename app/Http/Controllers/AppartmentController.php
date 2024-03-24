@@ -80,7 +80,7 @@ class AppartmentController extends Controller
             $appartment->complex->translate(); 
         }
 
-        $appartments->translate($language);
+        $appartments = $appartments->translate($language);
         $count = $appartments->count();
         $footer = Footer::first()->translate($language);
 

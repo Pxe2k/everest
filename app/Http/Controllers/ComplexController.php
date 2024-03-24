@@ -45,7 +45,7 @@ class ComplexController extends Controller
         $footer = Footer::first()->translate($language);
 
         return response()->json([
-            'complex' => $complexWithInfo,
+            'complex' => $complex,
             'offices' => $offices,
             'footer' => $footer
         ]);

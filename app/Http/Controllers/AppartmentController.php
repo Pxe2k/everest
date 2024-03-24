@@ -18,7 +18,8 @@ class AppartmentController extends Controller
         ->first()
         ->translate($language);
 
-        $appartment->complex;
+        $appartment->complex = Complex::where('id', $appartment->complex_id)
+        ->first();
 
         $advantages = AppartmentAdvantage::where('appartment_id', $appartment->id)
         ->get()

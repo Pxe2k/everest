@@ -66,6 +66,7 @@ class AppartmentController extends Controller
         if ($request->input('type') != null) {
             $appartments->where('type', $request->input('type'));
         }
+        $count = $appartments->count();
         if ($request->input('appartments_number') != null) {
             $appartments->take($request->input('appartments_number'));
         }
@@ -81,7 +82,6 @@ class AppartmentController extends Controller
         }
 
         $appartments = $appartments->translate($language);
-        $count = $appartments->count();
         $footer = Footer::first()->translate($language);
 
         return response ([

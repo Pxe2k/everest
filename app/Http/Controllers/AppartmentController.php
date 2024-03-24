@@ -16,13 +16,14 @@ class AppartmentController extends Controller
         $language = $request->header('Accept-Language');
 
         $appartment = Appartment::where('id', $appartment->id)
-        ->first()
-        ->translate($language);
+        ->first();
 
         $appartment->complex = Complex::where('id', $appartment->complex_id)
         ->first();
 
         $appartment->complex->coordinates = $appartment->complex->getCoordinates();
+
+        $appartment = $appartment->translate($language);
 
         $advantages = AppartmentAdvantage::where('appartment_id', $appartment->id)
         ->get()

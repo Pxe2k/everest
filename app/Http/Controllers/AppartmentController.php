@@ -77,7 +77,7 @@ class AppartmentController extends Controller
             ->first();
     
             $appartment->complex->coordinates = $appartment->complex->getCoordinates();
-            $appartment->complex->translate(); 
+            $appartment->complex = $appartment->complex->translate(); 
         }
 
         $appartments = $appartments->translate($language);

@@ -170,4 +170,49 @@ class MainController extends Controller
             ], 200
         );
     }
+
+    public function commercialEstate(Request $request) {
+        $language = $request->header('Accept-Language');
+
+        $mainBlock = CommercialEstateMainBlock::first()->translate($language);
+        $secondaryBlocks = CommercialEstateSecondaryBlock::all()->translate($language); 
+        $slider = CommercialEstateSlider::all()->translate($language);
+        $purchasingMethods = CommercialEstatePurchasingMethod::all()->translate($language); 
+        $banner = CommercialEstateBanner::first()->translate($language);
+        $complexes = Complex::query();
+
+        if ($request->input('city_id') != null) {
+            $complexes->where('city_id', $request->input('city_id'));
+        }
+        $complexes = $complexes->get();
+        $footer = Footer::first()->translate($language);
+
+        foreach ($complexes as $complex) {
+            $complex->coordinates = $complex->getCoordinates();
+        }
+
+        $complexes = $complexes->translate($language);
+
+        // TODO: get only one image
+        // foreach ($results as $result) {
+        //     $jsonString = $result->image;
+        //     $imageArray = json_decode($jsonString, true);
+
+        //     dd($jsonString);
+        //     $result->image = $imageArray[0];
+        // }
+
+
+        return response(
+            [
+                'main_block' => $mainBlock,
+                'secondary_blocks' => $secondaryBlocks,
+                'slider' => $slider,
+                'purchasing_methods' => $purchasingMethods,
+                'banner' => $banner,
+                'complexes' => $complexes,
+                'footer' => $footer
+            ], 200
+        );
+    }
 }

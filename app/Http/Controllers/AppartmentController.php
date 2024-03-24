@@ -23,6 +23,7 @@ class AppartmentController extends Controller
 
         $appartment->complex->coordinates = $appartment->complex->getCoordinates();
 
+        $appartment->complex->translate(); 
         $appartment = $appartment->translate($language);
 
         $advantages = AppartmentAdvantage::where('appartment_id', $appartment->id)
@@ -69,7 +70,17 @@ class AppartmentController extends Controller
             $appartments->take($request->input('appartments_number'));
         }
 
-        $appartments = $appartments->get()->translate($language);
+        $appartments = $appartments->get();
+
+        foreach ($appartments as $appartment) {
+            $appartment->complex = Complex::where('id', $appartment->complex_id)
+            ->first();
+    
+            $appartment->complex->coordinates = $appartment->complex->getCoordinates();
+            $appartment->complex->translate(); 
+        }
+
+        $appartments->translate($language);
         $count = $appartments->count();
         $footer = Footer::first()->translate($language);
 

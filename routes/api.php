@@ -31,6 +31,7 @@ Route::group(['prefix' => 'page'], function() {
     Route::get('/office', [MainController::class, 'office']);
     Route::get('/live', [MainController::class, 'live']);
     Route::get('/about-us', [MainController::class, 'aboutUs']);
+    Route::get('/commercial-estate', [MainController::class, 'commercialEstate']);
 });
 
 Route::group(['prefix' => 'catalog'], function() {
@@ -40,8 +41,8 @@ Route::group(['prefix' => 'catalog'], function() {
     Route::get('/appartment/{appartment}', [AppartmentController::class, 'getAppartment']);
     Route::get('/appartments', [AppartmentController::class, 'allAppartments']);
 
-    Route::get('/commercial_estate/{commercial_estate}', [CommercialEstateController::class, 'getCommercialEstate']);
-    Route::get('/commercial_estates', [CommercialEstateController::class, 'allCommercialEstates']);
+    Route::get('/commercial-estate/{commercial_estate}', [CommercialEstateController::class, 'getCommercialEstate']);
+    Route::get('/commercial-estates', [CommercialEstateController::class, 'allCommercialEstates']);
 });
 
 Route::post('/application', [ApplicationController::class, 'createApplication']);

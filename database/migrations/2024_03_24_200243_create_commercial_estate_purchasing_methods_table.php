@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('commercial_estate_purchasing_methods', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
             $table->string('image');
             $table->timestamps();
         });

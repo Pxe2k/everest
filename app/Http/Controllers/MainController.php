@@ -178,7 +178,6 @@ class MainController extends Controller
         $secondaryBlocks = CommercialEstateSecondaryBlock::all()->translate($language); 
         $slider = CommercialEstateSlider::all()->translate($language);
         $purchasingMethods = CommercialEstatePurchasingMethod::all()->translate($language); 
-        $banner = CommercialEstateBanner::first()->translate($language);
         $complexes = Complex::query();
 
         if ($request->input('city_id') != null) {
@@ -198,7 +197,6 @@ class MainController extends Controller
         //     $jsonString = $result->image;
         //     $imageArray = json_decode($jsonString, true);
 
-        //     dd($jsonString);
         //     $result->image = $imageArray[0];
         // }
 
@@ -209,7 +207,6 @@ class MainController extends Controller
                 'secondary_blocks' => $secondaryBlocks,
                 'slider' => $slider,
                 'purchasing_methods' => $purchasingMethods,
-                'banner' => $banner,
                 'complexes' => $complexes,
                 'footer' => $footer
             ], 200

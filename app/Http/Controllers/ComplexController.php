@@ -33,7 +33,7 @@ class ComplexController extends Controller
 
         $complex->coordinates = $complex->getCoordinates();
         
-        $offices = Office::where('city_id', $complex->city_id);
+        $offices = Office::where('city_id', $complex->city_id)->get();
         foreach ($offices as $office) {
            $office->coordinates = $office->getCoordinates();
         }

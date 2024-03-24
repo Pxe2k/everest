@@ -30,6 +30,11 @@ use App\Models\{
     AboutUsGeographyDistrict,
     AboutUsCompany,
     Footer,
+
+    CommercialEstateMainBlock,
+    CommercialEstateSecondaryBlock,
+    CommercialEstateSlider,
+    CommercialEstatePurchasingMethod,
 };
 
 class MainController extends Controller

@@ -7,7 +7,8 @@ use App\Http\Controllers\{
     MainController,
     ComplexController,
     AppartmentController,
-    ApplicationController
+    ApplicationController,
+    CommercialEstateController
 };
 
 /*

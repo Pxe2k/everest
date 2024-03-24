@@ -22,11 +22,16 @@ class AppartmentController extends Controller
         $advantages = AppartmentAdvantage::where('appartment_id', $appartment->id)
         ->get();
 
+        $liked = Appartment::inRandomOrder()
+        ->take(4)
+        ->get();
+
         $footer = Footer::first()->translate($language);
 
         return response ([
             'appartment' => $appartment,
             'advantages' => $advantages,
+            'liked' => $liked,
             'footer' => $footer
         ]);
     }

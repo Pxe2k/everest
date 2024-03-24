@@ -19,7 +19,7 @@ class CommercialEstateController extends Controller
         $commercialEstate = CommercialEstate::where('id', $commercialEstate->id)
         ->first();
 
-        $commercialEstate->complex = Complex::where('id', $appartment->complex_id)
+        $commercialEstate->complex = Complex::where('id', $commercialEstate->complex_id)
         ->first();
 
         $commercialEstate->complex->coordinates = $commercialEstate->complex->getCoordinates();
@@ -75,8 +75,8 @@ class CommercialEstateController extends Controller
             $commercialEstate->complex = Complex::where('id', $commercialEstate->complex_id)
             ->first();
     
-            $commercialEstate->complex->coordinates = $appartment->complex->getCoordinates();
-            $commercialEstate->complex = $appartment->complex->translate(); 
+            $commercialEstate->complex->coordinates = $commercialEstate->complex->getCoordinates();
+            $commercialEstate->complex = $commercialEstate->complex->translate(); 
         }
 
         $commercialEstates = $commercialEstates->translate($language);

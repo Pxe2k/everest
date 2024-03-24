@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\{
     Appartment,
+    AppartmentAdvantage,
     Footer,
 };
 
@@ -18,10 +19,14 @@ class AppartmentController extends Controller
         ->first()
         ->translate($language);
 
+        $advantages = AppartmentAdvantage::where('appartment_id', $appartment->id)
+        ->get();
+
         $footer = Footer::first()->translate($language);
 
         return response ([
             'appartment' => $appartment,
+            'advantages' => $advantages,
             'footer' => $footer
         ]);
     }

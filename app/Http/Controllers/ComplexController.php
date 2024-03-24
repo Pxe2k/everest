@@ -39,11 +39,11 @@ class ComplexController extends Controller
         }
 
         $complex->translate($language);
-        // $complex->complex_advantage->translate($language);
-        // $complex->complex_peculiarity->translate($language);
-        // $offices->translate($language);
-        // $footer = Footer::first()
-        // ->translate($language);
+        $complex->complex_advantage->translate($language);
+        $complex->complex_peculiarity->translate($language);
+        $offices->translate($language);
+        $footer = Footer::first()
+        ->translate($language);
 
         return response()->json([
             'complex' => $complex,

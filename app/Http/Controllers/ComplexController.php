@@ -38,10 +38,10 @@ class ComplexController extends Controller
            $office->coordinates = $office->getCoordinates();
         }
 
-        $complex->translate($language);
-        $complex->complex_advantage->translate($language);
-        $complex->complex_peculiarity->translate($language);
-        $offices->translate($language);
+        $complex = $complex->translate($language);
+        $complex->complex_advantage = $complex->complex_advantage->translate($language);
+        $complex->complex_peculiarity = $complex->complex_peculiarity->translate($language);
+        $offices = $offices->translate($language);
         $footer = Footer::first()
         ->translate($language);
 

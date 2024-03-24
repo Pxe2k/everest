@@ -20,13 +20,16 @@ class AppartmentController extends Controller
         ->translate($language);
 
         $advantages = AppartmentAdvantage::where('appartment_id', $appartment->id)
-        ->get();
+        ->get()
+        ->translate($language);
 
         $liked = Appartment::inRandomOrder()
         ->take(4)
-        ->get();
+        ->get()
+        ->translate($language);
 
-        $footer = Footer::first()->translate($language);
+        $footer = Footer::first()
+        ->translate($language);
 
         return response ([
             'appartment' => $appartment,

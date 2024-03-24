@@ -79,7 +79,7 @@ class MainController extends Controller
         );
     }
 
-    public function mortgage () {
+    public function mortgage (Request $request) {
         $language = $request->header('Accept-Language');
 
         $banner = MortgageBanner::first()->translate($language);
@@ -110,7 +110,8 @@ class MainController extends Controller
         foreach ($city->offices as $office) {
             $office->coordinates = $office->getCoordinates();
         }
-        $city->translate($language);
+        
+        $city = $city->translate($language);
     }
 
         return response(
@@ -128,7 +129,7 @@ class MainController extends Controller
         $complexes = Complex::whereNotNull('stream_link')
         ->get();
 
-foreach ($complexes as $complex) {
+        foreach ($complexes as $complex) {
             $complex->coordinates = $complex->getCoordinates();
         }
 
@@ -154,7 +155,6 @@ foreach ($complexes as $complex) {
         $complexes = Complex::where('type', 'implemented')->get()->translate($language);
         $company = AboutUsCompany::all()->translate($language);
         $footer = Footer::first()->translate($language);
-
 
         return response(
             [

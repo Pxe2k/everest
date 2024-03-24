@@ -22,22 +22,31 @@ class ComplexController extends Controller
         $rooms = $request->input('rooms');
         $settlementYear = $request->input('settlement_year');
 
-        $complexWithInfo = Complex::with('complexAdvantage', 'complexPeculiarity')
-        ->where('id', $complex->id)
+        $complex = Complex::where('id', $complex->id)
         ->first();
 
-$complexWithInfo->coordinates = $complexWithInfo->getCoordinates();
-       // $offices = Office::where('city_id', $complexWithInfo->city_id);
-       // foreach ($offices as $office) {
-       //     $office->coordinates = $office->getCoordinates();
-       // }
+        $complex->complex_advantage = ComplexAdvantage->where('complex_id', $complex->id)
+        ->get();
 
-// $offices = $offices->translate($language);
+        $complex->complex_peculiarity = ComplexPeculiarity->where('complex_id', $complex->id)
+        ->get();
+
+        $complex->coordinates = $complex->getCoordinates();
+        
+        $offices = Office::where('city_id', $complex->city_id);
+        foreach ($offices as $office) {
+           $office->coordinates = $office->getCoordinates();
+        }
+
+        $complex->translate($language);
+        $complex->complex_advantage->translate($language);
+        $complex->complex_peculiarity->translate($language);
+        $offices->translate($language);
         $footer = Footer::first()->translate($language);
 
         return response()->json([
             'complex' => $complexWithInfo,
-            // 'offices' => $offices,
+            'offices' => $offices,
             'footer' => $footer
         ]);
     }

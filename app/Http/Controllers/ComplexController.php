@@ -25,10 +25,10 @@ class ComplexController extends Controller
         $complex = Complex::where('id', $complex->id)
         ->first();
 
-        $complex->complex_advantage = ComplexAdvantage->where('complex_id', $complex->id)
+        $complex->complex_advantage = ComplexAdvantage::where('complex_id', $complex->id)
         ->get();
 
-        $complex->complex_peculiarity = ComplexPeculiarity->where('complex_id', $complex->id)
+        $complex->complex_peculiarity = ComplexPeculiarity::where('complex_id', $complex->id)
         ->get();
 
         $complex->coordinates = $complex->getCoordinates();

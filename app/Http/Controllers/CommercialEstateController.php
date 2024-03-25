@@ -64,7 +64,7 @@ class CommercialEstateController extends Controller
         if ($request->input('type') != null) {
             $commercialEstates->where('type', $request->input('type'));
         }
-        if ($request->input('deadline') != null {
+        if ($request->input('deadline') != null) {
             $commercialEstates->where('deadline', $request->input('deadline'));
         }
         $count = $commercialEstates->count();

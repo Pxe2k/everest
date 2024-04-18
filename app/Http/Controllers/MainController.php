@@ -157,12 +157,16 @@ class MainController extends Controller
         $advantages = AboutUsAdvantage::all()->translate($language);
         $geography = AboutUsGeography::first()->translate($language);
         $district = AboutUsGeographyDistrict::all()->translate($language);
-        $complexes = Complex::where('type', 'implemented')->get()->translate($language);
+        $complexes = Complex::where('type', 'implemented')->get();
         $company = AboutUsCompany::all()->translate($language);
         $footer = Footer::first()->translate($language);
 
-        return response(
-            [
+        foreach ($complexes as $complex) {
+            $complex->coordinates = $complex->getCoordinates();
+        }
+        $complexes = $complexes->translate($language);
+
+        return response([
                 'banner' => $banner,
                 'blocks' => $blocks,
                 'description' => $description,

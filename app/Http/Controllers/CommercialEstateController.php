@@ -77,9 +77,10 @@ class CommercialEstateController extends Controller
         foreach ($commercialEstates as $commercialEstate) {
             $commercialEstate->complex = Complex::where('id', $commercialEstate->complex_id)
             ->first();
-    
-            $commercialEstate->complex->coordinates = $commercialEstate->complex->getCoordinates();
-            $commercialEstate->complex = $commercialEstate->complex->translate(); 
+            if($commercialEstate->complex) {
+                $commercialEstate->complex->coordinates = $commercialEstate->complex->getCoordinates();
+                $commercialEstate->complex = $commercialEstate->complex->translate(); 
+            }
         }
 
         $commercialEstates = $commercialEstates->translate($language);

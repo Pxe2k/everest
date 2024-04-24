@@ -58,9 +58,16 @@ class ComplexController extends Controller
         $complexes = Complex::query();
     
         $rooms = $request->input('rooms');
-        if ($rooms !== null) {
-            $complexes->whereHas('apartments', function ($query) use ($rooms) {
-                $query->where('rooms', $rooms);
+        $apartmentsType = $request->input('apartments_type');
+    
+        if ($rooms !== null || $apartmentsType !== null) {
+            $complexes->whereHas('apartments', function ($query) use ($rooms, $apartmentsType) {
+                if ($rooms !== null) {
+                    $query->where('rooms', $rooms);
+                }
+                if ($apartmentsType !== null) {
+                    $query->where('type', $apartmentsType);
+                }
             });
         }
     
@@ -74,25 +81,14 @@ class ComplexController extends Controller
             $complexes->where('type', $type);
         }
     
-        $apartmentsType = $request->input('apartments_type');
-        if ($apartmentsType !== null) {
-            $complexes->whereHas('apartments', function ($query) use ($apartmentsType) {
+        $complexes = $complexes->with(['apartments' => function ($query) use ($rooms, $apartmentsType) {
+            if ($rooms !== null) {
+                $query->where('rooms', $rooms);
+            }
+            if ($apartmentsType !== null) {
                 $query->where('type', $apartmentsType);
-            });
-        }
-    
-        if ($rooms !== null || $apartmentsType !== null) {
-            $complexes->with(['apartments' => function ($query) use ($rooms, $apartmentsType) {
-                if ($rooms !== null) {
-                    $query->where('rooms', $rooms);
-                }
-                if ($apartmentsType !== null) {
-                    $query->where('type', $apartmentsType);
-                }
-            }]);
-        }
-    
-        $complexes = $complexes->has('apartments')->get();
+            }
+        }])->get();
     
         foreach ($complexes as $complex) {
             $complex->coordinates = $complex->getCoordinates();
@@ -106,6 +102,5 @@ class ComplexController extends Controller
             'counts' => $count,
             'footer' => $footer
         ]);
-    }
-    
+    }    
 }

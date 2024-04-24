@@ -54,7 +54,7 @@ class ComplexController extends Controller
 
     public function allComplexes(Request $request) {
         $language = $request->header('Accept-Language');
-
+    
         $complexes = Complex::query();
     
         $rooms = $request->input('rooms');
@@ -68,7 +68,7 @@ class ComplexController extends Controller
         if ($cityId !== null) {
             $complexes->where('city_id', $cityId);
         }
-
+    
         $type = $request->input('type');
         if ($type !== null) {
             $complexes->where('type', $type);
@@ -80,24 +80,32 @@ class ComplexController extends Controller
                 $query->where('type', $apartmentsType);
             });
         }
-
-        $complexes = $complexes->with(['apartments' => function ($query) use ($rooms) {
-            if ($rooms !== null) {
-                $query->where('rooms', $rooms);
-            }
-        }])->has('apartments')->get();
+    
+        if ($rooms !== null || $apartmentsType !== null) {
+            $complexes->with(['apartments' => function ($query) use ($rooms, $apartmentsType) {
+                if ($rooms !== null) {
+                    $query->where('rooms', $rooms);
+                }
+                if ($apartmentsType !== null) {
+                    $query->where('type', $apartmentsType);
+                }
+            }]);
+        }
+    
+        $complexes = $complexes->has('apartments')->get();
     
         foreach ($complexes as $complex) {
             $complex->coordinates = $complex->getCoordinates();
         }
-
+    
         $count = $complexes->count();
         $footer = Footer::first();
-
+    
         return response()->json([
             'complexes' => $complexes,
             'counts' => $count,
             'footer' => $footer
         ]);
     }
+    
 }

@@ -147,7 +147,6 @@ class MainController extends Controller
             ], 200
         );
     }
-
     public function aboutUs(Request $request) {
         $language = $request->header('Accept-Language');
 
@@ -155,11 +154,16 @@ class MainController extends Controller
         $blocks = AboutUsBlock::all()->translate($language);
         $description = AboutUsDescription::all()->translate($language);
         $advantages = AboutUsAdvantage::all()->translate($language);
-        $geography = AboutUsGeography::first()->translate($language);
+        $geography = AboutUsGeography::first();
         $district = AboutUsGeographyDistrict::all()->translate($language);
         $complexes = Complex::where('type', 'implemented')->get();
         $company = AboutUsCompany::all()->translate($language);
         $footer = Footer::first()->translate($language);
+
+        // Translate $geography only if it's not null
+        if ($geography) {
+            $geography = $geography->translate($language);
+        }
 
         foreach ($complexes as $complex) {
             $complex->coordinates = $complex->getCoordinates();
@@ -167,18 +171,18 @@ class MainController extends Controller
         $complexes = $complexes->translate($language);
 
         return response([
-                'banner' => $banner,
-                'blocks' => $blocks,
-                'description' => $description,
-                'advantages' => $advantages,
-                'geography' => $geography,
-                'district' => $district,
-                'complexes' => $complexes,
-                'company' => $company,
-                'footer' => $footer
-            ], 200
-        );
-    }
+            'banner' => $banner,
+            'blocks' => $blocks,
+            'description' => $description,
+            'advantages' => $advantages,
+            'geography' => $geography,
+            'district' => $district,
+            'complexes' => $complexes,
+            'company' => $company,
+            'footer' => $footer
+        ], 200);
+}
+
 
     public function commercialEstate(Request $request) {
         $language = $request->header('Accept-Language');

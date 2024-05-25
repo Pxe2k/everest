@@ -20,7 +20,7 @@ use App\Models\{
     SalesDepartment,
     Helpline,
 
-    News,
+    CompanyNews,
 
     Complex,
 

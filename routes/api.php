@@ -44,6 +44,8 @@ Route::group(['prefix' => 'catalog'], function() {
 
     Route::get('/commercial-estate/{commercial_estate}', [CommercialEstateController::class, 'getCommercialEstate']);
     Route::get('/commercial-estates', [CommercialEstateController::class, 'allCommercialEstates']);
+
+    Route::get('/integration', [ComplexController::class, 'integration']);
 });
 
 Route::post('/application', [ApplicationController::class, 'createApplication']);

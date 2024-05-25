@@ -34,6 +34,7 @@ Route::group(['prefix' => 'page'], function() {
     Route::get('/about-us', [MainController::class, 'aboutUs']);
     Route::get('/commercial-estate', [MainController::class, 'commercialEstate']);
     Route::get('/news', [MainController::class, 'news']);
+    Route::get('/news/{news}', [MainController::class, 'getNews']);
 });
 
 Route::group(['prefix' => 'catalog'], function() {

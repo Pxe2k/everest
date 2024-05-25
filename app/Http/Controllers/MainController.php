@@ -233,7 +233,21 @@ class MainController extends Controller
     public function news(Request $request) {
         $language = $request->header('Accept-Language');
 
-        $news = CompanyNews::all();
+        $news = CompanyNews::orderBy('created_at', 'desc')->get();
+        $footer = Footer::first()->translate($language);
+
+        return response(
+            [
+                'news' => $news,
+                'footer' => $footer
+            ], 200
+        );
+    }
+
+    public function getComplex(CompanyNews $news, Request $request) {
+        $language = $request->header('Accept-Language');
+    
+        $news = CompanyNews::where('id', $news->id)->first();
         $footer = Footer::first()->translate($language);
 
         return response(

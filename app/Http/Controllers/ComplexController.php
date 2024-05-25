@@ -116,8 +116,8 @@ class ComplexController extends Controller
             ]]);
         $posts = $response->json();
 //      Токен
-        dd(token);
         $token = $posts['access_token'];
+        dd($token);
 
         $apartmentData = null;
 

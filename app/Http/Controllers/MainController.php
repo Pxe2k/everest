@@ -50,7 +50,7 @@ class MainController extends Controller
         $purchasingMethods = PurchasingMethod::all()->translate($language); 
         $banner = Banner::first()->translate($language);
         $complexes = Complex::query();
-        $news = CompanyNews::all()->take($request->input('news'))->get();
+        $news = CompanyNews::all()->take($request->input('news'));
 
         if ($request->input('city_id') != null) {
             $complexes->where('city_id', $request->input('city_id'));

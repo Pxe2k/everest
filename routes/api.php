@@ -33,6 +33,7 @@ Route::group(['prefix' => 'page'], function() {
     Route::get('/live', [MainController::class, 'live']);
     Route::get('/about-us', [MainController::class, 'aboutUs']);
     Route::get('/commercial-estate', [MainController::class, 'commercialEstate']);
+    Route::get('/news', [MainController::class, 'news']);
 });
 
 Route::group(['prefix' => 'catalog'], function() {

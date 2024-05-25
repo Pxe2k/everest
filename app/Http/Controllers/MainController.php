@@ -20,6 +20,8 @@ use App\Models\{
     SalesDepartment,
     Helpline,
 
+    News,
+
     Complex,
 
     AboutUsBanner,
@@ -48,6 +50,7 @@ class MainController extends Controller
         $purchasingMethods = PurchasingMethod::all()->translate($language); 
         $banner = Banner::first()->translate($language);
         $complexes = Complex::query();
+        $news = News::all()->take($request->input('news'))->get();
 
         if ($request->input('city_id') != null) {
             $complexes->where('city_id', $request->input('city_id'));
@@ -79,6 +82,7 @@ class MainController extends Controller
                 'purchasing_methods' => $purchasingMethods,
                 'banner' => $banner,
                 'complexes' => $complexes,
+                'news' => $news,
                 'footer' => $footer
             ], 200
         );
@@ -221,6 +225,18 @@ class MainController extends Controller
                 'slider' => $slider,
                 'purchasing_methods' => $purchasingMethods,
                 'complexes' => $complexes,
+                'footer' => $footer
+            ], 200
+        );
+    }
+
+    public function news(Request $request) {
+        $news = News::all();
+        $footer = Footer::first()->translate($language);
+
+        return response(
+            [
+                'news' => $news,
                 'footer' => $footer
             ], 200
         );

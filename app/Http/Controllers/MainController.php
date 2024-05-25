@@ -244,7 +244,7 @@ class MainController extends Controller
         );
     }
 
-    public function getComplex(CompanyNews $news, Request $request) {
+    public function getNews(CompanyNews $news, Request $request) {
         $language = $request->header('Accept-Language');
     
         $news = CompanyNews::where('id', $news->id)->first();

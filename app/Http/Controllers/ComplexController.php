@@ -13,6 +13,7 @@ use App\Models\{
     Footer,
 };
 use TCG\Voyager\Traits\Spatial;
+use Illuminate\Support\Facades\Http;
 
 class ComplexController extends Controller
 {
@@ -119,7 +120,7 @@ class ComplexController extends Controller
 
         $apartmentData = null;
 
-        $projectID = $request->input('city_id');
+        $projectID = $request->input('project_id');
 
         $responseHouses = Http::get($url. '/house?access_token='.$token.'&projectId='.$projectID);
         $houses = $responseHouses->json();

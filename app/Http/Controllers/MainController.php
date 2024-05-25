@@ -231,6 +231,8 @@ class MainController extends Controller
     }
 
     public function news(Request $request) {
+        $language = $request->header('Accept-Language');
+
         $news = CompanyNews::all();
         $footer = Footer::first()->translate($language);
 

@@ -135,33 +135,55 @@ class ComplexController extends Controller
     }
 
     public function integrationSearch(Request $request) {
-        //      получить токен
-        $url = 'https://pb14886.profitbase.ru/api/v4/json';
-        $response = Http::post($url.'/authentication',
-            [
-                "type" => "api-app",
-                "credentials" =>  [
-                    "pb_api_key" => "app-66445500837ba"
-            ]]);
-        $posts = $response->json();
-//      Токен
-        $token = $posts['access_token'];
+    // Get the parameters from the request
+    $params = $request->input('params');
 
-        $apartmentData = null;
+    // Set the URL for the API endpoint
+    $url = 'https://pb14886.profitbase.ru/api/v4/json';
 
-        $params = $request->input('params');
+    // Perform authentication to get the access token
+    $responseAuth = Http::post($url.'/authentication', [
+        "type" => "api-app",
+        "credentials" => [
+            "pb_api_key" => "app-66445500837ba"
+        ]
+    ]);
+    $posts = $responseAuth->json();
+    // Get the access token
+    $token = $posts['access_token'];
 
-        $responseHouses = Http::get($url. '/property?access_token='.$token.$params);
-        $houses = $responseHouses->json();
-        foreach ($houses['data'] as $house) {
-            $apartmentData['houses'][$house['id']] = $house;
-            $responseProperty = Http::get($url. '/property?access_token='.$token.'&full=false&houseId='.$house['id']);
-            $apartmentData['houses'][$house['id']]['property'] = $responseProperty['data'];
-            $responseProperty = Http::get($url. '/board?access_token='.$token.'&houseId='.$house['id']);
-            $apartmentData['houses'][$house['id']]['board'] = $responseProperty->json();
-        }
-        return ($apartmentData);
+    $apartmentData = null;
+
+    // Make the request to get the houses data with the provided parameters
+    $responseHouses = Http::get($url . '/property', [
+        'access_token' => $token,
+        'params' => $params // Assuming params is an array or string containing parameters
+    ]);
+    $houses = $responseHouses->json();
+
+    // Iterate through each house and fetch additional data
+    foreach ($houses['data'] as $house) {
+        $apartmentData['houses'][$house['id']] = $house;
+        
+        // Get property data for the current house
+        $responseProperty = Http::get($url . '/property', [
+            'access_token' => $token,
+            'full' => 'false',
+            'houseId' => $house['id']
+        ]);
+        $apartmentData['houses'][$house['id']]['property'] = $responseProperty->json()['data'];
+        
+        // Get board data for the current house
+        $responseBoard = Http::get($url . '/board', [
+            'access_token' => $token,
+            'houseId' => $house['id']
+        ]);
+        $apartmentData['houses'][$house['id']]['board'] = $responseBoard->json();
     }
+
+    // Return the fetched data
+    return $apartmentData;
+}
 
     public function integrationProperty(Request $request) {
         //      получить токен

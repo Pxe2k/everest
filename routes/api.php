@@ -49,6 +49,7 @@ Route::group(['prefix' => 'catalog'], function() {
 
     Route::get('/integration', [ComplexController::class, 'integration']);
     Route::get('/integration/property', [ComplexController::class, 'integrationProperty']);
+    Route::get('/integration/search', [ComplexController::class, 'integrationSearch']);
 });
 
 Route::post('/application', [ApplicationController::class, 'createApplication']);

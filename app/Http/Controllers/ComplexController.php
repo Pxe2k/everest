@@ -134,32 +134,61 @@ class ComplexController extends Controller
         return ($apartmentData);
     }
 
-//     public function integration(Request $request) {
-//         //      получить токен
-//         $url = 'https://pb14886.profitbase.ru/api/v4/json';
-//         $response = Http::post($url.'/authentication',
-//             [
-//                 "type" => "api-app",
-//                 "credentials" =>  [
-//                     "pb_api_key" => "app-66445500837ba"
-//             ]]);
-//         $posts = $response->json();
-// //      Токен
-//         $token = $posts['access_token'];
+    public function integrationSearch(Request $request) {
+        //      получить токен
+        $url = 'https://pb14886.profitbase.ru/api/v4/json';
+        $response = Http::post($url.'/authentication',
+            [
+                "type" => "api-app",
+                "credentials" =>  [
+                    "pb_api_key" => "app-66445500837ba"
+            ]]);
+        $posts = $response->json();
+//      Токен
+        $token = $posts['access_token'];
 
-//         $apartmentData = null;
+        $apartmentData = null;
 
-//         $projectID = $request->input('project_id');
+        $projectID = $request->input('project_id');
 
-//         $responseHouses = Http::get($url. '/house?access_token='.$token.'&projectId='.$projectID);
-//         $houses = $responseHouses->json();
-//         foreach ($houses['data'] as $house) {
-//             $apartmentData['houses'][$house['id']] = $house;
-//             $responseProperty = Http::get($url. '/property?access_token='.$token.'&full=false&houseId='.$house['id']);
-//             $apartmentData['houses'][$house['id']]['property'] = $responseProperty['data'];
-//             $responseProperty = Http::get($url. '/board?access_token='.$token.'&houseId='.$house['id']);
-//             $apartmentData['houses'][$house['id']]['board'] = $responseProperty->json();
-//         }
-//         return ($apartmentData);
-//     }
+        $responseHouses = Http::get($url. '/property?access_token='.$token.'&projectId='.$projectID);
+        $houses = $responseHouses->json();
+        foreach ($houses['data'] as $house) {
+            $apartmentData['houses'][$house['id']] = $house;
+            $responseProperty = Http::get($url. '/property?access_token='.$token.'&full=false&houseId='.$house['id']);
+            $apartmentData['houses'][$house['id']]['property'] = $responseProperty['data'];
+            $responseProperty = Http::get($url. '/board?access_token='.$token.'&houseId='.$house['id']);
+            $apartmentData['houses'][$house['id']]['board'] = $responseProperty->json();
+        }
+        return ($apartmentData);
+    }
+
+    public function integrationProperty(Request $request) {
+        //      получить токен
+        $url = 'https://pb14886.profitbase.ru/api/v4/json';
+        $response = Http::post($url.'/authentication',
+            [
+                "type" => "api-app",
+                "credentials" =>  [
+                    "pb_api_key" => "app-66445500837ba"
+            ]]);
+        $posts = $response->json();
+//      Токен
+        $token = $posts['access_token'];
+
+        $apartmentData = null;
+
+        $propertyID = $request->input('property_id');
+
+        $responseHouses = Http::get($url. '/property?access_token='.$token.'&id='.$propertyID.'&full=true');
+        // $houses = $responseHouses->json();
+        // foreach ($houses['data'] as $house) {
+        //     $apartmentData['houses'][$house['id']] = $house;
+        //     $responseProperty = Http::get($url. '/property?access_token='.$token.'&full=false&houseId='.$house['id']);
+        //     $apartmentData['houses'][$house['id']]['property'] = $responseProperty['data'];
+        //     $responseProperty = Http::get($url. '/board?access_token='.$token.'&houseId='.$house['id']);
+        //     $apartmentData['houses'][$house['id']]['board'] = $responseProperty->json();
+        // }
+        return ($responseHouses);
+    }
 }

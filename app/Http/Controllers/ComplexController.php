@@ -181,14 +181,14 @@ class ComplexController extends Controller
         $propertyID = $request->input('property_id');
 
         $responseHouses = Http::get($url. '/property?access_token='.$token.'&id='.$propertyID.'&full=true');
-        // $houses = $responseHouses->json();
-        // foreach ($houses['data'] as $house) {
-        //     $apartmentData['houses'][$house['id']] = $house;
-        //     $responseProperty = Http::get($url. '/property?access_token='.$token.'&full=false&houseId='.$house['id']);
-        //     $apartmentData['houses'][$house['id']]['property'] = $responseProperty['data'];
-        //     $responseProperty = Http::get($url. '/board?access_token='.$token.'&houseId='.$house['id']);
-        //     $apartmentData['houses'][$house['id']]['board'] = $responseProperty->json();
-        // }
+        $houses = $responseHouses->json();
+        foreach ($houses['data'] as $house) {
+            $apartmentData['houses'][$house['id']] = $house;
+            $responseProperty = Http::get($url. '/property?access_token='.$token.'&full=false&houseId='.$house['id']);
+            $apartmentData['houses'][$house['id']]['property'] = $responseProperty['data'];
+            $responseProperty = Http::get($url. '/board?access_token='.$token.'&houseId='.$house['id']);
+            $apartmentData['houses'][$house['id']]['board'] = $responseProperty->json();
+        }
         return ($responseHouses);
     }
 }

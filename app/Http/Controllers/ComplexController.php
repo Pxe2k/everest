@@ -149,9 +149,9 @@ class ComplexController extends Controller
 
         $apartmentData = null;
 
-        $projectID = $request->input('project_id');
+        $params = $request->input('params');
 
-        $responseHouses = Http::get($url. '/property?access_token='.$token.'&projectId='.$projectID);
+        $responseHouses = Http::get($url. '/property?access_token='.$token.$params);
         $houses = $responseHouses->json();
         foreach ($houses['data'] as $house) {
             $apartmentData['houses'][$house['id']] = $house;

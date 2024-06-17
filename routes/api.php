@@ -28,6 +28,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'page'], function() {
     Route::get('/main', [MainController::class, 'index']);
+    Route::get('/footer', [MainController::class, 'footer']);
     Route::get('/mortgage', [MainController::class, 'mortgage']);
     Route::get('/office', [MainController::class, 'office']);
     Route::get('/live', [MainController::class, 'live']);
@@ -50,6 +51,11 @@ Route::group(['prefix' => 'catalog'], function() {
     Route::get('/integration', [ComplexController::class, 'integration']);
     Route::get('/integration/property', [ComplexController::class, 'integrationProperty']);
     Route::get('/integration/search', [ComplexController::class, 'integrationSearch']);
+    Route::get('/integration/get-properties', [AppartmentController::class, 'searchProperties']);
+    Route::get('/integration/get-render', [ComplexController::class, 'integrationRender']);
+    Route::get('/integration/get-house', [ComplexController::class, 'getProfitBaseHouse']);
+
+
 });
 
 Route::post('/application', [ApplicationController::class, 'createApplication']);

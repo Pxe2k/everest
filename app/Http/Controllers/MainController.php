@@ -88,6 +88,12 @@ class MainController extends Controller
         );
     }
 
+    public function footer(Request $request) {
+       $language = $request->header('Accept-Language');
+       $footer = Footer::first()->translate($language);
+        return response($footer, 200);
+    }
+
     public function mortgage (Request $request) {
         $language = $request->header('Accept-Language');
 

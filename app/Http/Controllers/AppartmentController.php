@@ -10,6 +10,8 @@ use App\Models\{
     Footer,
 };
 
+use Illuminate\Support\Facades\Http;
+
 class AppartmentController extends Controller
 {
     public function getAppartment(Request $request, Appartment $appartment) {
@@ -89,5 +91,41 @@ class AppartmentController extends Controller
             'counts' => $count,
             'footer' => $footer
         ]);
+    }
+
+    public function searchProperties(Request $request) {
+        $url = 'https://pb14886.profitbase.ru/api/v4/json';
+        $response = Http::post($url.'/authentication',
+            [
+                "type" => "api-app",
+                "credentials" =>  [
+                    "pb_api_key" => "app-66445500837ba"
+            ]]);
+        $posts = $response->json();
+        $token = $posts['access_token'];
+        $searchString = '';
+        if ($request->projectId) {
+            $searchString .= '&projectId='.$request->projectId;
+        }
+        if ($request->area['min']) {
+            $searchString .= '&area[min]='.$request->area['min'];
+        }
+        if ($request->area['max']) {
+            $searchString .= '&area[max]='.$request->area['max'];
+        }
+        if ($request->rooms) {
+            $rooms = explode(',', $request->rooms);
+            foreach ($rooms as $room) {
+              $searchString .= '&rooms[]='.$room;
+            }
+        }
+        if ($request->status) {
+            $searchString .= '&status[]='.$request->status;
+        }
+        $response = Http::get($url. '/property?access_token='.$token.'&full=true&limit='.$request->limit . '&offset=' . $request->offset . $searchString);
+        if (isset($response['data'])) {
+        return $response['data'];
+        }
+        return [];
     }
 }

@@ -11,6 +11,7 @@ class Application extends Model
 
     protected $fillable = [
         'phone_number',
-        'text'
+        'text',
+        'page',
     ];
 }

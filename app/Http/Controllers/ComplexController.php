@@ -242,7 +242,7 @@ class ComplexController extends Controller
 
         $responseAppartment = Http::get($url. '/property?access_token='.$token.'&id='.$propertyID.'&full=true');
         $appartment = $responseAppartment->json()['data'][0];
-        $responseAppartments = Http::get($url . '/property?full=true&rooms[0]='.$appartment['rooms_amount'].'&access_token='.$token.'&limit=3&houseId='.$appartment['house_id']);
+        $responseAppartments = Http::get($url . '/property?full=true&status[]=AVAILABLE&status[]=BOOKED&rooms[0]='.$appartment['rooms_amount'].'&access_token='.$token.'&limit=3&houseId='.$appartment['house_id']);
         $house = Http::get($url . '/house?access_token='.$token.'&id='.$appartment['house_id']);
         $projectID = intval($house['data'][0]['projectId']);
         $project = Complex::where('project_id', $projectID)->first();

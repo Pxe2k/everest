@@ -11,11 +11,13 @@ class ApplicationController extends Controller
     public function createApplication(Request $request) {
         $fields = $request->validate([
             'phone_number' => 'required|string',
+            'page' => 'string',
             'text' => 'sometimes|string',
         ]);
 
         $application = Application::create([
-            'phone_number' => $fields ['phone_number'],
+            'phone_number' => $fields['phone_number'],
+            'page' =>  $fields['page'],
             'text' => $fields['text'] ?? null,
         ]);
 

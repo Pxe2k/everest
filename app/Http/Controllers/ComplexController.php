@@ -19,7 +19,7 @@ class ComplexController extends Controller
 {
     public function getComplex(Complex $complex, Request $request) {
         $language = $request->header('Accept-Language');
-        
+
         $rooms = $request->input('rooms');
         $settlementYear = $request->input('settlement_year');
 
@@ -33,7 +33,7 @@ class ComplexController extends Controller
         ->get();
 
         $complex->coordinates = $complex->getCoordinates();
-        
+
         $offices = Office::where('city_id', $complex->city_id)->get();
         foreach ($offices as $office) {
            $office->coordinates = $office->getCoordinates();
@@ -55,12 +55,12 @@ class ComplexController extends Controller
 
     public function allComplexes(Request $request) {
         $language = $request->header('Accept-Language');
-    
+
         $complexes = Complex::query();
-    
+
         $rooms = $request->input('rooms');
         $apartmentsType = $request->input('apartments_type');
-    
+
         if ($rooms !== null || $apartmentsType !== null) {
             $complexes->whereHas('apartments', function ($query) use ($rooms, $apartmentsType) {
                 if ($rooms !== null) {
@@ -71,17 +71,17 @@ class ComplexController extends Controller
                 }
             });
         }
-    
+
         $cityId = $request->input('city_id');
         if ($cityId !== null) {
             $complexes->where('city_id', $cityId);
         }
-    
+
         $type = $request->input('type');
         if ($type !== null) {
             $complexes->where('type', $type);
         }
-    
+
         $complexes = $complexes->with(['apartments' => function ($query) use ($rooms, $apartmentsType) {
             if ($rooms !== null) {
                 $query->where('rooms', $rooms);
@@ -90,21 +90,21 @@ class ComplexController extends Controller
                 $query->where('type', $apartmentsType);
             }
         }])->get();
-    
+
         foreach ($complexes as $complex) {
             $complex->coordinates = $complex->getCoordinates();
         }
-    
+
         $count = $complexes->count();
         $footer = Footer::first();
-    
+
         return response()->json([
             'complexes' => $complexes,
             'counts' => $count,
             'footer' => $footer
         ]);
     }
-    
+
     public function integration(Request $request) {
         //      получить токен
         $url = 'https://pb14886.profitbase.ru/api/v4/json';
@@ -203,7 +203,7 @@ class ComplexController extends Controller
     // Iterate through each house and fetch additional data
     foreach ($houses['data'] as $house) {
         $apartmentData['houses'][$house['id']] = $house;
-        
+
         // Get property data for the current house
         $responseProperty = Http::get($url . '/property', [
             'access_token' => $token,
@@ -211,7 +211,7 @@ class ComplexController extends Controller
             'houseId' => $house['id']
         ]);
         $apartmentData['houses'][$house['id']]['property'] = $responseProperty->json()['data'];
-        
+
         // Get board data for the current house
         $responseBoard = Http::get($url . '/board', [
             'access_token' => $token,
@@ -234,21 +234,22 @@ class ComplexController extends Controller
                     "pb_api_key" => "app-66445500837ba"
             ]]);
         $posts = $response->json();
-//      Токен
         $token = $posts['access_token'];
-        $apartmentData = null;
 
         $propertyID = $request->input('property_id');
 
         $responseAppartment = Http::get($url. '/property?access_token='.$token.'&id='.$propertyID.'&full=true');
         $appartment = $responseAppartment->json()['data'][0];
-        $responseAppartments = Http::get($url . '/property?full=true&status[]=AVAILABLE&status[]=BOOKED&rooms[0]='.$appartment['rooms_amount'].'&access_token='.$token.'&limit=3&houseId='.$appartment['house_id']);
+        $responseAppartments = Http::get($url . '/property?full=true&status[]=AVAILABLE&rooms[0]='.$appartment['rooms_amount'].'&access_token='.$token.'&limit=4&houseId='.$appartment['house_id']);
+        $similar =  $responseAppartments->json()['data'];
+
+
         $house = Http::get($url . '/house?access_token='.$token.'&id='.$appartment['house_id']);
         $projectID = intval($house['data'][0]['projectId']);
         $project = Complex::where('project_id', $projectID)->first();
         return [
             'appartment' => $appartment,
-            'similar' => $responseAppartments->json()['data'],
+            'similar' => $similar,
             'projectID' => $project->id
         ];
     }

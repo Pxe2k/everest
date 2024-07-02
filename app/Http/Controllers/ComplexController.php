@@ -242,6 +242,10 @@ class ComplexController extends Controller
         $appartment = $responseAppartment->json()['data'][0];
         $responseAppartments = Http::get($url . '/property?full=true&status[]=AVAILABLE&rooms[0]='.$appartment['rooms_amount'].'&access_token='.$token.'&limit=4&houseId='.$appartment['house_id']);
         $similar =  $responseAppartments->json()['data'];
+        if (!$similar) {
+            $responseAppartments = Http::get($url . '/property?full=true&status[]=AVAILABLE&access_token='.$token.'&limit=4&houseId='.$appartment['house_id']);
+            $similar =  $responseAppartments->json()['data'];
+        }
 
 
         $house = Http::get($url . '/house?access_token='.$token.'&id='.$appartment['house_id']);

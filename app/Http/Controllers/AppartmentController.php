@@ -25,7 +25,7 @@ class AppartmentController extends Controller
 
         $appartment->complex->coordinates = $appartment->complex->getCoordinates();
 
-        $appartment->complex->translate(); 
+        $appartment->complex->translate();
         $appartment = $appartment->translate($language);
 
         $advantages = AppartmentAdvantage::where('appartment_id', $appartment->id)
@@ -78,9 +78,9 @@ class AppartmentController extends Controller
         foreach ($appartments as $appartment) {
             $appartment->complex = Complex::where('id', $appartment->complex_id)
             ->first();
-    
+
             $appartment->complex->coordinates = $appartment->complex->getCoordinates();
-            $appartment->complex = $appartment->complex->translate(); 
+            $appartment->complex = $appartment->complex->translate();
         }
 
         $appartments = $appartments->translate($language);
@@ -121,6 +121,8 @@ class AppartmentController extends Controller
         }
         if ($request->status) {
             $searchString .= '&status[]='.$request->status;
+        } else {
+            $searchString .= '&status[]=BOOKED&status[]=AVAILABLE';
         }
         $response = Http::get($url. '/property?access_token='.$token.'&full=true&limit='.$request->limit . '&offset=' . $request->offset . $searchString);
         if (isset($response['data'])) {

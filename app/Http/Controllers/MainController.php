@@ -45,9 +45,9 @@ class MainController extends Controller
         $language = $request->header('Accept-Language');
 
         $mainBlock = MainBlock::first()->translate($language);
-        $secondaryBlocks = SecondaryBlock::all()->translate($language); 
+        $secondaryBlocks = SecondaryBlock::all()->translate($language);
         $slider = Slider::all()->translate($language);
-        $purchasingMethods = PurchasingMethod::all()->translate($language); 
+        $purchasingMethods = PurchasingMethod::all()->translate($language);
         $banner = Banner::first()->translate($language);
         $complexes = Complex::query();
         $news = CompanyNews::orderBy('created_at', 'desc')->take($request->input('news'))->get();
@@ -64,14 +64,6 @@ class MainController extends Controller
 
         $complexes = $complexes->translate($language);
 
-        // TODO: get only one image
-        // foreach ($results as $result) {
-        //     $jsonString = $result->image;
-        //     $imageArray = json_decode($jsonString, true);
-
-        //     dd($jsonString);
-        //     $result->image = $imageArray[0];
-        // }
 
 
         return response(
@@ -125,7 +117,7 @@ class MainController extends Controller
         foreach ($city->offices as $office) {
             $office->coordinates = $office->getCoordinates();
         }
-        
+
         $city = $city->translate($language);
     }
 
@@ -164,7 +156,7 @@ class MainController extends Controller
         $blocks = AboutUsBlock::all()->translate($language);
         $description = AboutUsDescription::all()->translate($language);
         $advantages = AboutUsAdvantage::all()->translate($language);
-        $geography = AboutUsGeography::first();
+        $geography = AboutUsGeography::all()->translate($language);
         $district = AboutUsGeographyDistrict::all()->translate($language);
         $complexes = Complex::where('type', 'implemented')->get();
         $company = AboutUsCompany::all()->translate($language);
@@ -198,9 +190,9 @@ class MainController extends Controller
         $language = $request->header('Accept-Language');
 
         $mainBlock = CommercialEstateMainBlock::first()->translate($language);
-        $secondaryBlocks = CommercialEstateSecondaryBlock::all()->translate($language); 
+        $secondaryBlocks = CommercialEstateSecondaryBlock::all()->translate($language);
         $slider = CommercialEstateSlider::all()->translate($language);
-        $purchasingMethods = CommercialEstatePurchasingMethod::all()->translate($language); 
+        $purchasingMethods = CommercialEstatePurchasingMethod::all()->translate($language);
         $complexes = Complex::query();
 
         if ($request->input('city_id') != null) {
@@ -252,7 +244,7 @@ class MainController extends Controller
 
     public function getNews(CompanyNews $news, Request $request) {
         $language = $request->header('Accept-Language');
-    
+
         $news = CompanyNews::where('id', $news->id)->first();
         $footer = Footer::first()->translate($language);
 

@@ -1,2086 +1,1476 @@
--- phpMyAdmin SQL Dump
--- version 5.2.0
--- https://www.phpmyadmin.net/
+-- MySQL dump 10.13  Distrib 8.0.39, for Linux (x86_64)
 --
--- Хост: 127.0.0.1:3306
--- Время создания: Мар 23 2024 г., 01:04
--- Версия сервера: 8.0.30
--- Версия PHP: 8.1.9
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
+-- Host: localhost    Database: everest
+-- ------------------------------------------------------
+-- Server version	8.0.39-0ubuntu0.20.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- База данных: `everest`
+-- Table structure for table `about_us_advantages`
 --
 
--- --------------------------------------------------------
-
---
--- Структура таблицы `about_us_advantages`
---
-
+DROP TABLE IF EXISTS `about_us_advantages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `about_us_advantages` (
-  `id` bigint UNSIGNED NOT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Структура таблицы `about_us_banners`
+-- Dumping data for table `about_us_advantages`
 --
 
+LOCK TABLES `about_us_advantages` WRITE;
+/*!40000 ALTER TABLE `about_us_advantages` DISABLE KEYS */;
+INSERT INTO `about_us_advantages` VALUES (1,'image','Превосходное расположение','about-us-advantages/May2024/seTpli8sEzo9lATQkufG.jpg','','2024-03-23 15:33:24','2024-05-22 08:02:09'),(4,'banner','Забота об окружающей среде','about-us-advantages/May2024/jZy2ML0EcRG7Dy3QltZB.jpg','Мы гордимся нашей ролью в сохранении окружающей среды. Наши проекты разрабатываются с учетом экологических стандартов и энергоэффективности.','2024-03-23 15:34:20','2024-05-22 08:24:30'),(6,'text','Инновации в дизайне',NULL,'Мы постоянно исследуем новейшие тенденции и инновации в дизайне, чтобы создавать уникальные интерьеры и фасады, которые вдохновляют.','2024-04-21 22:59:22','2024-05-22 07:56:09'),(7,'icon','Материалы превосходного качества','about-us-advantages/May2024/hrznMc3dGjdlgrqU2MJM.png','В Everest Development мы превыше всего ценим качество. Наши проекты реализуются с использованием передовых технологий и первоклассных материалов, чтобы обеспечить надежность и долговечность','2024-04-21 22:59:37','2024-05-22 07:55:32'),(8,'icon','Level-up','about-us-advantages/May2024/mamjLuMHAtXxiUiruklw.png','Вы сможете увеличить площадь квартиры, переехать ближе к центру по доступной цене!','2024-05-12 14:25:09','2024-05-13 04:50:41');
+/*!40000 ALTER TABLE `about_us_advantages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `about_us_banners`
+--
+
+DROP TABLE IF EXISTS `about_us_banners`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `about_us_banners` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Структура таблицы `about_us_blocks`
+-- Dumping data for table `about_us_banners`
 --
 
+LOCK TABLES `about_us_banners` WRITE;
+/*!40000 ALTER TABLE `about_us_banners` DISABLE KEYS */;
+INSERT INTO `about_us_banners` VALUES (1,'Everest Development','Everest Development - надежный застройщик\n\nНаша цель - внедрить новые стандарты качественного жилья в Казахстане. Мы взяли на себя миссию по улучшению уровня комфорта и созданию выдающейся недвижимости, которая станет настоящим наследием качества.\n\nМы не просто строим здания, но создаем продуманные пространства, где жители могут наслаждаться своей жизнью.','https://drive.google.com/drive/folders/1qHrwcL6sBqgrBrqd9nmJ-AJvf6xX9sFJ','2024-03-23 11:52:10','2024-06-15 10:34:15','about-us-banners/June2024/jyV51xrxLx2moPKlYZoH.png');
+/*!40000 ALTER TABLE `about_us_banners` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `about_us_blocks`
+--
+
+DROP TABLE IF EXISTS `about_us_blocks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `about_us_blocks` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `about_us_blocks`
+--
+
+LOCK TABLES `about_us_blocks` WRITE;
+/*!40000 ALTER TABLE `about_us_blocks` DISABLE KEYS */;
+INSERT INTO `about_us_blocks` VALUES (1,'9 проектов','about-us-blocks/June2024/Aq0JrrgiJK28bMk8zC3G.png','В портфолио','2024-03-23 11:52:34','2024-06-20 05:32:15'),(2,'134 423 м² ','about-us-blocks/June2024/owff4Ez0EIbTvbRjDlLY.png','Введено в эксплуатацию','2024-03-23 11:53:16','2024-06-14 17:22:58'),(3,'Инвестиционный портфель ','about-us-blocks/June2024/qJfgQJ7ElDyvWbb7oluw.png','Более 400 000 м² ','2024-03-23 11:53:25','2024-06-20 05:30:40');
+/*!40000 ALTER TABLE `about_us_blocks` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `about_us_companies`
+--
+
+DROP TABLE IF EXISTS `about_us_companies`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `about_us_companies` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `about_us_companies`
+--
+
+LOCK TABLES `about_us_companies` WRITE;
+/*!40000 ALTER TABLE `about_us_companies` DISABLE KEYS */;
+INSERT INTO `about_us_companies` VALUES (4,'Hilti','about-us-companies/July2024/NVrUufihaNP9QANtjI21.png','2024-04-17 22:41:47','2024-07-04 05:30:50'),(5,'Bosch','about-us-companies/July2024/PpDeX40v4d2MkkBQz35h.png','2024-07-04 05:31:15','2024-07-04 05:31:15'),(6,'Karcher','about-us-companies/July2024/67shiVf5R4vHuAUJBqjh.png','2024-07-04 05:31:43','2024-07-04 05:31:43'),(7,'Equitone','about-us-companies/July2024/xgGAGJeu04cck75vWWVD.png','2024-07-04 05:32:02','2024-07-04 05:32:02'),(8,'Doosan','about-us-companies/July2024/yDzlYcQIKQZyqZmcmVCq.png','2024-07-04 05:32:18','2024-07-04 05:32:18'),(9,'Aironn','about-us-companies/July2024/AwiPI6bRlTAo4SzvUFmD.png','2024-07-04 05:32:31','2024-07-04 05:32:31'),(10,'Rehau','about-us-companies/July2024/sa3uGEOwtcKxQWiCNkGg.png','2024-07-04 05:32:47','2024-07-04 05:32:47'),(11,'Freedom','about-us-companies/July2024/YvZiLCfnDjtidai6hLuo.jpg','2024-07-04 05:42:55','2024-07-04 05:42:55'),(12,'Halyk','about-us-companies/July2024/b1StrRrEXFVtyzuIDPJp.png','2024-07-04 05:43:12','2024-07-04 05:43:12'),(13,'Forbes','about-us-companies/July2024/Rq6A0bUxUS3P7kQSvgLi.jpg','2024-07-04 05:44:04','2024-07-04 05:44:04'),(14,'Radisson','about-us-companies/July2024/roV2tM3nZeJjuXomHgKd.png','2024-07-04 05:44:24','2024-07-04 05:44:24'),(15,'fundermax','about-us-companies/July2024/X4kTMAikqqa0nunGYfhi.png','2024-07-04 05:44:40','2024-07-04 05:44:40'),(16,'schuco','about-us-companies/July2024/Q9Xx3ajGHSKtcwbmPm10.png','2024-07-04 05:45:05','2024-07-04 05:45:05'),(17,'techno','about-us-companies/July2024/KR8JSTM4iIzbbxiFIo2K.png','2024-07-04 05:45:31','2024-07-04 05:46:00'),(18,'laminam','about-us-companies/July2024/bpc6kG2iyBeEmdw4n4kr.png','2024-07-04 05:46:19','2024-07-04 05:46:19'),(19,'thyssen','about-us-companies/July2024/Vxlza0OGF4OzcgZoOz4O.png','2024-07-04 05:46:37','2024-07-04 05:46:37'),(20,'kone','about-us-companies/July2024/CkPjCJn3ZE77YxsohCAx.png','2024-07-04 05:46:48','2024-07-04 05:46:48'),(21,'otis','about-us-companies/July2024/ZiHpsg8QNuUfq8Evdiwg.png','2024-07-04 05:46:57','2024-07-04 05:46:57'),(22,'schneider','about-us-companies/July2024/l5vA7MrBtkK5VDO50PRm.png','2024-07-04 05:47:15','2024-07-04 05:47:15'),(23,'abb','about-us-companies/July2024/YO2luIiKE4McDuszckAA.png','2024-07-04 05:47:26','2024-07-04 05:47:26'),(24,'autodesk','about-us-companies/July2024/bV5lHJGq8dpY6V0Utw4w.png','2024-07-04 05:49:42','2024-07-04 05:49:42'),(25,'most','about-us-companies/July2024/pRVr6jOG7UMV4UEGziRd.jpg','2024-07-04 05:50:14','2024-07-04 05:50:14'),(26,'bcc','about-us-companies/July2024/1BXkXYAdp1IbT1nLK8uB.png','2024-07-04 05:53:49','2024-07-04 05:54:17'),(27,'portal','about-us-companies/July2024/ySTwANhtBzQhTjCOeXqJ.png','2024-07-04 06:04:58','2024-07-04 06:05:29');
+/*!40000 ALTER TABLE `about_us_companies` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `about_us_descriptions`
+--
+
+DROP TABLE IF EXISTS `about_us_descriptions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `about_us_descriptions` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `about_us_descriptions`
+--
+
+LOCK TABLES `about_us_descriptions` WRITE;
+/*!40000 ALTER TABLE `about_us_descriptions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `about_us_descriptions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `about_us_geographies`
+--
+
+DROP TABLE IF EXISTS `about_us_geographies`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `about_us_geographies` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `about_us_geographies`
+--
+
+LOCK TABLES `about_us_geographies` WRITE;
+/*!40000 ALTER TABLE `about_us_geographies` DISABLE KEYS */;
+INSERT INTO `about_us_geographies` VALUES (6,'Наша миссия','Повышение стандарта качественного, продуманного, комфортного и доступного жилья в Казахстане','2024-05-13 04:52:57','2024-05-22 07:41:35');
+/*!40000 ALTER TABLE `about_us_geographies` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `about_us_geography_districts`
+--
+
+DROP TABLE IF EXISTS `about_us_geography_districts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `about_us_geography_districts` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `about_us_geography_districts`
+--
+
+LOCK TABLES `about_us_geography_districts` WRITE;
+/*!40000 ALTER TABLE `about_us_geography_districts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `about_us_geography_districts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `appartment_advantages`
+--
+
+DROP TABLE IF EXISTS `appartment_advantages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `appartment_advantages` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `appartment_id` bigint unsigned DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `appartment_advantages_appartment_id_foreign` (`appartment_id`),
+  CONSTRAINT `appartment_advantages_appartment_id_foreign` FOREIGN KEY (`appartment_id`) REFERENCES `appartments` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `appartment_advantages`
+--
+
+LOCK TABLES `appartment_advantages` WRITE;
+/*!40000 ALTER TABLE `appartment_advantages` DISABLE KEYS */;
+INSERT INTO `appartment_advantages` VALUES (1,'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png','Удобство','Удобно)!!',1,NULL,'2024-03-13 20:21:13'),(2,'appartment-advantages\\March2024\\6a9cUxnR4iN24GQgZIdN.png','Удобство','Удобно)!!',1,NULL,'2024-03-13 20:21:19'),(3,'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png','Удобство','Удобно)!!',1,NULL,NULL),(4,'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png','Удобство','Удобно)!!',1,NULL,NULL),(5,'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png','Удобство','Удобно)!!',2,NULL,NULL),(6,'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png','Удобство','Удобно)!!',2,NULL,NULL),(7,'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png','Удобство','Удобно)!!',2,NULL,NULL),(8,'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png','Удобство','Удобно)!!',2,NULL,NULL),(9,'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png','Удобство','Удобно)!!',3,NULL,NULL),(10,'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png','Удобство','Удобно)!!',3,NULL,NULL),(11,'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png','Удобство','Удобно)!!',3,NULL,NULL),(12,'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png','Удобство','Удобно)!!',3,NULL,NULL);
+/*!40000 ALTER TABLE `appartment_advantages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `appartments`
+--
+
+DROP TABLE IF EXISTS `appartments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `appartments` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `descritpion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `plan_image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `floor_plan_image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `quadrature` int NOT NULL,
+  `floor` int NOT NULL,
+  `entrance` int NOT NULL,
+  `rooms` int NOT NULL DEFAULT '0',
+  `deadline` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `metro` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city_id` bigint unsigned DEFAULT NULL,
+  `complex_id` bigint unsigned DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `general_plan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `appartments_city_id_foreign` (`city_id`),
+  KEY `appartments_complex_id_foreign` (`complex_id`),
+  CONSTRAINT `appartments_city_id_foreign` FOREIGN KEY (`city_id`) REFERENCES `cities` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `appartments_complex_id_foreign` FOREIGN KEY (`complex_id`) REFERENCES `complexes` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `appartments`
+--
+
+LOCK TABLES `appartments` WRITE;
+/*!40000 ALTER TABLE `appartments` DISABLE KEYS */;
+INSERT INTO `appartments` VALUES (1,'Студия 22,8 м²','Отделка и кондиционер входят в стоимость','appartments\\March2024\\Pi4IF4F4OHlPaHTYzpUF.png','appartments\\March2024\\IDxawyglnYtoUCUzZznJ.png',32,3,5,2,'2 квартал 2024 года','м. Домодедовская','available',1,4,NULL,'2024-04-04 15:59:10','appartments/March2024/daXiW8KSTOiWP2PZHP06.png'),(2,'Студия 32,8 м²','Отделка и кондиционер входят в стоимость','appartments\\March2024\\kyHum2UZXABFhu0pUagj.png','appartments\\March2024\\BZTXTx2A1piDTMdnWhZW.png',55,3,5,3,'2 квартал 2024 года','м. Домодедовская','available',1,4,NULL,'2024-04-04 15:59:18','appartments/March2024/1c0JJQumlREVv1eQ0be0.png'),(3,'Студия 12,8 м²','Отделка и кондиционер входят в стоимость','appartments\\March2024\\0UZXkiKDQnDCweYx7wrB.png','appartments\\March2024\\ELM2ClG6ay8ols3eF2E1.png',15,3,5,1,'2 квартал 2024 года','м. Домодедовская','not_available',1,4,NULL,'2024-04-04 15:59:24','appartments/March2024/riLF4FtBZCGgZAmLRBP6.png'),(4,'Студия 100м²','Отделка и кондиционер входят в стоимость','appartments\\March2024\\0UZXkiKDQnDCweYx7wrB.png','appartments\\March2024\\ELM2ClG6ay8ols3eF2E1.png',15,3,5,4,'2 квартал 2024 года','м. Домодедовская','not_available',1,4,NULL,'2024-04-04 15:59:29','appartments/March2024/GUW8wKTrXWi7094ATkhw.png'),(5,'Студия 25 м²','Квартиру можно купить в ипотеку вместе с дополнительными опциями. Оплата будет включена в ежемесячный платеж.','appartments/April2024/eA0JkH55BVIsr2yKQ0yT.jpeg','appartments/April2024/9ejOqMQsuw5kO06q8Kwn.jpeg',25,10,2,1,'2025','Алатау','available',1,4,'2024-04-04 15:38:52','2024-04-04 15:38:52','appartments/April2024/cqQXEdIDLqVicd6e0qmv.jpeg');
+/*!40000 ALTER TABLE `appartments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `applications`
+--
+
+DROP TABLE IF EXISTS `applications`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `applications` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `phone_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `page` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=550 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `applications`
+--
+
+LOCK TABLES `applications` WRITE;
+/*!40000 ALTER TABLE `applications` DISABLE KEYS */;
+INSERT INTO `applications` VALUES (1,'87076464503','test','2024-03-23 15:14:05','2024-03-23 15:14:05',NULL),(2,'87076464503',NULL,'2024-03-23 15:14:10','2024-03-23 15:14:10',NULL),(3,'87084831038','surab','2024-03-24 15:11:44','2024-03-24 15:11:44',NULL),(4,'1887','Suhrab','2024-03-24 15:12:39','2024-03-24 15:12:39',NULL),(5,'asd','test','2024-03-25 18:56:10','2024-03-25 18:56:10',NULL),(6,'+7 705 153 68 98','Керей','2024-06-20 05:45:26','2024-06-20 05:45:26',NULL),(7,'+7 705 153 68 98','Жанибек','2024-06-20 05:46:16','2024-06-20 05:46:16',NULL),(8,'+7 701 526 28 52','Azamat','2024-06-20 06:19:45','2024-06-20 06:19:45',NULL),(9,'87770007787','Данияр','2024-06-22 09:05:17','2024-06-22 09:05:17',NULL),(10,'7073123565','Nurisha','2024-06-23 10:44:56','2024-06-23 10:44:56',NULL),(11,'1231231231','asdsada','2024-06-23 12:54:32','2024-06-23 12:54:32',NULL),(12,'1111111111','asdasd','2024-06-23 12:55:32','2024-06-23 12:55:32',NULL),(13,'7079092112','Айнара','2024-06-24 12:19:51','2024-06-24 12:19:51',NULL),(14,'7476576229','Гани','2024-06-24 19:13:57','2024-06-24 19:13:57',NULL),(15,'7017298513','Искандер','2024-06-25 09:08:46','2024-06-25 09:08:46',NULL),(16,'7770007787','Данияр','2024-06-26 07:52:44','2024-06-26 07:52:44',NULL),(17,'7759639247','Айгерим','2024-06-27 04:34:10','2024-06-27 04:34:10',NULL),(18,'7016031693','Данияр','2024-06-28 07:11:31','2024-06-28 07:11:31',NULL),(19,'7471560684','Жамбыл','2024-06-28 10:09:53','2024-06-28 10:09:53',NULL),(20,'7075302925','Ева','2024-06-28 18:01:11','2024-06-28 18:01:11',NULL),(21,'7473413291','Талгат','2024-06-29 11:47:08','2024-06-29 11:47:08',NULL),(22,'7077583333','Гульвира','2024-06-29 12:25:21','2024-06-29 12:25:21',NULL),(23,'7750710797','Aidana','2024-06-29 15:22:51','2024-06-29 15:22:51',NULL),(24,'7761111173','Акерке','2024-06-30 07:37:30','2024-06-30 07:37:30',NULL),(25,'7077331113','Мадина','2024-06-30 10:39:53','2024-06-30 10:39:53',NULL),(26,'7079004957','Имонали','2024-06-30 11:39:12','2024-06-30 11:39:12',NULL),(27,'7007900807','Nurlan','2024-06-30 14:35:32','2024-06-30 14:35:32',NULL),(28,'7023217995','Магжан','2024-06-30 16:49:14','2024-06-30 16:49:14',NULL),(29,'7762056223','Aigerim','2024-06-30 18:47:12','2024-06-30 18:47:12',NULL),(30,'7079414342','Амирхан','2024-07-01 06:16:55','2024-07-01 06:16:55',NULL),(31,'7001777235','Валентина','2024-07-01 07:03:21','2024-07-01 07:03:21',NULL),(32,'7001777235','Валентина','2024-07-01 07:03:21','2024-07-01 07:03:21',NULL),(33,'7089790044','Реат','2024-07-01 07:50:07','2024-07-01 07:50:07',NULL),(34,'7017977768','Нурлан','2024-07-02 09:39:32','2024-07-02 09:39:32',NULL),(35,'8747975501','Saniya','2024-07-02 09:56:22','2024-07-02 09:56:22',NULL),(36,'7764728417','Жеңіс','2024-07-02 17:05:36','2024-07-02 17:05:36',NULL),(37,'7764728417','Жеңіс','2024-07-02 17:05:36','2024-07-02 17:05:36',NULL),(38,'1231231232','asd','2024-07-02 17:42:58','2024-07-02 17:42:58',NULL),(39,'12312313','asd','2024-07-02 17:44:10','2024-07-02 17:44:10','zxc'),(40,'123213','asd','2024-07-02 17:45:53','2024-07-02 17:45:53','http://localhost:3000/apartments/14200917'),(41,'7074675747','Аида','2024-07-03 09:03:40','2024-07-03 09:03:40','https://ed.group/news'),(42,'7756517370','Айым','2024-07-03 09:40:05','2024-07-03 09:40:05','https://ed.group/apartments/14197369'),(43,'7078285333','салтанат','2024-07-04 02:41:10','2024-07-04 02:41:10','https://ed.group/apartments/14282030'),(44,'7786164806','Eldes','2024-07-04 11:23:06','2024-07-04 11:23:06','https://ed.group/mortgage'),(45,'7472500251','Настя','2024-07-04 11:50:34','2024-07-04 11:50:34','https://ed.group/apartments/14259434'),(46,'7078285333','Салтанат','2024-07-04 15:24:54','2024-07-04 15:24:54','https://ed.group/apartments/14282030'),(47,'7716956756','Абылай','2024-07-05 03:47:39','2024-07-05 03:47:39','https://ed.group/en/apartments/14313181'),(48,'7716956756','Абылай','2024-07-05 06:05:58','2024-07-05 06:05:58','https://ed.group/mortgage'),(49,'7019494513','Мухтар','2024-07-05 11:26:01','2024-07-05 11:26:01','https://ed.group/projects/11'),(50,'7476576229','Gani','2024-07-06 04:48:55','2024-07-06 04:48:55','https://ed.group/apartments/14282344'),(51,'7021553342','Любовь','2024-07-07 09:14:54','2024-07-07 09:14:54','https://ed.group/projects/13'),(52,'7475771343','Аяна','2024-07-07 12:54:26','2024-07-07 12:54:26','https://ed.group/apartments/14259528'),(53,'8707119965','Ерке','2024-07-07 23:38:43','2024-07-07 23:38:43','https://ed.group/mortgage'),(54,'7071199650','Ерке','2024-07-07 23:39:13','2024-07-07 23:39:13','https://ed.group/mortgage'),(55,'7770607066','Досжан','2024-07-08 06:45:55','2024-07-08 06:45:55','https://ed.group/apartments/14282029'),(56,'7016031693','Данияр','2024-07-08 07:57:51','2024-07-08 07:57:51','https://ed.group/apartments/14313225'),(57,'7089270377','Молдир','2024-07-09 03:58:40','2024-07-09 03:58:40','https://ed.group/projects/4'),(58,'7078461605','Улжалгас','2024-07-09 15:46:38','2024-07-09 15:46:38','https://ed.group/apartments/14157271'),(59,'7775012585','Даулет','2024-07-09 16:18:23','2024-07-09 16:18:23','https://ed.group/apartments?projectId=47885&areaFrom=10&areaTo=71&type&rooms=1&startSearch=true'),(60,'7019440392','Nursultan','2024-07-09 16:31:50','2024-07-09 16:31:50','https://ed.group/apartments/14157273'),(61,'7024499666','Roman','2024-07-09 18:06:51','2024-07-09 18:06:51','https://ed.group/en/apartments/14313172'),(62,'7073611371','Madina','2024-07-10 03:59:43','2024-07-10 03:59:43','https://ed.group/apartments/14313194'),(63,'7472268516','Маржан','2024-07-10 13:59:41','2024-07-10 13:59:41','https://ed.group/apartments/14282033'),(64,'7785893575','Madi','2024-07-10 19:09:02','2024-07-10 19:09:02','https://ed.group/mortgage'),(65,'7785893575','Madi','2024-07-10 19:11:06','2024-07-10 19:11:06','https://ed.group/apartments/14200873'),(66,'7765367939','Марат','2024-07-11 05:22:19','2024-07-11 05:22:19','https://ed.group/mortgage'),(67,'7765367939','Марат','2024-07-11 05:23:21','2024-07-11 05:23:21','https://ed.group/projects/11'),(68,'7778463065','Меруерт','2024-07-11 05:37:29','2024-07-11 05:37:29','https://ed.group/apartments/14200591'),(69,'7752205503','Ахмет','2024-07-11 12:42:35','2024-07-11 12:42:35','https://ed.group/news/1'),(70,'7781314469','Индира','2024-07-11 20:37:47','2024-07-11 20:37:47','https://ed.group/apartments/14282030'),(71,'7014142126','Молдир','2024-07-12 00:18:19','2024-07-12 00:18:19','https://ed.group/apartments/14313174'),(72,'7778463065','Меруерт','2024-07-12 03:12:01','2024-07-12 03:12:01','https://ed.group/mortgage'),(73,'7022971279','Айгуль','2024-07-12 04:59:38','2024-07-12 04:59:38','https://ed.group/apartments/14282025'),(74,'7770338523','Аиша','2024-07-12 08:01:06','2024-07-12 08:01:06','https://ed.group/apartments/14282025'),(75,'7479740727','Жанибек','2024-07-12 17:15:39','2024-07-12 17:15:39','https://ed.group/apartments/14200634'),(76,'7028228033','Элеонора','2024-07-13 10:32:21','2024-07-13 10:32:21','https://ed.group/apartments/14157296'),(77,'7000970905','Гульзира','2024-07-13 10:35:39','2024-07-13 10:35:39','https://ed.group/apartments/14200873'),(78,'7784464981','Алуа','2024-07-14 17:51:01','2024-07-14 17:51:01','https://ed.group/apartments/14282038'),(79,'7478675819','Жулдвз','2024-07-14 18:06:01','2024-07-14 18:06:01','https://ed.group/apartments/14282032'),(80,'7072962790','Нурайлым','2024-07-15 10:35:54','2024-07-15 10:35:54','https://ed.group/mortgage'),(81,'7785893575','Madi','2024-07-15 16:03:36','2024-07-15 16:03:36','https://ed.group/mortgage'),(82,'7000970905','Гульзира','2024-07-16 03:51:36','2024-07-16 03:51:36','https://ed.group/mortgage'),(83,'7767387369','Еркебулан','2024-07-16 13:03:53','2024-07-16 13:03:53','https://ed.group/apartments/14313174'),(84,'7770413380','Султан','2024-07-16 20:19:46','2024-07-16 20:19:46','https://ed.group/apartments/14199515'),(85,'7770413380','Султан','2024-07-16 20:23:35','2024-07-16 20:23:35','https://ed.group/apartments/14313180'),(86,'7755500273','Сания','2024-07-17 06:13:05','2024-07-17 06:13:05','https://ed.group/mortgage'),(87,'7782533123','Нуркен','2024-07-17 12:05:31','2024-07-17 12:05:31','https://ed.group/apartments/14313172'),(88,'7014094940','Жанар','2024-07-17 13:03:29','2024-07-17 13:03:29','https://ed.group/apartments/14259384'),(89,'7016805371','Кулшат','2024-07-17 16:27:11','2024-07-17 16:27:11','https://ed.group/about'),(90,'7017897080','Динара','2024-07-18 08:29:52','2024-07-18 08:29:52','https://ed.group/mortgage'),(91,'7017897080','Динара','2024-07-18 08:38:50','2024-07-18 08:38:50','https://ed.group/apartments/14201087'),(92,'7750006669','Айгерим','2024-07-19 07:25:23','2024-07-19 07:25:23','https://ed.group/'),(93,'7475341033','Эльнара','2024-07-19 07:34:25','2024-07-19 07:34:25','https://ed.group/apartments/14282028'),(94,'7751551105','Айгерим','2024-07-19 10:06:40','2024-07-19 10:06:40','https://ed.group/about'),(95,'7075317361','Айгерим','2024-07-19 18:48:44','2024-07-19 18:48:44','https://ed.group/apartments/14201087'),(96,'7055002240','Нурадил','2024-07-21 13:00:37','2024-07-21 13:00:37','https://ed.group/apartments/14282026'),(97,'7776671996','Диас','2024-07-22 04:12:44','2024-07-22 04:12:44','https://ed.group/mortgage'),(98,'8747656441','Рина','2024-07-22 04:19:29','2024-07-22 04:19:29','https://ed.group/en/apartments/14282026'),(99,'7476564410','Рина','2024-07-22 04:19:51','2024-07-22 04:19:51','https://ed.group/en/apartments/14282026'),(100,'784268886','Гульназ','2024-07-22 08:53:11','2024-07-22 08:53:11','https://ed.group/apartments/14009341'),(101,'7019470070','Ермек','2024-07-22 17:50:14','2024-07-22 17:50:14','https://ed.group/apartments/14282032'),(102,'7022027522','Анатолий','2024-07-22 18:37:27','2024-07-22 18:37:27','https://ed.group/projects/11'),(103,'7476564410','Рина','2024-07-23 04:19:27','2024-07-23 04:19:27','https://ed.group/apartments?projectId=47881&areaFrom=10&areaTo=1000&type=AVAILABLE&rooms=2&startSearch=true'),(104,'7076344840','Айнур','2024-07-23 07:48:40','2024-07-23 07:48:40','https://ed.group/apartments/14157214'),(105,'7473099030','Жанибек','2024-07-23 08:43:04','2024-07-23 08:43:04','https://ed.group/apartments/14282037'),(106,'7778116868','Альжан','2024-07-23 15:53:54','2024-07-23 15:53:54','https://ed.group/apartments/14282149'),(107,'7078200301','Айжан','2024-07-24 17:11:41','2024-07-24 17:11:41','https://ed.group/apartments?projectId=47710&areaFrom=10&areaTo=1000&type=AVAILABLE&rooms=1,3&startSearch=true'),(108,'7781443967','Камилла','2024-07-25 08:09:41','2024-07-25 08:09:41','https://ed.group/mortgage'),(109,'7781443967','Камилла','2024-07-25 08:09:41','2024-07-25 08:09:41','https://ed.group/mortgage'),(110,'7781443967','Камилла','2024-07-25 08:09:41','2024-07-25 08:09:41','https://ed.group/mortgage'),(111,'7781443967','Камилла','2024-07-25 08:09:41','2024-07-25 08:09:41','https://ed.group/mortgage'),(112,'7781443967','Камилла','2024-07-25 08:09:41','2024-07-25 08:09:41','https://ed.group/mortgage'),(113,'7781443967','Камилла','2024-07-25 08:09:41','2024-07-25 08:09:41','https://ed.group/mortgage'),(114,'7781443967','Камилла','2024-07-25 08:09:41','2024-07-25 08:09:41','https://ed.group/mortgage'),(115,'7781443967','Камилла','2024-07-25 08:09:41','2024-07-25 08:09:41','https://ed.group/mortgage'),(116,'7781443967','Камилла','2024-07-25 08:09:41','2024-07-25 08:09:41','https://ed.group/mortgage'),(117,'7781443967','Камилла','2024-07-25 08:09:41','2024-07-25 08:09:41','https://ed.group/mortgage'),(118,'7781443967','Камилла','2024-07-25 08:09:41','2024-07-25 08:09:41','https://ed.group/mortgage'),(119,'7781443967','Камилла','2024-07-25 08:09:41','2024-07-25 08:09:41','https://ed.group/mortgage'),(120,'7781443967','Камилла','2024-07-25 08:09:41','2024-07-25 08:09:41','https://ed.group/mortgage'),(121,'7781443967','Камилла','2024-07-25 08:09:41','2024-07-25 08:09:41','https://ed.group/mortgage'),(122,'7026368494','Казбек','2024-07-25 08:48:50','2024-07-25 08:48:50','https://ed.group/projects/13'),(123,'7718627171','Samalbek','2024-07-25 15:18:50','2024-07-25 15:18:50','https://ed.group/apartments/14157214'),(124,'7071044412','Игорь','2024-07-25 15:31:11','2024-07-25 15:31:11','https://ed.group/projects/13'),(125,'7071470744','Вольф','2024-07-25 16:53:59','2024-07-25 16:53:59','https://ed.group/mortgage'),(126,'7017179210','Акмарал','2024-07-26 07:53:04','2024-07-26 07:53:04','https://ed.group/apartments/14313176'),(127,'7016088898','мурат','2024-07-26 11:24:34','2024-07-26 11:24:34','https://ed.group/apartments/14282082'),(128,'018035509','Фархад','2024-07-27 08:45:23','2024-07-27 08:45:23','https://ed.group/en/apartments?projectId=46797&areaFrom=10&areaTo=1000&type=AVAILABLE&rooms=1,2&startSearch=true'),(129,'7078313507','Ахмад','2024-07-27 09:28:52','2024-07-27 09:28:52','https://ed.group/projects/11'),(130,'7011619629','Мадина','2024-07-27 15:44:06','2024-07-27 15:44:06','https://ed.group/projects/11?tpclid=facebook.PAZXh0bgNhZW0CMTEAAabamk8l1vxf0JD8g-arkw91MyG2EMyVzGzRJVu51xVKaI_tT5xVSv8fS70_aem_70T9r6owbVnaZoS9hEelnQ'),(131,'7472268516','Маржан','2024-07-28 15:29:54','2024-07-28 15:29:54','https://ed.group/apartments/14282072'),(132,'7773636360','Ахмет','2024-07-29 17:11:35','2024-07-29 17:11:35','https://ed.group/projects/11'),(133,'7076746340','Nurbolat','2024-07-30 07:03:38','2024-07-30 07:03:38','https://ed.group/apartments/14282158'),(134,'7783788614','Арман','2024-07-31 09:42:46','2024-07-31 09:42:46','https://ed.group/apartments?projectId=47881&areaFrom=10&areaTo=1000&type&rooms=1,2&startSearch=true'),(135,'8702565684','umit','2024-07-31 10:02:28','2024-07-31 10:02:28','https://ed.group/apartments/14197288'),(136,'7752768589','umit','2024-07-31 10:05:04','2024-07-31 10:05:04','https://ed.group/apartments/14282029'),(137,'7071257999','Сара','2024-07-31 13:44:50','2024-07-31 13:44:50','https://ed.group/projects/6'),(138,'7756707000','Асан','2024-08-01 05:10:41','2024-08-01 05:10:41','https://ed.group/about'),(139,'7072497859','Bakhtiyar','2024-08-01 13:10:59','2024-08-01 13:10:59','https://ed.group/mortgage'),(140,'7478309345','Aizhan','2024-08-02 21:47:25','2024-08-02 21:47:25','https://ed.group/apartments/14313206'),(141,'7081670079','Анеля','2024-08-03 03:04:34','2024-08-03 03:04:34','https://ed.group/apartments/13775429'),(142,'7077162181','Зинур','2024-08-03 06:55:11','2024-08-03 06:55:11','https://ed.group/apartments/14313172'),(143,'7058003008','Бауыржан','2024-08-03 11:07:19','2024-08-03 11:07:19','https://ed.group/apartments/14009369'),(144,'7078301898','Адиль','2024-08-03 19:54:17','2024-08-03 19:54:17','https://ed.group/apartments/14258597'),(145,'87072','Роза Исимовна','2024-08-04 03:40:24','2024-08-04 03:40:24','https://ed.group/apartments?projectId=46797&areaFrom=10&areaTo=1000&type=AVAILABLE&rooms=1&startSearch=true'),(146,'87072','Роза Исимовна','2024-08-04 03:40:24','2024-08-04 03:40:24','https://ed.group/apartments?projectId=46797&areaFrom=10&areaTo=1000&type=AVAILABLE&rooms=1&startSearch=true'),(147,'7072147574','Роза Исимовна','2024-08-04 03:41:43','2024-08-04 03:41:43','https://ed.group/projects/11'),(148,'7052727727','Асель','2024-08-04 03:43:54','2024-08-04 03:43:54','https://ed.group/'),(149,'7058880847','Оксана','2024-08-04 12:15:06','2024-08-04 12:15:06','https://ed.group/mortgage'),(150,'7476157498','Самал','2024-08-04 13:01:18','2024-08-04 13:01:18','https://ed.group/mortgage'),(151,'7762842643','Гаухар','2024-08-06 15:50:01','2024-08-06 15:50:01','https://ed.group/apartments/14200634'),(152,'7077792831','Балауса','2024-08-07 08:52:14','2024-08-07 08:52:14','https://ed.group/mortgage'),(153,'7785944297','Галымжан','2024-08-07 13:41:05','2024-08-07 13:41:05','https://ed.group/projects/13?utm_source=korter.kz&utm_medium=referral'),(154,'7477379292','Рауза','2024-08-07 13:46:19','2024-08-07 13:46:19','https://ed.group/mortgage'),(155,'7056240043','Владимир','2024-08-07 17:42:47','2024-08-07 17:42:47','https://ed.group/apartments/14282149'),(156,'7752133599','Айдана','2024-08-08 13:38:01','2024-08-08 13:38:01','https://ed.group/apartments/14282149'),(157,'7785893575','madi','2024-08-08 17:35:39','2024-08-08 17:35:39','https://ed.group/apartments/14259602'),(158,'7087555077','Назерке','2024-08-09 04:10:50','2024-08-09 04:10:50','https://ed.group/mortgage'),(159,'7777777777','Alinur','2024-08-09 13:31:26','2024-08-09 13:31:26','https://ed.group/apartments/13775445'),(160,'7025542420','Нурканат','2024-08-09 17:02:46','2024-08-09 17:02:46','https://ed.group/apartments/14200667'),(161,'7766372727','Зульфия','2024-08-09 18:47:55','2024-08-09 18:47:55','https://ed.group/apartments/14313174'),(162,'7761878080','Дархан','2024-08-11 10:53:44','2024-08-11 10:53:44','https://ed.group/apartments/14282153'),(163,'7478099737','Sanzhar','2024-08-11 12:27:27','2024-08-11 12:27:27','https://ed.group/apartments/14282081'),(164,'7052101010','Сергей','2024-08-11 12:40:49','2024-08-11 12:40:49','https://ed.group/mortgage'),(165,'7025542420','Нурканат','2024-08-11 17:21:02','2024-08-11 17:21:02','https://ed.group/apartments/14200667'),(166,'4081036889','Асель','2024-08-12 08:05:09','2024-08-12 08:05:09','https://ed.group/mortgage'),(167,'7478380787','Санжар','2024-08-12 09:06:31','2024-08-12 09:06:31','https://ed.group/apartments/14282066'),(168,'7012526777','ДАСТАН','2024-08-12 12:39:26','2024-08-12 12:39:26','https://ed.group/apartments/14313173'),(169,'8701792597','Дана','2024-08-12 15:22:19','2024-08-12 15:22:19','https://ed.group/mortgage'),(170,'7071044412','Игорь','2024-08-12 20:38:46','2024-08-12 20:38:46','https://ed.group/apartments/14313174'),(171,'7079462972','Гюнай','2024-08-13 05:31:43','2024-08-13 05:31:43','https://ed.group/apartments/14313173'),(172,'7076344840','Айнур','2024-08-13 06:36:18','2024-08-13 06:36:18','https://ed.group/apartments/14282042'),(173,'7472235329','Адель','2024-08-13 08:15:50','2024-08-13 08:15:50','https://ed.group/projects/13'),(174,'7472200207','Милана','2024-08-13 18:33:20','2024-08-13 18:33:20','https://ed.group/apartments/14259734'),(175,'7075554145','Жадыра','2024-08-15 00:29:05','2024-08-15 00:29:05','https://ed.group/mortgage'),(176,'7058464448','Жанат','2024-08-15 07:58:35','2024-08-15 07:58:35','https://ed.group/apartments/14282027'),(177,'7010328757','Кенжелик','2024-08-15 10:24:20','2024-08-15 10:24:20','https://ed.group/mortgage'),(178,'7078306020','Маман Ахмаджанович','2024-08-16 02:28:41','2024-08-16 02:28:41','https://ed.group/apartments/14313172'),(179,'7751480599','Karina','2024-08-16 11:10:07','2024-08-16 11:10:07','https://ed.group/apartments/14282132'),(180,'7057818499','Лена','2024-08-18 16:24:06','2024-08-18 16:24:06','https://ed.group/mortgage'),(181,'7083744704','Диас','2024-08-19 10:29:45','2024-08-19 10:29:45','https://ed.group/apartments'),(182,'7077466040','Меруерт','2024-08-20 09:36:27','2024-08-20 09:36:27','https://ed.group/mortgage'),(183,'7006070600','Tansulu','2024-08-20 09:48:19','2024-08-20 09:48:19','https://ed.group/mortgage'),(184,'7754431118','Адилжан','2024-08-20 20:39:27','2024-08-20 20:39:27','https://ed.group/apartments/14157277'),(185,'7712080305','Диас','2024-08-21 06:33:10','2024-08-21 06:33:10','https://ed.group/projects/11'),(186,'7022265374','Gulnaz','2024-08-21 07:58:21','2024-08-21 07:58:21','https://ed.group/offices'),(187,'7478380787','Санжар','2024-08-21 11:09:54','2024-08-21 11:09:54','https://ed.group/apartments/14157266'),(188,'7073071000','Акжунис','2024-08-21 11:14:45','2024-08-21 11:14:45','https://ed.group/mortgage'),(189,'7474025477','Бибигуль','2024-08-21 11:42:36','2024-08-21 11:42:36','https://ed.group/mortgage'),(190,'7075657550','Досжан','2024-08-21 12:27:27','2024-08-21 12:27:27','https://ed.group/apartments/14282278'),(191,'7051529027','Айгерим','2024-08-21 15:36:35','2024-08-21 15:36:35','https://ed.group/apartments/14200634'),(192,'7014519798','Азамат','2024-08-21 18:15:40','2024-08-21 18:15:40','https://ed.group/mortgage'),(193,'7774911113','Санжар','2024-08-21 20:18:19','2024-08-21 20:18:19','https://ed.group/mortgage'),(194,'7755236887','Сая','2024-08-22 07:16:31','2024-08-22 07:16:31','https://ed.group/projects/13'),(195,'9999999999','ст','2024-08-22 07:27:22','2024-08-22 07:27:22','https://ed.group/apartments?projectId=47710&areaFrom=10&areaTo=1000&type&rooms=1&startSearch=true'),(196,'9999999999','вмпи','2024-08-22 07:28:03','2024-08-22 07:28:03','https://ed.group/projects/5'),(197,'7476590809','Айбар','2024-08-22 08:39:21','2024-08-22 08:39:21','https://ed.group/apartments/14200580'),(198,'7789996360','Жадыра','2024-08-22 08:46:05','2024-08-22 08:46:05','https://ed.group/apartments/14282030'),(199,'7078286383','Жулдыз','2024-08-22 09:10:44','2024-08-22 09:10:44','https://ed.group/mortgage'),(200,'7085343238','Нурболат','2024-08-22 10:31:48','2024-08-22 10:31:48','https://ed.group/en/apartments/14259833'),(201,'7781019393','Акторе','2024-08-22 10:44:26','2024-08-22 10:44:26','https://ed.group/'),(202,'7781111631','Мальвина','2024-08-22 12:17:03','2024-08-22 12:17:03','https://ed.group/apartments/14157211'),(203,'7027428870','Лилия','2024-08-22 13:16:30','2024-08-22 13:16:30','https://ed.group/apartments/14009337'),(204,'7475558481','Райымбек','2024-08-22 20:02:32','2024-08-22 20:02:32','https://ed.group/mortgage'),(205,'7769838601','Ainur','2024-08-23 14:18:43','2024-08-23 14:18:43','https://ed.group/projects?type=in_sale'),(206,'7058880326','Александр','2024-08-23 17:37:39','2024-08-23 17:37:39','https://ed.group/projects/11'),(207,'7787772611','Аружан','2024-08-23 17:57:43','2024-08-23 17:57:43','https://ed.group/projects/4?fbclid=PAZXh0bgNhZW0CMTEAAaYBTgpOovuqgOswoluV5gs29ijxZMxSO2-QSdbaX0OQrhJpv9kzxH2IUUs_aem_SF-gRRD3LxO6hRxSalFCsg'),(208,'7021693495','Акбота','2024-08-23 21:30:42','2024-08-23 21:30:42','https://ed.group/apartments/13775432'),(209,'7784680281','Олжас','2024-08-24 11:13:24','2024-08-24 11:13:24','https://ed.group/mortgage'),(210,'7077890686','Aidana','2024-08-25 05:55:45','2024-08-25 05:55:45','https://ed.group/projects/4?fbclid=PAZXh0bgNhZW0CMTEAAaY7Jy1VhVBgS-ZVV5OGSOdrn84oMAeaesnSMw1hc_P-Y6jEKh59r3b0Dk0_aem_JkmUT_hH3Al95yvw8pArNw'),(211,'7718520688','Данияр','2024-08-25 07:56:09','2024-08-25 07:56:09','https://ed.group/apartments/14157272'),(212,'7074001098','Қамар','2024-08-25 08:00:21','2024-08-25 08:00:21','https://ed.group/apartments?projectId=47881&areaFrom=10&areaTo=1000&type=AVAILABLE&rooms=1,3&startSearch=true'),(213,'7081206044','Айдын','2024-08-25 09:43:53','2024-08-25 09:43:53','https://ed.group/mortgage'),(214,'7478998675','Aruzhan','2024-08-25 10:26:40','2024-08-25 10:26:40','https://ed.group/apartments/14200601'),(215,'7076107750','Alexandra','2024-08-25 15:54:08','2024-08-25 15:54:08','https://ed.group/mortgage'),(216,'7473041595','87473041595','2024-08-25 16:28:15','2024-08-25 16:28:15','https://ed.group/apartments/14200080'),(217,'7472815468','Ширин','2024-08-26 06:39:49','2024-08-26 06:39:49','https://ed.group/apartments/14313206'),(218,'7471071747','Іңкәр','2024-08-26 06:49:53','2024-08-26 06:49:53','https://ed.group/apartments/14313173'),(219,'7019511873','Сергей','2024-08-26 08:00:55','2024-08-26 08:00:55','https://ed.group/about'),(220,'7019996609','Артур','2024-08-26 08:55:26','2024-08-26 08:55:26','https://ed.group/projects/10'),(221,'7071050695','Zhadra','2024-08-26 13:11:39','2024-08-26 13:11:39','https://ed.group/mortgage'),(222,'7072719700','Fariza','2024-08-26 15:29:49','2024-08-26 15:29:49','https://ed.group/mortgage'),(223,'7019140404','Акерке','2024-08-26 16:03:37','2024-08-26 16:03:37','https://ed.group/apartments/14521359'),(224,'7014545405','Айгуль','2024-08-26 17:09:39','2024-08-26 17:09:39','https://ed.group/apartments/14282131'),(225,'7081522974','Тогжан','2024-08-27 04:02:59','2024-08-27 04:02:59','https://ed.group/mortgage'),(226,'7081264045','Асыл','2024-08-27 05:18:32','2024-08-27 05:18:32','https://ed.group/apartments/14157444'),(227,'7011307283','Актоты','2024-08-27 09:24:17','2024-08-27 09:24:17','https://ed.group/apartments?projectId=47885&areaFrom=10&areaTo=1000&type&rooms=1,3&startSearch=true'),(228,'7756521870','Ринат','2024-08-27 13:09:51','2024-08-27 13:09:51','https://ed.group/apartments/14282027'),(229,'7017575724','Асель','2024-08-27 17:18:48','2024-08-27 17:18:48','https://ed.group/mortgage'),(230,'7475189506','Меруерт','2024-08-27 20:17:49','2024-08-27 20:17:49','https://ed.group/apartments/14009390'),(231,'7081575715','Алишер','2024-08-27 20:41:31','2024-08-27 20:41:31','https://ed.group/apartments/14282030'),(232,'7057696484','Асем','2024-08-28 04:14:21','2024-08-28 04:14:21','https://ed.group/'),(233,'7059038811','Ляззат','2024-08-28 04:58:17','2024-08-28 04:58:17','https://ed.group/apartments/14313183'),(234,'7075554145','Жадыра','2024-08-28 05:35:54','2024-08-28 05:35:54','https://ed.group/apartments/14259454'),(235,'7473912359','Куралай','2024-08-28 05:49:27','2024-08-28 05:49:27','https://ed.group/apartments/14009340'),(236,'7776648844','Иван','2024-08-28 08:24:01','2024-08-28 08:24:01','https://ed.group/apartments/14313173'),(237,'7019077717','Тимур','2024-08-28 10:05:59','2024-08-28 10:05:59','https://ed.group/apartments/14157271'),(238,'8708533691','Зарина','2024-08-28 10:12:59','2024-08-28 10:12:59','https://ed.group/apartments/14313172'),(239,'7085336914','Зарина','2024-08-28 10:13:31','2024-08-28 10:13:31','https://ed.group/apartments/14313172'),(240,'7010887747','Наталья','2024-08-28 11:35:26','2024-08-28 11:35:26','https://ed.group/apartments/14313172'),(241,'7784684871','Дана','2024-08-28 16:55:30','2024-08-28 16:55:30','https://ed.group/apartments/14259734'),(242,'7088058898','Акерке','2024-08-28 17:38:22','2024-08-28 17:38:22','https://ed.group/projects/13?tpclid=facebook.PAZXh0bgNhZW0CMTEAAabGRAztHhq9CG_hC0BNdWAp7LaG96kEyF93Anu9Rb09Pf__nYGxHinx3i0_aem_LlIrSjWabeT1bWEL6K0k7A'),(243,'7020299967','Ильяс','2024-08-29 06:26:09','2024-08-29 06:26:09','https://ed.group/offices'),(244,'9197685955','Наталья','2024-08-29 06:38:49','2024-08-29 06:38:49','https://ed.group/projects/11'),(245,'7474140114','Didar','2024-08-29 07:21:15','2024-08-29 07:21:15','https://ed.group/?fbclid=PAZXh0bgNhZW0CMTEAAaaJ4Rnac2QABjVCP7TyqIeN2Oc9hqE-7RPvLFgT5FzWDkuZEEV0BuIZXss_aem_mORvcyjh7oQRyOCTvvxy6g'),(246,'7075109908','Айгуль','2024-08-29 07:22:17','2024-08-29 07:22:17','https://ed.group/mortgage'),(247,'7475552551','Рукиям','2024-08-29 09:57:33','2024-08-29 09:57:33','https://ed.group/apartments/14282035'),(248,'7078098892','жулдыз','2024-08-29 11:26:12','2024-08-29 11:26:12','https://ed.group/apartments/14259603'),(249,'7012770044','Ruslan','2024-08-29 12:23:21','2024-08-29 12:23:21','https://ed.group/apartments/14201139'),(250,'7010887747','Наталья','2024-08-30 04:12:04','2024-08-30 04:12:04','https://ed.group/apartments/14313177'),(251,'7473177271','Елдос','2024-08-30 10:30:26','2024-08-30 10:30:26','https://ed.group/mortgage'),(252,'7473177274','Елдос','2024-08-30 10:30:47','2024-08-30 10:30:47','https://ed.group/mortgage'),(253,'7475380268','Sayat','2024-08-30 14:19:39','2024-08-30 14:19:39','https://ed.group/apartments/14448745'),(254,'7081602859','Даурен','2024-08-30 15:15:03','2024-08-30 15:15:03','https://ed.group/apartments/13775429'),(255,'7054048894','Асем','2024-08-30 15:21:03','2024-08-30 15:21:03','https://ed.group/projects/13'),(256,'7081602859','Даурен','2024-08-31 02:09:07','2024-08-31 02:09:07','https://ed.group/projects/10?fbclid=PAZXh0bgNhZW0CMTEAAabQPzpSrHg-Nf9QBSsV_p4s1GpSRa92W3B3DfyuwPRcg3i2cuoUNLWDkxA_aem_67J-tQuGvFx3oXLWS_JOxQ'),(257,'7476661995','Sultanbek','2024-08-31 03:14:03','2024-08-31 03:14:03','https://ed.group/mortgage'),(258,'7011003805','Маржан','2024-09-01 05:12:24','2024-09-01 05:12:24','https://ed.group/en/apartments/13775524'),(259,'7714082046','Айткул','2024-09-01 06:49:16','2024-09-01 06:49:16','https://ed.group/mortgage'),(260,'7089726808','Гуля','2024-09-01 08:28:10','2024-09-01 08:28:10','https://ed.group/apartments?projectId=46797&areaFrom=10&areaTo=1000&type&rooms=1,5,4,3,2&startSearch=true'),(261,'7759021155','Бота','2024-09-01 21:29:02','2024-09-01 21:29:02','https://ed.group/mortgage'),(262,'7017925975','Дана','2024-09-02 04:25:06','2024-09-02 04:25:06','https://ed.group/mortgage'),(263,'7017925975','Дана','2024-09-02 04:30:25','2024-09-02 04:30:25','https://ed.group/mortgage'),(264,'7711564234','Акерке','2024-09-02 07:23:49','2024-09-02 07:23:49','https://ed.group/apartments?projectId=46797&areaFrom=10&areaTo=1000&type&rooms=1,2&startSearch=true'),(265,'8708313717','Расул','2024-09-02 08:35:44','2024-09-02 08:35:44','https://ed.group/mortgage'),(266,'7088315017','Олжас','2024-09-02 09:15:20','2024-09-02 09:15:20','https://ed.group/mortgage'),(267,'7006482750','Виктория','2024-09-02 12:32:18','2024-09-02 12:32:18','https://ed.group/apartments/14282158'),(268,'7019770606','Мира','2024-09-02 16:23:38','2024-09-02 16:23:38','https://ed.group/apartments/14313206'),(269,'7076792317','Марат','2024-09-03 04:57:59','2024-09-03 04:57:59','https://ed.group/apartments/14259734'),(270,'7477517507','галина','2024-09-03 08:04:36','2024-09-03 08:04:36','https://ed.group/projects/7'),(271,'7076990250','Ернар','2024-09-03 10:42:50','2024-09-03 10:42:50','https://ed.group/mortgage'),(272,'8775662171','Asem','2024-09-03 11:52:12','2024-09-03 11:52:12','https://ed.group/apartments/14157277'),(273,'7756621717','Asem','2024-09-03 11:53:16','2024-09-03 11:53:16','https://ed.group/'),(274,'7024139949','Balnur','2024-09-03 12:24:22','2024-09-03 12:24:22','https://ed.group/en/apartments/14157296'),(275,'7071634613','Айтбек','2024-09-03 14:48:13','2024-09-03 14:48:13','https://ed.group/mortgage'),(276,'7754169696','Дана','2024-09-03 14:52:13','2024-09-03 14:52:13','https://ed.group/projects/7?fbclid=PAZXh0bgNhZW0CMTEAAaZB6RGpYR6uJv1Xc4u5O92OLT6PTcmwxERJs34qTIpdheqnkRLcQgtpuO0_aem_a6eOdQfl129miZEDRy08Bw'),(277,'7754169696','Дана','2024-09-03 14:53:46','2024-09-03 14:53:46','https://ed.group/mortgage'),(278,'7012387601','Akmaral','2024-09-03 15:35:41','2024-09-03 15:35:41','https://ed.group/apartments/14313308'),(279,'7021688392','Назугум','2024-09-03 15:41:56','2024-09-03 15:41:56','https://ed.group/mortgage'),(280,'7078285333','Салтанат','2024-09-03 19:28:06','2024-09-03 19:28:06','https://ed.group/apartments/14282025'),(281,'7475791762','Эльдар','2024-09-04 04:49:32','2024-09-04 04:49:32','https://ed.group/apartments/14201178'),(282,'7017702272','Ruslan','2024-09-04 06:05:13','2024-09-04 06:05:13','https://ed.group/projects/13'),(283,'7761631717','Yelena','2024-09-04 08:03:05','2024-09-04 08:03:05','https://ed.group/projects/6?fbclid=PAZXh0bgNhZW0CMTEAAaYYzZvx969QIDJ3buxJTH3RJ_oDSdNw0aeTqrHLqceMmQNTwzsVWdI2EBI_aem_7kWZUnG6KdFXHVcacb0_ag'),(284,'7024317744','Заявка с Kapster - Гульжан','2024-09-05 07:29:38','2024-09-05 07:29:38','https://ed.group/'),(285,'7753271063','Заявка с Kapster - Акмаржан','2024-09-05 07:30:24','2024-09-05 07:30:24','https://ed.group/'),(286,'7079001907','Роза','2024-09-05 07:39:04','2024-09-05 07:39:04','https://ed.group/about'),(287,'7478752686','Диана','2024-09-05 08:13:40','2024-09-05 08:13:40','https://ed.group/apartments/14313231'),(288,'7758886643','Гульфайрус','2024-09-05 09:34:31','2024-09-05 09:34:31','https://ed.group/apartments/14282029'),(289,'7758886613','Гульфайрус','2024-09-05 09:47:17','2024-09-05 09:47:17','https://ed.group/apartments/14282025'),(290,'7081252525','Антон','2024-09-05 10:40:29','2024-09-05 10:40:29','https://ed.group/apartments/14448717'),(291,'7770102019','Nursultan','2024-09-05 11:10:18','2024-09-05 11:10:18','https://ed.group/mortgage'),(292,'7013660057','Айя','2024-09-05 13:55:27','2024-09-05 13:55:27','https://ed.group/mortgage'),(293,'7011809997','Арай','2024-09-05 18:24:49','2024-09-05 18:24:49','https://ed.group/?fbclid=PAZXh0bgNhZW0CMTEAAaYX6oRM1YMsWE_2hstrFg_YXpy4_lKRao3C7yNWNzhCe-Z2-R2tP-KCGTQ_aem_TRl_CJTysYHjBgHmvCjAfw'),(294,'7011809997','Арай','2024-09-05 18:26:10','2024-09-05 18:26:10','https://ed.group/mortgage'),(295,'7773556699','Ерлан','2024-09-06 05:21:21','2024-09-06 05:21:21','https://ed.group/apartments/14313172'),(296,'7027356499','Евгений','2024-09-06 08:01:13','2024-09-06 08:01:13','https://ed.group/apartments/14313172'),(297,'7021000667','Дастан','2024-09-06 13:11:27','2024-09-06 13:11:27','https://ed.group/apartments/14282057'),(298,'7780580303','Раушан','2024-09-06 18:21:47','2024-09-06 18:21:47','https://ed.group/apartments/14282030'),(299,'7013660057','Айя','2024-09-07 10:18:35','2024-09-07 10:18:35','https://ed.group/projects'),(300,'7075760404','Нур','2024-09-07 12:29:51','2024-09-07 12:29:51','https://ed.group/mortgage'),(301,'7013660057','Айя','2024-09-07 15:12:45','2024-09-07 15:12:45','https://ed.group/apartments/14201148'),(302,'7755030371','Назерке','2024-09-07 15:19:43','2024-09-07 15:19:43','https://ed.group/apartments/14200993'),(303,'7016169691','Gulmira','2024-09-07 17:15:22','2024-09-07 17:15:22','https://ed.group/apartments/14313174'),(304,'7071799017','НУРТАС','2024-09-08 13:06:17','2024-09-08 13:06:17','https://ed.group/apartments/14313308'),(305,'7019703335','Юлия','2024-09-08 16:39:51','2024-09-08 16:39:51','https://ed.group/apartments'),(306,'7479846279','Димаш','2024-09-08 21:15:14','2024-09-08 21:15:14','https://ed.group/mortgage'),(307,'7753692040','Сания','2024-09-09 03:44:17','2024-09-09 03:44:17','https://ed.group/?fbclid=PAZXh0bgNhZW0CMTEAAaY8GZSpyZ2aW5O_i-tK8B3CHj0KHBdxNb1nBmOonYDzxzsLQGpBR81KFjk_aem_ks6a_cYFwTqKV1IpIb2TXA'),(308,'7002784656','Бота','2024-09-09 05:30:25','2024-09-09 05:30:25','https://ed.group/apartments'),(309,'7010543470','Гулайым','2024-09-09 07:07:25','2024-09-09 07:07:25','https://ed.group/apartments/14260006'),(310,'7752132524','Сымбат','2024-09-09 08:15:47','2024-09-09 08:15:47','https://ed.group/apartments/14259454'),(311,'7071135962','Алина','2024-09-09 08:16:30','2024-09-09 08:16:30','https://ed.group/en/apartments/14259522'),(312,'7476170321','Рания','2024-09-09 08:56:02','2024-09-09 08:56:02','https://ed.group/apartments?projectId=47885&areaFrom=10&areaTo=1000&type=AVAILABLE&rooms=2&startSearch=true'),(313,'7474026046','Алтынай','2024-09-09 10:04:12','2024-09-09 10:04:12','https://ed.group/projects/13'),(314,'7772391188','Оксана','2024-09-09 10:11:41','2024-09-09 10:11:41','https://ed.group/apartments/14313176'),(315,'7766336290','Молдир','2024-09-09 10:20:24','2024-09-09 10:20:24','https://ed.group/apartments/14259459'),(316,'7770438448','Темирлан','2024-09-09 10:29:12','2024-09-09 10:29:12','https://ed.group/en/apartments/14259454'),(317,'7057667649','Ризабек','2024-09-09 11:06:10','2024-09-09 11:06:10','https://ed.group/apartments/13775439'),(318,'7057667649','Ризабек','2024-09-09 11:06:10','2024-09-09 11:06:10','https://ed.group/apartments/13775439'),(319,'7780484335','Merey','2024-09-09 14:38:39','2024-09-09 14:38:39','https://ed.group/apartments/14200637'),(320,'7078759430','Аружан','2024-09-10 06:01:00','2024-09-10 06:01:00','https://ed.group/apartments/14259454'),(321,'7059925490','Елена','2024-09-10 06:05:38','2024-09-10 06:05:38','https://ed.group/mortgage'),(322,'7081053250','Айгерім','2024-09-10 06:25:12','2024-09-10 06:25:12','https://ed.group/apartments/13775440'),(323,'7014082147','Асель','2024-09-10 06:37:26','2024-09-10 06:37:26','https://ed.group/apartments/14282027'),(324,'7059925490','Елена','2024-09-10 07:21:26','2024-09-10 07:21:26','https://ed.group/projects/4'),(325,'7773546060','Ardak','2024-09-10 07:29:52','2024-09-10 07:29:52','https://ed.group/projects/4?fbclid=PAZXh0bgNhZW0CMTEAAaZqTI5ku-yFfGt9fn3novZQR2GomAd1FH5wmBXt-n-vFOhtTLNwDDN0og4_aem_3kOe_vs6fCO-lMoINghhgg'),(326,'7081264045','Асылжан','2024-09-10 08:14:10','2024-09-10 08:14:10','https://ed.group/apartments/14282169'),(327,'7059925490','Елена','2024-09-10 08:20:30','2024-09-10 08:20:30','https://ed.group/offices'),(328,'7017501355','татьяна','2024-09-10 09:24:41','2024-09-10 09:24:41','https://ed.group/en/about'),(329,'7781446357','Алима','2024-09-10 11:11:40','2024-09-10 11:11:40','https://ed.group/apartments/14313174'),(330,'7015280171','Торехан','2024-09-10 16:29:04','2024-09-10 16:29:04','https://ed.group/apartments/14313173'),(331,'7051791271','Жулдыз','2024-09-10 16:32:36','2024-09-10 16:32:36','https://ed.group/apartments/14259734'),(332,'7472933639','Владислав','2024-09-10 18:47:53','2024-09-10 18:47:53','https://ed.group/mortgage'),(334,'7021441286','Улан','2024-09-11 19:27:04','2024-09-11 19:27:04','https://ed.group/mortgage'),(335,'7081919176','Евгений','2024-09-12 05:20:45','2024-09-12 05:20:45','https://ed.group/projects'),(336,'7014110904','Оксана','2024-09-12 06:01:43','2024-09-12 06:01:43','https://ed.group/offices'),(337,'7085269220','Тогжан','2024-09-12 06:13:55','2024-09-12 06:13:55','https://ed.group/apartments/14282042'),(338,'7472737222','Ақмарал','2024-09-12 07:24:56','2024-09-12 07:24:56','https://ed.group/apartments/13775433'),(339,'7086240360','Azamat','2024-09-12 08:48:09','2024-09-12 08:48:09','https://ed.group/apartments/14282177'),(340,'7015280171','Торехан','2024-09-12 09:02:09','2024-09-12 09:02:09','https://ed.group/apartments/14282048'),(341,'7778195050','Людмила','2024-09-12 10:22:16','2024-09-12 10:22:16','https://ed.group/mortgage'),(342,'7014800678','Лев','2024-09-13 11:43:59','2024-09-13 11:43:59','https://ed.group/offices'),(343,'7087636016','Бота','2024-09-13 12:30:59','2024-09-13 12:30:59','https://ed.group/apartments/14200634'),(344,'7086240360','Азамат','2024-09-13 13:10:25','2024-09-13 13:10:25','https://ed.group/mortgage'),(345,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(346,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(347,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(348,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(349,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(350,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(351,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(352,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(353,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(354,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(355,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(356,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(357,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(358,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(359,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(360,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(361,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(362,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(363,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(364,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(365,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(366,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(367,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(368,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(369,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(370,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(371,'7086240360','Азамат','2024-09-13 13:10:26','2024-09-13 13:10:26','https://ed.group/mortgage'),(372,'7086240360','Азамат','2024-09-13 13:10:27','2024-09-13 13:10:27','https://ed.group/mortgage'),(373,'7086240360','Азамат','2024-09-13 13:10:27','2024-09-13 13:10:27','https://ed.group/mortgage'),(374,'7057343788','Андрей','2024-09-13 14:00:39','2024-09-13 14:00:39','https://ed.group/mortgage'),(375,'7477000700','Алишер','2024-09-13 20:05:05','2024-09-13 20:05:05','https://ed.group/apartments/14313309'),(376,'7077451360','Нурлан','2024-09-14 01:14:30','2024-09-14 01:14:30','https://ed.group/mortgage'),(377,'7473939376','Лаура','2024-09-14 03:26:03','2024-09-14 03:26:03','https://ed.group/mortgage'),(378,'7011515545','Султан','2024-09-14 04:48:58','2024-09-14 04:48:58','https://ed.group/apartments/13775440'),(379,'7477061656','Нурлан','2024-09-14 12:07:41','2024-09-14 12:07:41','https://ed.group/apartments/14282029'),(380,'7057343788','Андрей','2024-09-14 18:42:19','2024-09-14 18:42:19','https://ed.group/apartments/14282345'),(381,'7051791271','Жулдыз','2024-09-14 18:51:38','2024-09-14 18:51:38','https://ed.group/apartments/14282058'),(382,'7078098892','Жулдыз','2024-09-15 05:09:32','2024-09-15 05:09:32','https://ed.group/mortgage'),(384,'7075552888','Ислам','2024-09-16 06:13:40','2024-09-16 06:13:40','https://ed.group/apartments/14282037'),(385,'8747871917','Михаил','2024-09-16 06:14:24','2024-09-16 06:14:24','https://ed.group/apartments/14282048'),(386,'7772317880','Ануар','2024-09-16 06:25:09','2024-09-16 06:25:09','https://ed.group/apartments/14259734'),(387,'7784056198','Азиза','2024-09-16 09:59:51','2024-09-16 09:59:51','https://ed.group/mortgage'),(388,'7064073081','Дмитрий','2024-09-16 11:27:26','2024-09-16 11:27:26','https://ed.group/apartments/14197277'),(389,'7476216735','Карина','2024-09-16 12:17:03','2024-09-16 12:17:03','https://ed.group/en/mortgage'),(390,'7054563995','Рита','2024-09-16 19:33:07','2024-09-16 19:33:07','https://ed.group/mortgage'),(391,'7054563995','Рита','2024-09-16 19:33:07','2024-09-16 19:33:07','https://ed.group/mortgage'),(392,'7054563995','Рита','2024-09-16 19:33:07','2024-09-16 19:33:07','https://ed.group/mortgage'),(393,'7054563995','Рита','2024-09-16 19:33:07','2024-09-16 19:33:07','https://ed.group/mortgage'),(394,'7054563995','Рита','2024-09-16 19:33:07','2024-09-16 19:33:07','https://ed.group/mortgage'),(395,'7054563995','Рита','2024-09-16 19:33:08','2024-09-16 19:33:08','https://ed.group/mortgage'),(396,'7054563995','Рита','2024-09-16 19:33:08','2024-09-16 19:33:08','https://ed.group/mortgage'),(397,'7754169696','Дана','2024-09-17 06:03:07','2024-09-17 06:03:07','https://ed.group/projects/7?fbclid=PAZXh0bgNhZW0CMTEAAabi5CyVX8_OKfHJSrOWfEcN7JsRdDrxHt0utVFhqSsjUFOShq9HhirYdCA_aem_4ipErExvvtO7PhxT-vU4nQ'),(398,'7477597181','Anar','2024-09-17 07:06:32','2024-09-17 07:06:32','https://ed.group/apartments?projectId=47881&areaFrom=10&areaTo=1000&type&rooms=2,3&startSearch=true'),(399,'7085280185','Макпал','2024-09-17 07:50:33','2024-09-17 07:50:33','https://ed.group/apartments/13775535'),(400,'7473912359','Куралай','2024-09-17 08:58:38','2024-09-17 08:58:38','https://ed.group/apartments/14009339'),(401,'7007627886','Абай','2024-09-17 11:25:44','2024-09-17 11:25:44','https://ed.group/apartments/14201178'),(402,'7015439926','Айсулу','2024-09-17 11:32:29','2024-09-17 11:32:29','https://ed.group/projects/11'),(403,'7010328757','Кенжелик','2024-09-17 11:57:55','2024-09-17 11:57:55','https://ed.group/apartments/14259612'),(404,'7019937016','Илья','2024-09-18 05:04:17','2024-09-18 05:04:17','https://ed.group/apartments/14313207'),(405,'7475577625','Диана','2024-09-19 05:48:18','2024-09-19 05:48:18','https://ed.group/apartments/14157272'),(406,'7066600808','Акерке','2024-09-19 18:55:17','2024-09-19 18:55:17','https://ed.group/'),(407,'7083361691','Tilek','2024-09-19 19:08:36','2024-09-19 19:08:36','https://ed.group/apartments/14282118'),(408,'7760778087','Гулжанат','2024-09-20 07:00:03','2024-09-20 07:00:03','https://ed.group/mortgage'),(409,'7785571414','Онталап','2024-09-20 11:04:58','2024-09-20 11:04:58','https://ed.group/apartments/14259610'),(410,'7089177636','Димаш','2024-09-21 05:33:03','2024-09-21 05:33:03','https://ed.group/projects/11'),(411,'7773707766','Заявка с Kapster - Кайрат','2024-09-21 07:16:07','2024-09-21 07:16:07','https://ed.group/projects/7'),(412,'7084884139','Алина','2024-09-21 11:06:00','2024-09-21 11:06:00','https://ed.group/apartments/14282102'),(413,'7772222191','Чингиз','2024-09-21 21:42:23','2024-09-21 21:42:23','https://ed.group/apartments/14313172'),(414,'7077883426','Аяулым','2024-09-21 22:08:09','2024-09-21 22:08:09','https://ed.group/mortgage'),(415,'7473475664','Сабрия','2024-09-22 03:34:27','2024-09-22 03:34:27','https://ed.group/mortgage'),(416,'7082621583','Aсель','2024-09-22 03:51:55','2024-09-22 03:51:55','https://ed.group/apartments/14200728'),(417,'7079890770','Марат','2024-09-22 05:54:01','2024-09-22 05:54:01','https://ed.group/mortgage'),(418,'7751697668','Гулгина','2024-09-22 06:49:03','2024-09-22 06:49:03','https://ed.group/projects/11?fbclid=PAZXh0bgNhZW0CMTEAAaahyJtYINHUm3x5lj1Q2rE7L5dU84Ys_QdJvR-VooxaTdU8DFhI7KJYd_Y_aem_ESQsx04N_1y8apzuBh7CHQ'),(419,'7071812334','Аида','2024-09-22 08:26:47','2024-09-22 08:26:47','https://ed.group/mortgage'),(420,'7071645998','Азиза','2024-09-22 09:28:58','2024-09-22 09:28:58','https://ed.group/projects/13?fbclid=PAZXh0bgNhZW0CMTEAAaaMRLzoSjUkrnzU9FGcoQKvBDTX6j3DIdwE5prQ7OkumFV3dbPQ7DIDJUQ_aem_2IPwM4xlL52mEgM5X3jm0Q'),(421,'7750525777','Асеке','2024-09-22 15:00:19','2024-09-22 15:00:19','https://ed.group/en/projects/7'),(422,'8701558318','Гузель','2024-09-22 17:14:43','2024-09-22 17:14:43','https://ed.group/apartments/14282027'),(423,'8707790166','Аселя','2024-09-23 05:42:41','2024-09-23 05:42:41','https://ed.group/'),(424,'7472947063','Бах','2024-09-23 07:03:42','2024-09-23 07:03:42','https://ed.group/apartments/14282037'),(425,'7004799366','Арай','2024-09-23 09:41:19','2024-09-23 09:41:19','https://ed.group/apartments/14259736'),(426,'7077758998','Амангуль','2024-09-23 09:54:30','2024-09-23 09:54:30','https://ed.group/apartments/14259528'),(427,'7004242240','Асылбек','2024-09-23 11:09:59','2024-09-23 11:09:59','https://ed.group/apartments/14448734'),(428,'7005600175','Шахризад','2024-09-23 11:59:23','2024-09-23 11:59:23','https://ed.group/mortgage'),(429,'7013183248','Илипов Куат','2024-09-23 17:01:02','2024-09-23 17:01:02','https://ed.group/projects/12'),(430,'7027300397','Айжан','2024-09-23 18:39:04','2024-09-23 18:39:04','https://ed.group/apartments/14282042'),(431,'702777918','bake','2024-09-24 07:01:43','2024-09-24 07:01:43','https://ed.group/apartments/14259386'),(432,'7027779183','bake','2024-09-24 07:03:46','2024-09-24 07:03:46','https://ed.group/apartments/14259386'),(433,'7012770114','Олжас','2024-09-24 08:23:18','2024-09-24 08:23:18','https://ed.group/projects/11'),(434,'7019977880','Динар','2024-09-24 11:05:19','2024-09-24 11:05:19','https://ed.group/projects/4'),(435,'7054096244','Айгуль','2024-09-24 11:51:22','2024-09-24 11:51:22','https://ed.group/apartments/14313176'),(436,'7054096244','Айгуль','2024-09-24 11:51:22','2024-09-24 11:51:22','https://ed.group/apartments/14313176'),(437,'7003908888','Сымбат','2024-09-24 17:17:06','2024-09-24 17:17:06','https://ed.group/projects/13'),(438,'7752245892','Балнур','2024-09-25 04:20:11','2024-09-25 04:20:11','https://ed.group/en/apartments/14313206'),(439,'7752509006','Бауыржан','2024-09-25 10:02:27','2024-09-25 10:02:27','https://ed.group/'),(440,'7770149193','Наталья','2024-09-25 11:16:18','2024-09-25 11:16:18','https://ed.group/offices'),(441,'7782452424','Мадияр','2024-09-25 12:57:45','2024-09-25 12:57:45','https://ed.group/projects/4?fbclid=PAZXh0bgNhZW0CMTEAAaZ7Rtl8YMs2ULpt-c0L_dqfvJY8g0IjFIc41CACmxKnD14hFpEFhPnfkfo_aem_ZVg4ZS__7cgpqEFBMECQVg'),(442,'7005979717','Амина','2024-09-25 13:50:01','2024-09-25 13:50:01','https://ed.group/mortgage'),(443,'7474939827','Бекзат','2024-09-25 14:52:49','2024-09-25 14:52:49','https://ed.group/projects/13?tpclid=facebook.PAZXh0bgNhZW0CMTEAAabxbQjRk5m6nXjb3n3YHlfNssdVwvBtQXe6Qw7ZmvKElKR7S9tM8ysVaoA_aem__GNHqiQEA-j9MYTMhZVNDw'),(444,'7476647121','Гульжанат','2024-09-25 16:17:24','2024-09-25 16:17:24','https://ed.group/mortgage'),(445,'7066890506','Rinat','2024-09-25 20:13:33','2024-09-25 20:13:33','https://ed.group/mortgage'),(446,'7758209081','Iman','2024-09-26 07:32:42','2024-09-26 07:32:42','https://ed.group/mortgage'),(447,'7770149193','Наталья','2024-09-26 11:20:50','2024-09-26 11:20:50','https://ed.group/projects/11'),(448,'7001999414','Артур  куралбаев','2024-09-27 07:57:21','2024-09-27 07:57:21','https://ed.group/projects/4'),(449,'7076966906','Асем','2024-09-27 11:13:08','2024-09-27 11:13:08','https://ed.group/apartments/14282026'),(450,'7775557676','Елдос','2024-09-27 12:04:26','2024-09-27 12:04:26','https://ed.group/about'),(451,'7718283356','Татьяна','2024-09-27 15:48:52','2024-09-27 15:48:52','https://ed.group/projects/13'),(452,'7756811068','Kuralay','2024-09-27 19:18:40','2024-09-27 19:18:40','https://ed.group/apartments/14197295'),(453,'7717530415','Максат','2024-09-28 04:47:41','2024-09-28 04:47:41','https://ed.group/mortgage'),(454,'7002503197','Мухан','2024-09-28 05:05:51','2024-09-28 05:05:51','https://ed.group/apartments?projectId=47435&areaFrom=10&areaTo=1000&type&rooms=2,3&startSearch=true'),(455,'7019419079','Берик','2024-09-28 08:50:12','2024-09-28 08:50:12','https://ed.group/apartments/14282153'),(456,'7082249024','Фариза','2024-09-28 10:57:46','2024-09-28 10:57:46','https://ed.group/apartments/14200728'),(457,'7770887709','Заявка с Kapster - Бауржан Апарт-отель Turkistan Apartments','2024-09-29 07:18:42','2024-09-29 07:18:42','https://ed.group/'),(458,'7071331939','Birzhan','2024-09-29 14:56:03','2024-09-29 14:56:03','https://ed.group/apartments/14282094'),(459,'7711736938','Шолпан','2024-09-29 17:41:42','2024-09-29 17:41:42','https://ed.group/projects/11'),(460,'7021076009','Балжан','2024-09-29 18:42:25','2024-09-29 18:42:25','https://ed.group/apartments/14259610'),(461,'7785893575','Madi','2024-09-30 06:09:07','2024-09-30 06:09:07','https://ed.group/apartments/14259386'),(462,'7084884139','Алина','2024-09-30 08:00:09','2024-09-30 08:00:09','https://ed.group/apartments/14282102'),(463,'7079077903','Murat','2024-09-30 11:42:48','2024-09-30 11:42:48','https://ed.group/projects'),(464,'7054443833','Айгерим','2024-09-30 22:00:58','2024-09-30 22:00:58','https://ed.group/projects/13?fbclid=PAZXh0bgNhZW0CMTEAAaYpRDWjexb2Pahy8S-ZtJie4Zu_JXVWCe-sPvI4QN83q_Gr3DAzKuOI7Po_aem_YMVayhNyTGsmtciUPFJoYQ'),(465,'7077255461','Тагир','2024-10-01 08:24:14','2024-10-01 08:24:14','https://ed.group/mortgage'),(466,'7715770214','Абылай','2024-10-01 09:20:28','2024-10-01 09:20:28','https://ed.group/apartments/14521355'),(467,'7075615026','Алмас','2024-10-01 16:22:47','2024-10-01 16:22:47','https://ed.group/apartments/14282035'),(468,'7080372073','Айгерим','2024-10-01 16:26:09','2024-10-01 16:26:09','https://ed.group/apartments/14197376'),(469,'7073516980','Маржан','2024-10-01 16:27:22','2024-10-01 16:27:22','https://ed.group/apartments/14259510'),(470,'7753276619','Айсауле ,позвоните на ват сапп ,я в Америке, не могу с вами связаться, писала на ват сапп никто не ответил','2024-10-01 21:35:12','2024-10-01 21:35:12','https://ed.group/apartments/13775450'),(471,'7019322828','Нұржан','2024-10-02 02:34:18','2024-10-02 02:34:18','https://ed.group/mortgage'),(472,'7772997111','Кахарман','2024-10-02 04:02:09','2024-10-02 04:02:09','https://ed.group/apartments/14157233'),(473,'7772997111','Кахарман','2024-10-02 04:02:14','2024-10-02 04:02:14','https://ed.group/apartments/14157233'),(474,'7772997111','Кахриман','2024-10-02 04:02:54','2024-10-02 04:02:54','https://ed.group/apartments/14157253'),(475,'7783506388','Аяжан','2024-10-02 04:23:25','2024-10-02 04:23:25','https://ed.group/projects/4'),(476,'7026661568','Алмас','2024-10-02 15:34:56','2024-10-02 15:34:56','https://ed.group/mortgage'),(477,'7073449335','Гульмира','2024-10-02 17:52:14','2024-10-02 17:52:14','https://ed.group/apartments/14157278'),(478,'7016440488','Наталья','2024-10-02 18:26:57','2024-10-02 18:26:57','https://ed.group/apartments/14157272'),(479,'7477995789','Динара','2024-10-02 20:42:22','2024-10-02 20:42:22','https://ed.group/mortgage'),(480,'7055554707','Айгерим','2024-10-03 15:56:11','2024-10-03 15:56:11','https://ed.group/'),(481,'7785893575','Madi','2024-10-03 17:15:01','2024-10-03 17:15:01','https://ed.group/apartments/14259612'),(482,'7768680204','Ару','2024-10-03 18:22:05','2024-10-03 18:22:05','https://ed.group/apartments/14282026'),(483,'7768680204','Ару','2024-10-03 18:33:16','2024-10-03 18:33:16','https://ed.group/projects/4'),(484,'7751880103','Данияр','2024-10-03 20:56:02','2024-10-03 20:56:02','https://ed.group/apartments/14313174'),(485,'7477519600','Alaidar','2024-10-03 21:39:23','2024-10-03 21:39:23','https://ed.group/mortgage'),(486,'7756310043','Шолпан','2024-10-04 04:32:38','2024-10-04 04:32:38','https://ed.group/'),(487,'7089001768','Мадина','2024-10-04 10:13:56','2024-10-04 10:13:56','https://ed.group/en/apartments/14157267'),(488,'7089001768','Мадина','2024-10-04 10:22:02','2024-10-04 10:22:02','https://ed.group/mortgage'),(489,'7075121093','Ернур','2024-10-04 10:56:57','2024-10-04 10:56:57','https://ed.group/'),(490,'7075474647','Бауыржан','2024-10-04 18:47:45','2024-10-04 18:47:45','https://ed.group/apartments/14259510'),(491,'7015717770','Айбол','2024-10-04 19:18:40','2024-10-04 19:18:40','https://ed.group/mortgage'),(492,'7086301650','Толеген','2024-10-04 23:39:25','2024-10-04 23:39:25','https://ed.group/apartments/14313177'),(493,'7077323200','Аружан','2024-10-05 14:13:49','2024-10-05 14:13:49','https://ed.group/apartments/14157267'),(494,'7082490693','Zarina','2024-10-05 14:30:25','2024-10-05 14:30:25','https://ed.group/apartments/14313186'),(495,'8747782954','Айша','2024-10-05 17:26:38','2024-10-05 17:26:38','https://ed.group/apartments/14009412'),(496,'7075775343','Эльдар','2024-10-05 17:49:50','2024-10-05 17:49:50','https://ed.group/apartments/14448714'),(497,'7075775343','Айгерим. https://everestdevelopment.amocrm.ru/leads/detail/19641109 - квалификация пройдена','2024-10-05 18:06:00','2024-10-13 13:17:15','https://ed.group/apartments/14313206'),(498,'7000808100','Азамат','2024-10-06 11:04:19','2024-10-06 11:04:19','https://ed.group/projects/13'),(499,'870212','Канагат','2024-10-06 20:30:50','2024-10-06 20:30:50','https://ed.group/'),(500,'7774880777','Nurma','2024-10-07 07:11:10','2024-10-07 07:11:10','https://ed.group/'),(501,'7765929792','Динара','2024-10-07 07:55:03','2024-10-07 07:55:03','https://ed.group/mortgage'),(502,'7078682634','Санжар','2024-10-07 08:29:03','2024-10-07 08:29:03','https://ed.group/apartments/14259610'),(503,'7764310503','Ажар','2024-10-07 12:42:37','2024-10-07 12:42:37','https://ed.group/apartments/14282052'),(504,'7083784313','Актоты','2024-10-07 19:45:49','2024-10-07 19:45:49','https://ed.group/mortgage'),(505,'7076117884','Роза','2024-10-08 06:22:23','2024-10-08 06:22:23','https://ed.group/en/projects/11'),(506,'7478955551','bek','2024-10-08 08:59:24','2024-10-08 08:59:24','https://ed.group/apartments/14282026'),(507,'7078682634','Санжар','2024-10-08 10:56:41','2024-10-08 10:56:41','https://ed.group/apartments'),(508,'7072676897','Зумрат','2024-10-08 12:20:56','2024-10-08 12:20:56','https://ed.group/mortgage'),(509,'7074725223','Аскар','2024-10-08 14:32:11','2024-10-08 14:32:11','https://ed.group/apartments/14259806'),(510,'7476982324','Ansar','2024-10-08 18:50:45','2024-10-08 18:50:45','https://ed.group/apartments/14157227'),(511,'7715026772','Адель','2024-10-09 03:21:21','2024-10-09 03:21:21','https://ed.group/projects/12'),(512,'7715026772','Адель','2024-10-09 03:31:28','2024-10-09 03:31:28','https://ed.group/projects/12'),(513,'7017377651','Эльмира','2024-10-09 04:58:46','2024-10-09 04:58:46','https://ed.group/offices'),(514,'7782189418','Жазира','2024-10-09 05:52:47','2024-10-09 05:52:47','https://ed.group/projects/11?fbclid=PAZXh0bgNhZW0CMTEAAaZY9ytsdv5Wbl4236dtLcfsKHFYGhzPaEA9UomVN5j6T9xJ5hZY8Rgf0y8_aem_hByxoQhhRb8RwPDp5vltqQ'),(515,'7064253577','Аружан - (https://everestdevelopment.amocrm.ru/leads/detail/19521543 - дубль)','2024-10-09 06:07:00','2024-10-13 11:28:26','https://ed.group/'),(517,'7077879996','Айжан (https://everestdevelopment.amocrm.ru/leads/detail/19538557 - дубль )','2024-10-09 09:49:00','2024-10-13 11:26:23','https://ed.group/projects/4?fbclid=PAZXh0bgNhZW0CMTEAAab2xvX2ac1HyHyljo4brjpV_QmwhtAbcgc1psA4UEbpWZAHr86zGWPbCj0_aem_IUte7bL4S0i-vSVeCgg0xQ'),(518,'7006806808','Айсулу уже звонили','2024-10-09 23:46:00','2024-10-13 11:25:19','https://ed.group/apartments/14282277'),(519,'756508466','Вадим - https://everestdevelopment.amocrm.ru/leads/detail/19551157 дубль','2024-10-10 07:09:00','2024-10-13 11:23:00','https://ed.group/apartments/14201148'),(521,'7005600175','Шахризад https://everestdevelopment.amocrm.ru/leads/detail/19594877 - дубль','2024-10-10 07:44:00','2024-10-13 11:21:38','https://ed.group/apartments/14282168'),(522,'7006806808','Айсулу уже звонили','2024-10-10 09:22:00','2024-10-13 11:21:00','https://ed.group/apartments/14282277'),(523,'7006806808','Айсулу уже звонили','2024-10-10 10:03:00','2024-10-13 11:20:35','https://ed.group/apartments/14282277'),(524,'7076096893','Жансерік (https://everestdevelopment.amocrm.ru/leads/detail/19551585 - дубль)','2024-10-10 10:30:00','2024-10-13 11:18:47','https://ed.group/apartments/14200634'),(525,'7023339916','Александр (телефон отключен. НДЗ)','2024-10-11 04:22:00','2024-10-13 11:12:00','https://ed.group/projects/11'),(526,'7472834047','Аяулым - https://everestdevelopment.amocrm.ru/leads/detail/19627139 Нурдин Айнара','2024-10-11 10:26:00','2024-10-13 11:10:30','https://ed.group/projects/4'),(527,'7471505051','Сымбат - https://everestdevelopment.amocrm.ru/leads/detail/19627055','2024-10-11 12:43:00','2024-10-13 11:08:30','https://ed.group/mortgage'),(531,'7022396379','Азамат - на ватц апп просит','2024-10-12 05:22:00','2024-10-13 10:40:27','https://ed.group/en/apartments/14313174'),(532,'7471355842','Мади - не берет (Жазира)','2024-10-12 06:11:00','2024-10-13 10:37:20','https://ed.group/apartments/14313172'),(537,'7017071107','Нуржас','2024-10-13 15:25:19','2024-10-13 15:25:19','https://ed.group/apartments/14313206'),(538,'7471047906','Нурия','2024-10-13 16:33:29','2024-10-13 16:33:29','https://ed.group/mortgage'),(544,'7077704848','Мадина','2024-10-15 13:07:18','2024-10-15 13:07:18','https://ed.group/mortgage'),(546,'7475805985','Санжар','2024-10-15 14:25:42','2024-10-15 14:25:42','https://ed.group/apartments/14009339'),(547,'7009008899','Amir','2024-10-15 14:34:31','2024-10-15 14:34:31','https://ed.group/mortgage'),(548,'7075121093','Ернур','2024-10-15 17:33:07','2024-10-15 17:33:07','https://ed.group/mortgage'),(549,'7770888852','Бауыржан','2024-10-15 17:51:13','2024-10-15 17:51:13','https://ed.group/projects?type=in_sale');
+/*!40000 ALTER TABLE `applications` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `banners`
+--
+
+DROP TABLE IF EXISTS `banners`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `banners` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `link` char(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `banners`
+--
+
+LOCK TABLES `banners` WRITE;
+/*!40000 ALTER TABLE `banners` DISABLE KEYS */;
+INSERT INTO `banners` VALUES (1,'Просчитай свою выгоду','Успейте купить квартиру с минимальной переплатой по уникальной ставке от 2,9%','banners\\March2024\\IJKSMG85fqyWV9d0Zask.png','2024-03-09 19:12:02','2024-03-09 19:12:02',NULL);
+/*!40000 ALTER TABLE `banners` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cities`
+--
+
+DROP TABLE IF EXISTS `cities`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cities` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cities`
+--
+
+LOCK TABLES `cities` WRITE;
+/*!40000 ALTER TABLE `cities` DISABLE KEYS */;
+INSERT INTO `cities` VALUES (1,'Алматы','2024-03-09 20:31:03','2024-03-09 20:31:03');
+/*!40000 ALTER TABLE `cities` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `commercial_estate_advantages`
+--
+
+DROP TABLE IF EXISTS `commercial_estate_advantages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `commercial_estate_advantages` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `commercial_estate_id` bigint unsigned DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `commercial_estate_advantages_commercial_estate_id_foreign` (`commercial_estate_id`),
+  CONSTRAINT `commercial_estate_advantages_commercial_estate_id_foreign` FOREIGN KEY (`commercial_estate_id`) REFERENCES `commercial_estates` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `commercial_estate_advantages`
+--
+
+LOCK TABLES `commercial_estate_advantages` WRITE;
+/*!40000 ALTER TABLE `commercial_estate_advantages` DISABLE KEYS */;
+INSERT INTO `commercial_estate_advantages` VALUES (1,'commercial-estate-advantages/March2024/CQbklcxC1imqsutb6Djc.png','dsfsdf','sdfsdfs',1,'2024-03-24 21:08:45','2024-03-24 21:08:45'),(2,'commercial-estate-advantages/March2024/r3oCDjF9IWeRAsyBHycL.png','asdadsd','asdasda',1,'2024-03-24 21:08:53','2024-03-24 21:08:53'),(3,'commercial-estate-advantages/March2024/JmqNCgpB5LXnAVTIa2RD.png','asdasda','asdasdasd',1,'2024-03-24 21:08:59','2024-03-24 21:08:59'),(4,'commercial-estate-advantages/March2024/3Sk0qRoYCrVZoelG4gkE.png','asdasd','asdasdasdas',1,'2024-03-24 21:09:07','2024-03-24 21:09:07');
+/*!40000 ALTER TABLE `commercial_estate_advantages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `commercial_estate_main_blocks`
+--
+
+DROP TABLE IF EXISTS `commercial_estate_main_blocks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `commercial_estate_main_blocks` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title2` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `commercial_estate_main_blocks`
+--
+
+LOCK TABLES `commercial_estate_main_blocks` WRITE;
+/*!40000 ALTER TABLE `commercial_estate_main_blocks` DISABLE KEYS */;
+INSERT INTO `commercial_estate_main_blocks` VALUES (1,'Аукционы','Выбирайте самые выгодные льготы для вашего бизнеса','2024-03-24 20:39:21','2024-03-24 20:39:21',NULL);
+/*!40000 ALTER TABLE `commercial_estate_main_blocks` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `commercial_estate_purchasing_methods`
+--
+
+DROP TABLE IF EXISTS `commercial_estate_purchasing_methods`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `commercial_estate_purchasing_methods` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Структура таблицы `about_us_companies`
+-- Dumping data for table `commercial_estate_purchasing_methods`
 --
 
-CREATE TABLE `about_us_companies` (
-  `id` bigint UNSIGNED NOT NULL,
+LOCK TABLES `commercial_estate_purchasing_methods` WRITE;
+/*!40000 ALTER TABLE `commercial_estate_purchasing_methods` DISABLE KEYS */;
+INSERT INTO `commercial_estate_purchasing_methods` VALUES (1,'Подбор оптимальных помещений','commercial-estate-purchasing-methods/March2024/eCDNuN7TUVxQ9TOn9Ru2.png','2024-03-24 20:45:20','2024-03-24 20:45:20'),(2,'Подбор оптимальных помещений','commercial-estate-purchasing-methods/March2024/8V75RAObOFlVB3HFmpFk.png','2024-03-24 20:45:28','2024-03-24 20:45:28'),(3,'Подбор оптимальных помещений','commercial-estate-purchasing-methods/March2024/Dzj1MizKS3PYGm8fh7ou.png','2024-03-24 20:45:33','2024-03-24 20:45:33'),(4,'Подбор оптимальных помещений','commercial-estate-purchasing-methods/March2024/Egq0H2CtW9ZVLTpzrjeQ.png','2024-03-24 20:45:38','2024-03-24 20:45:38');
+/*!40000 ALTER TABLE `commercial_estate_purchasing_methods` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `commercial_estate_secondary_blocks`
+--
+
+DROP TABLE IF EXISTS `commercial_estate_secondary_blocks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `commercial_estate_secondary_blocks` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `icon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `link` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Структура таблицы `about_us_descriptions`
+-- Dumping data for table `commercial_estate_secondary_blocks`
 --
 
-CREATE TABLE `about_us_descriptions` (
-  `id` bigint UNSIGNED NOT NULL,
+LOCK TABLES `commercial_estate_secondary_blocks` WRITE;
+/*!40000 ALTER TABLE `commercial_estate_secondary_blocks` DISABLE KEYS */;
+INSERT INTO `commercial_estate_secondary_blocks` VALUES (1,'Покупка','Широкий выбор премиальных апартаментов','commercial-estate-secondary-blocks/March2024/QlFavtCmwGXC9w1Xxdfr.png','2024-03-24 20:39:46','2024-03-24 20:39:46'),(2,'Покупка','Широкий выбор премиальных апартаментов','commercial-estate-secondary-blocks/March2024/TzyOZTRTvZcZvztPIn7j.png','2024-03-24 20:39:58','2024-03-24 20:39:58');
+/*!40000 ALTER TABLE `commercial_estate_secondary_blocks` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `commercial_estate_sliders`
+--
+
+DROP TABLE IF EXISTS `commercial_estate_sliders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `commercial_estate_sliders` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `about_us_geographies`
---
-
-CREATE TABLE `about_us_geographies` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `about_us_geography_districts`
---
-
-CREATE TABLE `about_us_geography_districts` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Структура таблицы `appartments`
+-- Dumping data for table `commercial_estate_sliders`
 --
 
-CREATE TABLE `appartments` (
-  `id` bigint UNSIGNED NOT NULL,
+LOCK TABLES `commercial_estate_sliders` WRITE;
+/*!40000 ALTER TABLE `commercial_estate_sliders` DISABLE KEYS */;
+INSERT INTO `commercial_estate_sliders` VALUES (1,'Скидка 10% на коммерческое помещение','Количество предложений ограничено','commercial-estate-sliders/March2024/LVk7b5KTvaTLNiUlEuah.png','2024-03-24 20:41:40','2024-03-24 20:41:40');
+/*!40000 ALTER TABLE `commercial_estate_sliders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `commercial_estates`
+--
+
+DROP TABLE IF EXISTS `commercial_estates`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `commercial_estates` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `descritpion` text COLLATE utf8mb4_unicode_ci,
   `plan_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `floor_plan_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `quadrature` int NOT NULL,
-  `floor` int NOT NULL,
-  `entrance` int NOT NULL,
-  `rooms` int NOT NULL DEFAULT '0',
+  `floor` int DEFAULT NULL,
   `deadline` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `metro` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `city_id` bigint UNSIGNED DEFAULT NULL,
-  `complex_id` bigint UNSIGNED DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `appartments`
---
-
-INSERT INTO `appartments` (`id`, `title`, `descritpion`, `plan_image`, `floor_plan_image`, `quadrature`, `floor`, `entrance`, `rooms`, `deadline`, `metro`, `type`, `city_id`, `complex_id`, `created_at`, `updated_at`) VALUES
-(1, 'Студия 22,8 м²', 'Отделка и кондиционер входят в стоимость', 'appartments\\March2024\\Pi4IF4F4OHlPaHTYzpUF.png', 'appartments\\March2024\\IDxawyglnYtoUCUzZznJ.png', 32, 3, 5, 2, '2 квартал 2024 года', 'м. Домодедовская', 'available', 1, 1, NULL, '2024-03-13 20:18:04'),
-(2, 'Студия 32,8 м²', 'Отделка и кондиционер входят в стоимость', 'appartments\\March2024\\kyHum2UZXABFhu0pUagj.png', 'appartments\\March2024\\BZTXTx2A1piDTMdnWhZW.png', 55, 3, 5, 3, '2 квартал 2024 года', 'м. Домодедовская', 'available', 1, 1, NULL, '2024-03-13 20:18:16'),
-(3, 'Студия 12,8 м²', 'Отделка и кондиционер входят в стоимость', 'appartments\\March2024\\0UZXkiKDQnDCweYx7wrB.png', 'appartments\\March2024\\ELM2ClG6ay8ols3eF2E1.png', 15, 3, 5, 1, '2 квартал 2024 года', 'м. Домодедовская', 'not_available', 1, 1, NULL, '2024-03-13 20:18:29'),
-(4, 'Студия 100м²', 'Отделка и кондиционер входят в стоимость', 'appartments\\March2024\\0UZXkiKDQnDCweYx7wrB.png', 'appartments\\March2024\\ELM2ClG6ay8ols3eF2E1.png', 15, 3, 5, 4, '2 квартал 2024 года', 'м. Домодедовская', 'not_available', 1, 2, NULL, '2024-03-13 20:18:29');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `appartment_advantages`
---
-
-CREATE TABLE `appartment_advantages` (
-  `id` bigint UNSIGNED NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `appartment_id` bigint UNSIGNED DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `appartment_advantages`
---
-
-INSERT INTO `appartment_advantages` (`id`, `image`, `title`, `description`, `appartment_id`, `created_at`, `updated_at`) VALUES
-(1, 'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png', 'Удобство', 'Удобно)!!', 1, NULL, '2024-03-13 20:21:13'),
-(2, 'appartment-advantages\\March2024\\6a9cUxnR4iN24GQgZIdN.png', 'Удобство', 'Удобно)!!', 1, NULL, '2024-03-13 20:21:19'),
-(3, 'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png', 'Удобство', 'Удобно)!!', 1, NULL, NULL),
-(4, 'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png', 'Удобство', 'Удобно)!!', 1, NULL, NULL),
-(5, 'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png', 'Удобство', 'Удобно)!!', 2, NULL, NULL),
-(6, 'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png', 'Удобство', 'Удобно)!!', 2, NULL, NULL),
-(7, 'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png', 'Удобство', 'Удобно)!!', 2, NULL, NULL),
-(8, 'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png', 'Удобство', 'Удобно)!!', 2, NULL, NULL),
-(9, 'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png', 'Удобство', 'Удобно)!!', 3, NULL, NULL),
-(10, 'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png', 'Удобство', 'Удобно)!!', 3, NULL, NULL),
-(11, 'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png', 'Удобство', 'Удобно)!!', 3, NULL, NULL),
-(12, 'appartment-advantages\\March2024\\ggHPe8CNokXkg7q07Q83.png', 'Удобство', 'Удобно)!!', 3, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `banners`
---
-
-CREATE TABLE `banners` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `banners`
---
-
-INSERT INTO `banners` (`id`, `title`, `description`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'Просчитай свою выгоду', 'Успейте купить квартиру с минимальной переплатой по уникальной ставке от 2,9%', 'banners\\March2024\\IJKSMG85fqyWV9d0Zask.png', '2024-03-09 19:12:02', '2024-03-09 19:12:02');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `cities`
---
-
-CREATE TABLE `cities` (
-  `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `cities`
---
-
-INSERT INTO `cities` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Алматы', '2024-03-09 20:31:03', '2024-03-09 20:31:03'),
-(2, 'Астана', '2024-03-09 20:31:08', '2024-03-09 20:31:08'),
-(3, 'Караганда', '2024-03-09 20:31:14', '2024-03-09 20:31:14');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `complexes`
---
-
-CREATE TABLE `complexes` (
-  `id` bigint UNSIGNED NOT NULL,
-  `images` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `city_id` bigint UNSIGNED DEFAULT NULL,
+  `city_id` bigint unsigned DEFAULT NULL,
+  `complex_id` bigint unsigned DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `stream_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  PRIMARY KEY (`id`),
+  KEY `commercial_estates_city_id_foreign` (`city_id`),
+  KEY `commercial_estates_complex_id_foreign` (`complex_id`),
+  CONSTRAINT `commercial_estates_city_id_foreign` FOREIGN KEY (`city_id`) REFERENCES `cities` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `commercial_estates_complex_id_foreign` FOREIGN KEY (`complex_id`) REFERENCES `complexes` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Дамп данных таблицы `complexes`
+-- Dumping data for table `commercial_estates`
 --
 
-INSERT INTO `complexes` (`id`, `images`, `title`, `description`, `type`, `description_image`, `city_id`, `created_at`, `updated_at`, `stream_link`) VALUES
-(1, '[\"complexes\\\\March2024\\\\o7qrBAmkwsa2dGyzTknu.png\",\"complexes\\\\March2024\\\\JAd6ioh83hq9YHpEaGmy.png\"]', 'Жилой комплекс \"Belle View\"', '<p>О проекте</p>\r\n<p>&nbsp;</p>\r\n<p>&laquo;Квартал Герцена&raquo;&nbsp;&mdash; это жилой комплекс комфорт-класса с&nbsp;корпусами переменной этажности, собственной инфраструктурой и&nbsp;шикарными видами на&nbsp;Бирюлевский лесопарк.<br><br>Изучая локацию и&nbsp;продумывая концепцию проекта, мы&nbsp;вдохновлялись местной историей. Ее&nbsp;частью стал публицист и&nbsp;философ Александр Герцен, который проводил много времени в&nbsp;этом районе.</p>', 'in_sale', 'complexes\\March2024\\azAIRiDw9dyfdxwEBCFv.png', 1, '2024-03-11 16:50:06', '2024-03-11 16:55:49', NULL),
-(2, '[\"complexes\\\\March2024\\\\o7qrBAmkwsa2dGyzTknu.png\",\"complexes\\\\March2024\\\\JAd6ioh83hq9YHpEaGmy.png\"]', 'Жилой комплекс \"Beerkhan View\"', '<p>О проекте</p>\r\n<p>&nbsp;</p>\r\n<p>&laquo;Квартал Герцена&raquo;&nbsp;&mdash; это жилой комплекс комфорт-класса с&nbsp;корпусами переменной этажности, собственной инфраструктурой и&nbsp;шикарными видами на&nbsp;Бирюлевский лесопарк.<br><br>Изучая локацию и&nbsp;продумывая концепцию проекта, мы&nbsp;вдохновлялись местной историей. Ее&nbsp;частью стал публицист и&nbsp;философ Александр Герцен, который проводил много времени в&nbsp;этом районе.</p>', 'in_sale', 'complexes\\March2024\\azAIRiDw9dyfdxwEBCFv.png', 1, '2024-03-11 16:50:06', '2024-03-11 16:55:49', NULL);
-
--- --------------------------------------------------------
+LOCK TABLES `commercial_estates` WRITE;
+/*!40000 ALTER TABLE `commercial_estates` DISABLE KEYS */;
+INSERT INTO `commercial_estates` VALUES (1,'Коммерческое помещение','110 квадратных метра для вашего бизнеса','commercial-estates/March2024/eAIBUJAw2Oelhy7yV3hZ.png','commercial-estates/March2024/VBJRDVXtnXTjAsZfhu0k.png',70,1,'2024','gab',1,4,'2024-03-24 21:08:19','2024-05-10 10:49:36');
+/*!40000 ALTER TABLE `commercial_estates` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Структура таблицы `complex_advantages`
+-- Table structure for table `company_news`
 --
 
+DROP TABLE IF EXISTS `company_news`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `company_news` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `content` text COLLATE utf8mb4_unicode_ci,
+  `description` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `company_news`
+--
+
+LOCK TABLES `company_news` WRITE;
+/*!40000 ALTER TABLE `company_news` DISABLE KEYS */;
+INSERT INTO `company_news` VALUES (1,'Ключи от квартиры героям Эвереста','company-news/June2024/cJwYIFuNtsYE3wMlAywd.webp','<p>В Алматы состоялась церемония чествования казахстанских альпинистов Максута Жумаева, Анары Бурашевой и Альмира Кымбатбайулы, покоривших вершину Эвереста. В честь их достижения компания Everest Development вручила им ключи от двухкомнатных квартир в центре города. Максут Жумаев совершил своё третье восхождение на Эверест, а Анара и Альмир поднялись на вершину впервые. Генеральный директор компании, Азамат Сулейменов, отметил, что альпинисты являются гордостью Казахстана и вдохновением для молодежи. Также отметим, что Анар и Альмир являются сотрудниками компании.</p>','<p>23.05.2024</p>','2024-05-25 18:22:53','2024-06-14 07:00:22'),(2,'Сейсмоиспытания в Коттеджном Городке Baganashil Hills','company-news/June2024/RwhVz5E5arc60D2rma6F.png','<p>26 декабря 2023 года в коттеджном поселке Baganashil Hills, расположенном в Алматы, прошли повторные испытания на сейсмоустойчивость. Для проверки прочности построек была использована новейшая техника и оборудование, а также специалисты КазНИИСА. Имитация землетрясения магнитудой 9 баллов позволила участникам и приглашенным гостям лично убедиться в надежности и безопасности коттеджей поселка.</p>\r\n<p>Испытания прошли успешно, подтвердив высокие стандарты строительства Baganashil Hills. Мероприятие организовано компанией Everest Development, которая стремится обеспечить максимально комфортные и безопасные условия проживания для своих клиентов.</p>\r\n<p>Более подробную информацию о проведенных испытаниях можно найти в отчетном видеоролике, опубликованном на странице Instagram компании @everest_development_kz. Видео демонстрирует все этапы проверки и реакции построек на симуляцию землетрясения.</p>','<p>26 декабря 2023 года</p>','2024-05-25 18:35:20','2024-06-14 06:57:25'),(3,'Президент принял альпинистку Анар Бурашеву','company-news/June2024/I8pKW1MZ8Nt2a3Tbm4D0.jpg','<p>Президент отметил, что ее достижение вдохновило молодежь заниматься спортом. Как подчеркнул Касым-Жомарт Токаев, альпинизм &ndash; это сложный и опасный вид спорта, который требует огромной силы воли, выдержки, психологической и физической подготовки.</p>\r\n<p>Анар Бурашева рассказала о том, что начала заниматься альпинизмом с 2015 года, а профессиональные навыки освоила в течение последних 4 лет. До восхождения на Эверест она успела совершить подъем на многие вершины, в числе которых альпийский Монблан и высочайшая гора Африки Килиманджаро.</p>\r\n<p>В ходе беседы Анар поделилась планами взойти на 7 высочайших вершин мира. Она также вручила Президенту флаг Казахстана, с которым покорила Эверест.</p>\r\n<p>Глава государства отметил, что отечественные спортсмены достойно представляют нашу страну на международной арене, и пожелал Анар Бурашевой покорения новых высот.</p>',NULL,'2024-06-20 06:55:45','2024-06-20 06:55:45'),(4,'Первая девушка-казашка покорила Эверест','company-news/June2024/9yGdEZ1yEley9d70gRpV.jpg','<p>Казахстанская команда &laquo;Kazakh Everest Team&raquo; в составе Анар Бурашевой, Альмира Кымбатбайулы, и Максута Жумаева успешно взошла на высочайшую вершину мира &ndash; пик Эверест (8848 метров). Команда взошла на пик 12 мая в 07:25 утра по времени Непала. - В связи с труднейшими погодными условиями в виде шторма и бурана на высоте выше 8000 метров большинство экспедиций, участвовавших в штурме вершины, развернулись с маршрута, и только альпинистам из пяти стран удалось успешно подняться на Эверест. Среди них были и наши соотечественники - Анар Бурашева, ставшая первой в истории казашкой, поднявшейся на высочайшую вершину мира, спортсмен и экстремал Кымбатбайулы Альмир , Максут Жумаев.</p>',NULL,'2024-06-20 07:18:52','2024-06-20 07:28:14'),(5,'Как наши маленькие жители отмечали 1 июня — Всемирный день защиты детей!','company-news/June2024/vMdJ6VwCq3mnD3ZYYHMJ.PNG','<p>1 июня мы с радостью отметили Международный день защиты детей в ЖК Everest! Дети наслаждались развлечениями с аниматорами, танцевали, лакомились сладкой ватой и попкорном, рисовали цветными мелками на асфальте, ели мороженое и многое другое. Спасибо всем, кто присоединился к нам и сделал этот праздник ярким и веселым!</p>',NULL,'2024-06-20 07:44:29','2024-06-20 07:45:18'),(6,'Новый проект с квартирами, оснащенными террасами!','company-news/June2024/9GwF8sXfVCC7iRx5KI1R.JPG','<p>Мы рады представить вам новый роскошный жилой комплекс \"Everest Boulevard\" на Кульджинском тракте.Жилой комплекс \"Everest Boulevard\" предлагает идеальные условия для вашего комфортного проживания, где каждая деталь продумана с любовью к вашему благополучию. Здесь вы найдете уникальные пространства, соответствующие вашим потребностям и желаниям, делая ваше пребывание особенно приятным и комфортным.</p>',NULL,'2024-06-20 09:48:08','2024-06-20 10:20:10'),(7,'Встречайте наш новый офис отдела продаж!','company-news/June2024/CtRQCT4uvwVLqahMPvlQ.JPG','<p>Представляем вам наш новый офис отдела продаж, где созданы идеальные условия для успешного сотрудничества.Наш новый офис отдела продаж впечатляет современным и функциональным интерьером, создающим комфортные условия для деловых встреч и консультаций.Вы можете его посетить по адресу: &nbsp;с. Иргели, Карасайский район, Алматинская область.</p>',NULL,'2024-06-20 10:55:51','2024-06-20 11:09:46');
+/*!40000 ALTER TABLE `company_news` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `complex_advantages`
+--
+
+DROP TABLE IF EXISTS `complex_advantages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `complex_advantages` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `complex_id` bigint UNSIGNED DEFAULT NULL,
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `complex_id` bigint unsigned DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `complex_advantages_complex_id_foreign` (`complex_id`),
+  CONSTRAINT `complex_advantages_complex_id_foreign` FOREIGN KEY (`complex_id`) REFERENCES `complexes` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Дамп данных таблицы `complex_advantages`
+-- Dumping data for table `complex_advantages`
 --
 
-INSERT INTO `complex_advantages` (`id`, `title`, `image`, `description`, `complex_id`, `created_at`, `updated_at`) VALUES
-(1, 'Транспорт', 'complex-advantages\\March2024\\ZDa9Xxb27MYfTVfahjwA.png', '15 минут на автомобиле до ст. метро «Орехово» и «Царицыно»', 1, '2024-03-13 18:27:22', '2024-03-13 18:27:36'),
-(2, 'Транспорт', 'complex-advantages\\March2024\\ZDa9Xxb27MYfTVfahjwA.png', '15 минут на автомобиле до ст. метро «Орехово» и «Царицыно»', 1, '2024-03-13 18:27:22', '2024-03-13 18:27:36'),
-(3, 'Транспорт', 'complex-advantages\\March2024\\ZDa9Xxb27MYfTVfahjwA.png', '15 минут на автомобиле до ст. метро «Орехово» и «Царицыно»', 1, '2024-03-13 18:27:22', '2024-03-13 18:27:36'),
-(4, 'Транспорт', 'complex-advantages\\March2024\\ZDa9Xxb27MYfTVfahjwA.png', '15 минут на автомобиле до ст. метро «Орехово» и «Царицыно»', 1, '2024-03-13 18:27:22', '2024-03-13 18:27:36');
-
--- --------------------------------------------------------
+LOCK TABLES `complex_advantages` WRITE;
+/*!40000 ALTER TABLE `complex_advantages` DISABLE KEYS */;
+INSERT INTO `complex_advantages` VALUES (1,'Удобное расположение','complex-advantages/June2024/xfS2SCDZAKqPM8z3eigX.png','5 школ, 2 поликлиники и 3 детских сада',5,'2024-03-13 18:27:22','2024-06-18 10:35:16'),(2,'Удобное расположение','complex-advantages/June2024/atBcwYhWLUPh813zvCYM.png','Рядом ТРЦ \"Гранд Парк\" и водохранилище \"Сайран\"',4,'2024-03-13 18:27:22','2024-06-20 05:52:20'),(3,'Расположение','complex-advantages\\March2024\\ZDa9Xxb27MYfTVfahjwA.png','Доступен свежайший воздух а также неповторимая атмосфера закрытого комьюнити',6,'2024-03-13 18:27:22','2024-06-14 15:13:59'),(4,'Расположение','complex-advantages/June2024/cUh9G8gZMhWNX9XDGGCl.png','Рядом расположены \"Leroy Merlin\" и \"Aport Mall\". В нескольких минутках будет расположена мечеть.',10,'2024-03-13 18:27:22','2024-06-18 10:35:40'),(5,'Для детей','complex-advantages/June2024/MaIRWwyb1poI1Y8ORkSU.png','Закрытый двор и экологические детские площадки',4,'2024-06-13 09:14:59','2024-06-18 07:53:39'),(6,'Транспортная доступность','complex-advantages/June2024/MAXTySobpmAZKBVh5Ifx.png','10 минут до метро \"Москва\"',4,'2024-06-13 09:17:55','2024-06-13 09:18:00'),(7,'Транспорт','complex-advantages/June2024/1URbNf00IXBUnztMrVjP.png','15 минут до центра города',5,'2024-06-14 08:59:00','2024-06-14 08:59:07'),(8,'Инфра структура','complex-advantages/June2024/AK2xOhMfYsaSxG40q9nE.png','Собственные детские площадки и зеленый двор',5,'2024-06-14 09:07:03','2024-06-18 10:33:58'),(9,'Транспорт','complex-advantages/June2024/6f1s7RTPFLjZwwdCHsL6.png','15 минут до центра города',10,'2024-06-14 14:59:03','2024-06-14 14:59:08'),(10,'Благоустройство','complex-advantages/June2024/GcgUmpZ9WW9Fx1RjXuCj.png','Концепция двор без машин',10,'2024-06-14 15:06:48','2024-06-14 15:06:55'),(11,'Транспортная доступность','complex-advantages/June2024/QnHOhFYUrkMgZr4FUG7Q.png','5 минут до проспекта Аль-Фараби, 7 минут до международной школы Tamos, 12 минут до ТРК MEGA Alma-Ata',6,'2024-06-14 15:15:28','2024-06-14 15:15:34'),(12,'Архитектура','complex-advantages/June2024/EKTCTGlY058bFQT33frT.png','Свежесть и эксклюзивность архитектуры',6,'2024-06-14 15:18:41','2024-06-14 15:19:02'),(13,'Собственный Клаб Хаус','complex-advantages/June2024/UdwIDlfo4YTzXGDu5gJm.png','Уютные завтраки в кругу семьи и тонизирующих занятий спортом',7,'2024-06-18 12:01:26','2024-06-18 12:01:33'),(14,'Окружение','complex-advantages/June2024/7TK0nyiC1Y3pgvyvnY5D.png','13 минут до Villa Boutiques & Restaurants, 10 минут до Школы Tamos Education, 14 минут до Mega-Center\nAlma-Ata',7,'2024-06-18 12:05:44','2024-06-18 12:05:49'),(15,'Архитектура','complex-advantages/June2024/8B8zdmiCS4xd49tFaEJx.png','Современные архитектурные решения будут радовать не только надежностью, но и эстетикой',7,'2024-06-18 12:08:58','2024-06-18 12:09:03'),(16,'Расположение','complex-advantages/June2024/E1AG4HcgfiZuvQZdcxOr.png','Рядом Парк им. 28 Гвардейцев-Панфиловцев, Зеленый базар, Центральная мечеть, Вознесенский собор',11,'2024-06-18 14:51:03','2024-06-18 15:03:25'),(17,'Благоустройство','complex-advantages/June2024/wzYDvocpugQNjavbrRFX.png','Озеленение территории ',11,'2024-06-18 14:59:08','2024-06-18 14:59:14'),(18,'Дизайн','complex-advantages/June2024/hA1zbXX8y8rxykYc2l6m.png','Авторский дизайн холлов и лестничных площадок',11,'2024-06-18 15:00:56','2024-06-18 15:01:02'),(19,'Прибыльность','complex-advantages/June2024/yx3E0VEUmytMonNgDhtX.png','Высокая доходность и Быстрая окупаемость',11,'2024-06-18 15:02:21','2024-06-18 15:02:52'),(20,'Расположение','complex-advantages/June2024/vuwMoQekKOqcyuBmUHrw.png','Халык Арена 5 мин - 2км, Aport Mall 7 мин - 5 км, Аэропорт Алматы 10 мин - 8км',13,'2024-06-20 05:02:03','2024-06-20 05:02:12'),(21,'Сейсмостойкость','complex-advantages/June2024/V2eaDEYLXR1du0v2ksSd.png','9 баллов',13,'2024-06-20 05:05:05','2024-06-20 05:05:10'),(22,'Пешеходный Бульвар','complex-advantages/June2024/J2qOsJYWLAoooxSbJlik.png','Бульвар с просторными аллеями и скамейками',13,'2024-06-20 05:07:37','2024-06-20 05:07:43'),(23,'Инфраструктура','complex-advantages/June2024/TWplWzSBWTVfcXhMbCjM.png','Детский сад, школы и поликлиника',12,'2024-06-20 05:11:08','2024-06-20 05:11:14'),(24,'Транспорт','complex-advantages/June2024/DVRtUfb5jWEI1vn9YclJ.png','15 минут до станции метро Бауыржан Момышулы',12,'2024-06-20 05:13:37','2024-06-20 05:13:42'),(25,'Улучшенная отделка','complex-advantages/June2024/kPyCcPMPOAZJuXsGCi7F.png','Повышение класса отделки ',12,'2024-06-20 05:16:35','2024-06-20 05:16:40');
+/*!40000 ALTER TABLE `complex_advantages` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Структура таблицы `complex_peculiarities`
+-- Table structure for table `complex_peculiarities`
 --
 
+DROP TABLE IF EXISTS `complex_peculiarities`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `complex_peculiarities` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `complex_id` bigint UNSIGNED DEFAULT NULL,
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `complex_id` bigint unsigned DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `complex_peculiarities_complex_id_foreign` (`complex_id`),
+  CONSTRAINT `complex_peculiarities_complex_id_foreign` FOREIGN KEY (`complex_id`) REFERENCES `complexes` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Дамп данных таблицы `complex_peculiarities`
+-- Dumping data for table `complex_peculiarities`
 --
 
-INSERT INTO `complex_peculiarities` (`id`, `title`, `image`, `complex_id`, `created_at`, `updated_at`) VALUES
-(1, 'Инфраструктура', 'complex-peculiarities\\March2024\\ojKKpoNhfhzzNEb0iase.png', 1, '2024-03-13 18:31:38', '2024-03-13 18:32:41'),
-(2, 'Инфраструктура', 'complex-peculiarities\\March2024\\ojKKpoNhfhzzNEb0iase.png', 1, '2024-03-13 18:31:38', '2024-03-13 18:32:41'),
-(3, 'Инфраструктура', 'complex-peculiarities\\March2024\\ojKKpoNhfhzzNEb0iase.png', 1, '2024-03-13 18:31:38', '2024-03-13 18:32:41'),
-(4, 'Инфраструктура', 'complex-peculiarities\\March2024\\ojKKpoNhfhzzNEb0iase.png', 1, '2024-03-13 18:31:38', '2024-03-13 18:32:41'),
-(5, 'Инфраструктура', 'complex-peculiarities\\March2024\\ojKKpoNhfhzzNEb0iase.png', 1, '2024-03-13 18:31:38', '2024-03-13 18:32:41');
-
--- --------------------------------------------------------
+LOCK TABLES `complex_peculiarities` WRITE;
+/*!40000 ALTER TABLE `complex_peculiarities` DISABLE KEYS */;
+/*!40000 ALTER TABLE `complex_peculiarities` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Структура таблицы `data_rows`
+-- Table structure for table `complexes`
 --
 
+DROP TABLE IF EXISTS `complexes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `complexes` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `images` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description_image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city_id` bigint unsigned DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `stream_link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `coordinates` point DEFAULT NULL,
+  `general_plan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `brief` text COLLATE utf8mb4_unicode_ci,
+  `architecture` text COLLATE utf8mb4_unicode_ci,
+  `lobby` text COLLATE utf8mb4_unicode_ci,
+  `transport` text COLLATE utf8mb4_unicode_ci,
+  `infrastracture` text COLLATE utf8mb4_unicode_ci,
+  `peculiarities` text COLLATE utf8mb4_unicode_ci,
+  `improvement` text COLLATE utf8mb4_unicode_ci,
+  `landscape` text COLLATE utf8mb4_unicode_ci,
+  `safety` text COLLATE utf8mb4_unicode_ci,
+  `advantages` text COLLATE utf8mb4_unicode_ci,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `project_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `complexes_city_id_foreign` (`city_id`),
+  CONSTRAINT `complexes_city_id_foreign` FOREIGN KEY (`city_id`) REFERENCES `cities` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `complexes`
+--
+
+LOCK TABLES `complexes` WRITE;
+/*!40000 ALTER TABLE `complexes` DISABLE KEYS */;
+INSERT INTO `complexes` VALUES (4,'[\"complexes\\/May2024\\/rwhb7I1hNdW8wMVqBE9Q.jpg\",\"complexes\\/May2024\\/rPn8XEuqCvKnFmyg1L5P.jpg\"]','Жилой Комплекс \"Everest\"','<p dir=\"ltr\">ЖК Everest подарит незабываемые ощущения высоты и свободы!<br>Ощутите неповторимую свободу высоты с жилым комплексом Everest . Преимущества, которые он предлагает, покорят самые высокие вершины вашего желания.</p>\n<ul>\n<li dir=\"ltr\">Закрытый двор</li>\n<li dir=\"ltr\">от 12 до 18 этажей</li>\n<li dir=\"ltr\">высота потолков 3м.</li>\n<li>Благоустройство и озеленение территории.</li>\n<li>Выдеонаблюдение.</li>\n</ul>\n<p>&nbsp;</p>','implemented','complexes/May2024/GnkstQly4eWteA8hMnET.jpg',1,'2024-04-04 15:32:25','2024-06-20 05:49:22',NULL,_binary '\0\0\0\0\0\0\0dr\�O�6S@\n\��E@','complexes/April2024/pzKDelZcxGdquHOTGuPL.jpeg','Жилой комплекс Комфорт + класса\r\nВаша вершина комфорта!\r\nРасположение: г. Алматы, Ауэзовский район, ул. Утеген батыра 11','<p dir=\"ltr\">Фасад жилого комплекса Everest выполнен из фиброцементых панелей, которые создают дополнительную изоляцию от шума улицы и оптимальные условия температуры как зимой, так и летом.&nbsp;</p>\r\n<p>&nbsp;</p>','<p>Уникальный дизайн лобби будет приятно удивлять вас каждый день! Входные группы оснащены системой Face ID, тихими и быстрыми лифтами</p>','<p>Легко добраться в любую часть города благодаря близости к станции метро \"Москва\", всего в 20 минутах ходьбы. Кроме того, доступно множество автобусных маршрутов.</p>','<p dir=\"ltr\">В пешей доступности от жилого комплекса находятся ТРК GRANDPARK и ARMADA, гипермаркеты METRO, Magnum, медицинские центры, государственные и частные школы и многое другое.</p>\r\n<p dir=\"ltr\">Коммерческие помещения&nbsp;</p>\r\n<p dir=\"ltr\">Предлагаемые коммерческие помещения на первых этажах жилого комплекса идеально подходят для размещения минимаркета, детского клуба, салона красоты, аптеки и тд. Все возможности для развития своего бизнеса.</p>\r\n<p>&nbsp;</p>','<p>На первых этажах жилого комплекса спроектированы коммерческие помещения для размещения минимаркета, детского клуба, салона красоты, аптеки и тд. Все возможности чтобы развивать свой бизнес, не отходя от дома.</p>','<p dir=\"ltr\">На территории жилого комплекса предусмотрены пешеходные и велосипедные дорожки, дворовое пространство разделено на несколько функциональных зон, предназначенных для комфортного отдыха жильцов всех возрастов. Детские и спортивные площадки, а также уютные беседки для вечерних посиделок, окруженные зеленью, создадут приятную атмосферу. Установлены зоны зарядки и парковки для электросамокатов и велосипедов прямо во дворе.&nbsp;</p>\r\n<p dir=\"ltr\"><strong>Для развития бизнеса</strong></p>\r\n<ul>\r\n<li dir=\"ltr\">Жители комплекса станут вашими клиентами</li>\r\n<li dir=\"ltr\">Естественное освещение во всех коммерческих помещениях</li>\r\n<li dir=\"ltr\">Удобная парковка для клиентов</li>\r\n<li dir=\"ltr\">Универсальные помещения от &laquo;кофе с собой&raquo; до супермаркета</li>\r\n</ul>\r\n<p dir=\"ltr\"><strong>Для проживания</strong></p>\r\n<ul>\r\n<li dir=\"ltr\">Безопасность и комфорт</li>\r\n<li dir=\"ltr\">Коворкинг</li>\r\n<li dir=\"ltr\">Детская игровая комната</li>\r\n<li dir=\"ltr\">Комната мамы и ребенка</li>\r\n<li dir=\"ltr\">Паркинг</li>\r\n</ul>\r\n<p>&nbsp;</p>',NULL,NULL,NULL,'г.Алматы,  ул. Толе би, 101, БЦ «Толе би», 1-этаж','47885'),(5,'[\"complexes\\/April2024\\/xAyZ9gfNuEOIc7wGR0J4.jpg\",\"complexes\\/June2024\\/wpr8g4tMfAc1Zx6vkbXe.jpg\"]','Жилой комплекс \"Turar\"','<p dir=\"ltr\">Путь семьи в счастливое независимое будущее начинается с собственной квартиры. А если эта квартира в современном доме и в красивом месте, да еще и в новом центре Алматы &ndash; это настоящее счастье! <strong>Turar</strong> расположен в одном из пяти будущих центров Алматы &laquo;Восточные ворота&raquo;, на пересечении проспекта Рыскулова и Кульджинского тракта. Это активно развивающийся район с потрясающими горными панорамами.</p>','in_sale','complexes/May2024/NFo0QDn5rIszNwVdAF1m.jpg',1,'2024-04-17 20:05:13','2024-06-14 10:25:47',NULL,_binary '\0\0\0\0\0\0\0�	\�\�?S@B+\�\��E@','complexes/May2024/wz1rlIdfwnzhF59GqxNq.jpg','Ваше будущее начинается сегодня!\r\nНаслаждайтесь видом на горы, \r\n						гуляйте по большой аллее вдоль \r\n						комплекса, живите легко, \r\n						свободно и счастливо!','<p dir=\"ltr\">Надежность и безопасность вашего дома обеспечивается прочным железобетонным каркасом.</p>\r\n<p dir=\"ltr\">Экологически безопасный вентилируемый фасад, выполненный из фиброцементных панелей, обеспечивает надежную защиту от любых погодных воздействий.</p>\r\n<p><strong>&nbsp;</strong></p>\r\n<p dir=\"ltr\">Стены из газоблоков обладают высокими тепло-шумоизоляционными свойствами.</p>\r\n<p>&nbsp;</p>',NULL,NULL,NULL,NULL,'<ul>\r\n<li dir=\"ltr\">Детские площадки</li>\r\n<li dir=\"ltr\">Спортивные площадки</li>\r\n<li dir=\"ltr\">Велодорожки</li>\r\n<li dir=\"ltr\">Видеонаблюдение</li>\r\n<li dir=\"ltr\">Зеленая территория</li>\r\n<li>&nbsp;</li>\r\n</ul>',NULL,NULL,NULL,'Расположение: г. Алматы, Медеуский район, пересечение пр. Рыскулова и Кульджинского тракта','47710'),(6,'[\"complexes\\/April2024\\/HCoYlKLHJQcygijpjYgz.jpg\"]','Коттеджный городок \"Ermensai Village\"','<p dir=\"ltr\">Ermensai Village представляет собой эксклюзивный проект таунхаусов премиум-класса. Уникальные таунхаусы представленные в новом, незнакомом формате, придают архитектуре города свежесть и эксклюзивность.</p>\n<ul>\n<li dir=\"ltr\">27 таунхаусов</li>\n<li dir=\"ltr\">3 этажа</li>\n<li dir=\"ltr\">высота потолков до 3,3м</li>\n</ul>','in_sale','complexes/May2024/No1ga1cq1M3UgL1Oe9ac.jpg',1,'2024-04-17 20:06:56','2024-07-10 13:13:00',NULL,_binary '\0\0\0\0\0\0\0�ͩ\�\�9S@\����E@','complexes/May2024/k5dwA0FHWmBGLxb84Fgx.jpg','Добро пожаловать домой\r\nТаунхаусы премиум класса\r\nРасположение: г. Алматы, Бостандыкский район, мрк. Нурлытау, 14-ая улица, выше пр. Аль-Фараби','<p dir=\"ltr\">Таунхаусы выполнены в классическом английском стиле. Оттенки светлых и теплых элементов фасада подчеркивают величие и роскошь гор Алматы по соседству. Кладка из клинкерной плитки придает проекту экологичность и высокий статус.</p>\r\n<p>&nbsp;</p>',NULL,NULL,NULL,NULL,'<ul>\r\n<li dir=\"ltr\">Охраняемая территория</li>\r\n<li dir=\"ltr\">Въезд на территорию через КПП</li>\r\n<li dir=\"ltr\">Видеонаблюдение 24/7</li>\r\n<li dir=\"ltr\">Собственные парковочные места на две машины перед домом</li>\r\n<li dir=\"ltr\">Гостевой паркинг</li>\r\n<li dir=\"ltr\">Зона медитации и йоги</li>\r\n<li dir=\"ltr\">Детские площадки в стиле ECO</li>\r\n<li dir=\"ltr\">WorkOut зона, велопарковка</li>\r\n</ul>',NULL,NULL,NULL,NULL,'47883'),(7,'[\"complexes\\/April2024\\/sI1BT8npQQqeJRYaUAbj.jpg\"]','Коттеджный городок \"Baganashil Hills\"','<p dir=\"ltr\">Коттеджный городок Baganashil Hills проект элит класса, в котором каждая деталь пропитана роскошью и утонченностью. Новые ощущения комфорта достигнуты благодаря продуманных характеристик проекта, новаторского подхода к организации внутреннего пространства, а также самых современных инженерных решений.</p>\n<ul>\n<li dir=\"ltr\">74 коттеджа</li>\n<li dir=\"ltr\">12 таунхаусов&nbsp;</li>\n<li dir=\"ltr\">3 этажа</li>\n<li dir=\"ltr\">Высота потолков от 3,3 м</li>\n</ul>','in_sale','complexes/May2024/RW8qPGAG1o817YdZDHFa.jpg',1,'2024-04-17 20:10:58','2024-07-10 13:09:56',NULL,_binary '\0\0\0\0\0\0\0V�\�\�\�:S@k׮KS�E@','complexes/May2024/kIiGJOOJ0B3lIFYzhhu0.jpg','Высокие виды на жизнь!\r\nКоттеджный городок элит-класса\r\nРасположение: г. Алматы, Бостандыкский район, мкр. Баганашил, выше пр. Аль-Фараби','<p dir=\"ltr\">Для того чтобы подчеркнуть индивидуальность каждого коттеджа, создано несколько вариантов фасада &mdash; за основу взят американский архитектурный стиль Райта, который подразумевает под собой идею &laquo;единства с природой&raquo;.&nbsp; Использованы качественные, натуральные и экологичные материалов, такие как клинкерный кирпич, гранит и Limestone.</p>\r\n<p>&nbsp;</p>',NULL,NULL,NULL,NULL,'<ul>\r\n<li dir=\"ltr\">Видеонаблюдение 24/7</li>\r\n<li dir=\"ltr\">Въезд на территорию через КПП</li>\r\n<li dir=\"ltr\">Закрытая и охраняемая территория</li>\r\n<li dir=\"ltr\">Тренажерный зал</li>\r\n<li dir=\"ltr\">&nbsp;Бассейн</li>\r\n<li dir=\"ltr\">Кофейня</li>\r\n<li dir=\"ltr\">Супермаркет</li>\r\n</ul>','<p dir=\"ltr\">Созданный с использованием большого количества зелёных насаждений, ландшафтный дизайн коттеджного городка дает возможность уединения с природой.</p>\r\n<p>&nbsp;</p>','<p>Одно из важных условий современной жизни - безопасность, здесь гарантирован приватность.</p>',NULL,NULL,'47882'),(10,'[\"complexes\\/May2024\\/izzYoxOic2LGA2IsDXrF.jpg\"]','Жилой комплекс \"Arna\"','<p dir=\"ltr\">Жилой комплекс с нестандартной концепцией &laquo;Арна&raquo; от Everest Development, создан благодаря переосмыслению значения &laquo;Дом&raquo;. Ценностью жилого комплекса стало внутреннее community, это не просто ваши соседи, это ваши друзья и единомышленники, у вас схожий образ жизни и религиозные ценности. Это не просто ваш новый дом, это пространство единомышленников.</p>\n<ul>\n<li dir=\"ltr\">7, 9 этажный дом</li>\n<li dir=\"ltr\">1 очередь - 5 блоков</li>\n<li dir=\"ltr\">1-3 комнатные квартиры</li>\n<li dir=\"ltr\">Высота потолков 3 м</li>\n</ul>','in_sale','complexes/May2024/39QtrVsQNNVOH6Mr8yw6.jpg',1,'2024-04-18 20:09:01','2024-06-20 05:38:39',NULL,_binary '\0\0\0\0\0\0\0\�\\U2S@�\�E@','complexes/May2024/g9Qccj5PBiN6gOnirzM1.jpg','Новое направление жизни\r\nРасположение: Алматинская область, Ташкентский тракт, с. Иргели, Карасайский район','<p dir=\"ltr\">Каркас жилого комплекса &laquo;Арна&raquo; выполен из монолитного железобетона, установлен навесной вентилируемый фасад из гранита и фиброцементных панелей.</p>\r\n<p>&nbsp;</p>',NULL,NULL,'<ul>\r\n<li dir=\"ltr\">В нескольких минутах будет расположена новая мечеть</li>\r\n<li dir=\"ltr\">В 5 минутах детская больница</li>\r\n<li dir=\"ltr\">ТРК Молл Апорт&nbsp;</li>\r\n<li dir=\"ltr\">Детская городская клиническая инфекционная больница&nbsp;</li>\r\n<li dir=\"ltr\">Fresh market&nbsp;</li>\r\n<li dir=\"ltr\">Детские сады:</li>\r\n<li dir=\"ltr\">Ай керим (частный детский сад)</li>\r\n<li dir=\"ltr\">Бал даурен</li>\r\n<li dir=\"ltr\">Zam- zam</li>\r\n<li dir=\"ltr\">Акбота<br><br></li>\r\n</ul>\r\n<p dir=\"ltr\">Школы:&nbsp;<strong>Samuryq Mektebi</strong></p>\r\n<p dir=\"ltr\">Лицей № 92</p>\r\n<p dir=\"ltr\">Edison (образовательный центр)</p>\r\n<p dir=\"ltr\">Рынок Алтын Орда</p>\r\n<p>&nbsp;</p>',NULL,'<ul>\r\n<li dir=\"ltr\">Авторский дизайн холлов</li>\r\n<li dir=\"ltr\">Безопасный двор</li>\r\n<li dir=\"ltr\">Детские площадки&nbsp;</li>\r\n<li dir=\"ltr\">Спортивные площадки для взрослых</li>\r\n<li dir=\"ltr\">Видеонаблюдение</li>\r\n<li dir=\"ltr\">Домофон</li>\r\n<li dir=\"ltr\">Наземный паркинг</li>\r\n</ul>',NULL,NULL,'<p dir=\"ltr\"><strong>Собственная сервисная компания</strong></p>\r\n<p dir=\"ltr\">Мы заботимся не только о высоком качестве жилья, но и о качестве условий жизни жильцов.&nbsp;</p>\r\n<p dir=\"ltr\">Объекты компании Everest Development находятся на индивидуальном</p>\r\n<p dir=\"ltr\">сервисном обслуживание предоставляемым компанией &ndash; застройщиком</p>\r\n<p>&nbsp;</p>','Алматинская область, Ташкентский тракт, С. Иргели, Карасайский район','46817'),(11,'[\"complexes\\/May2024\\/nNaFCFpG1Gx0d0SHqYPK.jpg\"]','Turkistan Apartments','<p dir=\"ltr\">Апарт-отель &laquo;Turkistan&raquo; со светлыми, просторными современными апарт-номерами расположен вблизи от парка им. 28 Гвардейцев-Панфиловцев, рядом расположен Зеленый базар, Центральная мечеть, Кафедральный собор, культурные и исторические объекты. Апарт-номер предполагает сдачу в чистовой отделке и мебелированность.</p>\n<ul>\n<li dir=\"ltr\">12 этажей</li>\n<li dir=\"ltr\">125 номеров</li>\n<li dir=\"ltr\">Высота потолков &ndash; 3м.<br><br><br></li>\n</ul>','in_sale','complexes/May2024/ittnL6wGAycbRReUVXNH.jpg',1,'2024-04-18 20:12:34','2024-06-20 05:48:48',NULL,_binary '\0\0\0\0\0\0\0ݝ��<S@M�Gi\�E@','complexes/May2024/8wP13ohwGbhrBLNLAdK8.jpg','Уникальный апарт-отель расположенный в Медеуском районе, сочетает надежное качество строительства, высокий уровень, обслуживания и традиционное казахское гостеприимство.','<p dir=\"ltr\">При возведении жилого комплекса ииспользован монолитный железобетон. Это гарантирует надежную защиту от землетрясений и обеспечивает долговечность всей конструкции. Фасад выполнен из керамогранита Laminam &ndash; материала, который не только придает зданию элегантный внешний вид, но и обладает высокой прочностью и стойкостью к внешним воздействиям.&nbsp;</p>',NULL,NULL,NULL,NULL,'<ul>\r\n<li dir=\"ltr\">Ресепшн</li>\r\n<li dir=\"ltr\">24/7 консьерж сервис</li>\r\n<li dir=\"ltr\">Обслуживание номеров</li>\r\n<li dir=\"ltr\">Коворкинг зона</li>\r\n<li dir=\"ltr\">Лобби и Кофейня</li>\r\n<li dir=\"ltr\">Бутики и Рестораны</li>\r\n<li dir=\"ltr\">Супермаркет и Салоны красоты</li>\r\n<li dir=\"ltr\">Прачечная&nbsp;</li>\r\n<li dir=\"ltr\">Повышенная безопасность</li>\r\n<li dir=\"ltr\">24/7 видеонаблюдение</li>\r\n<li dir=\"ltr\">Face ID</li>\r\n<li dir=\"ltr\">Закрытый двор - оазис</li>\r\n<li dir=\"ltr\">Ландшафтный дизайн</li>\r\n<li dir=\"ltr\">Многоуровневое освещение</li>\r\n<li dir=\"ltr\">Надземный, подземный паркинг</li>\r\n</ul>',NULL,NULL,'<p dir=\"ltr\"><strong>Преимущества инвестирования в Turkistan Apartments</strong></p>\r\n<ul>\r\n<li dir=\"ltr\">Высокая доходность&nbsp;</li>\r\n<li dir=\"ltr\">Быстрая окупаемость</li>\r\n<li dir=\"ltr\">Низкая стоимость на этапе строительства&nbsp;</li>\r\n<li dir=\"ltr\">Выгодная локация</li>\r\n<li dir=\"ltr\">100% конфиденциальность ваших инвестиций</li>\r\n<li dir=\"ltr\">Собственная управляющая компания</li>\r\n<li dir=\"ltr\">Надежное партнерство</li>\r\n</ul>\r\n<p>&nbsp;</p>',NULL,'46797'),(12,'[\"complexes\\/May2024\\/k3RdmroCHCeNMGG0a3a4.jpg\"]','Жилой комплекс \"Athletic park\"','<p dir=\"ltr\">&nbsp;</p>\n<p dir=\"ltr\">Жилой комплекс Athletic park -&nbsp; это лучшее место для комфортной жизни.</p>\n<p dir=\"ltr\">Комплекс расположен на территории Атлетической деревни, вблизи Ледовой арены и киноконцертного зала &laquo;Алатау&raquo;.&nbsp;</p>\n<p dir=\"ltr\">Удобство и современный комфорт &mdash; это синонимы ЖК Athletic Park , на территории которого расположились отделение полиции, Казпочта, ЦОН, детский сад и медицинский центр, а также современный фитнес-центр и другие объекты инфраструктуры.</p>\n<ul>\n<li dir=\"ltr\">18 блоков</li>\n<li dir=\"ltr\">9 - 12 этажей</li>\n<li dir=\"ltr\">1-1,5 - 2 - 2,5 - 3 комнатные квартиры</li>\n<li dir=\"ltr\">Высота потолков 3 м</li>\n</ul>\n<p>&nbsp;</p>','in_sale','complexes/May2024/vxw4GgMZE5akMbA5Ighh.png',1,'2024-04-24 18:33:49','2024-07-11 05:39:17',NULL,_binary '\0\0\0\0\0\0\0�\'�3S@��ReܟE@','complexes/June2024/8xvUT73LBxe2RIc9hHiP.jpg','Athletic Park расположен в Алатауском районе, в квадрате между проспектом, улицами Омаровой и Онгарсыновой.','<p>В архитектуре данного комплекса применены передовые технологии и инженерные системы последнего поколения. Все кварталы жилого комплекса Athletic Park органично вписываются в окружающий природный ландшафт.</p>',NULL,NULL,NULL,NULL,'<ul>\r\n<li dir=\"ltr\">Видеонаблюдение 24/7</li>\r\n<li dir=\"ltr\">Бесшумные лифты</li>\r\n<li dir=\"ltr\">Городской парк</li>\r\n<li dir=\"ltr\">Озеленение</li>\r\n</ul>',NULL,NULL,NULL,NULL,'47435'),(13,'[\"complexes\\/June2024\\/dCnXeO2T52GxKvBQVHz4.jpg\",\"complexes\\/June2024\\/4SNOyQGHIzmNGeZ1RmA3.jpg\"]','Жилой комплекс \"Everest Boulevard\"','<p>ЖК &laquo;Everest Boulevard&raquo;&nbsp;предоставляет идеальные условия для комфортного проживания, где каждая деталь продумана с заботой о вас. Здесь созданы уникальные пространства, отвечающие вашим потребностям и желаниям, делая каждое мгновение особенным.</p>\n<p>Преимущество &laquo;Everest Boulevard&raquo; &ndash; это не просто наличие соседей, а создание сообщества друзей и единомышленников, которые разделяют ваш образ жизни. В этом комплексе вы найдете гармонию, уют и настоящую поддержку, которые превратят ваше жилье в дом мечты.</p>','in_sale','complexes/June2024/cYMHiRijWeIg4jzdIdct.jpg',1,'2024-06-13 09:04:38','2024-06-14 10:26:01',NULL,_binary '\0\0\0\0\0\0\0ĝ\�u@S@�\�\�7�E@','complexes/June2024/4zVd6BFpQkyTZdWykeG8.jpg','Высокий уровень безопасности. Видеонаблюдение по всему периметру жилого комплекса.\r\nCобственная сервисная компания Мы заботимся не только о высоком качестве жилья, но и о качестве условий жизни жильцов',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'г. Алматы, Медеуский район, Кульджинский тракт, Думан 2','47881');
+/*!40000 ALTER TABLE `complexes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `data_rows`
+--
+
+DROP TABLE IF EXISTS `data_rows`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `data_rows` (
-  `id` int UNSIGNED NOT NULL,
-  `data_type_id` int UNSIGNED NOT NULL,
-  `field` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `data_type_id` int unsigned NOT NULL,
+  `field` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `required` tinyint(1) NOT NULL DEFAULT '0',
   `browse` tinyint(1) NOT NULL DEFAULT '1',
   `read` tinyint(1) NOT NULL DEFAULT '1',
   `edit` tinyint(1) NOT NULL DEFAULT '1',
   `add` tinyint(1) NOT NULL DEFAULT '1',
   `delete` tinyint(1) NOT NULL DEFAULT '1',
-  `details` text COLLATE utf8mb4_unicode_ci,
-  `order` int NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `details` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `order` int NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `data_rows_data_type_id_foreign` (`data_type_id`),
+  CONSTRAINT `data_rows_data_type_id_foreign` FOREIGN KEY (`data_type_id`) REFERENCES `data_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=306 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Дамп данных таблицы `data_rows`
+-- Dumping data for table `data_rows`
 --
 
-INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, `required`, `browse`, `read`, `edit`, `add`, `delete`, `details`, `order`) VALUES
-(1, 1, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
-(2, 1, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, NULL, 2),
-(3, 1, 'email', 'text', 'Email', 1, 1, 1, 1, 1, 1, NULL, 3),
-(4, 1, 'password', 'password', 'Password', 1, 0, 0, 1, 1, 0, NULL, 4),
-(5, 1, 'remember_token', 'text', 'Remember Token', 0, 0, 0, 0, 0, 0, NULL, 5),
-(6, 1, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 0, 0, 0, NULL, 6),
-(7, 1, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 7),
-(8, 1, 'avatar', 'image', 'Avatar', 0, 1, 1, 1, 1, 1, NULL, 8),
-(9, 1, 'user_belongsto_role_relationship', 'relationship', 'Role', 0, 1, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsTo\",\"column\":\"role_id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"roles\",\"pivot\":0}', 10),
-(10, 1, 'user_belongstomany_role_relationship', 'relationship', 'Roles', 0, 1, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"user_roles\",\"pivot\":\"1\",\"taggable\":\"0\"}', 11),
-(11, 1, 'settings', 'hidden', 'Settings', 0, 0, 0, 0, 0, 0, NULL, 12),
-(12, 2, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
-(13, 2, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, NULL, 2),
-(14, 2, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 3),
-(15, 2, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 4),
-(16, 3, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
-(17, 3, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, NULL, 2),
-(18, 3, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 3),
-(19, 3, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 4),
-(20, 3, 'display_name', 'text', 'Display Name', 1, 1, 1, 1, 1, 1, NULL, 5),
-(21, 1, 'role_id', 'text', 'Role', 1, 1, 1, 1, 1, 1, NULL, 9),
-(22, 4, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(23, 4, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 2),
-(24, 4, 'title2', 'text_area', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 3),
-(25, 4, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 4),
-(26, 4, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 5),
-(27, 5, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(28, 5, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 2),
-(29, 5, 'description', 'text_area', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 3),
-(30, 5, 'icon', 'image', 'Иконка', 1, 1, 1, 1, 1, 1, '{}', 4),
-(31, 5, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 5),
-(32, 5, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
-(33, 6, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(34, 6, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 2),
-(35, 6, 'description', 'text_area', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 3),
-(36, 6, 'image', 'image', 'Изображение', 1, 1, 1, 1, 1, 1, '{}', 4),
-(37, 6, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 5),
-(38, 6, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
-(39, 7, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(40, 7, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 2),
-(41, 7, 'description', 'text', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 3),
-(42, 7, 'image', 'image', 'Изображение', 1, 1, 1, 1, 1, 1, '{}', 4),
-(43, 7, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 5),
-(44, 7, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
-(45, 8, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(46, 8, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 2),
-(47, 8, 'description', 'text_area', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 3),
-(48, 8, 'image', 'image', 'Изображение', 1, 1, 1, 1, 1, 1, '{}', 4),
-(49, 8, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 5),
-(50, 8, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
-(51, 10, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(52, 10, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 2),
-(53, 10, 'description', 'text_area', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 3),
-(54, 10, 'image', 'image', 'Изображение', 1, 1, 1, 1, 1, 1, '{}', 4),
-(55, 10, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 5),
-(56, 10, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
-(57, 11, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(58, 11, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 2),
-(59, 11, 'description', 'text_area', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 3),
-(60, 11, 'image', 'image', 'Изображение', 1, 1, 1, 1, 1, 1, '{}', 4),
-(61, 11, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 5),
-(62, 11, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
-(63, 12, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(64, 12, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 2),
-(65, 12, 'description', 'text_area', 'Описание', 0, 1, 1, 1, 1, 1, '{}', 3),
-(66, 12, 'step', 'number', 'Шаг', 0, 1, 1, 1, 1, 1, '{}', 4),
-(67, 12, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 5),
-(68, 12, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
-(69, 13, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(70, 13, 'name', 'text', 'Название', 1, 1, 1, 1, 1, 1, '{}', 2),
-(71, 13, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 3),
-(72, 13, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 4),
-(73, 14, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(74, 14, 'image', 'image', 'Изображение', 1, 1, 1, 1, 1, 1, '{}', 2),
-(75, 14, 'phone', 'text', 'Номер Телефона', 1, 1, 1, 1, 1, 1, '{}', 3),
-(76, 14, 'address', 'text', 'Адрес', 1, 1, 1, 1, 1, 1, '{}', 4),
-(77, 14, 'time', 'text', 'Время работы', 1, 1, 1, 1, 1, 1, '{}', 5),
-(78, 14, 'city_id', 'text', 'City Id', 0, 0, 0, 1, 0, 0, '{}', 6),
-(79, 14, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 7),
-(80, 14, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 8),
-(81, 14, 'office_belongsto_city_relationship', 'relationship', 'Город', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\City\",\"table\":\"cities\",\"type\":\"belongsTo\",\"column\":\"id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"banners\",\"pivot\":\"0\",\"taggable\":\"0\"}', 9),
-(82, 15, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(83, 15, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 2),
-(84, 15, 'description', 'text_area', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 3),
-(85, 15, 'phone', 'text', 'Номер Телефона', 1, 1, 1, 1, 1, 1, '{}', 4),
-(86, 15, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 5),
-(87, 15, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
-(88, 14, 'coordinates', 'coordinates', 'Координаты', 0, 1, 1, 1, 1, 1, '{}', 6),
-(89, 17, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(90, 17, 'images', 'multiple_images', 'Изображения', 1, 1, 1, 1, 1, 1, '{}', 2),
-(91, 17, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 3),
-(92, 17, 'description', 'rich_text_box', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 4),
-(93, 17, 'type', 'select_dropdown', 'Тип', 1, 1, 1, 1, 1, 1, '{\"default\":\"\\u0412 \\u043f\\u0440\\u043e\\u0434\\u0430\\u0436\\u0435\",\"options\":{\"in_sale\":\"\\u0412 \\u043f\\u0440\\u043e\\u0434\\u0430\\u0436\\u0435\",\"promising\":\"\\u041f\\u0435\\u0440\\u0441\\u043f\\u0435\\u043a\\u0442\\u0438\\u0432\\u043d\\u044b\\u0435\",\"implemented\":\"\\u0420\\u0435\\u0430\\u043b\\u0438\\u0437\\u043e\\u0432\\u0430\\u043d\\u043d\\u044b\\u0435\"}}', 5),
-(94, 17, 'description_image', 'image', 'Изображение', 0, 1, 1, 1, 1, 1, '{}', 6),
-(95, 17, 'city_id', 'text', 'City Id', 0, 0, 0, 1, 0, 0, '{}', 7),
-(96, 17, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 8),
-(97, 17, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 9),
-(99, 16, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(100, 16, 'description', 'text', 'Description', 1, 1, 1, 1, 1, 1, '{}', 2),
-(101, 16, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, '{}', 3),
-(102, 16, 'job_title', 'text', 'Job Title', 1, 1, 1, 1, 1, 1, '{}', 4),
-(103, 16, 'photo', 'text', 'Photo', 1, 1, 1, 1, 1, 1, '{}', 5),
-(104, 16, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 6),
-(105, 16, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
-(106, 17, 'complex_belongsto_city_relationship', 'relationship', 'Город', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\City\",\"table\":\"cities\",\"type\":\"belongsTo\",\"column\":\"city_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"banners\",\"pivot\":\"0\",\"taggable\":\"0\"}', 10),
-(107, 18, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(108, 18, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 3),
-(109, 18, 'image', 'image', 'Изображение', 1, 1, 1, 1, 1, 1, '{}', 4),
-(110, 18, 'description', 'text_area', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 5),
-(111, 18, 'complex_id', 'text', 'Complex Id', 0, 0, 0, 1, 0, 0, '{}', 2),
-(112, 18, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 6),
-(113, 18, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
-(114, 20, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(115, 20, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 3),
-(116, 20, 'image', 'image', 'Изображение', 1, 1, 1, 1, 1, 1, '{}', 4),
-(117, 20, 'complex_id', 'text', 'Complex Id', 0, 0, 0, 1, 0, 0, '{}', 2),
-(118, 20, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 5),
-(119, 20, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
-(120, 18, 'complex_advantage_belongsto_complex_relationship', 'relationship', 'Проект', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Complex\",\"table\":\"complexes\",\"type\":\"belongsTo\",\"column\":\"complex_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"banners\",\"pivot\":\"0\",\"taggable\":\"0\"}', 8),
-(121, 20, 'complex_peculiarity_belongsto_complex_relationship', 'relationship', 'Проекты', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Complex\",\"table\":\"complexes\",\"type\":\"belongsTo\",\"column\":\"complex_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"banners\",\"pivot\":\"0\",\"taggable\":\"0\"}', 7),
-(147, 24, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(148, 24, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 4),
-(149, 24, 'plan_image', 'image', 'Планировка', 1, 1, 1, 1, 1, 1, '{}', 5),
-(150, 24, 'floor_plan_image', 'image', 'План этажа', 1, 1, 1, 1, 1, 1, '{}', 6),
-(151, 24, 'quadrature', 'number', 'Квадратура', 1, 1, 1, 1, 1, 1, '{}', 7),
-(152, 24, 'floor', 'number', 'Этаж', 1, 1, 1, 1, 1, 1, '{}', 8),
-(153, 24, 'entrance', 'number', 'Подьезд', 1, 1, 1, 1, 1, 1, '{}', 9),
-(154, 24, 'rooms', 'number', 'Кол-во комнат', 1, 1, 1, 1, 1, 1, '{}', 10),
-(155, 24, 'deadline', 'text', 'Срок сдачи', 0, 1, 1, 1, 1, 1, '{}', 11),
-(156, 24, 'metro', 'text', 'Метро', 0, 1, 1, 1, 1, 1, '{}', 12),
-(157, 24, 'type', 'select_dropdown', 'Тип', 0, 1, 1, 1, 1, 1, '{\"default\":\"\\u041d\\u0435 \\u0441\\u0434\\u0430\\u043d\",\"options\":{\"available\":\"\\u041d\\u0435 \\u0441\\u0434\\u0430\\u043d\",\"not_available\":\"\\u0421\\u0434\\u0430\\u043d\"}}', 13),
-(158, 24, 'city_id', 'text', 'City Id', 0, 1, 1, 1, 1, 1, '{}', 2),
-(159, 24, 'complex_id', 'text', 'Complex Id', 0, 1, 1, 1, 1, 1, '{}', 3),
-(160, 24, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 14),
-(161, 24, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 15),
-(162, 24, 'descritpion', 'text_area', 'Описание', 0, 1, 1, 1, 1, 1, '{}', 5),
-(163, 24, 'appartment_belongsto_city_relationship', 'relationship', 'Город', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\City\",\"table\":\"cities\",\"type\":\"belongsTo\",\"column\":\"city_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"appartment_advantages\",\"pivot\":\"0\",\"taggable\":\"0\"}', 16),
-(164, 24, 'appartment_belongsto_complex_relationship', 'relationship', 'Жилой комплекс', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Complex\",\"table\":\"complexes\",\"type\":\"belongsTo\",\"column\":\"complex_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"appartment_advantages\",\"pivot\":\"0\",\"taggable\":\"0\"}', 17),
-(165, 25, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(166, 25, 'image', 'image', 'Изображение', 1, 1, 1, 1, 1, 1, '{}', 3),
-(167, 25, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 4),
-(168, 25, 'description', 'text_area', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 5),
-(169, 25, 'appartment_id', 'text', 'Appartment Id', 0, 1, 1, 1, 1, 1, '{}', 2),
-(170, 25, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 6),
-(171, 25, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
-(172, 25, 'appartment_advantage_belongsto_appartment_relationship', 'relationship', 'Квартира', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Appartment\",\"table\":\"appartments\",\"type\":\"belongsTo\",\"column\":\"appartment_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"appartment_advantages\",\"pivot\":\"0\",\"taggable\":\"0\"}', 8),
-(173, 17, 'stream_link', 'text', 'Трансляция', 0, 1, 1, 1, 1, 1, '{}', 10),
-(174, 26, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(175, 26, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 2),
-(176, 26, 'description', 'text_area', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 3),
-(177, 26, 'link', 'text', 'Ссылка', 0, 1, 1, 1, 1, 1, '{}', 4),
-(178, 26, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 5),
-(179, 26, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
-(180, 27, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(181, 27, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 2),
-(182, 27, 'image', 'text', 'Изображение', 1, 1, 1, 1, 1, 1, '{}', 3),
-(183, 27, 'description', 'text_area', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 4),
-(184, 27, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 5),
-(185, 27, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
-(186, 28, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(187, 28, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 2),
-(188, 28, 'description', 'text_area', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 3),
-(189, 28, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 4),
-(190, 28, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 5),
-(191, 29, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(192, 29, 'type', 'select_dropdown', 'Тип', 1, 1, 1, 1, 1, 1, '{}', 2),
-(193, 29, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 3),
-(194, 29, 'image', 'image', 'Изображение', 0, 1, 1, 1, 1, 1, '{}', 4),
-(195, 29, 'description', 'text_area', 'Оп', 1, 1, 1, 1, 1, 1, '{}', 5),
-(196, 29, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 6),
-(197, 29, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
-(198, 31, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(199, 31, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 2),
-(200, 31, 'description', 'text_area', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 3),
-(201, 31, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 4),
-(202, 31, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 5),
-(203, 32, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(204, 32, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 2),
-(205, 32, 'description', 'text_area', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 3),
-(206, 32, 'image', 'image', 'Изображение', 1, 1, 1, 1, 1, 1, '{}', 4),
-(207, 32, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 5),
-(208, 32, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
-(209, 33, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(210, 33, 'title', 'text', 'Оглавление', 1, 1, 1, 1, 1, 1, '{}', 2),
-(211, 33, 'description', 'text_area', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 3),
-(212, 33, 'icon', 'image', 'Иконка', 1, 1, 1, 1, 1, 1, '{}', 4),
-(213, 33, 'link', 'text', 'Ссылка', 1, 1, 1, 1, 1, 1, '{}', 5),
-(214, 33, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 6),
-(215, 33, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
-(216, 34, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(217, 34, 'address', 'text', 'Адрес', 0, 1, 1, 1, 1, 1, '{}', 2),
-(218, 34, '2gis_link', 'text', '2Gis', 0, 1, 1, 1, 1, 1, '{}', 3),
-(219, 34, 'phone_number', 'text', 'Номер телефона', 0, 1, 1, 1, 1, 1, '{}', 4),
-(220, 34, 'email', 'text', 'E-mail', 0, 1, 1, 1, 1, 1, '{}', 5),
-(221, 34, 'fb_link', 'text', 'Facebook', 0, 1, 1, 1, 1, 1, '{}', 6),
-(222, 34, 'ig_link', 'text', 'Instagram', 0, 1, 1, 1, 1, 1, '{}', 7),
-(223, 34, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 8),
-(224, 34, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 9),
-(225, 4, 'link', 'text', 'Ссылка', 0, 1, 1, 1, 1, 1, '{}', 6),
-(226, 5, 'link', 'text', 'Ссылка', 0, 1, 1, 1, 1, 1, '{}', 7),
-(227, 6, 'link', 'text', 'Ссылка', 1, 1, 1, 1, 1, 1, '{}', 7);
-
--- --------------------------------------------------------
+LOCK TABLES `data_rows` WRITE;
+/*!40000 ALTER TABLE `data_rows` DISABLE KEYS */;
+INSERT INTO `data_rows` VALUES (1,1,'id','number','ID',1,0,0,0,0,0,NULL,1),(2,1,'name','text','Name',1,1,1,1,1,1,NULL,2),(3,1,'email','text','Email',1,1,1,1,1,1,NULL,3),(4,1,'password','password','Password',1,0,0,1,1,0,NULL,4),(5,1,'remember_token','text','Remember Token',0,0,0,0,0,0,NULL,5),(6,1,'created_at','timestamp','Created At',0,1,1,0,0,0,NULL,6),(7,1,'updated_at','timestamp','Updated At',0,0,0,0,0,0,NULL,7),(8,1,'avatar','image','Avatar',0,1,1,1,1,1,NULL,8),(9,1,'user_belongsto_role_relationship','relationship','Role',0,1,1,1,1,0,'{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsTo\",\"column\":\"role_id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"roles\",\"pivot\":0}',10),(10,1,'user_belongstomany_role_relationship','relationship','Roles',0,1,1,1,1,0,'{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"user_roles\",\"pivot\":\"1\",\"taggable\":\"0\"}',11),(11,1,'settings','hidden','Settings',0,0,0,0,0,0,NULL,12),(12,2,'id','number','ID',1,0,0,0,0,0,NULL,1),(13,2,'name','text','Name',1,1,1,1,1,1,NULL,2),(14,2,'created_at','timestamp','Created At',0,0,0,0,0,0,NULL,3),(15,2,'updated_at','timestamp','Updated At',0,0,0,0,0,0,NULL,4),(16,3,'id','number','ID',1,0,0,0,0,0,NULL,1),(17,3,'name','text','Name',1,1,1,1,1,1,NULL,2),(18,3,'created_at','timestamp','Created At',0,0,0,0,0,0,NULL,3),(19,3,'updated_at','timestamp','Updated At',0,0,0,0,0,0,NULL,4),(20,3,'display_name','text','Display Name',1,1,1,1,1,1,NULL,5),(21,1,'role_id','text','Role',1,1,1,1,1,1,NULL,9),(22,4,'id','text','Id',1,0,0,0,0,0,'{}',1),(23,4,'title','text','Оглавление',1,1,1,1,1,1,'{}',2),(24,4,'title2','rich_text_box','Описание',1,1,1,1,1,1,'{}',3),(25,4,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',4),(26,4,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',5),(27,5,'id','text','Id',1,0,0,0,0,0,'{}',1),(28,5,'title','text','Оглавление',1,1,1,1,1,1,'{}',2),(29,5,'description','text_area','Описание',1,1,1,1,1,1,'{}',3),(30,5,'icon','image','Иконка',1,1,1,1,1,1,'{}',4),(31,5,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',5),(32,5,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',6),(33,6,'id','text','Id',1,0,0,0,0,0,'{}',1),(34,6,'title','text','Оглавление',1,1,1,1,1,1,'{}',2),(35,6,'description','text_area','Описание',1,1,1,1,1,1,'{}',3),(36,6,'image','image','Изображение',1,1,1,1,1,1,'{}',4),(37,6,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',5),(38,6,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',6),(39,7,'id','text','Id',1,0,0,0,0,0,'{}',1),(40,7,'title','text','Оглавление',1,1,1,1,1,1,'{}',2),(41,7,'description','text','Описание',1,1,1,1,1,1,'{}',3),(42,7,'image','image','Изображение',1,1,1,1,1,1,'{}',4),(43,7,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',5),(44,7,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',6),(45,8,'id','text','Id',1,0,0,0,0,0,'{}',1),(46,8,'title','text','Оглавление',1,1,1,1,1,1,'{}',2),(47,8,'description','radio_btn','Описание',1,1,1,1,1,1,'{}',3),(48,8,'image','image','Изображение',1,1,1,1,1,1,'{}',4),(49,8,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',5),(50,8,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',6),(51,10,'id','text','Id',1,0,0,0,0,0,'{}',1),(52,10,'title','text','Оглавление',1,1,1,1,1,1,'{}',2),(53,10,'description','text_area','Описание',1,1,1,1,1,1,'{}',3),(54,10,'image','image','Изображение',1,1,1,1,1,1,'{}',4),(55,10,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',5),(56,10,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',6),(57,11,'id','text','Id',1,0,0,0,0,0,'{}',1),(58,11,'title','text','Оглавление',1,1,1,1,1,1,'{}',2),(59,11,'description','text_area','Описание',1,1,1,1,1,1,'{}',3),(60,11,'image','image','Изображение',1,1,1,1,1,1,'{}',4),(61,11,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',5),(62,11,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',6),(63,12,'id','text','Id',1,0,0,0,0,0,'{}',1),(64,12,'title','text','Оглавление',1,1,1,1,1,1,'{}',2),(65,12,'description','text_area','Описание',0,1,1,1,1,1,'{}',3),(66,12,'step','number','Шаг',0,1,1,1,1,1,'{}',4),(67,12,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',5),(68,12,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',6),(69,13,'id','text','Id',1,0,0,0,0,0,'{}',1),(70,13,'name','text','Название',1,1,1,1,1,1,'{}',2),(71,13,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',3),(72,13,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',4),(73,14,'id','text','Id',1,0,0,0,0,0,'{}',1),(74,14,'image','image','Изображение',1,1,1,1,1,1,'{}',2),(75,14,'phone','text','Номер Телефона',1,1,1,1,1,1,'{}',3),(76,14,'address','text','Адрес',1,1,1,1,1,1,'{}',4),(77,14,'time','text','Время работы',1,1,1,1,1,1,'{}',5),(78,14,'city_id','text','City Id',0,1,1,1,1,1,'{}',6),(79,14,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',7),(80,14,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',8),(81,14,'office_belongsto_city_relationship','relationship','Город',0,1,1,1,1,1,'{\"model\":\"App\\\\Models\\\\City\",\"table\":\"cities\",\"type\":\"belongsTo\",\"column\":\"city_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"banners\",\"pivot\":\"0\",\"taggable\":\"0\"}',9),(82,15,'id','text','Id',1,0,0,0,0,0,'{}',1),(83,15,'title','text','Оглавление',1,1,1,1,1,1,'{}',2),(84,15,'description','text_area','Описание',1,1,1,1,1,1,'{}',3),(85,15,'phone','text','Номер Телефона',1,1,1,1,1,1,'{}',4),(86,15,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',5),(87,15,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',6),(88,14,'coordinates','coordinates','Координаты',0,1,1,1,1,1,'{}',6),(89,17,'id','text','Id',1,0,0,0,0,0,'{}',1),(90,17,'images','multiple_images','Изображения',1,1,1,1,1,1,'{}',2),(91,17,'title','text','Оглавление',1,1,1,1,1,1,'{}',3),(92,17,'description','rich_text_box','Описание',1,0,1,1,1,1,'{}',4),(93,17,'type','select_dropdown','Тип',1,1,1,1,1,1,'{\"options\":{\"in_sale\":\"\\u0412 \\u043f\\u0440\\u043e\\u0434\\u0430\\u0436\\u0435\",\"promising\":\"\\u041f\\u0435\\u0440\\u0441\\u043f\\u0435\\u043a\\u0442\\u0438\\u0432\\u043d\\u044b\\u0435\",\"implemented\":\"\\u0420\\u0435\\u0430\\u043b\\u0438\\u0437\\u043e\\u0432\\u0430\\u043d\\u043d\\u044b\\u0435\"}}',5),(94,17,'description_image','image','Изображение',0,1,1,1,1,1,'{}',6),(95,17,'city_id','text','City Id',0,1,1,1,1,1,'{}',7),(96,17,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',8),(97,17,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',9),(99,16,'id','text','Id',1,0,0,0,0,0,'{}',1),(100,16,'description','text_area','Описание',1,1,1,1,1,1,'{}',2),(101,16,'name','text','Имя',1,1,1,1,1,1,'{}',3),(102,16,'job_title','text','Должность',1,1,1,1,1,1,'{}',4),(103,16,'photo','image','Фото',1,1,1,1,1,1,'{}',5),(104,16,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',6),(105,16,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',7),(106,17,'complex_belongsto_city_relationship','relationship','Город',0,1,1,1,1,1,'{\"model\":\"App\\\\Models\\\\City\",\"table\":\"cities\",\"type\":\"belongsTo\",\"column\":\"city_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"banners\",\"pivot\":\"0\",\"taggable\":\"0\"}',10),(107,18,'id','text','Id',1,0,0,0,0,0,'{}',1),(108,18,'title','text','Оглавление',1,1,1,1,1,1,'{}',3),(109,18,'image','image','Изображение',1,1,1,1,1,1,'{}',4),(110,18,'description','text_area','Описание',1,1,1,1,1,1,'{}',5),(111,18,'complex_id','text','Complex Id',0,0,0,1,0,0,'{}',2),(112,18,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',6),(113,18,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',7),(114,20,'id','text','Id',1,0,0,0,0,0,'{}',1),(115,20,'title','text','Оглавление',1,1,1,1,1,1,'{}',3),(116,20,'image','image','Изображение',1,1,1,1,1,1,'{}',4),(117,20,'complex_id','text','Complex Id',0,0,0,1,0,0,'{}',2),(118,20,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',5),(119,20,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',6),(120,18,'complex_advantage_belongsto_complex_relationship','relationship','Проект',0,1,1,1,1,1,'{\"model\":\"App\\\\Models\\\\Complex\",\"table\":\"complexes\",\"type\":\"belongsTo\",\"column\":\"complex_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"banners\",\"pivot\":\"0\",\"taggable\":\"0\"}',8),(121,20,'complex_peculiarity_belongsto_complex_relationship','relationship','Проекты',0,1,1,1,1,1,'{\"model\":\"App\\\\Models\\\\Complex\",\"table\":\"complexes\",\"type\":\"belongsTo\",\"column\":\"complex_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"banners\",\"pivot\":\"0\",\"taggable\":\"0\"}',7),(147,24,'id','text','Id',1,0,0,0,0,0,'{}',1),(148,24,'title','text','Оглавление',1,1,1,1,1,1,'{}',4),(149,24,'plan_image','image','Планировка',1,1,1,1,1,1,'{}',5),(150,24,'floor_plan_image','image','План этажа',1,1,1,1,1,1,'{}',6),(151,24,'quadrature','number','Квадратура',1,1,1,1,1,1,'{}',7),(152,24,'floor','number','Этаж',1,1,1,1,1,1,'{}',8),(153,24,'entrance','number','Подьезд',1,1,1,1,1,1,'{}',9),(154,24,'rooms','number','Кол-во комнат',1,1,1,1,1,1,'{}',10),(155,24,'deadline','text','Срок сдачи',0,1,1,1,1,1,'{}',11),(156,24,'metro','text','Метро',0,1,1,1,1,1,'{}',12),(157,24,'type','select_dropdown','Тип',0,1,1,1,1,1,'{\"default\":\"\\u041d\\u0435 \\u0441\\u0434\\u0430\\u043d\",\"options\":{\"available\":\"\\u041d\\u0435 \\u0441\\u0434\\u0430\\u043d\",\"not_available\":\"\\u0421\\u0434\\u0430\\u043d\"}}',13),(158,24,'city_id','text','City Id',0,1,1,1,1,1,'{}',2),(159,24,'complex_id','text','Complex Id',0,1,1,1,1,1,'{}',3),(160,24,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',14),(161,24,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',15),(162,24,'descritpion','text_area','Описание',0,1,1,1,1,1,'{}',5),(163,24,'appartment_belongsto_city_relationship','relationship','Город',0,1,1,1,1,1,'{\"model\":\"App\\\\Models\\\\City\",\"table\":\"cities\",\"type\":\"belongsTo\",\"column\":\"city_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"appartment_advantages\",\"pivot\":\"0\",\"taggable\":\"0\"}',16),(164,24,'appartment_belongsto_complex_relationship','relationship','Жилой комплекс',0,1,1,1,1,1,'{\"model\":\"App\\\\Models\\\\Complex\",\"table\":\"complexes\",\"type\":\"belongsTo\",\"column\":\"complex_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"appartment_advantages\",\"pivot\":\"0\",\"taggable\":\"0\"}',17),(165,25,'id','text','Id',1,0,0,0,0,0,'{}',1),(166,25,'image','image','Изображение',1,1,1,1,1,1,'{}',3),(167,25,'title','text','Оглавление',1,1,1,1,1,1,'{}',4),(168,25,'description','text_area','Описание',1,1,1,1,1,1,'{}',5),(169,25,'appartment_id','text','Appartment Id',0,1,1,1,1,1,'{}',2),(170,25,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',6),(171,25,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',7),(172,25,'appartment_advantage_belongsto_appartment_relationship','relationship','Квартира',0,1,1,1,1,1,'{\"model\":\"App\\\\Models\\\\Appartment\",\"table\":\"appartments\",\"type\":\"belongsTo\",\"column\":\"appartment_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"appartment_advantages\",\"pivot\":\"0\",\"taggable\":\"0\"}',8),(173,17,'stream_link','text','Трансляция',0,1,1,1,1,1,'{}',10),(174,26,'id','text','Id',1,0,0,0,0,0,'{}',1),(175,26,'title','text','Оглавление',1,1,1,1,1,1,'{}',2),(176,26,'description','text_area','Описание',1,1,1,1,1,1,'{}',3),(177,26,'link','text','Ссылка',0,1,1,1,1,1,'{}',4),(178,26,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',5),(179,26,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',6),(180,27,'id','text','Id',1,0,0,0,0,0,'{}',1),(181,27,'title','text','Оглавление',1,1,1,1,1,1,'{}',2),(182,27,'image','image','Изображение',1,1,1,1,1,1,'{}',3),(183,27,'description','text_area','Описание',1,1,1,1,1,1,'{}',4),(184,27,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',5),(185,27,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',6),(186,28,'id','text','Id',1,0,0,0,0,0,'{}',1),(187,28,'title','text','Оглавление',1,1,1,1,1,1,'{}',2),(188,28,'description','text_area','Описание',1,1,1,1,1,1,'{}',3),(189,28,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',4),(190,28,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',5),(191,29,'id','text','Id',1,0,0,0,0,0,'{}',1),(192,29,'type','select_dropdown','Тип',1,1,1,1,1,1,'{\"options\":{\"image\":\"\\u041a\\u0430\\u0440\\u0442\\u0438\\u043d\\u043a\\u0430\",\"icon\":\"\\u0418\\u043a\\u043e\\u043d\\u043a\\u0430\",\"text\":\"\\u0422\\u0435\\u043a\\u0441\\u0442\",\"banner\":\"\\u0411\\u0430\\u043d\\u043d\\u0435\\u0440\"}}',2),(193,29,'title','text','Оглавление',1,1,1,1,1,1,'{}',3),(194,29,'image','image','Изображение',0,1,1,1,1,1,'{}',4),(195,29,'description','text_area','Описание',0,1,1,1,1,1,'{}',5),(196,29,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',6),(197,29,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',7),(198,31,'id','text','Id',1,0,0,0,0,0,'{}',1),(199,31,'title','text','Оглавление',1,1,1,1,1,1,'{}',2),(200,31,'description','text_area','Описание',1,1,1,1,1,1,'{}',3),(201,31,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',4),(202,31,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',5),(203,32,'id','text','Id',1,0,0,0,0,0,'{}',1),(204,32,'title','text','Оглавление',1,1,1,1,1,1,'{}',2),(205,32,'description','text_area','Описание',1,1,1,1,1,1,'{}',3),(206,32,'image','image','Изображение',1,1,1,1,1,1,'{}',4),(207,32,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',5),(208,32,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',6),(209,33,'id','text','Id',1,0,0,0,0,0,'{}',1),(210,33,'title','text','Оглавление',1,1,1,1,1,1,'{}',2),(212,33,'icon','image','Иконка',0,1,1,1,1,1,'{}',4),(214,33,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',6),(215,33,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',7),(216,34,'id','text','Id',1,0,0,0,0,0,'{}',1),(217,34,'address','text','Адрес',0,1,1,1,1,1,'{}',2),(218,34,'2gis_link','text','2Gis',0,1,1,1,1,1,'{}',3),(219,34,'phone_number','text','Номер телефона',0,1,1,1,1,1,'{}',4),(220,34,'email','text','E-mail',0,1,1,1,1,1,'{}',5),(221,34,'fb_link','text','Facebook',0,1,1,1,1,1,'{}',6),(222,34,'ig_link','text','Instagram',0,1,1,1,1,1,'{}',7),(223,34,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',8),(224,34,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',9),(225,4,'link','text','Ссылка',0,1,1,1,1,1,'{}',6),(226,5,'link','text','Ссылка',0,1,1,1,1,1,'{}',7),(227,6,'link','text','Ссылка',1,1,1,1,1,1,'{}',7),(228,35,'id','text','Id',1,0,0,0,0,0,'{}',1),(229,35,'phone_number','text','Номер телефона',1,1,1,1,1,1,'{}',2),(230,35,'text','text','Текст',0,1,1,1,1,1,'{}',3),(231,35,'created_at','timestamp','Дата создания',0,1,1,1,0,1,'{}',4),(232,35,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',5),(233,17,'coordinates','coordinates','Координаты',0,0,1,1,1,1,'{}',11),(234,24,'general_plan','image','Генеральный план',0,1,1,1,1,1,'{}',17),(235,17,'general_plan','image','Генеральный план',0,0,1,1,1,1,'{}',12),(236,17,'brief','text_area','Краткое описание',0,0,1,1,1,1,'{}',13),(237,36,'id','text','Id',1,0,0,0,0,0,'{}',1),(238,36,'title','text','Оглавление',1,1,1,1,1,1,'{}',2),(239,36,'title2','text','Оглавление2',1,1,1,1,1,1,'{}',3),(240,36,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',4),(241,36,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',5),(242,37,'id','text','Id',1,0,0,0,0,0,'{}',1),(243,37,'title','text','Оглавление',1,1,1,1,1,1,'{}',2),(244,37,'description','text_area','Описание',1,1,1,1,1,1,'{}',3),(245,37,'icon','image','Иконка',1,1,1,1,1,1,'{}',4),(246,37,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',5),(247,37,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',6),(248,38,'id','text','Id',1,0,0,0,0,0,'{}',1),(249,38,'title','text','Оглавление',1,1,1,1,1,1,'{}',2),(250,38,'description','text_area','Описание',1,1,1,1,1,1,'{}',3),(251,38,'image','image','Изображение',1,1,1,1,1,1,'{}',4),(252,38,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',5),(253,38,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',6),(254,39,'id','text','Id',1,0,0,0,0,0,'{}',1),(255,39,'title','text','Оглавление',1,1,1,1,1,1,'{}',2),(257,39,'image','image','Изображение',1,1,1,1,1,1,'{}',4),(258,39,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',5),(259,39,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',6),(260,40,'id','text','Id',1,0,0,0,0,0,'{}',1),(261,40,'title','text','Оглавление',1,1,1,1,1,1,'{}',4),(262,40,'descritpion','text_area','Описание',0,1,1,1,1,1,'{}',5),(263,40,'plan_image','image','План',1,1,1,1,1,1,'{}',6),(264,40,'floor_plan_image','image','План этажа',1,1,1,1,1,1,'{}',7),(265,40,'quadrature','number','Квадратура',1,1,1,1,1,1,'{}',8),(266,40,'floor','number','Этаж',0,1,1,1,1,1,'{}',9),(267,40,'deadline','select_dropdown','Год заселения',0,1,1,1,1,1,'{\"options\":{\"2024\":\"2024\",\"2025\":\"2025\",\"2026\":\"2026\",\"2027\":\"2027\",\"2028\":\"2028\",\"populated\":\"\\u0417\\u0430\\u0441\\u0435\\u043b\\u0435\\u043d\"}}',10),(268,40,'type','select_dropdown','Тип',0,1,1,1,1,1,'{\"options\":{\"auction\":\"\\u0410\\u0443\\u043a\\u0446\\u0438\\u043e\\u043d\",\"gab\":\"\\u0413\\u0410\\u0411\"}}',11),(269,40,'city_id','text','City Id',0,1,1,1,1,1,'{}',2),(270,40,'complex_id','text','Complex Id',0,1,1,1,1,1,'{}',3),(271,40,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',12),(272,40,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',13),(273,40,'commercial_estate_belongsto_complex_relationship','relationship','Проекты',0,1,1,1,1,1,'{\"model\":\"App\\\\Models\\\\Complex\",\"table\":\"complexes\",\"type\":\"belongsTo\",\"column\":\"complex_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"about_us_advantages\",\"pivot\":\"0\",\"taggable\":\"0\"}',14),(274,40,'commercial_estate_belongsto_city_relationship','relationship','Город',0,1,1,1,1,1,'{\"model\":\"App\\\\Models\\\\City\",\"table\":\"cities\",\"type\":\"belongsTo\",\"column\":\"city_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"about_us_advantages\",\"pivot\":\"0\",\"taggable\":\"0\"}',15),(275,42,'id','text','Id',1,0,0,0,0,0,'{}',1),(276,42,'image','image','Изображение',1,1,1,1,1,1,'{}',3),(277,42,'title','text','Оглавление',1,1,1,1,1,1,'{}',4),(278,42,'description','text_area','Описание',1,1,1,1,1,1,'{}',5),(279,42,'commercial_estate_id','text','Недвижимость',0,1,1,1,1,1,'{}',2),(280,42,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',6),(281,42,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',7),(282,42,'commercial_estate_advantage_belongsto_commercial_estate_relationship','relationship','Недвижимость',0,1,1,1,1,1,'{\"model\":\"App\\\\Models\\\\CommercialEstate\",\"table\":\"commercial_estates\",\"type\":\"belongsTo\",\"column\":\"commercial_estate_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"about_us_advantages\",\"pivot\":\"0\",\"taggable\":\"0\"}',8),(283,17,'architecture','rich_text_box','Архитектура',0,0,1,1,1,1,'{}',14),(284,17,'lobby','rich_text_box','Лобби',0,0,1,1,1,1,'{}',15),(285,17,'transport','rich_text_box','Транспортная инфраструктура',0,0,1,1,1,1,'{}',16),(286,17,'infrastracture','rich_text_box','Инфраструктура',0,0,1,1,1,1,'{}',17),(287,17,'peculiarities','rich_text_box','Особенности',0,0,1,1,1,1,'{}',18),(288,17,'improvement','rich_text_box','Благоустройство',0,0,1,1,1,1,'{}',19),(289,17,'landscape','rich_text_box','Ландшафтный дизайн',0,0,1,1,1,1,'{}',20),(290,17,'safety','rich_text_box','Безопасность',0,0,1,1,1,1,'{}',21),(291,17,'advantages','rich_text_box','Преимущества',0,0,1,1,1,1,'{}',22),(292,17,'address','text','Адрес',0,1,1,1,1,1,'{}',23),(293,14,'address_short','text','Короткое название адреса',0,1,1,1,1,1,'{}',10),(294,26,'image','image','Изображение',0,1,1,1,1,1,'{}',7),(295,17,'project_id','text','Project_ID',0,0,1,1,1,1,'{}',24),(296,43,'id','text','Id',1,0,0,0,0,0,'{}',1),(297,43,'title','text','Оглавление',0,1,1,1,1,1,'{}',2),(298,43,'image','image','Изображения',0,1,1,1,1,1,'{}',3),(299,43,'content','rich_text_box','Контент',0,1,1,1,1,1,'{}',4),(300,43,'description','rich_text_box','Описание',0,1,1,1,1,1,'{}',5),(301,43,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',6),(302,43,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',7),(303,8,'link','text','Ссыока',0,1,1,1,1,1,'{}',7),(304,4,'image','image','Изображение',0,1,1,1,1,1,'{}',7),(305,35,'page','text','Страница',0,1,1,1,1,1,'{}',6);
+/*!40000 ALTER TABLE `data_rows` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Структура таблицы `data_types`
+-- Table structure for table `data_types`
 --
 
+DROP TABLE IF EXISTS `data_types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `data_types` (
-  `id` int UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `display_name_singular` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `display_name_plural` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `model_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `policy_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `controller` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name_singular` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name_plural` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `model_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `policy_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `controller` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `generate_permissions` tinyint(1) NOT NULL DEFAULT '0',
   `server_side` tinyint NOT NULL DEFAULT '0',
-  `details` text COLLATE utf8mb4_unicode_ci,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `data_types`
---
-
-INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`) VALUES
-(1, 'users', 'users', 'User', 'Users', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', '', 1, 0, NULL, '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(2, 'menus', 'menus', 'Menu', 'Menus', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(3, 'roles', 'roles', 'Role', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, 'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController', '', 1, 0, NULL, '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(4, 'main_blocks', 'main-blocks', 'Ипотека', 'Ипотека', NULL, 'App\\Models\\MainBlock', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-09 18:59:29', '2024-03-22 18:58:00'),
-(5, 'secondary_blocks', 'secondary-blocks', 'Типы', 'Типы', NULL, 'App\\Models\\SecondaryBlock', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-09 19:00:49', '2024-03-22 18:58:34'),
-(6, 'sliders', 'sliders', 'Слайдер', 'Слайдер', NULL, 'App\\Models\\Slider', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-09 19:01:34', '2024-03-22 18:58:59'),
-(7, 'purchasing_methods', 'purchasing-methods', 'Способы покупки', 'Способы покупки', NULL, 'App\\Models\\PurchasingMethod', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-09 19:02:27', '2024-03-09 19:02:27'),
-(8, 'banners', 'banners', 'Баннер', 'Баннер', NULL, 'App\\Models\\Banner', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-09 19:03:00', '2024-03-09 19:03:00'),
-(10, 'mortgage_banners', 'mortgage-banners', 'Баннер', 'Баннер', NULL, 'App\\Models\\MortgageBanner', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-09 19:55:14', '2024-03-09 19:55:14'),
-(11, 'mortgage_advantages', 'mortgage-advantages', 'Преимущество', 'Преимущество', NULL, 'App\\Models\\MortgageAdvantage', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-09 19:55:58', '2024-03-09 19:55:58'),
-(12, 'mortgage_steps', 'mortgage-steps', 'Шаги', 'Шаги', NULL, 'App\\Models\\MortgageStep', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-09 19:56:40', '2024-03-09 20:03:56'),
-(13, 'cities', 'cities', 'Города', 'Города', NULL, 'App\\Models\\City', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-09 20:28:57', '2024-03-11 16:09:48'),
-(14, 'offices', 'offices', 'Офисы', 'Офисы', NULL, 'App\\Models\\Office', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-09 20:30:14', '2024-03-18 17:09:54'),
-(15, 'helplines', 'helplines', 'Служба доверия', 'Служба доверия', NULL, 'App\\Models\\Helpline', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-09 20:48:28', '2024-03-11 16:49:16'),
-(16, 'sales_departments', 'sales-departments', 'Sales Department', 'Sales Departments', NULL, 'App\\Models\\SalesDepartment', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-09 21:05:13', '2024-03-11 16:49:24'),
-(17, 'complexes', 'complexes', 'Проекты', 'Проекты', NULL, 'App\\Models\\Complex', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-11 16:34:52', '2024-03-22 17:28:42'),
-(18, 'complex_advantages', 'complex-advantages', 'Преимущество', 'Преимущество', NULL, 'App\\Models\\ComplexAdvantage', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-11 16:54:04', '2024-03-13 18:30:48'),
-(20, 'complex_peculiarities', 'complex-peculiarities', 'Преимущество', 'Преимущество', NULL, 'App\\Models\\ComplexPeculiarity', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-11 16:54:44', '2024-03-13 18:32:13'),
-(24, 'appartments', 'appartments', 'Квартиры', 'Квартиры', NULL, 'App\\Models\\Appartment', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-13 20:03:16', '2024-03-13 20:20:33'),
-(25, 'appartment_advantages', 'appartment-advantages', 'Преимущество', 'Преимущество', NULL, 'App\\Models\\AppartmentAdvantage', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-13 20:20:27', '2024-03-13 20:20:54'),
-(26, 'about_us_banners', 'about-us-banners', 'Баннер', 'Баннер', NULL, 'App\\Models\\AboutUsBanner', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-03-22 18:05:59', '2024-03-22 18:09:31'),
-(27, 'about_us_blocks', 'about-us-blocks', 'Блоки', 'Блоки', NULL, 'App\\Models\\AboutUsBlock', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-22 18:09:20', '2024-03-22 18:09:20'),
-(28, 'about_us_descriptions', 'about-us-descriptions', 'Описание', 'Описание', NULL, 'App\\Models\\AboutUsDescription', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-22 18:10:09', '2024-03-22 18:10:09'),
-(29, 'about_us_advantages', 'about-us-advantages', 'Пр', 'Преимущество', NULL, 'App\\Models\\AboutUsAdvantage', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-22 18:11:39', '2024-03-22 18:11:39'),
-(31, 'about_us_geographies', 'about-us-geographies', 'География', 'География', NULL, 'App\\Models\\AboutUsGeography', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-22 18:12:30', '2024-03-22 18:12:30'),
-(32, 'about_us_geography_districts', 'about-us-geography-districts', 'Районы', 'Районы', NULL, 'App\\Models\\AboutUsGeographyDistrict', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-22 18:13:07', '2024-03-22 18:13:07'),
-(33, 'about_us_companies', 'about-us-companies', 'Компания', 'Компания', NULL, 'App\\Models\\AboutUsCompany', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-22 18:14:52', '2024-03-22 18:14:52'),
-(34, 'footers', 'footers', 'Футер', 'Футер', NULL, 'App\\Models\\Footer', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2024-03-22 18:16:17', '2024-03-22 18:16:17');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `failed_jobs`
---
-
-CREATE TABLE `failed_jobs` (
-  `id` bigint UNSIGNED NOT NULL,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `footers`
---
-
-CREATE TABLE `footers` (
-  `id` bigint UNSIGNED NOT NULL,
-  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `2gis_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone_number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `fb_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ig_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `helplines`
---
-
-CREATE TABLE `helplines` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `main_blocks`
---
-
-CREATE TABLE `main_blocks` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title2` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `details` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `data_types_name_unique` (`name`),
+  UNIQUE KEY `data_types_slug_unique` (`slug`)
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `data_types`
+--
+
+LOCK TABLES `data_types` WRITE;
+/*!40000 ALTER TABLE `data_types` DISABLE KEYS */;
+INSERT INTO `data_types` VALUES (1,'users','users','User','Users','voyager-person','TCG\\Voyager\\Models\\User','TCG\\Voyager\\Policies\\UserPolicy','TCG\\Voyager\\Http\\Controllers\\VoyagerUserController','',1,0,NULL,'2024-03-09 18:56:00','2024-03-09 18:56:00'),(2,'menus','menus','Menu','Menus','voyager-list','TCG\\Voyager\\Models\\Menu',NULL,'','',1,0,NULL,'2024-03-09 18:56:00','2024-03-09 18:56:00'),(3,'roles','roles','Role','Roles','voyager-lock','TCG\\Voyager\\Models\\Role',NULL,'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController','',1,0,NULL,'2024-03-09 18:56:00','2024-03-09 18:56:00'),(4,'main_blocks','main-blocks','Ипотека','Ипотека',NULL,'App\\Models\\MainBlock',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-09 18:59:29','2024-07-02 17:18:50'),(5,'secondary_blocks','secondary-blocks','Типы','Типы',NULL,'App\\Models\\SecondaryBlock',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-09 19:00:49','2024-03-22 18:58:34'),(6,'sliders','sliders','Слайдер','Слайдер',NULL,'App\\Models\\Slider',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-09 19:01:34','2024-03-22 18:58:59'),(7,'purchasing_methods','purchasing-methods','Способы покупки','Способы покупки',NULL,'App\\Models\\PurchasingMethod',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}','2024-03-09 19:02:27','2024-03-09 19:02:27'),(8,'banners','banners','Баннер','Баннер',NULL,'App\\Models\\Banner',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-09 19:03:00','2024-06-13 15:07:48'),(10,'mortgage_banners','mortgage-banners','Баннер','Баннер',NULL,'App\\Models\\MortgageBanner',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}','2024-03-09 19:55:14','2024-03-09 19:55:14'),(11,'mortgage_advantages','mortgage-advantages','Преимущество','Преимущество',NULL,'App\\Models\\MortgageAdvantage',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}','2024-03-09 19:55:58','2024-03-09 19:55:58'),(12,'mortgage_steps','mortgage-steps','Шаги','Шаги',NULL,'App\\Models\\MortgageStep',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-09 19:56:40','2024-03-09 20:03:56'),(13,'cities','cities','Города','Города',NULL,'App\\Models\\City',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-09 20:28:57','2024-03-11 16:09:48'),(14,'offices','offices','Офисы','Офисы',NULL,'App\\Models\\Office',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-09 20:30:14','2024-05-12 20:00:53'),(15,'helplines','helplines','Служба доверия','Служба доверия',NULL,'App\\Models\\Helpline',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-09 20:48:28','2024-03-23 14:25:01'),(16,'sales_departments','sales-departments','Сотрудник','Сотрудник',NULL,'App\\Models\\SalesDepartment',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-09 21:05:13','2024-03-23 11:25:19'),(17,'complexes','complexes','Проекты','Проекты',NULL,'App\\Models\\Complex',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-11 16:34:52','2024-05-25 17:32:04'),(18,'complex_advantages','complex-advantages','Преимущество','Преимущество',NULL,'App\\Models\\ComplexAdvantage',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-11 16:54:04','2024-03-13 18:30:48'),(20,'complex_peculiarities','complex-peculiarities','Преимущество','Преимущество',NULL,'App\\Models\\ComplexPeculiarity',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-11 16:54:44','2024-03-13 18:32:13'),(24,'appartments','appartments','Квартиры','Квартиры',NULL,'App\\Models\\Appartment',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-13 20:03:16','2024-03-24 12:29:51'),(25,'appartment_advantages','appartment-advantages','Преимущество','Преимущество',NULL,'App\\Models\\AppartmentAdvantage',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-13 20:20:27','2024-03-13 20:20:54'),(26,'about_us_banners','about-us-banners','Баннер','Баннер',NULL,'App\\Models\\AboutUsBanner',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-22 18:05:59','2024-05-12 20:14:25'),(27,'about_us_blocks','about-us-blocks','Блоки','Блоки',NULL,'App\\Models\\AboutUsBlock',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-22 18:09:20','2024-03-23 11:52:49'),(28,'about_us_descriptions','about-us-descriptions','Описание','Описание',NULL,'App\\Models\\AboutUsDescription',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}','2024-03-22 18:10:09','2024-03-22 18:10:09'),(29,'about_us_advantages','about-us-advantages','Преимущество','Преимущество',NULL,'App\\Models\\AboutUsAdvantage',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-22 18:11:39','2024-03-23 15:32:44'),(31,'about_us_geographies','about-us-geographies','География','География',NULL,'App\\Models\\AboutUsGeography',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-22 18:12:30','2024-03-23 14:15:11'),(32,'about_us_geography_districts','about-us-geography-districts','Районы','Районы',NULL,'App\\Models\\AboutUsGeographyDistrict',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}','2024-03-22 18:13:07','2024-03-22 18:13:07'),(33,'about_us_companies','about-us-companies','Партнеры','Компания',NULL,'App\\Models\\AboutUsCompany',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-22 18:14:52','2024-07-02 17:59:17'),(34,'footers','footers','Футер','Футер',NULL,'App\\Models\\Footer',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}','2024-03-22 18:16:17','2024-03-22 18:16:17'),(35,'applications','applications','Заявки','Заявки',NULL,'App\\Models\\Application',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-23 15:00:13','2024-07-02 17:47:48'),(36,'commercial_estate_main_blocks','commercial-estate-main-blocks','Аукционы','Аукционы',NULL,'App\\Models\\CommercialEstateMainBlock',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}','2024-03-24 20:09:15','2024-03-24 20:09:15'),(37,'commercial_estate_secondary_blocks','commercial-estate-secondary-blocks','Типы','Типы',NULL,'App\\Models\\CommercialEstateSecondaryBlock',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}','2024-03-24 20:10:45','2024-03-24 20:10:45'),(38,'commercial_estate_sliders','commercial-estate-sliders','Слайдер','Слайдер',NULL,'App\\Models\\CommercialEstateSlider',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}','2024-03-24 20:12:19','2024-03-24 20:12:19'),(39,'commercial_estate_purchasing_methods','commercial-estate-purchasing-methods','Решения','Решения',NULL,'App\\Models\\CommercialEstatePurchasingMethod',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-24 20:14:53','2024-03-24 20:44:58'),(40,'commercial_estates','commercial-estates','Недвижимость','Недвижимость',NULL,'App\\Models\\CommercialEstate',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-24 20:22:41','2024-03-25 16:28:06'),(42,'commercial_estate_advantages','commercial-estate-advantages','Преимущество','Преимущество',NULL,'App\\Models\\CommercialEstateAdvantage',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-03-24 20:31:20','2024-03-24 20:38:39'),(43,'company_news','company-news','Новости','Новости',NULL,'App\\Models\\CompanyNews',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}','2024-05-25 18:22:26','2024-05-25 18:22:26');
+/*!40000 ALTER TABLE `data_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `failed_jobs`
+--
+
+DROP TABLE IF EXISTS `failed_jobs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `failed_jobs` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Дамп данных таблицы `main_blocks`
+-- Dumping data for table `failed_jobs`
 --
 
-INSERT INTO `main_blocks` (`id`, `title`, `title2`, `created_at`, `updated_at`, `link`) VALUES
-(1, 'Ипотека 14,5%', 'Мы предоставляем выгодные условия приобретения жилья под низкий процент', '2024-03-09 19:06:12', '2024-03-09 19:06:12', NULL);
-
--- --------------------------------------------------------
+LOCK TABLES `failed_jobs` WRITE;
+/*!40000 ALTER TABLE `failed_jobs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `failed_jobs` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Структура таблицы `menus`
+-- Table structure for table `footers`
 --
 
-CREATE TABLE `menus` (
-  `id` int UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+DROP TABLE IF EXISTS `footers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `footers` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `2gis_link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fb_link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ig_link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Дамп данных таблицы `menus`
+-- Dumping data for table `footers`
 --
 
-INSERT INTO `menus` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'admin', '2024-03-09 18:56:00', '2024-03-09 18:56:00');
-
--- --------------------------------------------------------
+LOCK TABLES `footers` WRITE;
+/*!40000 ALTER TABLE `footers` DISABLE KEYS */;
+INSERT INTO `footers` VALUES (1,'г.Алматы,  Ул. Толе би, 101, БЦ «Толе би»','https://2gis.kz/almaty/firm/9429940000794709','+7 7000 400 400','sales@ed.group','https://www.facebook.com/moydomdevelopment/','https://www.instagram.com/everest_development_kz/','2024-03-23 11:49:02','2024-06-14 09:55:27');
+/*!40000 ALTER TABLE `footers` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Структура таблицы `menu_items`
+-- Table structure for table `helplines`
 --
 
+DROP TABLE IF EXISTS `helplines`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `helplines` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `helplines`
+--
+
+LOCK TABLES `helplines` WRITE;
+/*!40000 ALTER TABLE `helplines` DISABLE KEYS */;
+INSERT INTO `helplines` VALUES (1,'Служба доверия','В рамках улучшения работы «Everest Development» действует телефон доверия.\n','+7-(705)-153-68-98','2024-03-23 11:24:10','2024-06-13 09:48:23');
+/*!40000 ALTER TABLE `helplines` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `main_blocks`
+--
+
+DROP TABLE IF EXISTS `main_blocks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `main_blocks` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title2` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `main_blocks`
+--
+
+LOCK TABLES `main_blocks` WRITE;
+/*!40000 ALTER TABLE `main_blocks` DISABLE KEYS */;
+INSERT INTO `main_blocks` VALUES (1,'ПАРТНЕРСКАЯ ИПОТЕКА','<p>Мы предоставляем выгодные условия приобретения жилья под низкий процент</p>\n<p>Первоначальный взнос 20% 5% годовых Минимальный взнос от 4.4 млн тенге!</p>','2024-03-09 19:06:12','2024-07-05 11:21:17','https://ed.group/mortgage','main-blocks/July2024/zm4A47waJwaW4PJdXe7W.png');
+/*!40000 ALTER TABLE `main_blocks` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `menu_items`
+--
+
+DROP TABLE IF EXISTS `menu_items`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `menu_items` (
-  `id` int UNSIGNED NOT NULL,
-  `menu_id` int UNSIGNED DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `target` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '_self',
-  `icon_class` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `menu_id` int unsigned DEFAULT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `target` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '_self',
+  `icon_class` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `color` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `parent_id` int DEFAULT NULL,
   `order` int NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `route` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `parameters` text COLLATE utf8mb4_unicode_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `route` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `parameters` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`id`),
+  KEY `menu_items_menu_id_foreign` (`menu_id`),
+  CONSTRAINT `menu_items_menu_id_foreign` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Дамп данных таблицы `menu_items`
+-- Dumping data for table `menu_items`
 --
 
-INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
-(1, 1, 'Dashboard', '', '_self', 'voyager-boat', NULL, NULL, 1, '2024-03-09 18:56:00', '2024-03-09 18:56:00', 'voyager.dashboard', NULL),
-(2, 1, 'Media', '', '_self', 'voyager-images', NULL, NULL, 4, '2024-03-09 18:56:00', '2024-03-09 19:04:16', 'voyager.media.index', NULL),
-(3, 1, 'Users', '', '_self', 'voyager-person', NULL, NULL, 3, '2024-03-09 18:56:00', '2024-03-09 18:56:00', 'voyager.users.index', NULL),
-(4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, NULL, 2, '2024-03-09 18:56:00', '2024-03-09 18:56:00', 'voyager.roles.index', NULL),
-(5, 1, 'Tools', '', '_self', 'voyager-tools', NULL, NULL, 5, '2024-03-09 18:56:00', '2024-03-09 19:04:16', NULL, NULL),
-(6, 1, 'Menu Builder', '', '_self', 'voyager-list', NULL, 5, 1, '2024-03-09 18:56:00', '2024-03-09 19:04:16', 'voyager.menus.index', NULL),
-(7, 1, 'Database', '', '_self', 'voyager-data', NULL, 5, 2, '2024-03-09 18:56:00', '2024-03-09 19:04:16', 'voyager.database.index', NULL),
-(8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 3, '2024-03-09 18:56:00', '2024-03-09 19:04:16', 'voyager.compass.index', NULL),
-(9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 4, '2024-03-09 18:56:00', '2024-03-09 19:04:16', 'voyager.bread.index', NULL),
-(10, 1, 'Settings', '', '_self', 'voyager-settings', NULL, NULL, 6, '2024-03-09 18:56:00', '2024-03-09 19:04:16', 'voyager.settings.index', NULL),
-(11, 1, 'Ипотека', '', '_self', NULL, NULL, 16, 1, '2024-03-09 18:59:29', '2024-03-09 19:04:18', 'voyager.main-blocks.index', NULL),
-(12, 1, 'Типы', '', '_self', NULL, NULL, 16, 2, '2024-03-09 19:00:49', '2024-03-09 19:04:22', 'voyager.secondary-blocks.index', NULL),
-(13, 1, 'Слайдер', '', '_self', NULL, NULL, 16, 3, '2024-03-09 19:01:34', '2024-03-09 19:04:26', 'voyager.sliders.index', NULL),
-(14, 1, 'Способы покупки', '', '_self', NULL, NULL, 16, 4, '2024-03-09 19:02:27', '2024-03-09 19:04:28', 'voyager.purchasing-methods.index', NULL),
-(15, 1, 'Баннер', '', '_self', NULL, NULL, 16, 5, '2024-03-09 19:03:00', '2024-03-09 19:04:29', 'voyager.banners.index', NULL),
-(16, 1, 'Главная', '', '_self', 'voyager-list', '#000000', NULL, 7, '2024-03-09 19:04:11', '2024-03-09 19:04:16', NULL, ''),
-(17, 1, 'Ипотека', '', '_self', 'voyager-dollar', '#000000', NULL, 8, '2024-03-09 19:54:01', '2024-03-09 19:54:01', NULL, ''),
-(18, 1, 'Баннер', '', '_self', NULL, NULL, 17, 1, '2024-03-09 19:55:14', '2024-03-09 19:56:46', 'voyager.mortgage-banners.index', NULL),
-(19, 1, 'Преимущество', '', '_self', NULL, NULL, 17, 2, '2024-03-09 19:55:58', '2024-03-09 19:56:47', 'voyager.mortgage-advantages.index', NULL),
-(20, 1, 'Шаги', '', '_self', NULL, NULL, 17, 3, '2024-03-09 19:56:40', '2024-03-09 19:56:48', 'voyager.mortgage-steps.index', NULL),
-(21, 1, 'Офисы', '', '_self', 'voyager-compass', '#000000', NULL, 9, '2024-03-09 20:28:31', '2024-03-09 20:28:31', NULL, ''),
-(22, 1, 'Города', '', '_self', 'voyager-world', '#000000', NULL, 13, '2024-03-09 20:28:57', '2024-03-22 18:07:44', 'voyager.cities.index', 'null'),
-(23, 1, 'Офисы', '', '_self', NULL, NULL, 21, 1, '2024-03-09 20:30:14', '2024-03-09 20:31:25', 'voyager.offices.index', NULL),
-(24, 1, 'Служба доверия', '', '_self', NULL, NULL, 21, 2, '2024-03-09 20:48:28', '2024-03-09 21:03:17', 'voyager.helplines.index', NULL),
-(25, 1, 'Сотрудник', '', '_self', NULL, '#000000', 21, 3, '2024-03-09 21:05:13', '2024-03-09 21:05:32', 'voyager.sales-departments.index', 'null'),
-(26, 1, 'Проекты', '', '_self', 'voyager-company', '#000000', NULL, 10, '2024-03-11 16:31:11', '2024-03-11 16:38:02', NULL, ''),
-(27, 1, 'Проекты', '', '_self', NULL, NULL, 26, 1, '2024-03-11 16:34:52', '2024-03-11 16:35:41', 'voyager.complexes.index', NULL),
-(28, 1, 'Преимущество', '', '_self', NULL, NULL, 26, 2, '2024-03-11 16:54:04', '2024-03-11 16:56:31', 'voyager.complex-advantages.index', NULL),
-(29, 1, 'Особенности', '', '_self', NULL, '#000000', 26, 3, '2024-03-11 16:54:44', '2024-03-11 17:00:24', 'voyager.complex-peculiarities.index', 'null'),
-(33, 1, 'Квартиры', '', '_self', NULL, NULL, 35, 1, '2024-03-13 20:03:16', '2024-03-13 20:22:49', 'voyager.appartments.index', NULL),
-(34, 1, 'Преимущество', '', '_self', NULL, NULL, 35, 2, '2024-03-13 20:20:27', '2024-03-13 20:22:50', 'voyager.appartment-advantages.index', NULL),
-(35, 1, 'Апартаменты', '', '_self', 'voyager-home', '#000000', NULL, 11, '2024-03-13 20:22:41', '2024-03-13 20:22:46', NULL, ''),
-(36, 1, 'Баннер', '', '_self', NULL, NULL, 37, 1, '2024-03-22 18:05:59', '2024-03-22 18:06:18', 'voyager.about-us-banners.index', NULL),
-(37, 1, 'О нас', '', '_self', 'voyager-list', '#000000', NULL, 12, '2024-03-22 18:06:14', '2024-03-22 18:07:44', NULL, ''),
-(38, 1, 'Блоки', '', '_self', NULL, NULL, 37, 2, '2024-03-22 18:09:20', '2024-03-22 18:16:28', 'voyager.about-us-blocks.index', NULL),
-(39, 1, 'Описание', '', '_self', NULL, NULL, 37, 3, '2024-03-22 18:10:09', '2024-03-22 18:16:34', 'voyager.about-us-descriptions.index', NULL),
-(40, 1, 'Преимущество', '', '_self', NULL, NULL, 37, 4, '2024-03-22 18:11:39', '2024-03-22 18:16:37', 'voyager.about-us-advantages.index', NULL),
-(41, 1, 'География', '', '_self', NULL, NULL, 37, 5, '2024-03-22 18:12:30', '2024-03-22 18:16:39', 'voyager.about-us-geographies.index', NULL),
-(42, 1, 'Районы', '', '_self', NULL, NULL, 37, 6, '2024-03-22 18:13:07', '2024-03-22 18:16:41', 'voyager.about-us-geography-districts.index', NULL),
-(43, 1, 'Компания', '', '_self', NULL, NULL, 37, 7, '2024-03-22 18:14:52', '2024-03-22 18:16:44', 'voyager.about-us-companies.index', NULL),
-(44, 1, 'Футер', '', '_self', 'voyager-download', '#000000', NULL, 14, '2024-03-22 18:16:17', '2024-03-22 18:17:11', 'voyager.footers.index', 'null');
-
--- --------------------------------------------------------
+LOCK TABLES `menu_items` WRITE;
+/*!40000 ALTER TABLE `menu_items` DISABLE KEYS */;
+INSERT INTO `menu_items` VALUES (1,1,'Dashboard','','_self','voyager-boat',NULL,NULL,1,'2024-03-09 18:56:00','2024-03-09 18:56:00','voyager.dashboard',NULL),(2,1,'Media','','_self','voyager-images',NULL,NULL,4,'2024-03-09 18:56:00','2024-03-09 19:04:16','voyager.media.index',NULL),(3,1,'Users','','_self','voyager-person',NULL,NULL,3,'2024-03-09 18:56:00','2024-03-09 18:56:00','voyager.users.index',NULL),(4,1,'Roles','','_self','voyager-lock',NULL,NULL,2,'2024-03-09 18:56:00','2024-03-09 18:56:00','voyager.roles.index',NULL),(5,1,'Tools','','_self','voyager-tools',NULL,NULL,5,'2024-03-09 18:56:00','2024-03-09 19:04:16',NULL,NULL),(6,1,'Menu Builder','','_self','voyager-list',NULL,5,1,'2024-03-09 18:56:00','2024-03-09 19:04:16','voyager.menus.index',NULL),(7,1,'Database','','_self','voyager-data',NULL,5,2,'2024-03-09 18:56:00','2024-03-09 19:04:16','voyager.database.index',NULL),(8,1,'Compass','','_self','voyager-compass',NULL,5,3,'2024-03-09 18:56:00','2024-03-09 19:04:16','voyager.compass.index',NULL),(9,1,'BREAD','','_self','voyager-bread',NULL,5,4,'2024-03-09 18:56:00','2024-03-09 19:04:16','voyager.bread.index',NULL),(10,1,'Settings','','_self','voyager-settings',NULL,NULL,6,'2024-03-09 18:56:00','2024-03-09 19:04:16','voyager.settings.index',NULL),(11,1,'Ипотека','','_self',NULL,NULL,16,1,'2024-03-09 18:59:29','2024-03-09 19:04:18','voyager.main-blocks.index',NULL),(12,1,'Типы','','_self',NULL,NULL,16,2,'2024-03-09 19:00:49','2024-03-09 19:04:22','voyager.secondary-blocks.index',NULL),(13,1,'Слайдер','','_self',NULL,NULL,16,3,'2024-03-09 19:01:34','2024-03-09 19:04:26','voyager.sliders.index',NULL),(14,1,'Способы покупки','','_self',NULL,NULL,16,4,'2024-03-09 19:02:27','2024-03-09 19:04:28','voyager.purchasing-methods.index',NULL),(15,1,'Баннер','','_self',NULL,NULL,16,5,'2024-03-09 19:03:00','2024-03-09 19:04:29','voyager.banners.index',NULL),(16,1,'Главная','','_self','voyager-list','#000000',NULL,8,'2024-03-09 19:04:11','2024-03-23 15:01:44',NULL,''),(17,1,'Ипотека','','_self','voyager-dollar','#000000',NULL,10,'2024-03-09 19:54:01','2024-03-24 20:07:47',NULL,''),(18,1,'Баннер','','_self',NULL,NULL,17,1,'2024-03-09 19:55:14','2024-03-09 19:56:46','voyager.mortgage-banners.index',NULL),(19,1,'Преимущество','','_self',NULL,NULL,17,2,'2024-03-09 19:55:58','2024-03-09 19:56:47','voyager.mortgage-advantages.index',NULL),(20,1,'Шаги','','_self',NULL,NULL,17,3,'2024-03-09 19:56:40','2024-03-09 19:56:48','voyager.mortgage-steps.index',NULL),(21,1,'Офисы','','_self','voyager-compass','#000000',NULL,11,'2024-03-09 20:28:31','2024-03-24 20:07:47',NULL,''),(22,1,'Города','','_self','voyager-world','#000000',NULL,17,'2024-03-09 20:28:57','2024-05-25 18:23:16','voyager.cities.index','null'),(23,1,'Офисы','','_self',NULL,NULL,21,1,'2024-03-09 20:30:14','2024-03-09 20:31:25','voyager.offices.index',NULL),(24,1,'Служба доверия','','_self',NULL,NULL,21,2,'2024-03-09 20:48:28','2024-03-09 21:03:17','voyager.helplines.index',NULL),(25,1,'Сотрудник','','_self',NULL,'#000000',21,3,'2024-03-09 21:05:13','2024-03-09 21:05:32','voyager.sales-departments.index','null'),(26,1,'Проекты','','_self','voyager-company','#000000',NULL,12,'2024-03-11 16:31:11','2024-03-24 20:07:47',NULL,''),(27,1,'Проекты','','_self',NULL,NULL,26,1,'2024-03-11 16:34:52','2024-03-11 16:35:41','voyager.complexes.index',NULL),(28,1,'Преимущество','','_self',NULL,NULL,26,2,'2024-03-11 16:54:04','2024-03-11 16:56:31','voyager.complex-advantages.index',NULL),(29,1,'Особенности','','_self',NULL,'#000000',26,3,'2024-03-11 16:54:44','2024-03-11 17:00:24','voyager.complex-peculiarities.index','null'),(33,1,'Квартиры','','_self',NULL,NULL,35,1,'2024-03-13 20:03:16','2024-03-13 20:22:49','voyager.appartments.index',NULL),(34,1,'Преимущество','','_self',NULL,NULL,35,2,'2024-03-13 20:20:27','2024-03-13 20:22:50','voyager.appartment-advantages.index',NULL),(35,1,'Апартаменты','','_self','voyager-home','#000000',NULL,13,'2024-03-13 20:22:41','2024-03-24 20:07:47',NULL,''),(36,1,'Баннер','','_self',NULL,NULL,37,1,'2024-03-22 18:05:59','2024-03-22 18:06:18','voyager.about-us-banners.index',NULL),(37,1,'О нас','','_self','voyager-list','#000000',NULL,16,'2024-03-22 18:06:14','2024-05-25 18:23:16',NULL,''),(38,1,'Блоки','','_self',NULL,NULL,37,2,'2024-03-22 18:09:20','2024-03-22 18:16:28','voyager.about-us-blocks.index',NULL),(39,1,'Описание','','_self',NULL,NULL,37,3,'2024-03-22 18:10:09','2024-03-22 18:16:34','voyager.about-us-descriptions.index',NULL),(40,1,'Преимущество','','_self',NULL,NULL,37,4,'2024-03-22 18:11:39','2024-03-22 18:16:37','voyager.about-us-advantages.index',NULL),(41,1,'География','','_self',NULL,NULL,37,5,'2024-03-22 18:12:30','2024-03-22 18:16:39','voyager.about-us-geographies.index',NULL),(42,1,'Районы','','_self',NULL,NULL,37,6,'2024-03-22 18:13:07','2024-03-22 18:16:41','voyager.about-us-geography-districts.index',NULL),(43,1,'Партнеры','','_self',NULL,'#000000',37,7,'2024-03-22 18:14:52','2024-07-02 17:59:58','voyager.about-us-companies.index','null'),(44,1,'Футер','','_self','voyager-download','#000000',NULL,18,'2024-03-22 18:16:17','2024-05-25 18:23:16','voyager.footers.index','null'),(46,1,'Заявки','','_self','voyager-mail','#000000',NULL,7,'2024-03-23 15:00:14','2024-03-23 15:01:12','voyager.applications.index','null'),(47,1,'Коммерция','','_self','voyager-wallet','#000000',NULL,9,'2024-03-24 20:07:09','2024-03-24 20:18:07',NULL,''),(48,1,'Аукционы','','_self',NULL,NULL,47,1,'2024-03-24 20:09:15','2024-03-24 20:15:11','voyager.commercial-estate-main-blocks.index',NULL),(49,1,'Типы','','_self',NULL,NULL,47,2,'2024-03-24 20:10:45','2024-03-24 20:15:17','voyager.commercial-estate-secondary-blocks.index',NULL),(50,1,'Слайдер','','_self',NULL,NULL,47,3,'2024-03-24 20:12:19','2024-03-24 20:15:23','voyager.commercial-estate-sliders.index',NULL),(51,1,'Решения','','_self',NULL,NULL,47,4,'2024-03-24 20:14:53','2024-03-24 20:15:32','voyager.commercial-estate-purchasing-methods.index',NULL),(52,1,'Недвижимость','','_self',NULL,NULL,55,1,'2024-03-24 20:22:41','2024-03-24 20:34:54','voyager.commercial-estates.index',NULL),(53,1,'Преимущество','','_self',NULL,'#000000',55,2,'2024-03-24 20:31:20','2024-03-24 20:34:55','voyager.commercial-estate-advantages.index','null'),(55,1,'Ком. недвижимость','','_self','voyager-tag','#000000',NULL,15,'2024-03-24 20:34:42','2024-05-25 18:23:16',NULL,''),(56,1,'Новости','','_self','voyager-news','#000000',NULL,14,'2024-05-25 18:22:26','2024-05-25 18:23:44','voyager.company-news.index','null');
+/*!40000 ALTER TABLE `menu_items` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Структура таблицы `migrations`
+-- Table structure for table `menus`
 --
 
+DROP TABLE IF EXISTS `menus`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `menus` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `menus_name_unique` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `menus`
+--
+
+LOCK TABLES `menus` WRITE;
+/*!40000 ALTER TABLE `menus` DISABLE KEYS */;
+INSERT INTO `menus` VALUES (1,'admin','2024-03-09 18:56:00','2024-03-09 18:56:00');
+/*!40000 ALTER TABLE `menus` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `migrations`
+--
+
+DROP TABLE IF EXISTS `migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `migrations` (
-  `id` int UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Дамп данных таблицы `migrations`
+-- Dumping data for table `migrations`
 --
 
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
-(3, '2016_01_01_000000_add_voyager_user_fields', 1),
-(4, '2016_01_01_000000_create_data_types_table', 1),
-(5, '2016_05_19_173453_create_menu_table', 1),
-(6, '2016_10_21_190000_create_roles_table', 1),
-(7, '2016_10_21_190000_create_settings_table', 1),
-(8, '2016_11_30_135954_create_permission_table', 1),
-(9, '2016_11_30_141208_create_permission_role_table', 1),
-(10, '2016_12_26_201236_data_types__add__server_side', 1),
-(11, '2017_01_13_000000_add_route_to_menu_items_table', 1),
-(12, '2017_01_14_005015_create_translations_table', 1),
-(13, '2017_01_15_000000_make_table_name_nullable_in_permissions_table', 1),
-(14, '2017_03_06_000000_add_controller_to_data_types_table', 1),
-(15, '2017_04_21_000000_add_order_to_data_rows_table', 1),
-(16, '2017_07_05_210000_add_policyname_to_data_types_table', 1),
-(17, '2017_08_05_000000_add_group_to_settings_table', 1),
-(18, '2017_11_26_013050_add_user_role_relationship', 1),
-(19, '2017_11_26_015000_create_user_roles_table', 1),
-(20, '2018_03_11_000000_add_user_settings', 1),
-(21, '2018_03_14_000000_add_details_to_data_types_table', 1),
-(22, '2018_03_16_000000_make_settings_value_nullable', 1),
-(23, '2019_08_19_000000_create_failed_jobs_table', 1),
-(24, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(25, '2024_03_09_214848_create_main_blocks_table', 1),
-(26, '2024_03_09_214903_create_secondary_blocks_table', 1),
-(27, '2024_03_09_214909_create_sliders_table', 1),
-(28, '2024_03_09_215032_create_purchasing_methods_table', 1),
-(29, '2024_03_09_215035_create_banners_table', 1),
-(30, '2024_03_09_224702_create_mortgage_banners_table', 2),
-(31, '2024_03_09_224710_create_mortgage_advantages_table', 2),
-(34, '2024_03_09_224717_create_mortgage_steps_table', 3),
-(35, '2024_03_09_231445_create_cities_table', 4),
-(51, '2024_03_09_232010_create_offices_table', 5),
-(52, '2024_03_09_232036_create_helplines_table', 5),
-(53, '2024_03_09_232510_create_sales_departments_table', 5),
-(54, '2024_03_11_185704_create_complexes_table', 5),
-(55, '2024_03_11_191134_create_complex_advantages_table', 5),
-(56, '2024_03_11_191201_create_complex_peculiarities_table', 5),
-(60, '2024_03_13_223237_create_appartments_table', 6),
-(61, '2024_03_13_224307_create_appartment_advantages_table', 6),
-(62, '2024_03_22_202619_add_stream_link_to_complex_table', 7),
-(63, '2024_03_22_203631_create_about_us_banners_table', 8),
-(64, '2024_03_22_204004_create_about_us_descriptions_table', 8),
-(65, '2024_03_22_204408_create_about_us_advantages_table', 8),
-(66, '2024_03_22_204936_create_about_us_blocks_table', 8),
-(67, '2024_03_22_205120_create_about_us_geographies_table', 8),
-(68, '2024_03_22_205140_create_about_us_geography_districts_table', 8),
-(71, '2024_03_22_205834_create_about_us_companies_table', 9),
-(72, '2024_03_22_205957_create_footers_table', 9),
-(73, '2024_03_22_215515_add_link_field_to_main_blocks_table;', 10),
-(74, '2024_03_22_215524_add_link_field_to_secondary_blocks_table;', 10),
-(75, '2024_03_22_215531_add_link_field_to_sliders_table;', 10);
-
--- --------------------------------------------------------
+LOCK TABLES `migrations` WRITE;
+/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
+INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_reset_tokens_table',1),(3,'2016_01_01_000000_add_voyager_user_fields',1),(4,'2016_01_01_000000_create_data_types_table',1),(5,'2016_05_19_173453_create_menu_table',1),(6,'2016_10_21_190000_create_roles_table',1),(7,'2016_10_21_190000_create_settings_table',1),(8,'2016_11_30_135954_create_permission_table',1),(9,'2016_11_30_141208_create_permission_role_table',1),(10,'2016_12_26_201236_data_types__add__server_side',1),(11,'2017_01_13_000000_add_route_to_menu_items_table',1),(12,'2017_01_14_005015_create_translations_table',1),(13,'2017_01_15_000000_make_table_name_nullable_in_permissions_table',1),(14,'2017_03_06_000000_add_controller_to_data_types_table',1),(15,'2017_04_21_000000_add_order_to_data_rows_table',1),(16,'2017_07_05_210000_add_policyname_to_data_types_table',1),(17,'2017_08_05_000000_add_group_to_settings_table',1),(18,'2017_11_26_013050_add_user_role_relationship',1),(19,'2017_11_26_015000_create_user_roles_table',1),(20,'2018_03_11_000000_add_user_settings',1),(21,'2018_03_14_000000_add_details_to_data_types_table',1),(22,'2018_03_16_000000_make_settings_value_nullable',1),(23,'2019_08_19_000000_create_failed_jobs_table',1),(24,'2019_12_14_000001_create_personal_access_tokens_table',1),(25,'2024_03_09_214848_create_main_blocks_table',1),(26,'2024_03_09_214903_create_secondary_blocks_table',1),(27,'2024_03_09_214909_create_sliders_table',1),(28,'2024_03_09_215032_create_purchasing_methods_table',1),(29,'2024_03_09_215035_create_banners_table',1),(30,'2024_03_09_224702_create_mortgage_banners_table',2),(31,'2024_03_09_224710_create_mortgage_advantages_table',2),(34,'2024_03_09_224717_create_mortgage_steps_table',3),(35,'2024_03_09_231445_create_cities_table',4),(51,'2024_03_09_232010_create_offices_table',5),(52,'2024_03_09_232036_create_helplines_table',5),(53,'2024_03_09_232510_create_sales_departments_table',5),(54,'2024_03_11_185704_create_complexes_table',5),(55,'2024_03_11_191134_create_complex_advantages_table',5),(56,'2024_03_11_191201_create_complex_peculiarities_table',5),(60,'2024_03_13_223237_create_appartments_table',6),(61,'2024_03_13_224307_create_appartment_advantages_table',6),(62,'2024_03_22_202619_add_stream_link_to_complex_table',7),(63,'2024_03_22_203631_create_about_us_banners_table',8),(64,'2024_03_22_204004_create_about_us_descriptions_table',8),(65,'2024_03_22_204408_create_about_us_advantages_table',8),(66,'2024_03_22_204936_create_about_us_blocks_table',8),(67,'2024_03_22_205120_create_about_us_geographies_table',8),(68,'2024_03_22_205140_create_about_us_geography_districts_table',8),(71,'2024_03_22_205834_create_about_us_companies_table',9),(72,'2024_03_22_205957_create_footers_table',9),(73,'2024_03_22_215515_add_link_field_to_main_blocks_table;',10),(74,'2024_03_22_215524_add_link_field_to_secondary_blocks_table;',10),(75,'2024_03_22_215531_add_link_field_to_sliders_table;',10),(76,'2024_03_22_220114_create_applications_table',11),(77,'2024_03_23_152402_make_description_nullable_in_about_us_advantages_table',12),(78,'2024_03_23_152544_make_icon_and_link_nullable_in_about_us_companies_table',12),(79,'2024_03_23_155432_add_coordinates_column_to_complexes_table',13),(80,'2024_03_24_122609_add_general_plan_to_appartments_table',14),(81,'2024_03_24_124146_add_general_plan_to_complexes_table',15),(82,'2024_03_24_143035_add_brief_column_to_complexes_table',16),(83,'2024_03_24_181317_create_commercial_estates_table',17),(84,'2024_03_24_193830_create_commercial_estate_advantages_table',17),(85,'2024_03_24_200203_create_commercial_estate_main_blocks_table',17),(86,'2024_03_24_200216_create_commercial_estate_secondary_blocks_table',17),(87,'2024_03_24_200225_create_commercial_estate_sliders_table',17),(92,'2024_03_24_200243_create_commercial_estate_purchasing_methods_table',18),(93,'2024_04_24_154602_add_columns_to_complexes_table',19),(94,'2024_05_25_174902_create_company_news_table',20);
+/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Структура таблицы `mortgage_advantages`
+-- Table structure for table `mortgage_advantages`
 --
 
+DROP TABLE IF EXISTS `mortgage_advantages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `mortgage_advantages` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Дамп данных таблицы `mortgage_advantages`
+-- Dumping data for table `mortgage_advantages`
 --
 
-INSERT INTO `mortgage_advantages` (`id`, `title`, `description`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'Меньше на 91%', 'общая переплата', 'mortgage-advantages\\March2024\\RQB0yLDlYtcnWkC0Aacx.png', '2024-03-09 19:58:22', '2024-03-09 19:58:22'),
-(2, 'Ниже на 77%', 'ежемесячный платеж', 'mortgage-advantages\\March2024\\PyJuBtCnITGxBWqTObq8.png', '2024-03-09 19:58:34', '2024-03-09 19:58:34'),
-(3, 'Ставка 14,5%', 'на весь срок', 'mortgage-advantages\\March2024\\lRtq8ZjSkmLiayjp4UqE.png', '2024-03-09 19:58:48', '2024-03-09 19:58:48'),
-(4, 'До 6 млн ₽', 'сумма кредита', 'mortgage-advantages\\March2024\\hnKNt9RBO5oZyJaFxQ97.png', '2024-03-09 19:59:01', '2024-03-09 19:59:01');
-
--- --------------------------------------------------------
+LOCK TABLES `mortgage_advantages` WRITE;
+/*!40000 ALTER TABLE `mortgage_advantages` DISABLE KEYS */;
+INSERT INTO `mortgage_advantages` VALUES (1,'Первоначальный взнос от 20%','общая переплата','mortgage-advantages/June2024/vA7x9aOOpgoSSkTL8tqP.png','2024-03-09 19:58:22','2024-06-18 10:25:23'),(2,'5% в годовых','ежемесячный платеж','mortgage-advantages/June2024/W5K83fXW1i7k14AncvkP.png','2024-03-09 19:58:34','2024-06-18 10:24:02'),(3,'⁠Минимальный взнос 4,2 млн. тенге','на весь срок','mortgage-advantages/June2024/sNBXMgg508Yq1HNc7qDx.png','2024-03-09 19:58:48','2024-06-18 10:30:56'),(4,'Срок кредитования до 180 месяцев','сумма кредита','mortgage-advantages\\March2024\\hnKNt9RBO5oZyJaFxQ97.png','2024-03-09 19:59:01','2024-04-17 22:43:49');
+/*!40000 ALTER TABLE `mortgage_advantages` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Структура таблицы `mortgage_banners`
+-- Table structure for table `mortgage_banners`
 --
 
+DROP TABLE IF EXISTS `mortgage_banners`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `mortgage_banners` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Дамп данных таблицы `mortgage_banners`
+-- Dumping data for table `mortgage_banners`
 --
 
-INSERT INTO `mortgage_banners` (`id`, `title`, `description`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'Ипотека 14,5%', 'Успейте купить квартиру с минимальной переплатой по уникальной ставке от 14,5%', 'mortgage-banners\\March2024\\tuBa9L95Ah4AjLgHPIRg.png', '2024-03-09 19:57:28', '2024-03-09 19:57:28');
-
--- --------------------------------------------------------
+LOCK TABLES `mortgage_banners` WRITE;
+/*!40000 ALTER TABLE `mortgage_banners` DISABLE KEYS */;
+INSERT INTO `mortgage_banners` VALUES (1,'Ипотека 5%','Успейте купить квартиру с минимальной переплатой по уникальной ставке от 5% с первоначальным взносом 20%.','mortgage-banners\\March2024\\tuBa9L95Ah4AjLgHPIRg.png','2024-03-09 19:57:28','2024-06-13 09:59:05');
+/*!40000 ALTER TABLE `mortgage_banners` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Структура таблицы `mortgage_steps`
+-- Table structure for table `mortgage_steps`
 --
 
+DROP TABLE IF EXISTS `mortgage_steps`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `mortgage_steps` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci,
-  `step` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `step` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Дамп данных таблицы `mortgage_steps`
+-- Dumping data for table `mortgage_steps`
 --
 
-INSERT INTO `mortgage_steps` (`id`, `title`, `description`, `step`, `created_at`, `updated_at`) VALUES
-(1, 'Самое главное: переплата меньше', 'Переплата за квартиру может быть в несколько раз меньше, чем при стандартной ставке', '01', '2024-03-09 20:04:10', '2024-03-09 20:04:10'),
-(2, 'Ставка фиксированная:на весь срок', 'Именно поэтому выгоду очень легко посчитать, а беспокоиться больше не о чем', '02', '2024-03-09 20:04:20', '2024-03-09 20:04:20'),
-(3, 'Ежемесячный платеж: тоже меньше', 'Выплаты становятся проще, а ваша жизнь просторнее и все это на весь срок кредитования', '03', '2024-03-09 20:04:34', '2024-03-09 20:04:34'),
-(4, 'Успейте купить квартиру мечты!', NULL, NULL, '2024-03-09 20:04:40', '2024-03-09 20:04:40');
-
--- --------------------------------------------------------
+LOCK TABLES `mortgage_steps` WRITE;
+/*!40000 ALTER TABLE `mortgage_steps` DISABLE KEYS */;
+INSERT INTO `mortgage_steps` VALUES (1,'Самое главное: переплата меньше','Переплата за квартиру может быть в несколько раз меньше, чем при стандартной ставке','01','2024-03-09 20:04:10','2024-03-09 20:04:10'),(2,'Ставка фиксированная:на весь срок','Именно поэтому выгоду очень легко посчитать, а беспокоиться больше не о чем','02','2024-03-09 20:04:20','2024-03-09 20:04:20'),(3,'Ежемесячный платеж: тоже меньше','Выплаты становятся проще, а ваша жизнь просторнее и все это на весь срок кредитования','03','2024-03-09 20:04:34','2024-03-09 20:04:34'),(4,'Беспроцентная рассрочка от застройщика!','Купите квартиру в рассрочка 0% от застройощика!',NULL,'2024-03-09 20:04:40','2024-06-13 15:12:10');
+/*!40000 ALTER TABLE `mortgage_steps` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Структура таблицы `offices`
+-- Table structure for table `offices`
 --
 
+DROP TABLE IF EXISTS `offices`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `offices` (
-  `id` bigint UNSIGNED NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `time` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `coordinates` point DEFAULT NULL,
-  `city_id` bigint UNSIGNED DEFAULT NULL,
+  `city_id` bigint unsigned DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `address_short` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `offices_city_id_foreign` (`city_id`),
+  CONSTRAINT `offices_city_id_foreign` FOREIGN KEY (`city_id`) REFERENCES `cities` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Структура таблицы `password_reset_tokens`
+-- Dumping data for table `offices`
 --
 
+LOCK TABLES `offices` WRITE;
+/*!40000 ALTER TABLE `offices` DISABLE KEYS */;
+INSERT INTO `offices` VALUES (1,'offices/March2024/f8q4g8wuJzy2guQ4cTpl.png','+7 7000 400 400','г.Алматы,  ул. Толе би, 101, БЦ «Толе би», 1-этаж','Ежедневно с 10:00 - 19:00',_binary '\0\0\0\0\0\0\0\�\��/;S@o�8\�w�E@',1,'2024-03-23 11:10:31','2024-06-13 09:42:48','Толе би Байтурсынова'),(2,'offices/June2024/fJeNB7vmZuLISvm5RHoA.png','+7 7000 400 400','с. Иргели, Карасайский район, Алматинская область','Ежедневно с 10:00 - 19:00',_binary '\0\0\0\0\0\0\0��\�\n2S@1ScdڝE@',1,'2024-05-12 19:52:07','2024-06-13 09:42:19','Aport Mall'),(3,'offices/June2024/mj6fEPKS7Lu3DC4SIxP4.png','+7 7000 400 400','Кульджинский тракт, 106','Ежедневно с 10:00 - 19:00',_binary '\0\0\0\0\0\0\0�\�AS@��\n*��E@',1,'2024-06-13 09:39:19','2024-06-13 09:42:09','Aport Mall East');
+/*!40000 ALTER TABLE `offices` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `password_reset_tokens`
+--
+
+DROP TABLE IF EXISTS `password_reset_tokens`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `password_reset_tokens` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `permissions`
---
-
-CREATE TABLE `permissions` (
-  `id` bigint UNSIGNED NOT NULL,
-  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `table_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Дамп данных таблицы `permissions`
+-- Dumping data for table `password_reset_tokens`
 --
 
-INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`) VALUES
-(1, 'browse_admin', NULL, '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(2, 'browse_bread', NULL, '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(3, 'browse_database', NULL, '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(4, 'browse_media', NULL, '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(5, 'browse_compass', NULL, '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(6, 'browse_menus', 'menus', '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(7, 'read_menus', 'menus', '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(8, 'edit_menus', 'menus', '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(9, 'add_menus', 'menus', '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(10, 'delete_menus', 'menus', '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(11, 'browse_roles', 'roles', '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(12, 'read_roles', 'roles', '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(13, 'edit_roles', 'roles', '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(14, 'add_roles', 'roles', '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(15, 'delete_roles', 'roles', '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(16, 'browse_users', 'users', '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(17, 'read_users', 'users', '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(18, 'edit_users', 'users', '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(19, 'add_users', 'users', '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(20, 'delete_users', 'users', '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(21, 'browse_settings', 'settings', '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(22, 'read_settings', 'settings', '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(23, 'edit_settings', 'settings', '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(24, 'add_settings', 'settings', '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(25, 'delete_settings', 'settings', '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(26, 'browse_main_blocks', 'main_blocks', '2024-03-09 18:59:29', '2024-03-09 18:59:29'),
-(27, 'read_main_blocks', 'main_blocks', '2024-03-09 18:59:29', '2024-03-09 18:59:29'),
-(28, 'edit_main_blocks', 'main_blocks', '2024-03-09 18:59:29', '2024-03-09 18:59:29'),
-(29, 'add_main_blocks', 'main_blocks', '2024-03-09 18:59:29', '2024-03-09 18:59:29'),
-(30, 'delete_main_blocks', 'main_blocks', '2024-03-09 18:59:29', '2024-03-09 18:59:29'),
-(31, 'browse_secondary_blocks', 'secondary_blocks', '2024-03-09 19:00:49', '2024-03-09 19:00:49'),
-(32, 'read_secondary_blocks', 'secondary_blocks', '2024-03-09 19:00:49', '2024-03-09 19:00:49'),
-(33, 'edit_secondary_blocks', 'secondary_blocks', '2024-03-09 19:00:49', '2024-03-09 19:00:49'),
-(34, 'add_secondary_blocks', 'secondary_blocks', '2024-03-09 19:00:49', '2024-03-09 19:00:49'),
-(35, 'delete_secondary_blocks', 'secondary_blocks', '2024-03-09 19:00:49', '2024-03-09 19:00:49'),
-(36, 'browse_sliders', 'sliders', '2024-03-09 19:01:34', '2024-03-09 19:01:34'),
-(37, 'read_sliders', 'sliders', '2024-03-09 19:01:34', '2024-03-09 19:01:34'),
-(38, 'edit_sliders', 'sliders', '2024-03-09 19:01:34', '2024-03-09 19:01:34'),
-(39, 'add_sliders', 'sliders', '2024-03-09 19:01:34', '2024-03-09 19:01:34'),
-(40, 'delete_sliders', 'sliders', '2024-03-09 19:01:34', '2024-03-09 19:01:34'),
-(41, 'browse_purchasing_methods', 'purchasing_methods', '2024-03-09 19:02:27', '2024-03-09 19:02:27'),
-(42, 'read_purchasing_methods', 'purchasing_methods', '2024-03-09 19:02:27', '2024-03-09 19:02:27'),
-(43, 'edit_purchasing_methods', 'purchasing_methods', '2024-03-09 19:02:27', '2024-03-09 19:02:27'),
-(44, 'add_purchasing_methods', 'purchasing_methods', '2024-03-09 19:02:27', '2024-03-09 19:02:27'),
-(45, 'delete_purchasing_methods', 'purchasing_methods', '2024-03-09 19:02:27', '2024-03-09 19:02:27'),
-(46, 'browse_banners', 'banners', '2024-03-09 19:03:00', '2024-03-09 19:03:00'),
-(47, 'read_banners', 'banners', '2024-03-09 19:03:00', '2024-03-09 19:03:00'),
-(48, 'edit_banners', 'banners', '2024-03-09 19:03:00', '2024-03-09 19:03:00'),
-(49, 'add_banners', 'banners', '2024-03-09 19:03:00', '2024-03-09 19:03:00'),
-(50, 'delete_banners', 'banners', '2024-03-09 19:03:00', '2024-03-09 19:03:00'),
-(51, 'browse_mortgage_banners', 'mortgage_banners', '2024-03-09 19:55:14', '2024-03-09 19:55:14'),
-(52, 'read_mortgage_banners', 'mortgage_banners', '2024-03-09 19:55:14', '2024-03-09 19:55:14'),
-(53, 'edit_mortgage_banners', 'mortgage_banners', '2024-03-09 19:55:14', '2024-03-09 19:55:14'),
-(54, 'add_mortgage_banners', 'mortgage_banners', '2024-03-09 19:55:14', '2024-03-09 19:55:14'),
-(55, 'delete_mortgage_banners', 'mortgage_banners', '2024-03-09 19:55:14', '2024-03-09 19:55:14'),
-(56, 'browse_mortgage_advantages', 'mortgage_advantages', '2024-03-09 19:55:58', '2024-03-09 19:55:58'),
-(57, 'read_mortgage_advantages', 'mortgage_advantages', '2024-03-09 19:55:58', '2024-03-09 19:55:58'),
-(58, 'edit_mortgage_advantages', 'mortgage_advantages', '2024-03-09 19:55:58', '2024-03-09 19:55:58'),
-(59, 'add_mortgage_advantages', 'mortgage_advantages', '2024-03-09 19:55:58', '2024-03-09 19:55:58'),
-(60, 'delete_mortgage_advantages', 'mortgage_advantages', '2024-03-09 19:55:58', '2024-03-09 19:55:58'),
-(61, 'browse_mortgage_steps', 'mortgage_steps', '2024-03-09 19:56:40', '2024-03-09 19:56:40'),
-(62, 'read_mortgage_steps', 'mortgage_steps', '2024-03-09 19:56:40', '2024-03-09 19:56:40'),
-(63, 'edit_mortgage_steps', 'mortgage_steps', '2024-03-09 19:56:40', '2024-03-09 19:56:40'),
-(64, 'add_mortgage_steps', 'mortgage_steps', '2024-03-09 19:56:40', '2024-03-09 19:56:40'),
-(65, 'delete_mortgage_steps', 'mortgage_steps', '2024-03-09 19:56:40', '2024-03-09 19:56:40'),
-(66, 'browse_cities', 'cities', '2024-03-09 20:28:57', '2024-03-09 20:28:57'),
-(67, 'read_cities', 'cities', '2024-03-09 20:28:57', '2024-03-09 20:28:57'),
-(68, 'edit_cities', 'cities', '2024-03-09 20:28:57', '2024-03-09 20:28:57'),
-(69, 'add_cities', 'cities', '2024-03-09 20:28:57', '2024-03-09 20:28:57'),
-(70, 'delete_cities', 'cities', '2024-03-09 20:28:57', '2024-03-09 20:28:57'),
-(71, 'browse_offices', 'offices', '2024-03-09 20:30:14', '2024-03-09 20:30:14'),
-(72, 'read_offices', 'offices', '2024-03-09 20:30:14', '2024-03-09 20:30:14'),
-(73, 'edit_offices', 'offices', '2024-03-09 20:30:14', '2024-03-09 20:30:14'),
-(74, 'add_offices', 'offices', '2024-03-09 20:30:14', '2024-03-09 20:30:14'),
-(75, 'delete_offices', 'offices', '2024-03-09 20:30:14', '2024-03-09 20:30:14'),
-(76, 'browse_helplines', 'helplines', '2024-03-09 20:48:28', '2024-03-09 20:48:28'),
-(77, 'read_helplines', 'helplines', '2024-03-09 20:48:28', '2024-03-09 20:48:28'),
-(78, 'edit_helplines', 'helplines', '2024-03-09 20:48:28', '2024-03-09 20:48:28'),
-(79, 'add_helplines', 'helplines', '2024-03-09 20:48:28', '2024-03-09 20:48:28'),
-(80, 'delete_helplines', 'helplines', '2024-03-09 20:48:28', '2024-03-09 20:48:28'),
-(81, 'browse_sales_departments', 'sales_departments', '2024-03-09 21:05:13', '2024-03-09 21:05:13'),
-(82, 'read_sales_departments', 'sales_departments', '2024-03-09 21:05:13', '2024-03-09 21:05:13'),
-(83, 'edit_sales_departments', 'sales_departments', '2024-03-09 21:05:13', '2024-03-09 21:05:13'),
-(84, 'add_sales_departments', 'sales_departments', '2024-03-09 21:05:13', '2024-03-09 21:05:13'),
-(85, 'delete_sales_departments', 'sales_departments', '2024-03-09 21:05:13', '2024-03-09 21:05:13'),
-(86, 'browse_complexes', 'complexes', '2024-03-11 16:34:52', '2024-03-11 16:34:52'),
-(87, 'read_complexes', 'complexes', '2024-03-11 16:34:52', '2024-03-11 16:34:52'),
-(88, 'edit_complexes', 'complexes', '2024-03-11 16:34:52', '2024-03-11 16:34:52'),
-(89, 'add_complexes', 'complexes', '2024-03-11 16:34:52', '2024-03-11 16:34:52'),
-(90, 'delete_complexes', 'complexes', '2024-03-11 16:34:52', '2024-03-11 16:34:52'),
-(91, 'browse_complex_advantages', 'complex_advantages', '2024-03-11 16:54:04', '2024-03-11 16:54:04'),
-(92, 'read_complex_advantages', 'complex_advantages', '2024-03-11 16:54:04', '2024-03-11 16:54:04'),
-(93, 'edit_complex_advantages', 'complex_advantages', '2024-03-11 16:54:04', '2024-03-11 16:54:04'),
-(94, 'add_complex_advantages', 'complex_advantages', '2024-03-11 16:54:04', '2024-03-11 16:54:04'),
-(95, 'delete_complex_advantages', 'complex_advantages', '2024-03-11 16:54:04', '2024-03-11 16:54:04'),
-(96, 'browse_complex_peculiarities', 'complex_peculiarities', '2024-03-11 16:54:44', '2024-03-11 16:54:44'),
-(97, 'read_complex_peculiarities', 'complex_peculiarities', '2024-03-11 16:54:44', '2024-03-11 16:54:44'),
-(98, 'edit_complex_peculiarities', 'complex_peculiarities', '2024-03-11 16:54:44', '2024-03-11 16:54:44'),
-(99, 'add_complex_peculiarities', 'complex_peculiarities', '2024-03-11 16:54:44', '2024-03-11 16:54:44'),
-(100, 'delete_complex_peculiarities', 'complex_peculiarities', '2024-03-11 16:54:44', '2024-03-11 16:54:44'),
-(111, 'browse_appartments', 'appartments', '2024-03-13 20:03:16', '2024-03-13 20:03:16'),
-(112, 'read_appartments', 'appartments', '2024-03-13 20:03:16', '2024-03-13 20:03:16'),
-(113, 'edit_appartments', 'appartments', '2024-03-13 20:03:16', '2024-03-13 20:03:16'),
-(114, 'add_appartments', 'appartments', '2024-03-13 20:03:16', '2024-03-13 20:03:16'),
-(115, 'delete_appartments', 'appartments', '2024-03-13 20:03:16', '2024-03-13 20:03:16'),
-(116, 'browse_appartment_advantages', 'appartment_advantages', '2024-03-13 20:20:27', '2024-03-13 20:20:27'),
-(117, 'read_appartment_advantages', 'appartment_advantages', '2024-03-13 20:20:27', '2024-03-13 20:20:27'),
-(118, 'edit_appartment_advantages', 'appartment_advantages', '2024-03-13 20:20:27', '2024-03-13 20:20:27'),
-(119, 'add_appartment_advantages', 'appartment_advantages', '2024-03-13 20:20:27', '2024-03-13 20:20:27'),
-(120, 'delete_appartment_advantages', 'appartment_advantages', '2024-03-13 20:20:27', '2024-03-13 20:20:27'),
-(121, 'browse_about_us_banners', 'about_us_banners', '2024-03-22 18:05:59', '2024-03-22 18:05:59'),
-(122, 'read_about_us_banners', 'about_us_banners', '2024-03-22 18:05:59', '2024-03-22 18:05:59'),
-(123, 'edit_about_us_banners', 'about_us_banners', '2024-03-22 18:05:59', '2024-03-22 18:05:59'),
-(124, 'add_about_us_banners', 'about_us_banners', '2024-03-22 18:05:59', '2024-03-22 18:05:59'),
-(125, 'delete_about_us_banners', 'about_us_banners', '2024-03-22 18:05:59', '2024-03-22 18:05:59'),
-(126, 'browse_about_us_blocks', 'about_us_blocks', '2024-03-22 18:09:20', '2024-03-22 18:09:20'),
-(127, 'read_about_us_blocks', 'about_us_blocks', '2024-03-22 18:09:20', '2024-03-22 18:09:20'),
-(128, 'edit_about_us_blocks', 'about_us_blocks', '2024-03-22 18:09:20', '2024-03-22 18:09:20'),
-(129, 'add_about_us_blocks', 'about_us_blocks', '2024-03-22 18:09:20', '2024-03-22 18:09:20'),
-(130, 'delete_about_us_blocks', 'about_us_blocks', '2024-03-22 18:09:20', '2024-03-22 18:09:20'),
-(131, 'browse_about_us_descriptions', 'about_us_descriptions', '2024-03-22 18:10:09', '2024-03-22 18:10:09'),
-(132, 'read_about_us_descriptions', 'about_us_descriptions', '2024-03-22 18:10:09', '2024-03-22 18:10:09'),
-(133, 'edit_about_us_descriptions', 'about_us_descriptions', '2024-03-22 18:10:09', '2024-03-22 18:10:09'),
-(134, 'add_about_us_descriptions', 'about_us_descriptions', '2024-03-22 18:10:09', '2024-03-22 18:10:09'),
-(135, 'delete_about_us_descriptions', 'about_us_descriptions', '2024-03-22 18:10:09', '2024-03-22 18:10:09'),
-(136, 'browse_about_us_advantages', 'about_us_advantages', '2024-03-22 18:11:39', '2024-03-22 18:11:39'),
-(137, 'read_about_us_advantages', 'about_us_advantages', '2024-03-22 18:11:39', '2024-03-22 18:11:39'),
-(138, 'edit_about_us_advantages', 'about_us_advantages', '2024-03-22 18:11:39', '2024-03-22 18:11:39'),
-(139, 'add_about_us_advantages', 'about_us_advantages', '2024-03-22 18:11:39', '2024-03-22 18:11:39'),
-(140, 'delete_about_us_advantages', 'about_us_advantages', '2024-03-22 18:11:39', '2024-03-22 18:11:39'),
-(141, 'browse_about_us_geographies', 'about_us_geographies', '2024-03-22 18:12:30', '2024-03-22 18:12:30'),
-(142, 'read_about_us_geographies', 'about_us_geographies', '2024-03-22 18:12:30', '2024-03-22 18:12:30'),
-(143, 'edit_about_us_geographies', 'about_us_geographies', '2024-03-22 18:12:30', '2024-03-22 18:12:30'),
-(144, 'add_about_us_geographies', 'about_us_geographies', '2024-03-22 18:12:30', '2024-03-22 18:12:30'),
-(145, 'delete_about_us_geographies', 'about_us_geographies', '2024-03-22 18:12:30', '2024-03-22 18:12:30'),
-(146, 'browse_about_us_geography_districts', 'about_us_geography_districts', '2024-03-22 18:13:07', '2024-03-22 18:13:07'),
-(147, 'read_about_us_geography_districts', 'about_us_geography_districts', '2024-03-22 18:13:07', '2024-03-22 18:13:07'),
-(148, 'edit_about_us_geography_districts', 'about_us_geography_districts', '2024-03-22 18:13:07', '2024-03-22 18:13:07'),
-(149, 'add_about_us_geography_districts', 'about_us_geography_districts', '2024-03-22 18:13:07', '2024-03-22 18:13:07'),
-(150, 'delete_about_us_geography_districts', 'about_us_geography_districts', '2024-03-22 18:13:07', '2024-03-22 18:13:07'),
-(151, 'browse_about_us_companies', 'about_us_companies', '2024-03-22 18:14:52', '2024-03-22 18:14:52'),
-(152, 'read_about_us_companies', 'about_us_companies', '2024-03-22 18:14:52', '2024-03-22 18:14:52'),
-(153, 'edit_about_us_companies', 'about_us_companies', '2024-03-22 18:14:52', '2024-03-22 18:14:52'),
-(154, 'add_about_us_companies', 'about_us_companies', '2024-03-22 18:14:52', '2024-03-22 18:14:52'),
-(155, 'delete_about_us_companies', 'about_us_companies', '2024-03-22 18:14:52', '2024-03-22 18:14:52'),
-(156, 'browse_footers', 'footers', '2024-03-22 18:16:17', '2024-03-22 18:16:17'),
-(157, 'read_footers', 'footers', '2024-03-22 18:16:17', '2024-03-22 18:16:17'),
-(158, 'edit_footers', 'footers', '2024-03-22 18:16:17', '2024-03-22 18:16:17'),
-(159, 'add_footers', 'footers', '2024-03-22 18:16:17', '2024-03-22 18:16:17'),
-(160, 'delete_footers', 'footers', '2024-03-22 18:16:17', '2024-03-22 18:16:17');
-
--- --------------------------------------------------------
+LOCK TABLES `password_reset_tokens` WRITE;
+/*!40000 ALTER TABLE `password_reset_tokens` DISABLE KEYS */;
+/*!40000 ALTER TABLE `password_reset_tokens` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Структура таблицы `permission_role`
+-- Table structure for table `permission_role`
 --
 
+DROP TABLE IF EXISTS `permission_role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `permission_role` (
-  `permission_id` bigint UNSIGNED NOT NULL,
-  `role_id` bigint UNSIGNED NOT NULL
+  `permission_id` bigint unsigned NOT NULL,
+  `role_id` bigint unsigned NOT NULL,
+  PRIMARY KEY (`permission_id`,`role_id`),
+  KEY `permission_role_permission_id_index` (`permission_id`),
+  KEY `permission_role_role_id_index` (`role_id`),
+  CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Дамп данных таблицы `permission_role`
+-- Dumping data for table `permission_role`
 --
 
-INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
-(1, 1),
-(2, 1),
-(3, 1),
-(4, 1),
-(5, 1),
-(6, 1),
-(7, 1),
-(8, 1),
-(9, 1),
-(10, 1),
-(11, 1),
-(12, 1),
-(13, 1),
-(14, 1),
-(15, 1),
-(16, 1),
-(17, 1),
-(18, 1),
-(19, 1),
-(20, 1),
-(21, 1),
-(22, 1),
-(23, 1),
-(24, 1),
-(25, 1),
-(26, 1),
-(26, 2),
-(27, 1),
-(27, 2),
-(28, 1),
-(28, 2),
-(29, 1),
-(30, 1),
-(31, 1),
-(31, 2),
-(32, 1),
-(32, 2),
-(33, 1),
-(33, 2),
-(34, 1),
-(35, 1),
-(36, 1),
-(36, 2),
-(37, 1),
-(37, 2),
-(38, 1),
-(38, 2),
-(39, 1),
-(39, 2),
-(40, 1),
-(40, 2),
-(41, 1),
-(41, 2),
-(42, 1),
-(42, 2),
-(43, 1),
-(43, 2),
-(44, 1),
-(44, 2),
-(45, 1),
-(45, 2),
-(46, 1),
-(46, 2),
-(47, 1),
-(47, 2),
-(48, 1),
-(48, 2),
-(49, 1),
-(50, 1),
-(51, 1),
-(52, 1),
-(53, 1),
-(54, 1),
-(55, 1),
-(56, 1),
-(57, 1),
-(58, 1),
-(59, 1),
-(60, 1),
-(61, 1),
-(62, 1),
-(63, 1),
-(64, 1),
-(65, 1),
-(66, 1),
-(67, 1),
-(68, 1),
-(69, 1),
-(70, 1),
-(71, 1),
-(72, 1),
-(73, 1),
-(74, 1),
-(75, 1),
-(76, 1),
-(77, 1),
-(78, 1),
-(79, 1),
-(80, 1),
-(81, 1),
-(82, 1),
-(83, 1),
-(84, 1),
-(85, 1),
-(86, 1),
-(87, 1),
-(88, 1),
-(89, 1),
-(90, 1),
-(91, 1),
-(92, 1),
-(93, 1),
-(94, 1),
-(95, 1),
-(96, 1),
-(97, 1),
-(98, 1),
-(99, 1),
-(100, 1),
-(111, 1),
-(112, 1),
-(113, 1),
-(114, 1),
-(115, 1),
-(116, 1),
-(117, 1),
-(118, 1),
-(119, 1),
-(120, 1),
-(121, 1),
-(122, 1),
-(123, 1),
-(124, 1),
-(125, 1),
-(126, 1),
-(127, 1),
-(128, 1),
-(129, 1),
-(130, 1),
-(131, 1),
-(132, 1),
-(133, 1),
-(134, 1),
-(135, 1),
-(136, 1),
-(137, 1),
-(138, 1),
-(139, 1),
-(140, 1),
-(141, 1),
-(142, 1),
-(143, 1),
-(144, 1),
-(145, 1),
-(146, 1),
-(147, 1),
-(148, 1),
-(149, 1),
-(150, 1),
-(151, 1),
-(152, 1),
-(153, 1),
-(154, 1),
-(155, 1),
-(156, 1),
-(157, 1),
-(158, 1),
-(159, 1),
-(160, 1);
-
--- --------------------------------------------------------
+LOCK TABLES `permission_role` WRITE;
+/*!40000 ALTER TABLE `permission_role` DISABLE KEYS */;
+INSERT INTO `permission_role` VALUES (1,1),(2,1),(3,1),(4,1),(5,1),(6,1),(7,1),(8,1),(9,1),(10,1),(11,1),(12,1),(13,1),(14,1),(15,1),(16,1),(17,1),(18,1),(19,1),(20,1),(21,1),(22,1),(23,1),(24,1),(25,1),(26,1),(26,2),(27,1),(27,2),(28,1),(28,2),(29,1),(29,2),(30,1),(30,2),(31,1),(31,2),(32,1),(32,2),(33,1),(33,2),(34,1),(34,2),(35,1),(35,2),(36,1),(36,2),(37,1),(37,2),(38,1),(38,2),(39,1),(39,2),(40,1),(40,2),(41,1),(41,2),(42,1),(42,2),(43,1),(43,2),(44,1),(44,2),(45,1),(45,2),(46,1),(46,2),(47,1),(47,2),(48,1),(48,2),(49,1),(49,2),(50,1),(50,2),(51,1),(51,2),(52,1),(52,2),(53,1),(53,2),(54,1),(54,2),(55,1),(55,2),(56,1),(56,2),(57,1),(57,2),(58,1),(58,2),(59,1),(59,2),(60,1),(60,2),(61,1),(61,2),(62,1),(62,2),(63,1),(63,2),(64,1),(64,2),(65,1),(65,2),(66,1),(66,2),(67,1),(67,2),(68,1),(68,2),(69,1),(69,2),(70,1),(70,2),(71,1),(71,2),(72,1),(72,2),(73,1),(73,2),(74,1),(74,2),(75,1),(75,2),(76,1),(76,2),(77,1),(77,2),(78,1),(78,2),(79,1),(79,2),(80,1),(80,2),(81,1),(81,2),(82,1),(82,2),(83,1),(83,2),(84,1),(84,2),(85,1),(85,2),(86,1),(86,2),(87,1),(87,2),(88,1),(88,2),(89,1),(89,2),(90,1),(90,2),(91,1),(91,2),(92,1),(92,2),(93,1),(93,2),(94,1),(94,2),(95,1),(95,2),(96,1),(96,2),(97,1),(97,2),(98,1),(98,2),(99,1),(99,2),(100,1),(100,2),(111,1),(111,2),(112,1),(112,2),(113,1),(113,2),(114,1),(114,2),(115,1),(115,2),(116,1),(116,2),(117,1),(117,2),(118,1),(118,2),(119,1),(119,2),(120,1),(120,2),(121,1),(121,2),(122,1),(122,2),(123,1),(123,2),(124,1),(124,2),(125,1),(125,2),(126,1),(126,2),(127,1),(127,2),(128,1),(128,2),(129,1),(129,2),(130,1),(130,2),(131,1),(131,2),(132,1),(132,2),(133,1),(133,2),(134,1),(134,2),(135,1),(135,2),(136,1),(136,2),(137,1),(137,2),(138,1),(138,2),(139,1),(139,2),(140,1),(140,2),(141,1),(141,2),(142,1),(142,2),(143,1),(143,2),(144,1),(144,2),(145,1),(145,2),(146,1),(146,2),(147,1),(147,2),(148,1),(148,2),(149,1),(149,2),(150,1),(150,2),(151,1),(151,2),(152,1),(152,2),(153,1),(153,2),(154,1),(154,2),(155,1),(155,2),(156,1),(156,2),(157,1),(157,2),(158,1),(158,2),(159,1),(159,2),(160,1),(160,2),(161,1),(161,2),(162,1),(162,2),(163,1),(163,2),(164,1),(164,2),(165,1),(165,2),(166,1),(166,2),(167,1),(167,2),(168,1),(168,2),(169,1),(169,2),(170,1),(170,2),(171,1),(171,2),(172,1),(172,2),(173,1),(173,2),(174,1),(174,2),(175,1),(175,2),(176,1),(176,2),(177,1),(177,2),(178,1),(178,2),(179,1),(179,2),(180,1),(180,2),(181,1),(181,2),(182,1),(182,2),(183,1),(183,2),(184,1),(184,2),(185,1),(185,2),(186,1),(186,2),(187,1),(187,2),(188,1),(188,2),(189,1),(189,2),(190,1),(190,2),(191,1),(191,2),(192,1),(192,2),(193,1),(193,2),(194,1),(194,2),(195,1),(195,2),(196,1),(197,1),(198,1),(199,1),(200,1);
+/*!40000 ALTER TABLE `permission_role` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Структура таблицы `personal_access_tokens`
+-- Table structure for table `permissions`
 --
 
+DROP TABLE IF EXISTS `permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `permissions` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `table_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `permissions_key_index` (`key`)
+) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `permissions`
+--
+
+LOCK TABLES `permissions` WRITE;
+/*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
+INSERT INTO `permissions` VALUES (1,'browse_admin',NULL,'2024-03-09 18:56:00','2024-03-09 18:56:00'),(2,'browse_bread',NULL,'2024-03-09 18:56:00','2024-03-09 18:56:00'),(3,'browse_database',NULL,'2024-03-09 18:56:00','2024-03-09 18:56:00'),(4,'browse_media',NULL,'2024-03-09 18:56:00','2024-03-09 18:56:00'),(5,'browse_compass',NULL,'2024-03-09 18:56:00','2024-03-09 18:56:00'),(6,'browse_menus','menus','2024-03-09 18:56:00','2024-03-09 18:56:00'),(7,'read_menus','menus','2024-03-09 18:56:00','2024-03-09 18:56:00'),(8,'edit_menus','menus','2024-03-09 18:56:00','2024-03-09 18:56:00'),(9,'add_menus','menus','2024-03-09 18:56:00','2024-03-09 18:56:00'),(10,'delete_menus','menus','2024-03-09 18:56:00','2024-03-09 18:56:00'),(11,'browse_roles','roles','2024-03-09 18:56:00','2024-03-09 18:56:00'),(12,'read_roles','roles','2024-03-09 18:56:00','2024-03-09 18:56:00'),(13,'edit_roles','roles','2024-03-09 18:56:00','2024-03-09 18:56:00'),(14,'add_roles','roles','2024-03-09 18:56:00','2024-03-09 18:56:00'),(15,'delete_roles','roles','2024-03-09 18:56:00','2024-03-09 18:56:00'),(16,'browse_users','users','2024-03-09 18:56:00','2024-03-09 18:56:00'),(17,'read_users','users','2024-03-09 18:56:00','2024-03-09 18:56:00'),(18,'edit_users','users','2024-03-09 18:56:00','2024-03-09 18:56:00'),(19,'add_users','users','2024-03-09 18:56:00','2024-03-09 18:56:00'),(20,'delete_users','users','2024-03-09 18:56:00','2024-03-09 18:56:00'),(21,'browse_settings','settings','2024-03-09 18:56:00','2024-03-09 18:56:00'),(22,'read_settings','settings','2024-03-09 18:56:00','2024-03-09 18:56:00'),(23,'edit_settings','settings','2024-03-09 18:56:00','2024-03-09 18:56:00'),(24,'add_settings','settings','2024-03-09 18:56:00','2024-03-09 18:56:00'),(25,'delete_settings','settings','2024-03-09 18:56:00','2024-03-09 18:56:00'),(26,'browse_main_blocks','main_blocks','2024-03-09 18:59:29','2024-03-09 18:59:29'),(27,'read_main_blocks','main_blocks','2024-03-09 18:59:29','2024-03-09 18:59:29'),(28,'edit_main_blocks','main_blocks','2024-03-09 18:59:29','2024-03-09 18:59:29'),(29,'add_main_blocks','main_blocks','2024-03-09 18:59:29','2024-03-09 18:59:29'),(30,'delete_main_blocks','main_blocks','2024-03-09 18:59:29','2024-03-09 18:59:29'),(31,'browse_secondary_blocks','secondary_blocks','2024-03-09 19:00:49','2024-03-09 19:00:49'),(32,'read_secondary_blocks','secondary_blocks','2024-03-09 19:00:49','2024-03-09 19:00:49'),(33,'edit_secondary_blocks','secondary_blocks','2024-03-09 19:00:49','2024-03-09 19:00:49'),(34,'add_secondary_blocks','secondary_blocks','2024-03-09 19:00:49','2024-03-09 19:00:49'),(35,'delete_secondary_blocks','secondary_blocks','2024-03-09 19:00:49','2024-03-09 19:00:49'),(36,'browse_sliders','sliders','2024-03-09 19:01:34','2024-03-09 19:01:34'),(37,'read_sliders','sliders','2024-03-09 19:01:34','2024-03-09 19:01:34'),(38,'edit_sliders','sliders','2024-03-09 19:01:34','2024-03-09 19:01:34'),(39,'add_sliders','sliders','2024-03-09 19:01:34','2024-03-09 19:01:34'),(40,'delete_sliders','sliders','2024-03-09 19:01:34','2024-03-09 19:01:34'),(41,'browse_purchasing_methods','purchasing_methods','2024-03-09 19:02:27','2024-03-09 19:02:27'),(42,'read_purchasing_methods','purchasing_methods','2024-03-09 19:02:27','2024-03-09 19:02:27'),(43,'edit_purchasing_methods','purchasing_methods','2024-03-09 19:02:27','2024-03-09 19:02:27'),(44,'add_purchasing_methods','purchasing_methods','2024-03-09 19:02:27','2024-03-09 19:02:27'),(45,'delete_purchasing_methods','purchasing_methods','2024-03-09 19:02:27','2024-03-09 19:02:27'),(46,'browse_banners','banners','2024-03-09 19:03:00','2024-03-09 19:03:00'),(47,'read_banners','banners','2024-03-09 19:03:00','2024-03-09 19:03:00'),(48,'edit_banners','banners','2024-03-09 19:03:00','2024-03-09 19:03:00'),(49,'add_banners','banners','2024-03-09 19:03:00','2024-03-09 19:03:00'),(50,'delete_banners','banners','2024-03-09 19:03:00','2024-03-09 19:03:00'),(51,'browse_mortgage_banners','mortgage_banners','2024-03-09 19:55:14','2024-03-09 19:55:14'),(52,'read_mortgage_banners','mortgage_banners','2024-03-09 19:55:14','2024-03-09 19:55:14'),(53,'edit_mortgage_banners','mortgage_banners','2024-03-09 19:55:14','2024-03-09 19:55:14'),(54,'add_mortgage_banners','mortgage_banners','2024-03-09 19:55:14','2024-03-09 19:55:14'),(55,'delete_mortgage_banners','mortgage_banners','2024-03-09 19:55:14','2024-03-09 19:55:14'),(56,'browse_mortgage_advantages','mortgage_advantages','2024-03-09 19:55:58','2024-03-09 19:55:58'),(57,'read_mortgage_advantages','mortgage_advantages','2024-03-09 19:55:58','2024-03-09 19:55:58'),(58,'edit_mortgage_advantages','mortgage_advantages','2024-03-09 19:55:58','2024-03-09 19:55:58'),(59,'add_mortgage_advantages','mortgage_advantages','2024-03-09 19:55:58','2024-03-09 19:55:58'),(60,'delete_mortgage_advantages','mortgage_advantages','2024-03-09 19:55:58','2024-03-09 19:55:58'),(61,'browse_mortgage_steps','mortgage_steps','2024-03-09 19:56:40','2024-03-09 19:56:40'),(62,'read_mortgage_steps','mortgage_steps','2024-03-09 19:56:40','2024-03-09 19:56:40'),(63,'edit_mortgage_steps','mortgage_steps','2024-03-09 19:56:40','2024-03-09 19:56:40'),(64,'add_mortgage_steps','mortgage_steps','2024-03-09 19:56:40','2024-03-09 19:56:40'),(65,'delete_mortgage_steps','mortgage_steps','2024-03-09 19:56:40','2024-03-09 19:56:40'),(66,'browse_cities','cities','2024-03-09 20:28:57','2024-03-09 20:28:57'),(67,'read_cities','cities','2024-03-09 20:28:57','2024-03-09 20:28:57'),(68,'edit_cities','cities','2024-03-09 20:28:57','2024-03-09 20:28:57'),(69,'add_cities','cities','2024-03-09 20:28:57','2024-03-09 20:28:57'),(70,'delete_cities','cities','2024-03-09 20:28:57','2024-03-09 20:28:57'),(71,'browse_offices','offices','2024-03-09 20:30:14','2024-03-09 20:30:14'),(72,'read_offices','offices','2024-03-09 20:30:14','2024-03-09 20:30:14'),(73,'edit_offices','offices','2024-03-09 20:30:14','2024-03-09 20:30:14'),(74,'add_offices','offices','2024-03-09 20:30:14','2024-03-09 20:30:14'),(75,'delete_offices','offices','2024-03-09 20:30:14','2024-03-09 20:30:14'),(76,'browse_helplines','helplines','2024-03-09 20:48:28','2024-03-09 20:48:28'),(77,'read_helplines','helplines','2024-03-09 20:48:28','2024-03-09 20:48:28'),(78,'edit_helplines','helplines','2024-03-09 20:48:28','2024-03-09 20:48:28'),(79,'add_helplines','helplines','2024-03-09 20:48:28','2024-03-09 20:48:28'),(80,'delete_helplines','helplines','2024-03-09 20:48:28','2024-03-09 20:48:28'),(81,'browse_sales_departments','sales_departments','2024-03-09 21:05:13','2024-03-09 21:05:13'),(82,'read_sales_departments','sales_departments','2024-03-09 21:05:13','2024-03-09 21:05:13'),(83,'edit_sales_departments','sales_departments','2024-03-09 21:05:13','2024-03-09 21:05:13'),(84,'add_sales_departments','sales_departments','2024-03-09 21:05:13','2024-03-09 21:05:13'),(85,'delete_sales_departments','sales_departments','2024-03-09 21:05:13','2024-03-09 21:05:13'),(86,'browse_complexes','complexes','2024-03-11 16:34:52','2024-03-11 16:34:52'),(87,'read_complexes','complexes','2024-03-11 16:34:52','2024-03-11 16:34:52'),(88,'edit_complexes','complexes','2024-03-11 16:34:52','2024-03-11 16:34:52'),(89,'add_complexes','complexes','2024-03-11 16:34:52','2024-03-11 16:34:52'),(90,'delete_complexes','complexes','2024-03-11 16:34:52','2024-03-11 16:34:52'),(91,'browse_complex_advantages','complex_advantages','2024-03-11 16:54:04','2024-03-11 16:54:04'),(92,'read_complex_advantages','complex_advantages','2024-03-11 16:54:04','2024-03-11 16:54:04'),(93,'edit_complex_advantages','complex_advantages','2024-03-11 16:54:04','2024-03-11 16:54:04'),(94,'add_complex_advantages','complex_advantages','2024-03-11 16:54:04','2024-03-11 16:54:04'),(95,'delete_complex_advantages','complex_advantages','2024-03-11 16:54:04','2024-03-11 16:54:04'),(96,'browse_complex_peculiarities','complex_peculiarities','2024-03-11 16:54:44','2024-03-11 16:54:44'),(97,'read_complex_peculiarities','complex_peculiarities','2024-03-11 16:54:44','2024-03-11 16:54:44'),(98,'edit_complex_peculiarities','complex_peculiarities','2024-03-11 16:54:44','2024-03-11 16:54:44'),(99,'add_complex_peculiarities','complex_peculiarities','2024-03-11 16:54:44','2024-03-11 16:54:44'),(100,'delete_complex_peculiarities','complex_peculiarities','2024-03-11 16:54:44','2024-03-11 16:54:44'),(111,'browse_appartments','appartments','2024-03-13 20:03:16','2024-03-13 20:03:16'),(112,'read_appartments','appartments','2024-03-13 20:03:16','2024-03-13 20:03:16'),(113,'edit_appartments','appartments','2024-03-13 20:03:16','2024-03-13 20:03:16'),(114,'add_appartments','appartments','2024-03-13 20:03:16','2024-03-13 20:03:16'),(115,'delete_appartments','appartments','2024-03-13 20:03:16','2024-03-13 20:03:16'),(116,'browse_appartment_advantages','appartment_advantages','2024-03-13 20:20:27','2024-03-13 20:20:27'),(117,'read_appartment_advantages','appartment_advantages','2024-03-13 20:20:27','2024-03-13 20:20:27'),(118,'edit_appartment_advantages','appartment_advantages','2024-03-13 20:20:27','2024-03-13 20:20:27'),(119,'add_appartment_advantages','appartment_advantages','2024-03-13 20:20:27','2024-03-13 20:20:27'),(120,'delete_appartment_advantages','appartment_advantages','2024-03-13 20:20:27','2024-03-13 20:20:27'),(121,'browse_about_us_banners','about_us_banners','2024-03-22 18:05:59','2024-03-22 18:05:59'),(122,'read_about_us_banners','about_us_banners','2024-03-22 18:05:59','2024-03-22 18:05:59'),(123,'edit_about_us_banners','about_us_banners','2024-03-22 18:05:59','2024-03-22 18:05:59'),(124,'add_about_us_banners','about_us_banners','2024-03-22 18:05:59','2024-03-22 18:05:59'),(125,'delete_about_us_banners','about_us_banners','2024-03-22 18:05:59','2024-03-22 18:05:59'),(126,'browse_about_us_blocks','about_us_blocks','2024-03-22 18:09:20','2024-03-22 18:09:20'),(127,'read_about_us_blocks','about_us_blocks','2024-03-22 18:09:20','2024-03-22 18:09:20'),(128,'edit_about_us_blocks','about_us_blocks','2024-03-22 18:09:20','2024-03-22 18:09:20'),(129,'add_about_us_blocks','about_us_blocks','2024-03-22 18:09:20','2024-03-22 18:09:20'),(130,'delete_about_us_blocks','about_us_blocks','2024-03-22 18:09:20','2024-03-22 18:09:20'),(131,'browse_about_us_descriptions','about_us_descriptions','2024-03-22 18:10:09','2024-03-22 18:10:09'),(132,'read_about_us_descriptions','about_us_descriptions','2024-03-22 18:10:09','2024-03-22 18:10:09'),(133,'edit_about_us_descriptions','about_us_descriptions','2024-03-22 18:10:09','2024-03-22 18:10:09'),(134,'add_about_us_descriptions','about_us_descriptions','2024-03-22 18:10:09','2024-03-22 18:10:09'),(135,'delete_about_us_descriptions','about_us_descriptions','2024-03-22 18:10:09','2024-03-22 18:10:09'),(136,'browse_about_us_advantages','about_us_advantages','2024-03-22 18:11:39','2024-03-22 18:11:39'),(137,'read_about_us_advantages','about_us_advantages','2024-03-22 18:11:39','2024-03-22 18:11:39'),(138,'edit_about_us_advantages','about_us_advantages','2024-03-22 18:11:39','2024-03-22 18:11:39'),(139,'add_about_us_advantages','about_us_advantages','2024-03-22 18:11:39','2024-03-22 18:11:39'),(140,'delete_about_us_advantages','about_us_advantages','2024-03-22 18:11:39','2024-03-22 18:11:39'),(141,'browse_about_us_geographies','about_us_geographies','2024-03-22 18:12:30','2024-03-22 18:12:30'),(142,'read_about_us_geographies','about_us_geographies','2024-03-22 18:12:30','2024-03-22 18:12:30'),(143,'edit_about_us_geographies','about_us_geographies','2024-03-22 18:12:30','2024-03-22 18:12:30'),(144,'add_about_us_geographies','about_us_geographies','2024-03-22 18:12:30','2024-03-22 18:12:30'),(145,'delete_about_us_geographies','about_us_geographies','2024-03-22 18:12:30','2024-03-22 18:12:30'),(146,'browse_about_us_geography_districts','about_us_geography_districts','2024-03-22 18:13:07','2024-03-22 18:13:07'),(147,'read_about_us_geography_districts','about_us_geography_districts','2024-03-22 18:13:07','2024-03-22 18:13:07'),(148,'edit_about_us_geography_districts','about_us_geography_districts','2024-03-22 18:13:07','2024-03-22 18:13:07'),(149,'add_about_us_geography_districts','about_us_geography_districts','2024-03-22 18:13:07','2024-03-22 18:13:07'),(150,'delete_about_us_geography_districts','about_us_geography_districts','2024-03-22 18:13:07','2024-03-22 18:13:07'),(151,'browse_about_us_companies','about_us_companies','2024-03-22 18:14:52','2024-03-22 18:14:52'),(152,'read_about_us_companies','about_us_companies','2024-03-22 18:14:52','2024-03-22 18:14:52'),(153,'edit_about_us_companies','about_us_companies','2024-03-22 18:14:52','2024-03-22 18:14:52'),(154,'add_about_us_companies','about_us_companies','2024-03-22 18:14:52','2024-03-22 18:14:52'),(155,'delete_about_us_companies','about_us_companies','2024-03-22 18:14:52','2024-03-22 18:14:52'),(156,'browse_footers','footers','2024-03-22 18:16:17','2024-03-22 18:16:17'),(157,'read_footers','footers','2024-03-22 18:16:17','2024-03-22 18:16:17'),(158,'edit_footers','footers','2024-03-22 18:16:17','2024-03-22 18:16:17'),(159,'add_footers','footers','2024-03-22 18:16:17','2024-03-22 18:16:17'),(160,'delete_footers','footers','2024-03-22 18:16:17','2024-03-22 18:16:17'),(161,'browse_applications','applications','2024-03-23 15:00:13','2024-03-23 15:00:13'),(162,'read_applications','applications','2024-03-23 15:00:13','2024-03-23 15:00:13'),(163,'edit_applications','applications','2024-03-23 15:00:13','2024-03-23 15:00:13'),(164,'add_applications','applications','2024-03-23 15:00:13','2024-03-23 15:00:13'),(165,'delete_applications','applications','2024-03-23 15:00:13','2024-03-23 15:00:13'),(166,'browse_commercial_estate_main_blocks','commercial_estate_main_blocks','2024-03-24 20:09:15','2024-03-24 20:09:15'),(167,'read_commercial_estate_main_blocks','commercial_estate_main_blocks','2024-03-24 20:09:15','2024-03-24 20:09:15'),(168,'edit_commercial_estate_main_blocks','commercial_estate_main_blocks','2024-03-24 20:09:15','2024-03-24 20:09:15'),(169,'add_commercial_estate_main_blocks','commercial_estate_main_blocks','2024-03-24 20:09:15','2024-03-24 20:09:15'),(170,'delete_commercial_estate_main_blocks','commercial_estate_main_blocks','2024-03-24 20:09:15','2024-03-24 20:09:15'),(171,'browse_commercial_estate_secondary_blocks','commercial_estate_secondary_blocks','2024-03-24 20:10:45','2024-03-24 20:10:45'),(172,'read_commercial_estate_secondary_blocks','commercial_estate_secondary_blocks','2024-03-24 20:10:45','2024-03-24 20:10:45'),(173,'edit_commercial_estate_secondary_blocks','commercial_estate_secondary_blocks','2024-03-24 20:10:45','2024-03-24 20:10:45'),(174,'add_commercial_estate_secondary_blocks','commercial_estate_secondary_blocks','2024-03-24 20:10:45','2024-03-24 20:10:45'),(175,'delete_commercial_estate_secondary_blocks','commercial_estate_secondary_blocks','2024-03-24 20:10:45','2024-03-24 20:10:45'),(176,'browse_commercial_estate_sliders','commercial_estate_sliders','2024-03-24 20:12:19','2024-03-24 20:12:19'),(177,'read_commercial_estate_sliders','commercial_estate_sliders','2024-03-24 20:12:19','2024-03-24 20:12:19'),(178,'edit_commercial_estate_sliders','commercial_estate_sliders','2024-03-24 20:12:19','2024-03-24 20:12:19'),(179,'add_commercial_estate_sliders','commercial_estate_sliders','2024-03-24 20:12:19','2024-03-24 20:12:19'),(180,'delete_commercial_estate_sliders','commercial_estate_sliders','2024-03-24 20:12:19','2024-03-24 20:12:19'),(181,'browse_commercial_estate_purchasing_methods','commercial_estate_purchasing_methods','2024-03-24 20:14:53','2024-03-24 20:14:53'),(182,'read_commercial_estate_purchasing_methods','commercial_estate_purchasing_methods','2024-03-24 20:14:53','2024-03-24 20:14:53'),(183,'edit_commercial_estate_purchasing_methods','commercial_estate_purchasing_methods','2024-03-24 20:14:53','2024-03-24 20:14:53'),(184,'add_commercial_estate_purchasing_methods','commercial_estate_purchasing_methods','2024-03-24 20:14:53','2024-03-24 20:14:53'),(185,'delete_commercial_estate_purchasing_methods','commercial_estate_purchasing_methods','2024-03-24 20:14:53','2024-03-24 20:14:53'),(186,'browse_commercial_estates','commercial_estates','2024-03-24 20:22:41','2024-03-24 20:22:41'),(187,'read_commercial_estates','commercial_estates','2024-03-24 20:22:41','2024-03-24 20:22:41'),(188,'edit_commercial_estates','commercial_estates','2024-03-24 20:22:41','2024-03-24 20:22:41'),(189,'add_commercial_estates','commercial_estates','2024-03-24 20:22:41','2024-03-24 20:22:41'),(190,'delete_commercial_estates','commercial_estates','2024-03-24 20:22:41','2024-03-24 20:22:41'),(191,'browse_commercial_estate_advantages','commercial_estate_advantages','2024-03-24 20:31:20','2024-03-24 20:31:20'),(192,'read_commercial_estate_advantages','commercial_estate_advantages','2024-03-24 20:31:20','2024-03-24 20:31:20'),(193,'edit_commercial_estate_advantages','commercial_estate_advantages','2024-03-24 20:31:20','2024-03-24 20:31:20'),(194,'add_commercial_estate_advantages','commercial_estate_advantages','2024-03-24 20:31:20','2024-03-24 20:31:20'),(195,'delete_commercial_estate_advantages','commercial_estate_advantages','2024-03-24 20:31:20','2024-03-24 20:31:20'),(196,'browse_company_news','company_news','2024-05-25 18:22:26','2024-05-25 18:22:26'),(197,'read_company_news','company_news','2024-05-25 18:22:26','2024-05-25 18:22:26'),(198,'edit_company_news','company_news','2024-05-25 18:22:26','2024-05-25 18:22:26'),(199,'add_company_news','company_news','2024-05-25 18:22:26','2024-05-25 18:22:26'),(200,'delete_company_news','company_news','2024-05-25 18:22:26','2024-05-25 18:22:26');
+/*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `personal_access_tokens`
+--
+
+DROP TABLE IF EXISTS `personal_access_tokens`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `personal_access_tokens` (
-  `id` bigint UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tokenable_id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci,
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `tokenable_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_id` bigint unsigned NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `expires_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Структура таблицы `purchasing_methods`
+-- Dumping data for table `personal_access_tokens`
 --
 
+LOCK TABLES `personal_access_tokens` WRITE;
+/*!40000 ALTER TABLE `personal_access_tokens` DISABLE KEYS */;
+/*!40000 ALTER TABLE `personal_access_tokens` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `purchasing_methods`
+--
+
+DROP TABLE IF EXISTS `purchasing_methods`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `purchasing_methods` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Дамп данных таблицы `purchasing_methods`
+-- Dumping data for table `purchasing_methods`
 --
 
-INSERT INTO `purchasing_methods` (`id`, `title`, `description`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'Оплата наличными', 'со скидкой до 13%', 'purchasing-methods\\March2024\\0EAI7GcJ4cbY40gsuUem.png', '2024-03-09 19:10:43', '2024-03-09 19:10:43'),
-(2, 'Рассрочка 0%', 'от застройщика', 'purchasing-methods\\March2024\\TBz0LQ9qhfUJkyYBx1Xb.png', '2024-03-09 19:10:57', '2024-03-09 19:10:57'),
-(3, 'Ипотека 7-20-25', 'от Freedom Finance Bank', 'purchasing-methods\\March2024\\JXyQrGRwx5jI0pTTv2St.png', '2024-03-09 19:11:08', '2024-03-09 19:11:08'),
-(4, 'Ипотека Отбасы Банк', '30/70', 'purchasing-methods\\March2024\\RpVgFRZCfBXUYkotduth.png', '2024-03-09 19:11:19', '2024-03-09 19:11:19');
-
--- --------------------------------------------------------
+LOCK TABLES `purchasing_methods` WRITE;
+/*!40000 ALTER TABLE `purchasing_methods` DISABLE KEYS */;
+INSERT INTO `purchasing_methods` VALUES (3,'Ипотека Банк Центр Кредит','взнос от 20%','purchasing-methods/May2024/r16BXjgkJglgDaLZYmfS.png','2024-03-09 19:11:08','2024-05-10 10:05:45'),(4,'Оплата наличными','Со скидкой 4%','purchasing-methods\\March2024\\RpVgFRZCfBXUYkotduth.png','2024-03-09 19:11:19','2024-04-21 22:56:36'),(5,'Без процентная рассрочка от застройщика!','0% годовых!','purchasing-methods/May2024/LTp9s1vP2SQMZMVkPM1q.png','2024-05-10 09:54:06','2024-05-10 10:05:19'),(6,'Партнерская скидка!','На следующие покупки сэкономьте до 5%','purchasing-methods/May2024/mnWodLLiN6RK9vVxuS37.png','2024-05-10 10:06:46','2024-05-10 10:07:29');
+/*!40000 ALTER TABLE `purchasing_methods` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Структура таблицы `roles`
+-- Table structure for table `roles`
 --
 
+DROP TABLE IF EXISTS `roles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `roles` (
-  `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `roles_name_unique` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Дамп данных таблицы `roles`
+-- Dumping data for table `roles`
 --
 
-INSERT INTO `roles` (`id`, `name`, `display_name`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'Administrator', '2024-03-09 18:56:00', '2024-03-09 18:56:00'),
-(2, 'user', 'Normal User', '2024-03-09 18:56:00', '2024-03-09 18:56:00');
-
--- --------------------------------------------------------
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'admin','Administrator','2024-03-09 18:56:00','2024-03-09 18:56:00'),(2,'user','Normal User','2024-03-09 18:56:00','2024-03-09 18:56:00');
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Структура таблицы `sales_departments`
+-- Table structure for table `sales_departments`
 --
 
+DROP TABLE IF EXISTS `sales_departments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sales_departments` (
-  `id` bigint UNSIGNED NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `job_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `job_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `photo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Структура таблицы `secondary_blocks`
+-- Dumping data for table `sales_departments`
 --
 
+LOCK TABLES `sales_departments` WRITE;
+/*!40000 ALTER TABLE `sales_departments` DISABLE KEYS */;
+INSERT INTO `sales_departments` VALUES (1,'Меня зовут Жаксыбекова Айжан, и я являюсь руководителем отдела продаж в компании «Everest Development». Моя задача — обеспечить ваше удовлетворение на всех этапах покупки. Мы сделаем все возможное, чтобы помочь вам приобрести квартиру вашей мечты.','Жаксыбекова Айжан','Руководитель Отдела Продаж','sales-departments/July2024/zN5YghWpQeAzsfKv7yzQ.png','2024-03-23 11:27:04','2024-07-03 10:44:08');
+/*!40000 ALTER TABLE `sales_departments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `secondary_blocks`
+--
+
+DROP TABLE IF EXISTS `secondary_blocks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `secondary_blocks` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `icon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Дамп данных таблицы `secondary_blocks`
+-- Dumping data for table `secondary_blocks`
 --
 
-INSERT INTO `secondary_blocks` (`id`, `title`, `description`, `icon`, `created_at`, `updated_at`, `link`) VALUES
-(1, 'Жилье', 'Широкий выбор премиальных апартаментов', 'secondary-blocks\\March2024\\ttBRAZ7vE8Q5wEYDhmx0.png', '2024-03-09 19:07:18', '2024-03-09 19:07:18', NULL),
-(2, 'Коммерция', 'Покупка коммерческих помещений под любой вид бизнеса', 'secondary-blocks\\March2024\\X4B5Ib2gxOFK3Pn9SEfD.png', '2024-03-09 19:07:43', '2024-03-09 19:07:43', NULL);
-
--- --------------------------------------------------------
+LOCK TABLES `secondary_blocks` WRITE;
+/*!40000 ALTER TABLE `secondary_blocks` DISABLE KEYS */;
+INSERT INTO `secondary_blocks` VALUES (1,'Жилье','Широкий выбор премиальных апартаментов','secondary-blocks\\March2024\\ttBRAZ7vE8Q5wEYDhmx0.png','2024-03-09 19:07:18','2024-06-13 15:20:26','/projects'),(2,'О компании','Здесь вы можете узнать подробнее о нашей компании Everest Development','secondary-blocks\\March2024\\X4B5Ib2gxOFK3Pn9SEfD.png','2024-03-09 19:07:43','2024-07-02 17:13:44','/about');
+/*!40000 ALTER TABLE `secondary_blocks` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Структура таблицы `settings`
+-- Table structure for table `settings`
 --
 
+DROP TABLE IF EXISTS `settings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `settings` (
-  `id` int UNSIGNED NOT NULL,
-  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` text COLLATE utf8mb4_unicode_ci,
-  `details` text COLLATE utf8mb4_unicode_ci,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `details` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `order` int NOT NULL DEFAULT '1',
-  `group` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `group` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `settings_key_unique` (`key`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Дамп данных таблицы `settings`
+-- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`, `order`, `group`) VALUES
-(1, 'site.title', 'Site Title', 'Site Title', '', 'text', 1, 'Site'),
-(2, 'site.description', 'Site Description', 'Site Description', '', 'text', 2, 'Site'),
-(3, 'site.logo', 'Site Logo', '', '', 'image', 3, 'Site'),
-(4, 'site.google_analytics_tracking_id', 'Google Analytics Tracking ID', '', '', 'text', 4, 'Site'),
-(5, 'admin.bg_image', 'Admin Background Image', '', '', 'image', 5, 'Admin'),
-(6, 'admin.title', 'Admin Title', 'Voyager', '', 'text', 1, 'Admin'),
-(7, 'admin.description', 'Admin Description', 'Welcome to Voyager. The Missing Admin for Laravel', '', 'text', 2, 'Admin'),
-(8, 'admin.loader', 'Admin Loader', '', '', 'image', 3, 'Admin'),
-(9, 'admin.icon_image', 'Admin Icon Image', '', '', 'image', 4, 'Admin'),
-(10, 'admin.google_analytics_client_id', 'Google Analytics Client ID (used for admin dashboard)', '', '', 'text', 1, 'Admin');
-
--- --------------------------------------------------------
+LOCK TABLES `settings` WRITE;
+/*!40000 ALTER TABLE `settings` DISABLE KEYS */;
+INSERT INTO `settings` VALUES (1,'site.title','Site Title','Site Title','','text',1,'Site'),(2,'site.description','Site Description','Site Description','','text',2,'Site'),(3,'site.logo','Site Logo','','','image',3,'Site'),(4,'site.google_analytics_tracking_id','Google Analytics Tracking ID','','','text',4,'Site'),(5,'admin.bg_image','Admin Background Image','','','image',5,'Admin'),(6,'admin.title','Admin Title','Voyager','','text',1,'Admin'),(7,'admin.description','Admin Description','Welcome to Voyager. The Missing Admin for Laravel','','text',2,'Admin'),(8,'admin.loader','Admin Loader','','','image',3,'Admin'),(9,'admin.icon_image','Admin Icon Image','','','image',4,'Admin'),(10,'admin.google_analytics_client_id','Google Analytics Client ID (used for admin dashboard)','','','text',1,'Admin');
+/*!40000 ALTER TABLE `settings` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Структура таблицы `sliders`
+-- Table structure for table `sliders`
 --
 
+DROP TABLE IF EXISTS `sliders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sliders` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `link` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Дамп данных таблицы `sliders`
+-- Dumping data for table `sliders`
 --
 
-INSERT INTO `sliders` (`id`, `title`, `description`, `image`, `created_at`, `updated_at`, `link`) VALUES
-(1, 'Вершина вашего комфорта!', 'Премиальные апартаменты в Алматы', 'sliders\\March2024\\fy4ebr2qJeGFzoZb0ivE.jpg', '2024-03-09 19:08:29', '2024-03-09 19:08:29', ''),
-(2, 'Вершина вашего комфорта!1', 'Премиальные апартаменты в Алматы111', 'sliders\\March2024\\fy4ebr2qJeGFzoZb0ivE.jpg', '2024-03-09 19:08:29', '2024-03-09 19:08:29', '');
-
--- --------------------------------------------------------
+LOCK TABLES `sliders` WRITE;
+/*!40000 ALTER TABLE `sliders` DISABLE KEYS */;
+INSERT INTO `sliders` VALUES (1,'Высочайший уровень роскоши и комфорта, а также надежный источник прибыли!','Приглашаем Вас ознакомиться с Turkistan Apartments – вашими эксклюзивными и уютными апартаментами в идеально спланированном комплексе.','sliders/May2024/M6Z2gzu6msGw1MtRssXc.jpg','2024-03-09 19:08:29','2024-06-13 15:10:10','/projects/11'),(2,'Вершина вашего комфорта!','Современные архитектурные решения, прекрасные дворы и потрясающий вид не оставят вас равнодушными!','sliders/May2024/kYMrNSlXRRuJMAdZyWtQ.jpg','2024-03-09 19:08:29','2024-06-13 15:10:23','/projects/4');
+/*!40000 ALTER TABLE `sliders` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Структура таблицы `translations`
+-- Table structure for table `translations`
 --
 
+DROP TABLE IF EXISTS `translations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `translations` (
-  `id` int UNSIGNED NOT NULL,
-  `table_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `column_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `foreign_key` int UNSIGNED NOT NULL,
-  `locale` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `table_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `column_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `foreign_key` int unsigned NOT NULL,
+  `locale` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `users`
---
-
-CREATE TABLE `users` (
-  `id` bigint UNSIGNED NOT NULL,
-  `role_id` bigint UNSIGNED DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'users/default.png',
-  `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `settings` text COLLATE utf8mb4_unicode_ci,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `translations_table_name_column_name_foreign_key_locale_unique` (`table_name`,`column_name`,`foreign_key`,`locale`)
+) ENGINE=InnoDB AUTO_INCREMENT=496 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Дамп данных таблицы `users`
+-- Dumping data for table `translations`
 --
 
-INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
-(1, 1, 'admin', 'admin@gmail.com', 'users/default.png', NULL, '$2y$12$AksRqmdtQgZavOHKKuF9aucvsIcrAjb9iDLRC6i4vLIir86KSuTiC', '9L8qxXmXfXQxqoS3L6m7HYMG8rewTe6XaHyN73JNPFgKn6toQdcvjYHwT7M4', NULL, '2024-03-09 18:56:15', '2024-03-09 18:56:15');
-
--- --------------------------------------------------------
+LOCK TABLES `translations` WRITE;
+/*!40000 ALTER TABLE `translations` DISABLE KEYS */;
+INSERT INTO `translations` VALUES (1,'main_blocks','title',1,'en','ipoteka 14,5%','2024-03-23 14:37:46','2024-03-23 14:37:46'),(2,'main_blocks','title',1,'kz','ipoketa kz','2024-03-23 14:37:46','2024-03-23 14:37:46'),(3,'main_blocks','title2',1,'en','Мы предоставляем выгодные условия приобретения жилья под низкий процент','2024-03-23 14:37:46','2024-03-23 14:37:46'),(4,'main_blocks','title2',1,'kz','afdsfsdfdfs','2024-03-23 14:37:46','2024-03-23 14:37:46'),(5,'menu_items','title',16,'en','Главная','2024-03-23 15:00:55','2024-03-23 15:00:55'),(6,'menu_items','title',46,'en','Заявки','2024-03-23 15:01:12','2024-03-23 15:01:12'),(7,'menu_items','title',16,'kz','Главная','2024-03-23 15:01:44','2024-03-23 15:01:44'),(8,'data_rows','display_name',89,'en','Id','2024-03-23 15:20:24','2024-03-23 15:20:24'),(9,'data_rows','display_name',90,'en','Изображения','2024-03-23 15:20:24','2024-03-23 15:20:24'),(10,'data_rows','display_name',91,'en','Оглавление','2024-03-23 15:20:24','2024-03-23 15:20:24'),(11,'data_rows','display_name',92,'en','Описание','2024-03-23 15:20:24','2024-03-23 15:20:24'),(12,'data_rows','display_name',93,'en','Тип','2024-03-23 15:20:24','2024-03-23 15:20:24'),(13,'data_rows','display_name',94,'en','Изображение','2024-03-23 15:20:24','2024-03-23 15:20:24'),(14,'data_rows','display_name',95,'en','City Id','2024-03-23 15:20:24','2024-03-23 15:20:24'),(15,'data_rows','display_name',96,'en','Created At','2024-03-23 15:20:24','2024-03-23 15:20:24'),(16,'data_rows','display_name',97,'en','Updated At','2024-03-23 15:20:24','2024-03-23 15:20:24'),(17,'data_rows','display_name',173,'en','Трансляция','2024-03-23 15:20:24','2024-03-23 15:20:24'),(18,'data_rows','display_name',106,'en','Город','2024-03-23 15:20:24','2024-03-23 15:20:24'),(19,'data_types','display_name_singular',17,'en','Проекты','2024-03-23 15:20:24','2024-03-23 15:20:24'),(20,'data_types','display_name_plural',17,'en','Проекты','2024-03-23 15:20:24','2024-03-23 15:20:24'),(29,'data_rows','display_name',191,'en','Id','2024-03-23 15:32:44','2024-03-23 15:32:44'),(30,'data_rows','display_name',192,'en','Тип','2024-03-23 15:32:44','2024-03-23 15:32:44'),(31,'data_rows','display_name',193,'en','Оглавление','2024-03-23 15:32:44','2024-03-23 15:32:44'),(32,'data_rows','display_name',194,'en','Изображение','2024-03-23 15:32:44','2024-03-23 15:32:44'),(33,'data_rows','display_name',195,'en','Описание','2024-03-23 15:32:44','2024-03-23 15:32:44'),(34,'data_rows','display_name',196,'en','Created At','2024-03-23 15:32:44','2024-03-23 15:32:44'),(35,'data_rows','display_name',197,'en','Updated At','2024-03-23 15:32:44','2024-03-23 15:32:44'),(36,'data_types','display_name_singular',29,'en','Преимущество','2024-03-23 15:32:44','2024-03-23 15:32:44'),(37,'data_types','display_name_plural',29,'en','Преимущество','2024-03-23 15:32:44','2024-03-23 15:32:44'),(38,'data_rows','display_name',209,'en','Id','2024-03-23 15:32:51','2024-03-23 15:32:51'),(39,'data_rows','display_name',210,'en','Оглавление','2024-03-23 15:32:51','2024-03-23 15:32:51'),(40,'data_rows','display_name',211,'en','Описание','2024-03-23 15:32:51','2024-03-23 15:32:51'),(41,'data_rows','display_name',212,'en','Иконка','2024-03-23 15:32:51','2024-03-23 15:32:51'),(42,'data_rows','display_name',213,'en','Ссылка','2024-03-23 15:32:51','2024-03-23 15:32:51'),(43,'data_rows','display_name',214,'en','Created At','2024-03-23 15:32:51','2024-03-23 15:32:51'),(44,'data_rows','display_name',215,'en','Updated At','2024-03-23 15:32:51','2024-03-23 15:32:51'),(45,'data_types','display_name_singular',33,'en','Компания','2024-03-23 15:32:51','2024-03-23 15:32:51'),(46,'data_types','display_name_plural',33,'en','Компания','2024-03-23 15:32:51','2024-03-23 15:32:51'),(47,'offices','address',1,'en','Казахстан, г. Алматы Аль-Фараби 77/8','2024-03-23 15:48:58','2024-03-23 15:48:58'),(48,'offices','time',1,'en','ежедневно 12-6','2024-03-23 15:48:58','2024-03-23 15:48:58'),(49,'offices','address',1,'kz','Казахстан, г. Алматы Аль-Фараби 77/8','2024-03-23 15:49:05','2024-03-23 15:49:05'),(50,'offices','time',1,'kz','ежедневно 12-6','2024-03-23 15:49:06','2024-03-23 15:49:06'),(51,'data_rows','display_name',89,'kz','Id','2024-03-23 15:56:25','2024-03-23 15:56:25'),(52,'data_rows','display_name',90,'kz','Изображения','2024-03-23 15:56:25','2024-03-23 15:56:25'),(53,'data_rows','display_name',91,'kz','Оглавление','2024-03-23 15:56:25','2024-03-23 15:56:25'),(54,'data_rows','display_name',92,'kz','Описание','2024-03-23 15:56:25','2024-03-23 15:56:25'),(55,'data_rows','display_name',93,'kz','Тип','2024-03-23 15:56:25','2024-03-23 15:56:25'),(56,'data_rows','display_name',94,'kz','Изображение','2024-03-23 15:56:25','2024-03-23 15:56:25'),(57,'data_rows','display_name',95,'kz','City Id','2024-03-23 15:56:25','2024-03-23 15:56:25'),(58,'data_rows','display_name',96,'kz','Created At','2024-03-23 15:56:25','2024-03-23 15:56:25'),(59,'data_rows','display_name',97,'kz','Updated At','2024-03-23 15:56:25','2024-03-23 15:56:25'),(60,'data_rows','display_name',173,'kz','Трансляция','2024-03-23 15:56:25','2024-03-23 15:56:25'),(61,'data_rows','display_name',106,'kz','Город','2024-03-23 15:56:25','2024-03-23 15:56:25'),(62,'data_types','display_name_singular',17,'kz','Проекты','2024-03-23 15:56:25','2024-03-23 15:56:25'),(63,'data_types','display_name_plural',17,'kz','Проекты','2024-03-23 15:56:25','2024-03-23 15:56:25'),(64,'data_rows','display_name',147,'en','Id','2024-03-24 12:29:52','2024-03-24 12:29:52'),(65,'data_rows','display_name',148,'en','Оглавление','2024-03-24 12:29:52','2024-03-24 12:29:52'),(66,'data_rows','display_name',162,'en','Описание','2024-03-24 12:29:52','2024-03-24 12:29:52'),(67,'data_rows','display_name',149,'en','Планировка','2024-03-24 12:29:52','2024-03-24 12:29:52'),(68,'data_rows','display_name',150,'en','План этажа','2024-03-24 12:29:52','2024-03-24 12:29:52'),(69,'data_rows','display_name',151,'en','Квадратура','2024-03-24 12:29:52','2024-03-24 12:29:52'),(70,'data_rows','display_name',152,'en','Этаж','2024-03-24 12:29:52','2024-03-24 12:29:52'),(71,'data_rows','display_name',153,'en','Подьезд','2024-03-24 12:29:52','2024-03-24 12:29:52'),(72,'data_rows','display_name',154,'en','Кол-во комнат','2024-03-24 12:29:52','2024-03-24 12:29:52'),(73,'data_rows','display_name',155,'en','Срок сдачи','2024-03-24 12:29:52','2024-03-24 12:29:52'),(74,'data_rows','display_name',156,'en','Метро','2024-03-24 12:29:52','2024-03-24 12:29:52'),(75,'data_rows','display_name',157,'en','Тип','2024-03-24 12:29:52','2024-03-24 12:29:52'),(76,'data_rows','display_name',158,'en','City Id','2024-03-24 12:29:52','2024-03-24 12:29:52'),(77,'data_rows','display_name',159,'en','Complex Id','2024-03-24 12:29:52','2024-03-24 12:29:52'),(78,'data_rows','display_name',160,'en','Created At','2024-03-24 12:29:52','2024-03-24 12:29:52'),(79,'data_rows','display_name',161,'en','Updated At','2024-03-24 12:29:52','2024-03-24 12:29:52'),(80,'data_rows','display_name',163,'en','Город','2024-03-24 12:29:52','2024-03-24 12:29:52'),(81,'data_rows','display_name',164,'en','Жилой комплекс','2024-03-24 12:29:52','2024-03-24 12:29:52'),(82,'data_types','display_name_singular',24,'en','Квартиры','2024-03-24 12:29:52','2024-03-24 12:29:52'),(83,'data_types','display_name_plural',24,'en','Квартиры','2024-03-24 12:29:52','2024-03-24 12:29:52'),(84,'appartments','title',1,'en','Студия 22,8 м²','2024-03-24 12:30:17','2024-03-24 12:30:17'),(85,'appartments','deadline',1,'en','2 квартал 2024 года','2024-03-24 12:30:17','2024-03-24 12:30:17'),(86,'appartments','metro',1,'en','м. Домодедовская','2024-03-24 12:30:17','2024-03-24 12:30:17'),(87,'appartments','title',2,'en','Студия 32,8 м²','2024-03-24 12:30:27','2024-03-24 12:30:27'),(88,'appartments','deadline',2,'en','2 квартал 2024 года','2024-03-24 12:30:27','2024-03-24 12:30:27'),(89,'appartments','metro',2,'en','м. Домодедовская','2024-03-24 12:30:27','2024-03-24 12:30:27'),(90,'appartments','title',3,'en','Студия 12,8 м²','2024-03-24 12:30:37','2024-03-24 12:30:37'),(91,'appartments','deadline',3,'en','2 квартал 2024 года','2024-03-24 12:30:37','2024-03-24 12:30:37'),(92,'appartments','metro',3,'en','м. Домодедовская','2024-03-24 12:30:37','2024-03-24 12:30:37'),(93,'appartments','title',4,'en','Студия 100м²','2024-03-24 12:30:46','2024-03-24 12:30:46'),(94,'appartments','deadline',4,'en','2 квартал 2024 года','2024-03-24 12:30:46','2024-03-24 12:30:46'),(95,'appartments','metro',4,'en','м. Домодедовская','2024-03-24 12:30:46','2024-03-24 12:30:46'),(96,'data_rows','display_name',233,'en','Координаты','2024-03-24 12:44:58','2024-03-24 12:44:58'),(97,'data_rows','display_name',233,'kz','Координаты','2024-03-24 14:33:12','2024-03-24 14:33:12'),(98,'data_rows','display_name',235,'en','Генеральный план','2024-03-24 14:33:12','2024-03-24 14:33:12'),(99,'menu_items','title',47,'en','Коммерция','2024-03-24 20:18:07','2024-03-24 20:18:07'),(100,'data_rows','display_name',260,'en','Id','2024-03-24 20:27:45','2024-03-24 20:27:45'),(101,'data_rows','display_name',261,'en','Оглавление','2024-03-24 20:27:45','2024-03-24 20:27:45'),(102,'data_rows','display_name',262,'en','Описание','2024-03-24 20:27:45','2024-03-24 20:27:45'),(103,'data_rows','display_name',263,'en','План','2024-03-24 20:27:45','2024-03-24 20:27:45'),(104,'data_rows','display_name',264,'en','План этажа','2024-03-24 20:27:45','2024-03-24 20:27:45'),(105,'data_rows','display_name',265,'en','Квадратура','2024-03-24 20:27:45','2024-03-24 20:27:45'),(106,'data_rows','display_name',266,'en','Этаж','2024-03-24 20:27:45','2024-03-24 20:27:45'),(107,'data_rows','display_name',267,'en','Год заселения','2024-03-24 20:27:45','2024-03-24 20:27:45'),(108,'data_rows','display_name',268,'en','Тип','2024-03-24 20:27:45','2024-03-24 20:27:45'),(109,'data_rows','display_name',269,'en','City Id','2024-03-24 20:27:45','2024-03-24 20:27:45'),(110,'data_rows','display_name',270,'en','Complex Id','2024-03-24 20:27:45','2024-03-24 20:27:45'),(111,'data_rows','display_name',271,'en','Created At','2024-03-24 20:27:45','2024-03-24 20:27:45'),(112,'data_rows','display_name',272,'en','Updated At','2024-03-24 20:27:45','2024-03-24 20:27:45'),(113,'data_types','display_name_singular',40,'en','Недвижимость','2024-03-24 20:27:45','2024-03-24 20:27:45'),(114,'data_types','display_name_plural',40,'en','Недвижимость','2024-03-24 20:27:45','2024-03-24 20:27:45'),(115,'data_rows','display_name',260,'kz','Id','2024-03-24 20:29:29','2024-03-24 20:29:29'),(116,'data_rows','display_name',261,'kz','Оглавление','2024-03-24 20:29:29','2024-03-24 20:29:29'),(117,'data_rows','display_name',262,'kz','Описание','2024-03-24 20:29:29','2024-03-24 20:29:29'),(118,'data_rows','display_name',263,'kz','План','2024-03-24 20:29:29','2024-03-24 20:29:29'),(119,'data_rows','display_name',264,'kz','План этажа','2024-03-24 20:29:29','2024-03-24 20:29:29'),(120,'data_rows','display_name',265,'kz','Квадратура','2024-03-24 20:29:29','2024-03-24 20:29:29'),(121,'data_rows','display_name',266,'kz','Этаж','2024-03-24 20:29:29','2024-03-24 20:29:29'),(122,'data_rows','display_name',267,'kz','Год заселения','2024-03-24 20:29:29','2024-03-24 20:29:29'),(123,'data_rows','display_name',268,'kz','Тип','2024-03-24 20:29:29','2024-03-24 20:29:29'),(124,'data_rows','display_name',269,'kz','City Id','2024-03-24 20:29:29','2024-03-24 20:29:29'),(125,'data_rows','display_name',270,'kz','Complex Id','2024-03-24 20:29:29','2024-03-24 20:29:29'),(126,'data_rows','display_name',271,'kz','Created At','2024-03-24 20:29:29','2024-03-24 20:29:29'),(127,'data_rows','display_name',272,'kz','Updated At','2024-03-24 20:29:29','2024-03-24 20:29:29'),(128,'data_rows','display_name',273,'en','complexes','2024-03-24 20:29:29','2024-03-24 20:29:29'),(129,'data_types','display_name_singular',40,'kz','Недвижимость','2024-03-24 20:29:29','2024-03-24 20:29:29'),(130,'data_types','display_name_plural',40,'kz','Недвижимость','2024-03-24 20:29:29','2024-03-24 20:29:29'),(131,'data_rows','display_name',273,'kz','complexes','2024-03-24 20:30:18','2024-03-24 20:30:18'),(132,'data_rows','display_name',274,'en','cities','2024-03-24 20:30:18','2024-03-24 20:30:18'),(133,'data_rows','display_name',275,'en','Id','2024-03-24 20:31:54','2024-03-24 20:31:54'),(134,'data_rows','display_name',276,'en','Изображение','2024-03-24 20:31:54','2024-03-24 20:31:54'),(135,'data_rows','display_name',277,'en','Оглавление','2024-03-24 20:31:54','2024-03-24 20:31:54'),(136,'data_rows','display_name',278,'en','Описание','2024-03-24 20:31:54','2024-03-24 20:31:54'),(137,'data_rows','display_name',279,'en','Commercial Estate Id','2024-03-24 20:31:54','2024-03-24 20:31:54'),(138,'data_rows','display_name',280,'en','Created At','2024-03-24 20:31:54','2024-03-24 20:31:54'),(139,'data_rows','display_name',281,'en','Updated At','2024-03-24 20:31:54','2024-03-24 20:31:54'),(140,'data_types','display_name_singular',42,'en','Commercial Estate Advantage','2024-03-24 20:31:54','2024-03-24 20:31:54'),(141,'data_types','display_name_plural',42,'en','Commercial Estate Advantages','2024-03-24 20:31:54','2024-03-24 20:31:54'),(142,'menu_items','title',53,'en','Преимущество','2024-03-24 20:32:07','2024-03-24 20:37:50'),(144,'data_rows','display_name',275,'kz','Id','2024-03-24 20:36:16','2024-03-24 20:36:16'),(145,'data_rows','display_name',276,'kz','Изображение','2024-03-24 20:36:16','2024-03-24 20:36:16'),(146,'data_rows','display_name',277,'kz','Оглавление','2024-03-24 20:36:16','2024-03-24 20:36:16'),(147,'data_rows','display_name',278,'kz','Описание','2024-03-24 20:36:16','2024-03-24 20:36:16'),(148,'data_rows','display_name',279,'kz','Commercial Estate Id','2024-03-24 20:36:16','2024-03-24 20:36:16'),(149,'data_rows','display_name',280,'kz','Created At','2024-03-24 20:36:16','2024-03-24 20:36:16'),(150,'data_rows','display_name',281,'kz','Updated At','2024-03-24 20:36:16','2024-03-24 20:36:16'),(151,'data_rows','display_name',282,'en','commercial_estates','2024-03-24 20:36:16','2024-03-24 20:36:16'),(152,'data_types','display_name_singular',42,'kz','Commercial Estate Advantage','2024-03-24 20:36:16','2024-03-24 20:36:16'),(153,'data_types','display_name_plural',42,'kz','Commercial Estate Advantages','2024-03-24 20:36:16','2024-03-24 20:36:16'),(154,'menu_items','title',55,'en','Ком. недвижимость','2024-03-24 20:37:35','2024-03-24 20:37:35'),(155,'menu_items','title',53,'kz','Преимущество','2024-03-24 20:37:50','2024-03-24 20:37:50'),(156,'data_rows','display_name',282,'kz','commercial_estates','2024-03-24 20:38:39','2024-03-24 20:38:39'),(157,'data_rows','display_name',254,'en','Id','2024-03-24 20:44:58','2024-03-24 20:44:58'),(158,'data_rows','display_name',255,'en','Оглавление','2024-03-24 20:44:58','2024-03-24 20:44:58'),(159,'data_rows','display_name',257,'en','Изображение','2024-03-24 20:44:58','2024-03-24 20:44:58'),(160,'data_rows','display_name',258,'en','Created At','2024-03-24 20:44:58','2024-03-24 20:44:58'),(161,'data_rows','display_name',259,'en','Updated At','2024-03-24 20:44:58','2024-03-24 20:44:58'),(162,'data_types','display_name_singular',39,'en','Решения','2024-03-24 20:44:58','2024-03-24 20:44:58'),(163,'data_types','display_name_plural',39,'en','Решения','2024-03-24 20:44:58','2024-03-24 20:44:58'),(165,'data_rows','display_name',274,'kz','cities','2024-03-25 16:28:06','2024-03-25 16:28:06'),(166,'data_rows','display_name',235,'kz','Генеральный план','2024-03-25 16:29:33','2024-03-25 16:29:33'),(167,'data_rows','display_name',236,'en','Краткое описание','2024-03-25 16:29:33','2024-03-25 16:29:33'),(168,'data_rows','display_name',236,'kz','Краткое описание','2024-03-25 16:31:26','2024-03-25 16:31:26'),(174,'appartments','title',1,'kz','Студия 22,8 м²','2024-03-30 17:43:12','2024-03-30 17:43:12'),(175,'appartments','deadline',1,'kz','2 квартал 2024 года','2024-03-30 17:43:12','2024-03-30 17:43:12'),(176,'appartments','metro',1,'kz','м. Домодедовская','2024-03-30 17:43:12','2024-03-30 17:43:12'),(178,'complexes','title',4,'en','Жилой Комплекс \"Everest\"','2024-04-04 15:44:32','2024-04-04 15:44:32'),(179,'complexes','description',4,'en','Современные архитектурные решения, прекрасные дворы и потрясающий вид не оставят вас равнодушными!','2024-04-04 15:44:32','2024-04-04 15:44:32'),(180,'complexes','title',4,'kz','Жилой Комплекс \"Everest\"','2024-04-04 15:58:05','2024-04-04 15:58:05'),(181,'complexes','description',4,'kz','Современные архитектурные решения, прекрасные дворы и потрясающий вид не оставят вас равнодушными!','2024-04-04 15:58:05','2024-04-04 15:58:05'),(182,'appartments','title',2,'kz','Студия 32,8 м²','2024-04-04 15:59:18','2024-04-04 15:59:18'),(183,'appartments','deadline',2,'kz','2 квартал 2024 года','2024-04-04 15:59:18','2024-04-04 15:59:18'),(184,'appartments','metro',2,'kz','м. Домодедовская','2024-04-04 15:59:18','2024-04-04 15:59:18'),(185,'appartments','title',3,'kz','Студия 12,8 м²','2024-04-04 15:59:24','2024-04-04 15:59:24'),(186,'appartments','deadline',3,'kz','2 квартал 2024 года','2024-04-04 15:59:24','2024-04-04 15:59:24'),(187,'appartments','metro',3,'kz','м. Домодедовская','2024-04-04 15:59:24','2024-04-04 15:59:24'),(188,'appartments','title',4,'kz','Студия 100м²','2024-04-04 15:59:29','2024-04-04 15:59:29'),(189,'appartments','deadline',4,'kz','2 квартал 2024 года','2024-04-04 15:59:29','2024-04-04 15:59:29'),(190,'appartments','metro',4,'kz','м. Домодедовская','2024-04-04 15:59:29','2024-04-04 15:59:29'),(191,'footers','address',1,'en','Казахстан, г. Алматы Аль-Фараби 77/8','2024-04-09 15:24:55','2024-04-09 15:24:55'),(192,'footers','address',1,'kz','sdf','2024-04-09 15:24:55','2024-04-09 15:24:55'),(193,'about_us_banners','title',1,'en','Everest Development','2024-04-15 22:30:44','2024-04-15 22:30:44'),(194,'about_us_banners','description',1,'en','Группа «Everest» — лидер строительной отрасли Казахстане и ведущий разработчик ИТ-решений в недвижимости.','2024-04-15 22:30:44','2024-04-15 22:30:44'),(197,'complexes','title',5,'en','Turar','2024-04-17 20:05:32','2024-04-17 20:05:32'),(198,'complexes','title',6,'en','Ermensai Village','2024-04-17 20:07:06','2024-04-17 20:07:06'),(203,'mortgage_advantages','title',1,'en','Меньше на 91%','2024-04-17 22:43:27','2024-04-17 22:43:27'),(204,'mortgage_advantages','description',1,'en','общая переплата','2024-04-17 22:43:27','2024-04-17 22:43:27'),(205,'mortgage_advantages','title',2,'en','Ниже на 77%','2024-04-17 22:43:35','2024-04-17 22:43:35'),(206,'mortgage_advantages','description',2,'en','ежемесячный платеж','2024-04-17 22:43:35','2024-04-17 22:43:35'),(207,'mortgage_advantages','title',3,'en','Ставка 14,5%','2024-04-17 22:43:42','2024-04-17 22:43:42'),(208,'mortgage_advantages','description',3,'en','на весь срок','2024-04-17 22:43:42','2024-04-17 22:43:42'),(209,'mortgage_advantages','title',4,'en','До 6 млн ₽','2024-04-17 22:43:49','2024-04-17 22:43:49'),(210,'mortgage_advantages','description',4,'en','сумма кредита','2024-04-17 22:43:49','2024-04-17 22:43:49'),(211,'complexes','title',5,'kz','Turar','2024-04-18 19:55:07','2024-04-18 19:55:07'),(212,'complexes','title',6,'kz','Ermensai Village','2024-04-18 19:58:37','2024-04-18 19:58:37'),(213,'complexes','description',5,'en','<h2 class=\"MsoNormal\"><strong><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">О проекте</span></strong></h2>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">И</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">деальное сочетание современного комфорта и неповторимой природной красоты &ndash; именно это предлагает жилой комплекс TURAR. Расположенный в одном из пяти будущих центров Алматы, в районе \"Восточные ворота\", на пересечении проспекта Рыскулова и Кульджинского тракта, этот комплекс является не только местом жительства, но и настоящим украшением городского пейзажа</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">.</span></p>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">16 блоков </span></p>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">7-9 этажей</span></p>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">2.7-3 м &ndash; высота потолков</span></p>\n<hr>\n<h2 class=\"MsoNormal\" style=\"margin-bottom: 15.0pt; line-height: normal;\"><strong><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: #0C00;\">Архитектура</span></strong></h2>\n<p class=\"MsoNormal\" style=\"margin-bottom: 6.0pt; line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; background: white;\">Надежность и безопасность вашего дома обеспечивается прочным железобетонным каркасом</span><span lang=\"RU\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">.</span></p>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt; line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; background: white;\">Экологически безопасный вентилируемый фасад, выполненный из фиброцементных панелей, обеспечивает надежную защиту от любых погодных воздействий</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: #0C00;\">.</span></p>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt; line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; background: white;\">Стены из газоблоков обладаю</span><span lang=\"KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: KZ;\">т</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; background: white;\"> высокими тепло</span><span lang=\"RU\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">-</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; background: white;\">шумоизоляционными свойствами.</span></p>\n<hr>\n<h2 class=\"MsoNormal\"><strong><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Ген.план проекта</span></strong></h2>\n<ul>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Благоустройство</span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Детские площадки</span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Спортивные площадки</span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Велодорожки</span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Видеонаблюдение</span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Зеленая территория</span></li>\n</ul>','2024-04-18 19:59:06','2024-04-18 19:59:06'),(214,'complexes','title',7,'en','Baganashil Hills','2024-04-18 20:03:04','2024-04-18 20:03:04'),(216,'complexes','title',10,'en','Arna','2024-04-18 20:09:55','2024-04-18 20:09:55'),(217,'complexes','description',10,'en','<h2 class=\"MsoNormal\"><strong><span lang=\"KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: KZ;\">О проекте</span></strong></h2>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt; line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif;\">Жилой комплекс с нестандартной концепцией &laquo;Арна&raquo; </span><span lang=\"KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-ansi-language: KZ;\">от </span><span style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-ansi-language: EN-US;\">Everest</span><span style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif;\"> </span><span style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-ansi-language: EN-US;\">Development</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif;\">,</span><span lang=\"KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-ansi-language: KZ;\"> создан</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif;\"> благодаря переосмыслению значения &laquo;Дом&raquo;. Ценностью жилого комплекса стало внутреннее community, это не просто ваши соседи, это ваши друзья и единомышленники, у вас схожий образ жизни и религиозные ценности. Это не просто ваш новый дом, это пространство единомышленников.</span></p>\n<ul>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: RU;\">7, 9 этажный дом</span></li>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: RU;\">5 блоков</span></li>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: RU;\">1-3 комнатные квартиры</span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">Высота потолков 3 м</span></li>\n</ul>\n<hr>\n<h2 class=\"MsoNormal\" style=\"margin-bottom: .0001pt; line-height: normal;\"><strong><span lang=\"KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-ansi-language: KZ;\">Архитектура</span></strong></h2>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt; line-height: normal;\"><span lang=\"KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-ansi-language: KZ;\">Каркас жилого комплекса &laquo;Арна&raquo; выполен из монолитного железобетона, установлен н</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; background: white; mso-fareast-language: RU;\">авесной вентилируемый фасад из гранита и фиброцементных панелей, которые обладают высокой прочностью, морозоустойчивостью, экологичностью и отличаются хорошими теплоизолирующими свойствами.</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-ansi-language: RU; mso-fareast-language: RU;\"> </span><span lang=\"KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-ansi-language: KZ;\">Внутренние перегородки между помещениями выполнены из газоблоков, обеспечивая оптимальное сочетание прочности и функциональности.</span></p>\n<hr>\n<h2 class=\"MsoNormal\" style=\"margin-bottom: .0001pt; line-height: normal;\"><strong><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: RU;\">Собственная сервисная компания</span></strong></h2>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt; line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: RU;\">Мы заботимся не только о высоком качестве жилья, но и о качестве</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-ansi-language: RU; mso-fareast-language: RU;\"> </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: RU;\">условий жизни жильцов.</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-ansi-language: RU; mso-fareast-language: RU;\"> </span></p>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt; line-height: normal;\"><span lang=\"RU\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-ansi-language: RU; mso-fareast-language: RU;\">О</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: RU;\">бъекты компании </span><span style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: RU;\">Everest</span><span style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: RU;\"> </span><span style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: RU;\">Development</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: RU;\"> находятся на индивидуальном</span></p>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt; line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: RU;\">сервисном обслуживание предоставляемым компанией &ndash; застройщиком</span></p>\n<hr>\n<h2 style=\"margin: 0cm 0cm 15.0pt 0cm;\"><strong><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">Благоустройство</span></strong></h2>\n<ul>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; background: white; mso-fareast-language: RU;\">Авторский дизайн холлов</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif;\">Безопасный двор</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif;\">Детские площадки </span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif;\">Спортивные площадки для взрослых</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif;\">Видеонаблюдение</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif;\">Домофон</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">ия</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif;\">Наземный паркинг</span></li>\n</ul>','2024-04-18 20:09:55','2024-04-18 20:09:55'),(218,'complexes','title',11,'en','Turkistan Apartments','2024-04-18 20:12:46','2024-04-18 20:12:46'),(219,'complexes','description',11,'en','<h2 class=\"MsoNormal\"><strong><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">О проекте </span></strong></h2>\n<p class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">Апарт-отель &laquo;</span><span style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; mso-ansi-language: EN-US;\">Turkistan</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">&raquo; со светлыми, просторными современными апарт</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">-номерами </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">расположен</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\"> </span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: RU;\">вблизи от </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">парк</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: RU;\">а</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\"> им. 28 Гвардейцев-Панфиловцев, </span><span lang=\"KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: KZ;\">рядом расположен </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Зеленый базар, Центральная мечеть, Кафедральный собор, культурные и исторические объекты.</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: RU;\"> </span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; mso-ansi-language: RU;\">Апарт-номер предполагает сдачу в чистовой отделке и мебелированность.</span></p>\n<p class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">12 этажей</span></p>\n<p class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">125 номеров</span></p>\n<p class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Высота потолков &ndash; 3м.</span></p>\n<hr>\n<h2 class=\"MsoNormal\"><strong><span lang=\"KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: KZ;\">АРХИТЕКТУРА</span></strong></h2>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: RU;\">При</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\"> строение и</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: RU;\">спользован</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\"> </span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: RU;\">монолитный </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">железобетон. Это гарантирует надежную защиту от землетрясений и обеспечивает долговечность всей конструкции.</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: RU;\"> Ф</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">асад выполнен из керамогранита Laminam &ndash; материала, который не только придает зданию элегантный внешний вид, но и обладает высокой прочностью и стойкостью к внешним воздействиям.&nbsp;</span></p>\n<p class=\"MsoNormal\"><strong><span lang=\"KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: KZ;\">Благоустройство</span></strong></p>\n<ul>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Ресепшн</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">24/7 консьерж сервис</span></li>\n<li class=\"MsoNormal\"><span lang=\"KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: KZ;\">Обслуживание номеров</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Коворкинг зона</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Лобби и Кофейня</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Бутики и Рестораны</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Супермаркет и Салоны красоты</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Прачечная </span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Повышенная безопасность</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">24/7 видеонаблюдение</span></li>\n<li class=\"MsoNormal\"><span style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: EN-US;\">Face</span><span style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: KZ;\"> </span><span style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: EN-US;\">ID</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Закрытый двор</span><span lang=\"KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: KZ;\"> - оазис</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Ландшаф</span><span lang=\"KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: KZ;\">т</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">ный дизайн</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Многоуровневое освещение</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Надземный, подземный паркинг</span></li>\n</ul>\n<hr>\n<h2 class=\"MsoNormal\"><strong><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Преимущества инвестирования </span></strong><strong><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: RU;\">в</span></strong><strong><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\"> T</span></strong><strong><span style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: EN-US;\">urkistan</span></strong><strong><span style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\"> </span></strong><strong><span style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: EN-US;\">Apartments</span></strong></h2>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; mso-ansi-language: RU;\">Высокая доходность </span></p>\n<p class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;\">Быстр</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; mso-ansi-language: RU;\">ая</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;\"> окупаемость</span></p>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; mso-ansi-language: RU;\">Низкая стоимость </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;\">на этапе строительства </span></p>\n<p class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; background: white;\">Вы</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; background: white; mso-ansi-language: RU;\">годная</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; mso-ansi-language: RU;\"> </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; background: white;\">локация</span></p>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; mso-ansi-language: RU;\">100% конфиденциальность ваших инвестиций</span></p>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; mso-ansi-language: RU;\">Собственная управляющая компания</span></p>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; mso-ansi-language: RU;\">Надежное партнерство</span></p>','2024-04-18 20:12:46','2024-04-18 20:12:46'),(220,'complexes','title',11,'kz','Turkistan Apartments','2024-04-18 20:13:00','2024-04-18 20:13:00'),(221,'complexes','description',11,'kz','<h2 class=\"MsoNormal\"><strong><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">О проекте </span></strong></h2>\n<p class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">Апарт-отель &laquo;</span><span style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; mso-ansi-language: EN-US;\">Turkistan</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">&raquo; со светлыми, просторными современными апарт</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">-номерами </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">расположен</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\"> </span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: RU;\">вблизи от </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">парк</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: RU;\">а</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\"> им. 28 Гвардейцев-Панфиловцев, </span><span lang=\"KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: KZ;\">рядом расположен </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Зеленый базар, Центральная мечеть, Кафедральный собор, культурные и исторические объекты.</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: RU;\"> </span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; mso-ansi-language: RU;\">Апарт-номер предполагает сдачу в чистовой отделке и мебелированность.</span></p>\n<p class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">12 этажей</span></p>\n<p class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">125 номеров</span></p>\n<p class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Высота потолков &ndash; 3м.</span></p>\n<hr>\n<h2 class=\"MsoNormal\"><strong><span lang=\"KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: KZ;\">АРХИТЕКТУРА</span></strong></h2>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: RU;\">При</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\"> строение и</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: RU;\">спользован</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\"> </span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: RU;\">монолитный </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">железобетон. Это гарантирует надежную защиту от землетрясений и обеспечивает долговечность всей конструкции.</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: RU;\"> Ф</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">асад выполнен из керамогранита Laminam &ndash; материала, который не только придает зданию элегантный внешний вид, но и обладает высокой прочностью и стойкостью к внешним воздействиям.&nbsp;</span></p>\n<p class=\"MsoNormal\"><strong><span lang=\"KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: KZ;\">Благоустройство</span></strong></p>\n<ul>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Ресепшн</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">24/7 консьерж сервис</span></li>\n<li class=\"MsoNormal\"><span lang=\"KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: KZ;\">Обслуживание номеров</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Коворкинг зона</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Лобби и Кофейня</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Бутики и Рестораны</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Супермаркет и Салоны красоты</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Прачечная </span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Повышенная безопасность</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">24/7 видеонаблюдение</span></li>\n<li class=\"MsoNormal\"><span style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: EN-US;\">Face</span><span style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: KZ;\"> </span><span style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: EN-US;\">ID</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Закрытый двор</span><span lang=\"KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: KZ;\"> - оазис</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Ландшаф</span><span lang=\"KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: KZ;\">т</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">ный дизайн</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Многоуровневое освещение</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Надземный, подземный паркинг</span></li>\n</ul>\n<hr>\n<h2 class=\"MsoNormal\"><strong><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\">Преимущества инвестирования </span></strong><strong><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: RU;\">в</span></strong><strong><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\"> T</span></strong><strong><span style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: EN-US;\">urkistan</span></strong><strong><span style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat;\"> </span></strong><strong><span style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-ansi-language: EN-US;\">Apartments</span></strong></h2>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; mso-ansi-language: RU;\">Высокая доходность </span></p>\n<p class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;\">Быстр</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; mso-ansi-language: RU;\">ая</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;\"> окупаемость</span></p>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; mso-ansi-language: RU;\">Низкая стоимость </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;\">на этапе строительства </span></p>\n<p class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; background: white;\">Вы</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; background: white; mso-ansi-language: RU;\">годная</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; mso-ansi-language: RU;\"> </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; background: white;\">локация</span></p>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; mso-ansi-language: RU;\">100% конфиденциальность ваших инвестиций</span></p>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; mso-ansi-language: RU;\">Собственная управляющая компания</span></p>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: Montserrat; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; mso-ansi-language: RU;\">Надежное партнерство</span></p>','2024-04-18 20:13:00','2024-04-18 20:13:00'),(222,'purchasing_methods','title',4,'en','Ипотека Отбасы Банк','2024-04-21 22:56:36','2024-04-21 22:56:36'),(223,'purchasing_methods','description',4,'en','30/70','2024-04-21 22:56:36','2024-04-21 22:56:36'),(224,'purchasing_methods','title',3,'en','Ипотека 7-20-25','2024-04-21 22:56:50','2024-04-21 22:56:50'),(225,'purchasing_methods','description',3,'en','от Freedom Finance Bank','2024-04-21 22:56:50','2024-04-21 22:56:50'),(226,'about_us_advantages','title',4,'en','Квартиры с кухней, техникой и шкафами — заезжайте и живите','2024-04-21 22:58:41','2024-04-21 22:58:41'),(227,'about_us_advantages','description',4,'en','Сдаем кварталы с чистовой отделкой. Мы централизованно закупаем современные отделочные материалы у надежных поставщиков — вы экономите на ремонте.','2024-04-21 22:58:41','2024-04-21 22:58:41'),(228,'about_us_advantages','title',1,'en','Транспортная доступность','2024-04-21 22:59:07','2024-04-21 22:59:07'),(229,'data_rows','display_name',283,'en','Архитектура','2024-04-24 17:23:01','2024-04-24 17:23:01'),(230,'data_rows','display_name',284,'en','Лобби','2024-04-24 17:23:01','2024-04-24 17:23:01'),(231,'data_rows','display_name',285,'en','Транспортная инфраструктура','2024-04-24 17:23:01','2024-04-24 17:23:01'),(232,'data_rows','display_name',286,'en','Инфраструктура','2024-04-24 17:23:01','2024-04-24 17:23:01'),(233,'data_rows','display_name',287,'en','Особенности','2024-04-24 17:23:01','2024-04-24 17:23:01'),(234,'data_rows','display_name',288,'en','Благоустройство','2024-04-24 17:23:01','2024-04-24 17:23:01'),(235,'data_rows','display_name',289,'en','Ландшафтный дизайн','2024-04-24 17:23:01','2024-04-24 17:23:01'),(236,'data_rows','display_name',290,'en','Безопасность','2024-04-24 17:23:01','2024-04-24 17:23:01'),(237,'data_rows','display_name',291,'en','Преимущества','2024-04-24 17:23:01','2024-04-24 17:23:01'),(238,'complexes','description',5,'kz','<h2 class=\"MsoNormal\"><strong><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">О проекте</span></strong></h2>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">И</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">деальное сочетание современного комфорта и неповторимой природной красоты &ndash; именно это предлагает жилой комплекс TURAR. Расположенный в одном из пяти будущих центров Алматы, в районе \"Восточные ворота\", на пересечении проспекта Рыскулова и Кульджинского тракта, этот комплекс является не только местом жительства, но и настоящим украшением городского пейзажа</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">.</span></p>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">16 блоков </span></p>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">7-9 этажей</span></p>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">2.7-3 м &ndash; высота потолков</span></p>\n<hr>\n<h2 class=\"MsoNormal\" style=\"margin-bottom: 15.0pt; line-height: normal;\"><strong><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: #0C00;\">Архитектура</span></strong></h2>\n<p class=\"MsoNormal\" style=\"margin-bottom: 6.0pt; line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; background: white;\">Надежность и безопасность вашего дома обеспечивается прочным железобетонным каркасом</span><span lang=\"RU\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">.</span></p>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt; line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; background: white;\">Экологически безопасный вентилируемый фасад, выполненный из фиброцементных панелей, обеспечивает надежную защиту от любых погодных воздействий</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: #0C00;\">.</span></p>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt; line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; background: white;\">Стены из газоблоков обладаю</span><span lang=\"KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: KZ;\">т</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; background: white;\"> высокими тепло</span><span lang=\"RU\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">-</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; background: white;\">шумоизоляционными свойствами.</span></p>\n<hr>\n<h2 class=\"MsoNormal\"><strong><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Ген.план проекта</span></strong></h2>\n<ul>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Благоустройство</span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Детские площадки</span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Спортивные площадки</span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Велодорожки</span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Видеонаблюдение</span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Зеленая территория</span></li>\n</ul>','2024-04-24 18:25:30','2024-04-24 18:25:30'),(239,'complexes','description',6,'en','<h2 class=\"MsoNormal\"><strong><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">О проекте</span></strong></h2>\n<p class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">Ermensai Village представляет собой эксклюзивный проект </span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">таунхаусов </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">премиум-клас</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">са. Уникальные т</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">аунхаусы представленные в новом</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">, незнакомом </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">формате, придают </span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">архитектуре </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">город</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">а</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\"> </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">свежесть и эксклюзивность</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">.</span></p>\n<ul>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">27</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\"> </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">таунхаусов</span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">3 </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">этажа</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">высота потолков до 3,3м</span></li>\n</ul>\n<h2 class=\"MsoNormal\"><strong><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Архитектура</span></strong></h2>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Таунхаусы выполнены в классическом английском стиле. Оттенки светлых и теплых элементов фасада подчеркивают величие и роскошь гор Алматы по соседству. Кладка из клинкерной плитки придает проекту экологичность и высокий статус.</span></p>\n<h2 class=\"MsoNormal\"><strong><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Ген.план проекта</span></strong></h2>\n<ul>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Благоустройство</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">Охраняемая территория</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: #0C00;\">Въезд на территорию через КПП</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">Видеонаблюдение 24/7</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">Собственные парковочные места на две машины перед домом</span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Гостевой паркинг</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">Зона медитации и йоги</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">Детские площадки в стиле ECO</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">WorkOut зона, велопарковка</span></li>\n</ul>','2024-04-24 18:27:12','2024-04-24 18:27:12'),(240,'complexes','title',7,'kz','Baganashil Hills','2024-04-24 18:28:04','2024-04-24 18:28:04'),(241,'complexes','description',7,'en','<h2 class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">О проекте</span></h2>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">Коттеджный городок&nbsp;</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">Baganashil Hills </span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">проект элит класса,</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\"> в котором каждая деталь пропитана роскошью и утонченностью. Новы</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">е ощущения </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">комфорта достигнут</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">ы</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\"> благодаря продуманных характеристик проекта, новаторского подхода к организации внутреннего пространства, а также самых современных инженерных решений.</span></p>\n<ul>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">74 коттеджа</span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">12 таунхаусов </span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">3 этажа</span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Высота потолков от 3,3 м</span></li>\n</ul>\n<hr>\n<h2 style=\"margin: 0cm 0cm 15.0pt 0cm;\"><strong><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\">Архитектура&nbsp;</span></strong></h2>\n<p style=\"margin: 0cm 0cm 15.0pt 0cm;\"><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">Для того чтобы</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\"> подчеркнуть индивидуальность каждого коттеджа, созда</span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">но</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\"> несколько вариантов фасада &mdash; за основу взят американский архитектурный стиль Райта, который подразумевает под собой идею &laquo;единства с природой&raquo;. </span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\"><span style=\"mso-spacerun: yes;\">&nbsp;</span>И</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\">спользован</span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">ы</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\"> качественны</span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">е</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\">, натуральны</span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">е</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\"> и экологичны</span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">е</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\"> материалов, таки</span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">е</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\"> как клинкерный кирпич, гранит и Limestone</span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">.</span></p>\n<hr>\n<h2 style=\"margin: 0cm 0cm 15.0pt 0cm;\"><strong><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\">Ландшафтный дизайн</span></strong></h2>\n<p style=\"margin: 0cm 0cm 15.0pt 0cm;\"><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\">Созданный с использованием большого количества зелёных насаждений, ландшафтный дизайн коттеджного городка </span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">дает возможность уединения с природой.</span></p>\n<hr>\n<h2 style=\"margin: 0cm 0cm 15.0pt 0cm;\"><strong><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\">Безопасность&nbsp;</span></strong></h2>\n<p style=\"margin: 0cm 0cm 15.0pt 0cm;\"><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">О</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\">дно из важн</span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">ых </span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\">условий современной жизни</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\"> </span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">- безопасность</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\">, </span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">здесь гарантирован </span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\">приватность.</span></p>\n<hr>\n<h2 style=\"margin: 0cm 0cm 15.0pt 0cm;\"><strong><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">Благоустройство</span></strong></h2>\n<ul>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"RU\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-ansi-language: RU; mso-fareast-language: #0C00;\">В</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: #0C00;\">идеонаблюдение 24/7</span></li>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: #0C00;\">Въезд на территорию через КПП</span></li>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: #0C00;\">Закрытая и охраняемая территория</span></li>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: #0C00;\">Тренажерный зал</span></li>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: #0C00;\"><span style=\"mso-spacerun: yes;\">&nbsp;</span>Бассейн</span></li>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: #0C00;\">Кофейня</span></li>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: #0C00;\">Супермаркет</span></li>\n</ul>','2024-04-24 18:28:04','2024-04-24 18:28:04'),(244,'complexes','title',10,'kz','Arna','2024-04-24 18:30:40','2024-04-24 18:30:40'),(245,'complexes','description',10,'kz','<h2 class=\"MsoNormal\"><strong><span lang=\"KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: KZ;\">О проекте</span></strong></h2>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt; line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif;\">Жилой комплекс с нестандартной концепцией &laquo;Арна&raquo; </span><span lang=\"KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-ansi-language: KZ;\">от </span><span style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-ansi-language: EN-US;\">Everest</span><span style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif;\"> </span><span style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-ansi-language: EN-US;\">Development</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif;\">,</span><span lang=\"KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-ansi-language: KZ;\"> создан</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif;\"> благодаря переосмыслению значения &laquo;Дом&raquo;. Ценностью жилого комплекса стало внутреннее community, это не просто ваши соседи, это ваши друзья и единомышленники, у вас схожий образ жизни и религиозные ценности. Это не просто ваш новый дом, это пространство единомышленников.</span></p>\n<ul>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: RU;\">7, 9 этажный дом</span></li>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: RU;\">5 блоков</span></li>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: RU;\">1-3 комнатные квартиры</span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">Высота потолков 3 м</span></li>\n</ul>\n<hr>\n<h2 class=\"MsoNormal\" style=\"margin-bottom: .0001pt; line-height: normal;\"><strong><span lang=\"KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-ansi-language: KZ;\">Архитектура</span></strong></h2>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt; line-height: normal;\"><span lang=\"KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-ansi-language: KZ;\">Каркас жилого комплекса &laquo;Арна&raquo; выполен из монолитного железобетона, установлен н</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; background: white; mso-fareast-language: RU;\">авесной вентилируемый фасад из гранита и фиброцементных панелей, которые обладают высокой прочностью, морозоустойчивостью, экологичностью и отличаются хорошими теплоизолирующими свойствами.</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-ansi-language: RU; mso-fareast-language: RU;\"> </span><span lang=\"KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-ansi-language: KZ;\">Внутренние перегородки между помещениями выполнены из газоблоков, обеспечивая оптимальное сочетание прочности и функциональности.</span></p>\n<hr>\n<h2 class=\"MsoNormal\" style=\"margin-bottom: .0001pt; line-height: normal;\"><strong><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: RU;\">Собственная сервисная компания</span></strong></h2>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt; line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: RU;\">Мы заботимся не только о высоком качестве жилья, но и о качестве</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-ansi-language: RU; mso-fareast-language: RU;\"> </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: RU;\">условий жизни жильцов.</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-ansi-language: RU; mso-fareast-language: RU;\"> </span></p>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt; line-height: normal;\"><span lang=\"RU\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-ansi-language: RU; mso-fareast-language: RU;\">О</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: RU;\">бъекты компании </span><span style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: RU;\">Everest</span><span style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: RU;\"> </span><span style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-ansi-language: EN-US; mso-fareast-language: RU;\">Development</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: RU;\"> находятся на индивидуальном</span></p>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt; line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: RU;\">сервисном обслуживание предоставляемым компанией &ndash; застройщиком</span></p>\n<hr>\n<h2 style=\"margin: 0cm 0cm 15.0pt 0cm;\"><strong><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">Благоустройство</span></strong></h2>\n<ul>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; background: white; mso-fareast-language: RU;\">Авторский дизайн холлов</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif;\">Безопасный двор</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif;\">Детские площадки </span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif;\">Спортивные площадки для взрослых</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif;\">Видеонаблюдение</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif;\">Домофон</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">ия</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif;\">Наземный паркинг</span></li>\n</ul>','2024-04-24 18:30:40','2024-04-24 18:30:40'),(246,'complexes','title',12,'en','Athletic park','2024-04-24 18:34:18','2024-04-24 18:34:18'),(247,'complexes','description',12,'en','<p dir=\"ltr\">Жилой комплекс Athletic park -&nbsp; это лучшее место для комфортной жизни.</p>\n<p dir=\"ltr\">Комплекс расположен на территории Атлетической деревни, вблизи Ледовой арены и киноконцертного зала &laquo;Алатау&raquo;.&nbsp;</p>\n<p dir=\"ltr\">Удобство и современный комфорт &mdash; это синонимы ЖК Athletic Park , на территории которого расположились отделение полиции, Казпочта, ЦОН, детский сад и медицинский центр, а также современный фитнес-центр и другие объекты инфраструктуры.</p>\n<ul>\n<li dir=\"ltr\">18 блоков</li>\n<li dir=\"ltr\">9 - 12 этажей</li>\n<li dir=\"ltr\">1-1,5 - 2 - 2,5 - 3 комнатные квартиры</li>\n<li dir=\"ltr\">Высота потолков 3 м</li>\n</ul>\n<p>&nbsp;</p>','2024-04-24 18:34:18','2024-04-24 18:34:18'),(248,'data_rows','display_name',283,'kz','Архитектура','2024-04-26 07:04:01','2024-04-26 07:04:01'),(249,'data_rows','display_name',284,'kz','Лобби','2024-04-26 07:04:01','2024-04-26 07:04:01'),(250,'data_rows','display_name',285,'kz','Транспортная инфраструктура','2024-04-26 07:04:01','2024-04-26 07:04:01'),(251,'data_rows','display_name',286,'kz','Инфраструктура','2024-04-26 07:04:01','2024-04-26 07:04:01'),(252,'data_rows','display_name',287,'kz','Особенности','2024-04-26 07:04:01','2024-04-26 07:04:01'),(253,'data_rows','display_name',288,'kz','Благоустройство','2024-04-26 07:04:01','2024-04-26 07:04:01'),(254,'data_rows','display_name',289,'kz','Ландшафтный дизайн','2024-04-26 07:04:01','2024-04-26 07:04:01'),(255,'data_rows','display_name',290,'kz','Безопасность','2024-04-26 07:04:01','2024-04-26 07:04:01'),(256,'data_rows','display_name',291,'kz','Преимущества','2024-04-26 07:04:01','2024-04-26 07:04:01'),(258,'complexes','title',12,'kz','Athletic park','2024-05-10 07:15:51','2024-05-10 07:15:51'),(259,'complexes','description',12,'kz','<p dir=\"ltr\">Жилой комплекс Athletic park -&nbsp; это лучшее место для комфортной жизни.</p>\n<p dir=\"ltr\">Комплекс расположен на территории Атлетической деревни, вблизи Ледовой арены и киноконцертного зала &laquo;Алатау&raquo;.&nbsp;</p>\n<p dir=\"ltr\">Удобство и современный комфорт &mdash; это синонимы ЖК Athletic Park , на территории которого расположились отделение полиции, Казпочта, ЦОН, детский сад и медицинский центр, а также современный фитнес-центр и другие объекты инфраструктуры.</p>\n<ul>\n<li dir=\"ltr\">18 блоков</li>\n<li dir=\"ltr\">9 - 12 этажей</li>\n<li dir=\"ltr\">1-1,5 - 2 - 2,5 - 3 комнатные квартиры</li>\n<li dir=\"ltr\">Высота потолков 3 м</li>\n</ul>\n<p>&nbsp;</p>','2024-05-10 07:15:51','2024-05-10 07:15:51'),(260,'sliders','title',1,'en','Вершина вашего комфорта!','2024-05-10 09:33:30','2024-05-10 09:33:30'),(261,'sliders','description',1,'en','Премиальные апартаменты в Алматы','2024-05-10 09:33:30','2024-05-10 09:33:30'),(262,'sliders','title',1,'kz','Вершина вашего комфорта!','2024-05-10 09:35:57','2024-05-10 09:35:57'),(263,'sliders','description',1,'kz','Премиальные апартаменты в Алматы','2024-05-10 09:35:57','2024-05-10 09:35:57'),(264,'sliders','title',2,'en','Вершина вашего комфорта!1','2024-05-10 09:42:29','2024-05-10 09:42:29'),(265,'sliders','description',2,'en','Премиальные апартаменты в Алматы111','2024-05-10 09:42:29','2024-05-10 09:42:29'),(266,'sliders','title',2,'kz','Вершина вашего комфорта!1','2024-05-10 09:43:09','2024-05-10 09:43:09'),(267,'sliders','description',2,'kz','Премиальные апартаменты в Алматы111','2024-05-10 09:43:09','2024-05-10 09:43:09'),(268,'purchasing_methods','title',5,'en','Без процентная рассрочка от застройщика!','2024-05-10 10:04:07','2024-05-10 10:04:07'),(269,'purchasing_methods','description',5,'en','0% годовых!','2024-05-10 10:04:07','2024-05-10 10:04:07'),(270,'purchasing_methods','title',5,'kz','Без процентная рассрочка от застройщика!','2024-05-10 10:05:19','2024-05-10 10:05:19'),(271,'purchasing_methods','description',5,'kz','0% годовых!','2024-05-10 10:05:19','2024-05-10 10:05:19'),(272,'purchasing_methods','title',3,'kz','Ипотека 7-20-25','2024-05-10 10:05:45','2024-05-10 10:05:45'),(273,'purchasing_methods','description',3,'kz','от Freedom Finance Bank','2024-05-10 10:05:45','2024-05-10 10:05:45'),(274,'purchasing_methods','title',6,'en','Партнерская скидка!','2024-05-10 10:07:29','2024-05-10 10:07:29'),(275,'purchasing_methods','description',6,'en','На следующие покупки сэкономьте до 5%','2024-05-10 10:07:29','2024-05-10 10:07:29'),(276,'commercial_estates','title',1,'en','sdfsdfs','2024-05-10 10:49:36','2024-05-10 10:49:36'),(277,'about_us_advantages','title',7,'en','Забота об окружающей среде','2024-05-10 10:52:21','2024-05-10 10:52:21'),(278,'about_us_advantages','description',7,'en','Мы гордимся нашей ролью в сохранении окружающей среды. Наши проекты разрабатываются с учетом экологических стандартов и энергоэффективности.','2024-05-10 10:52:21','2024-05-10 10:52:21'),(279,'about_us_banners','title',1,'kz','Everest Development','2024-05-10 11:00:47','2024-05-10 11:00:47'),(280,'about_us_banners','description',1,'kz','Группа «Everest» — лидер строительной отрасли Казахстане и ведущий разработчик ИТ-решений в недвижимости.','2024-05-10 11:00:47','2024-05-10 11:00:47'),(281,'complex_advantages','title',1,'en','Транспорт','2024-05-12 14:07:48','2024-05-12 14:07:48'),(282,'complex_advantages','description',1,'en','15 минут на автомобиле до ст. метро «Орехово» и «Царицыно»','2024-05-12 14:07:48','2024-05-12 14:07:48'),(283,'complex_advantages','title',2,'en','Транспорт','2024-05-12 14:07:55','2024-05-12 14:07:55'),(284,'complex_advantages','description',2,'en','15 минут на автомобиле до ст. метро «Орехово» и «Царицыно»','2024-05-12 14:07:55','2024-05-12 14:07:55'),(285,'about_us_advantages','title',7,'kz','Забота об окружающей среде','2024-05-12 14:23:56','2024-05-12 14:23:56'),(286,'about_us_advantages','description',7,'kz','Мы гордимся нашей ролью в сохранении окружающей среды. Наши проекты разрабатываются с учетом экологических стандартов и энергоэффективности.','2024-05-12 14:23:56','2024-05-12 14:23:56'),(287,'about_us_advantages','title',4,'kz','Квартиры с кухней, техникой и шкафами — заезжайте и живите','2024-05-12 14:25:32','2024-05-12 14:25:32'),(288,'about_us_advantages','description',4,'kz','Сдаем кварталы с чистовой отделкой. Мы централизованно закупаем современные отделочные материалы у надежных поставщиков — вы экономите на ремонте.','2024-05-12 14:25:32','2024-05-12 14:25:32'),(289,'helplines','title',1,'en','Служба доверия','2024-05-12 14:27:43','2024-05-12 14:27:43'),(290,'helplines','description',1,'en','В рамках улучшения работы группы «Everest Development» действует телефон доверия','2024-05-12 14:27:43','2024-05-12 14:27:43'),(291,'data_rows','display_name',73,'en','Id','2024-05-12 20:00:53','2024-05-12 20:00:53'),(292,'data_rows','display_name',74,'en','Изображение','2024-05-12 20:00:53','2024-05-12 20:00:53'),(293,'data_rows','display_name',75,'en','Номер Телефона','2024-05-12 20:00:53','2024-05-12 20:00:53'),(294,'data_rows','display_name',76,'en','Адрес','2024-05-12 20:00:53','2024-05-12 20:00:53'),(295,'data_rows','display_name',77,'en','Время работы','2024-05-12 20:00:53','2024-05-12 20:00:53'),(296,'data_rows','display_name',88,'en','Координаты','2024-05-12 20:00:53','2024-05-12 20:00:53'),(297,'data_rows','display_name',78,'en','City Id','2024-05-12 20:00:53','2024-05-12 20:00:53'),(298,'data_rows','display_name',79,'en','Created At','2024-05-12 20:00:53','2024-05-12 20:00:53'),(299,'data_rows','display_name',80,'en','Updated At','2024-05-12 20:00:53','2024-05-12 20:00:53'),(300,'data_rows','display_name',81,'en','Город','2024-05-12 20:00:53','2024-05-12 20:00:53'),(301,'data_types','display_name_singular',14,'en','Офисы','2024-05-12 20:00:53','2024-05-12 20:00:53'),(302,'data_types','display_name_plural',14,'en','Офисы','2024-05-12 20:00:53','2024-05-12 20:00:53'),(303,'offices','address',2,'en','фывфыв','2024-05-12 20:01:07','2024-05-12 20:01:07'),(304,'offices','time',2,'en','12-10','2024-05-12 20:01:07','2024-05-12 20:01:07'),(305,'sales_departments','job_title',1,'en','Backend Dev','2024-05-12 20:01:55','2024-05-12 20:01:55'),(306,'sales_departments','job_title',1,'kz','Backend Dev','2024-05-12 20:02:18','2024-05-12 20:02:18'),(307,'data_rows','display_name',22,'en','Id','2024-05-12 20:04:44','2024-05-12 20:04:44'),(308,'data_rows','display_name',23,'en','Оглавление','2024-05-12 20:04:44','2024-05-12 20:04:44'),(309,'data_rows','display_name',24,'en','Описание','2024-05-12 20:04:44','2024-05-12 20:04:44'),(310,'data_rows','display_name',25,'en','Created At','2024-05-12 20:04:44','2024-05-12 20:04:44'),(311,'data_rows','display_name',26,'en','Updated At','2024-05-12 20:04:44','2024-05-12 20:04:44'),(312,'data_rows','display_name',225,'en','Ссылка','2024-05-12 20:04:44','2024-05-12 20:04:44'),(313,'data_types','display_name_singular',4,'en','Ипотека','2024-05-12 20:04:44','2024-05-12 20:04:44'),(314,'data_types','display_name_plural',4,'en','Ипотека','2024-05-12 20:04:44','2024-05-12 20:04:44'),(315,'data_rows','display_name',174,'en','Id','2024-05-12 20:14:15','2024-05-12 20:14:15'),(316,'data_rows','display_name',175,'en','Оглавление','2024-05-12 20:14:15','2024-05-12 20:14:15'),(317,'data_rows','display_name',176,'en','Описание','2024-05-12 20:14:15','2024-05-12 20:14:15'),(318,'data_rows','display_name',177,'en','Ссылка','2024-05-12 20:14:15','2024-05-12 20:14:15'),(319,'data_rows','display_name',178,'en','Created At','2024-05-12 20:14:15','2024-05-12 20:14:15'),(320,'data_rows','display_name',179,'en','Updated At','2024-05-12 20:14:15','2024-05-12 20:14:15'),(321,'data_types','display_name_singular',26,'en','Баннер','2024-05-12 20:14:15','2024-05-12 20:14:15'),(322,'data_types','display_name_plural',26,'en','Баннер','2024-05-12 20:14:15','2024-05-12 20:14:15'),(323,'about_us_advantages','title',8,'en','asdfasdfasdf','2024-05-13 04:47:14','2024-05-13 04:47:14'),(324,'about_us_advantages','description',8,'en','Fade RAutha','2024-05-13 04:47:14','2024-05-13 04:47:14'),(325,'about_us_advantages','title',8,'kz','asdfasdfasdf','2024-05-13 04:50:41','2024-05-13 04:50:41'),(326,'about_us_advantages','description',8,'kz','Fade RAutha','2024-05-13 04:50:41','2024-05-13 04:50:41'),(327,'complexes','description',7,'kz','<h2 class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">О проекте</span></h2>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">Коттеджный городок&nbsp;</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">Baganashil Hills </span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">проект элит класса,</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\"> в котором каждая деталь пропитана роскошью и утонченностью. Новы</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">е ощущения </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">комфорта достигнут</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">ы</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\"> благодаря продуманных характеристик проекта, новаторского подхода к организации внутреннего пространства, а также самых современных инженерных решений.</span></p>\n<ul>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">74 коттеджа</span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">12 таунхаусов </span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">3 этажа</span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Высота потолков от 3,3 м</span></li>\n</ul>\n<hr>\n<h2 style=\"margin: 0cm 0cm 15.0pt 0cm;\"><strong><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\">Архитектура&nbsp;</span></strong></h2>\n<p style=\"margin: 0cm 0cm 15.0pt 0cm;\"><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">Для того чтобы</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\"> подчеркнуть индивидуальность каждого коттеджа, созда</span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">но</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\"> несколько вариантов фасада &mdash; за основу взят американский архитектурный стиль Райта, который подразумевает под собой идею &laquo;единства с природой&raquo;. </span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\"><span style=\"mso-spacerun: yes;\">&nbsp;</span>И</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\">спользован</span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">ы</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\"> качественны</span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">е</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\">, натуральны</span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">е</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\"> и экологичны</span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">е</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\"> материалов, таки</span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">е</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\"> как клинкерный кирпич, гранит и Limestone</span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">.</span></p>\n<hr>\n<h2 style=\"margin: 0cm 0cm 15.0pt 0cm;\"><strong><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\">Ландшафтный дизайн</span></strong></h2>\n<p style=\"margin: 0cm 0cm 15.0pt 0cm;\"><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\">Созданный с использованием большого количества зелёных насаждений, ландшафтный дизайн коттеджного городка </span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">дает возможность уединения с природой.</span></p>\n<hr>\n<h2 style=\"margin: 0cm 0cm 15.0pt 0cm;\"><strong><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\">Безопасность&nbsp;</span></strong></h2>\n<p style=\"margin: 0cm 0cm 15.0pt 0cm;\"><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">О</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\">дно из важн</span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">ых </span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\">условий современной жизни</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\"> </span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">- безопасность</span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\">, </span><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">здесь гарантирован </span><span lang=\"ru-KZ\" style=\"font-family: \'Open Sans\',sans-serif;\">приватность.</span></p>\n<hr>\n<h2 style=\"margin: 0cm 0cm 15.0pt 0cm;\"><strong><span lang=\"RU\" style=\"font-family: \'Open Sans\',sans-serif; mso-ansi-language: RU;\">Благоустройство</span></strong></h2>\n<ul>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"RU\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-ansi-language: RU; mso-fareast-language: #0C00;\">В</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: #0C00;\">идеонаблюдение 24/7</span></li>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: #0C00;\">Въезд на территорию через КПП</span></li>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: #0C00;\">Закрытая и охраняемая территория</span></li>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: #0C00;\">Тренажерный зал</span></li>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: #0C00;\"><span style=\"mso-spacerun: yes;\">&nbsp;</span>Бассейн</span></li>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: #0C00;\">Кофейня</span></li>\n<li class=\"MsoNormal\" style=\"line-height: normal;\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: #0C00;\">Супермаркет</span></li>\n</ul>','2024-05-13 04:59:19','2024-05-13 04:59:19'),(328,'complexes','description',6,'kz','<h2 class=\"MsoNormal\"><strong><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">О проекте</span></strong></h2>\n<p class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">Ermensai Village представляет собой эксклюзивный проект </span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">таунхаусов </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">премиум-клас</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">са. Уникальные т</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">аунхаусы представленные в новом</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">, незнакомом </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">формате, придают </span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">архитектуре </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">город</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">а</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\"> </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">свежесть и эксклюзивность</span><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">.</span></p>\n<ul>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">27</span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\"> </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">таунхаусов</span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">3 </span><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">этажа</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">высота потолков до 3,3м</span></li>\n</ul>\n<h2 class=\"MsoNormal\"><strong><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Архитектура</span></strong></h2>\n<p class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Таунхаусы выполнены в классическом английском стиле. Оттенки светлых и теплых элементов фасада подчеркивают величие и роскошь гор Алматы по соседству. Кладка из клинкерной плитки придает проекту экологичность и высокий статус.</span></p>\n<h2 class=\"MsoNormal\"><strong><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Ген.план проекта</span></strong></h2>\n<ul>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Благоустройство</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">Охраняемая территория</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; mso-fareast-font-family: \'Times New Roman\'; mso-fareast-language: #0C00;\">Въезд на территорию через КПП</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">Видеонаблюдение 24/7</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">Собственные парковочные места на две машины перед домом</span></li>\n<li class=\"MsoNormal\"><span lang=\"RU\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white; mso-ansi-language: RU;\">Гостевой паркинг</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">Зона медитации и йоги</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">Детские площадки в стиле ECO</span></li>\n<li class=\"MsoNormal\"><span lang=\"ru-KZ\" style=\"font-size: 12.0pt; line-height: 107%; font-family: \'Open Sans\',sans-serif; background: white;\">WorkOut зона, велопарковка</span></li>\n</ul>','2024-05-13 05:06:02','2024-05-13 05:06:02'),(329,'data_rows','display_name',45,'en','Id','2024-05-16 15:40:07','2024-05-16 15:40:07'),(330,'data_rows','display_name',46,'en','Оглавление','2024-05-16 15:40:07','2024-05-16 15:40:07'),(331,'data_rows','display_name',47,'en','Описание','2024-05-16 15:40:07','2024-05-16 15:40:07'),(332,'data_rows','display_name',48,'en','Изображение','2024-05-16 15:40:07','2024-05-16 15:40:07'),(333,'data_rows','display_name',49,'en','Created At','2024-05-16 15:40:07','2024-05-16 15:40:07'),(334,'data_rows','display_name',50,'en','Updated At','2024-05-16 15:40:07','2024-05-16 15:40:07'),(335,'data_types','display_name_singular',8,'en','Баннер','2024-05-16 15:40:07','2024-05-16 15:40:07'),(336,'data_types','display_name_plural',8,'en','Баннер','2024-05-16 15:40:07','2024-05-16 15:40:07'),(337,'about_us_geographies','title',6,'en','Наша миссия','2024-05-22 07:41:35','2024-05-22 07:41:35'),(338,'about_us_geographies','description',6,'en','Создавать дома, инфраструктуру и сервисы, которые экономят людям время, чтобы они потратили его на то, что действительно важно.','2024-05-22 07:41:35','2024-05-22 07:41:35'),(341,'about_us_advantages','title',6,'en','Удобное расположение','2024-05-22 07:56:09','2024-05-22 07:56:09'),(342,'about_us_advantages','description',6,'en','Наши проекты расположены в самых востребованных районах Алматы, с быстро растущей инфраструктурой и легким доступом к ключевым местам.','2024-05-22 07:56:09','2024-05-22 07:56:09'),(343,'about_us_advantages','title',1,'kz','Транспортная доступность','2024-05-22 07:56:45','2024-05-22 07:56:45'),(344,'about_us_advantages','description',1,'en','Мы следуем последним тенденциям и инновациям в дизайне для создания уникальных интерьеров, фасадов и всего прочего.','2024-05-22 07:56:45','2024-05-22 07:56:45'),(345,'about_us_advantages','description',1,'kz','Мы следуем последним тенденциям и инновациям в дизайне для создания уникальных интерьеров, фасадов и всего прочего.','2024-05-22 07:59:33','2024-05-22 07:59:33'),(346,'data_rows','display_name',292,'en','Адрес','2024-05-25 17:32:04','2024-05-25 17:32:04'),(347,'menu_items','title',56,'en','Новости','2024-05-25 18:23:44','2024-05-25 18:23:44'),(348,'complexes','title',13,'en','Everest Boulevard','2024-06-13 09:05:04','2024-06-13 09:05:04'),(349,'complexes','description',13,'en','<p>ЖК &laquo;Everest Boulevard&raquo;&nbsp;предоставляет идеальные условия для комфортного проживания, где каждая деталь продумана с заботой о вас. Здесь созданы уникальные пространства, отвечающие вашим потребностям и желаниям, делая каждое мгновение особенным.</p>\n<p>Преимущество &laquo;Everest Boulevard&raquo; &ndash; это не просто наличие соседей, а создание сообщества друзей и единомышленников, которые разделяют ваш образ жизни. В этом комплексе вы найдете гармонию, уют и настоящую поддержку, которые превратят ваше жилье в дом мечты.</p>','2024-06-13 09:05:04','2024-06-13 09:05:04'),(350,'complexes','title',13,'kz','Everest Boulevard','2024-06-13 09:07:17','2024-06-13 09:07:17'),(351,'complexes','description',13,'kz','<p>ЖК &laquo;Everest Boulevard&raquo;&nbsp;предоставляет идеальные условия для комфортного проживания, где каждая деталь продумана с заботой о вас. Здесь созданы уникальные пространства, отвечающие вашим потребностям и желаниям, делая каждое мгновение особенным.</p>\n<p>Преимущество &laquo;Everest Boulevard&raquo; &ndash; это не просто наличие соседей, а создание сообщества друзей и единомышленников, которые разделяют ваш образ жизни. В этом комплексе вы найдете гармонию, уют и настоящую поддержку, которые превратят ваше жилье в дом мечты.</p>','2024-06-13 09:07:17','2024-06-13 09:07:17'),(352,'complex_advantages','title',5,'en','Инфраструктура','2024-06-13 09:15:19','2024-06-13 09:15:19'),(353,'complex_advantages','description',5,'en','Закрытый двор и экологические детские площадки','2024-06-13 09:15:19','2024-06-13 09:15:19'),(354,'complex_advantages','title',6,'en','Транспортная доступность','2024-06-13 09:18:00','2024-06-13 09:18:00'),(355,'complex_advantages','description',6,'en','10 минут до метро \"Москва\"','2024-06-13 09:18:00','2024-06-13 09:18:00'),(356,'complex_advantages','title',1,'kz','Транспорт','2024-06-13 09:18:16','2024-06-13 09:18:16'),(357,'complex_advantages','description',1,'kz','15 минут на автомобиле до ст. метро «Орехово» и «Царицыно»','2024-06-13 09:18:16','2024-06-13 09:18:16'),(358,'complex_advantages','title',2,'kz','Транспорт','2024-06-13 09:19:40','2024-06-13 09:19:40'),(359,'complex_advantages','description',2,'kz','15 минут на автомобиле до ст. метро «Орехово» и «Царицыно»','2024-06-13 09:19:40','2024-06-13 09:19:40'),(360,'offices','address',2,'kz','фывфыв','2024-06-13 09:41:26','2024-06-13 09:41:26'),(361,'offices','time',2,'kz','12-10','2024-06-13 09:41:26','2024-06-13 09:41:26'),(362,'offices','address',3,'en','Кульджинский тракт, 106','2024-06-13 09:42:09','2024-06-13 09:42:09'),(363,'offices','time',3,'en','10:00 - 19:00','2024-06-13 09:42:09','2024-06-13 09:42:09'),(364,'helplines','title',1,'kz','Служба доверия','2024-06-13 09:47:14','2024-06-13 09:47:14'),(365,'helplines','description',1,'kz','В рамках улучшения работы группы «Everest Development» действует телефон доверия','2024-06-13 09:47:14','2024-06-13 09:47:14'),(366,'mortgage_steps','title',4,'en','Успейте купить квартиру мечты!','2024-06-13 09:56:36','2024-06-13 09:56:36'),(367,'mortgage_steps','title',4,'kz','Успейте купить квартиру мечты!','2024-06-13 09:56:48','2024-06-13 09:56:48'),(368,'mortgage_steps','description',4,'en','Купите квартиру в рассрочка 0% от застройощика!','2024-06-13 09:56:48','2024-06-13 09:56:48'),(369,'mortgage_steps','description',4,'kz','Купите квартиру в рассрочка 0% от застройощика!','2024-06-13 09:56:58','2024-06-13 09:56:58'),(370,'mortgage_banners','title',1,'en','Ипотека 14,5%','2024-06-13 09:59:05','2024-06-13 09:59:05'),(371,'mortgage_banners','description',1,'en','Успейте купить квартиру с минимальной переплатой по уникальной ставке от 14,5%','2024-06-13 09:59:06','2024-06-13 09:59:06'),(372,'mortgage_banners','title',1,'kz','Ипотека 14,5%','2024-06-13 09:59:17','2024-06-13 09:59:17'),(373,'mortgage_banners','description',1,'kz','Успейте купить квартиру с минимальной переплатой по уникальной ставке от 14,5%','2024-06-13 09:59:17','2024-06-13 09:59:17'),(374,'mortgage_advantages','title',3,'kz','Ставка 14,5%','2024-06-13 10:00:33','2024-06-13 10:00:33'),(375,'mortgage_advantages','description',3,'kz','на весь срок','2024-06-13 10:00:33','2024-06-13 10:00:33'),(376,'data_rows','display_name',45,'kz','Id','2024-06-13 15:07:48','2024-06-13 15:07:48'),(377,'data_rows','display_name',46,'kz','Оглавление','2024-06-13 15:07:48','2024-06-13 15:07:48'),(378,'data_rows','display_name',47,'kz','Описание','2024-06-13 15:07:48','2024-06-13 15:07:48'),(379,'data_rows','display_name',48,'kz','Изображение','2024-06-13 15:07:48','2024-06-13 15:07:48'),(380,'data_rows','display_name',49,'kz','Created At','2024-06-13 15:07:48','2024-06-13 15:07:48'),(381,'data_rows','display_name',50,'kz','Updated At','2024-06-13 15:07:48','2024-06-13 15:07:48'),(382,'data_types','display_name_singular',8,'kz','Баннер','2024-06-13 15:07:48','2024-06-13 15:07:48'),(383,'data_types','display_name_plural',8,'kz','Баннер','2024-06-13 15:07:48','2024-06-13 15:07:48'),(384,'secondary_blocks','title',2,'en','Коммерция','2024-06-13 15:19:33','2024-06-13 15:19:33'),(385,'secondary_blocks','description',2,'en','Покупка коммерческих помещений под любой вид бизнеса','2024-06-13 15:19:33','2024-06-13 15:19:33'),(386,'secondary_blocks','title',1,'en','Жилье','2024-06-13 15:20:26','2024-06-13 15:20:26'),(387,'secondary_blocks','description',1,'en','Широкий выбор премиальных апартаментов','2024-06-13 15:20:26','2024-06-13 15:20:26'),(388,'complex_advantages','title',7,'en','Транспорт','2024-06-14 08:59:07','2024-06-14 08:59:07'),(389,'complex_advantages','description',7,'en','15 минут до центра города','2024-06-14 08:59:07','2024-06-14 08:59:07'),(390,'complex_advantages','title',8,'en','Инфра структура','2024-06-14 09:07:08','2024-06-14 09:07:08'),(391,'complex_advantages','description',8,'en','Собственные детские площадки и зеленый двор','2024-06-14 09:07:08','2024-06-14 09:07:08'),(392,'about_us_blocks','title',1,'en','Меньше на 91%','2024-06-14 10:21:56','2024-06-14 10:21:56'),(393,'about_us_blocks','description',1,'en','общая переплата','2024-06-14 10:21:56','2024-06-14 10:21:56'),(394,'complex_advantages','title',9,'en','Транспорт','2024-06-14 14:59:08','2024-06-14 14:59:08'),(395,'complex_advantages','description',9,'en','15 минут до центра города','2024-06-14 14:59:08','2024-06-14 14:59:08'),(396,'complex_advantages','title',4,'en','Транспорт','2024-06-14 15:01:02','2024-06-14 15:01:02'),(397,'complex_advantages','description',4,'en','15 минут на автомобиле до ст. метро «Орехово» и «Царицыно»','2024-06-14 15:01:02','2024-06-14 15:01:02'),(398,'complex_advantages','title',4,'kz','Транспорт','2024-06-14 15:01:12','2024-06-14 15:01:12'),(399,'complex_advantages','description',4,'kz','15 минут на автомобиле до ст. метро «Орехово» и «Царицыно»','2024-06-14 15:01:12','2024-06-14 15:01:12'),(400,'complex_advantages','title',10,'en','Благоустройство','2024-06-14 15:06:55','2024-06-14 15:06:55'),(401,'complex_advantages','description',10,'en','Концепция двор без машин','2024-06-14 15:06:55','2024-06-14 15:06:55'),(402,'complex_advantages','title',3,'en','Транспорт','2024-06-14 15:13:52','2024-06-14 15:13:52'),(403,'complex_advantages','description',3,'en','15 минут на автомобиле до ст. метро «Орехово» и «Царицыно»','2024-06-14 15:13:52','2024-06-14 15:13:52'),(404,'complex_advantages','title',3,'kz','Транспорт','2024-06-14 15:13:59','2024-06-14 15:13:59'),(405,'complex_advantages','description',3,'kz','15 минут на автомобиле до ст. метро «Орехово» и «Царицыно»','2024-06-14 15:13:59','2024-06-14 15:13:59'),(406,'complex_advantages','title',11,'en','Транспортная доступность','2024-06-14 15:15:34','2024-06-14 15:15:34'),(407,'complex_advantages','description',11,'en','5 минут до проспекта Аль-Фараби, 7 минут до международной школы Tamos, 12 минут до ТРК MEGA Alma-Ata','2024-06-14 15:15:34','2024-06-14 15:15:34'),(408,'complex_advantages','title',12,'en','Архитектура','2024-06-14 15:19:02','2024-06-14 15:19:02'),(409,'complex_advantages','description',12,'en','Свежесть и эксклюзивность архитектуры','2024-06-14 15:19:03','2024-06-14 15:19:03'),(410,'about_us_blocks','title',2,'en','Меньше на 91%','2024-06-14 17:22:58','2024-06-14 17:22:58'),(411,'about_us_blocks','description',2,'en','общая переплата','2024-06-14 17:22:58','2024-06-14 17:22:58'),(412,'about_us_blocks','title',3,'en','Меньше на 91%','2024-06-14 17:25:07','2024-06-14 17:25:07'),(413,'about_us_blocks','description',3,'en','общая переплата','2024-06-14 17:25:07','2024-06-14 17:25:07'),(414,'complex_advantages','title',5,'kz','Инфраструктура','2024-06-18 07:53:39','2024-06-18 07:53:39'),(415,'complex_advantages','description',5,'kz','Закрытый двор и экологические детские площадки','2024-06-18 07:53:39','2024-06-18 07:53:39'),(416,'mortgage_advantages','title',2,'kz','Ниже на 77%','2024-06-18 10:24:02','2024-06-18 10:24:02'),(417,'mortgage_advantages','description',2,'kz','ежемесячный платеж','2024-06-18 10:24:02','2024-06-18 10:24:02'),(418,'mortgage_advantages','title',1,'kz','Меньше на 91%','2024-06-18 10:25:23','2024-06-18 10:25:23'),(419,'mortgage_advantages','description',1,'kz','общая переплата','2024-06-18 10:25:23','2024-06-18 10:25:23'),(420,'complex_advantages','title',8,'kz','Инфра структура','2024-06-18 10:33:58','2024-06-18 10:33:58'),(421,'complex_advantages','description',8,'kz','Собственные детские площадки и зеленый двор','2024-06-18 10:33:59','2024-06-18 10:33:59'),(422,'complex_advantages','title',13,'en','Собственный Клаб Хаус','2024-06-18 12:01:33','2024-06-18 12:01:33'),(423,'complex_advantages','description',13,'en','Уютные завтраки в кругу семьи и тонизирующих занятий спортом','2024-06-18 12:01:33','2024-06-18 12:01:33'),(424,'complex_advantages','title',14,'en','Окружение','2024-06-18 12:05:49','2024-06-18 12:05:49'),(425,'complex_advantages','description',14,'en','13 минут до Villa Boutiques & Restaurants, 10 минут до Школы Tamos Education, 14 минут до Mega-Center\nAlma-Ata','2024-06-18 12:05:49','2024-06-18 12:05:49'),(426,'complex_advantages','title',15,'en','Архитектура','2024-06-18 12:09:03','2024-06-18 12:09:03'),(427,'complex_advantages','description',15,'en','Современные архитектурные решения будут радовать не только надежностью, но и эстетикой','2024-06-18 12:09:03','2024-06-18 12:09:03'),(428,'complex_advantages','title',16,'en','Расположение','2024-06-18 14:51:12','2024-06-18 14:51:12'),(429,'complex_advantages','description',16,'en','Рядом расположен парк им. 28 Гвардейцев-Панфиловцев, Зеленый базар, Центральная мечеть, Вознесенский собор, значимые культурные и исторические объекты.','2024-06-18 14:51:12','2024-06-18 14:51:12'),(430,'complex_advantages','title',17,'en','Благоустройство','2024-06-18 14:59:14','2024-06-18 14:59:14'),(431,'complex_advantages','description',17,'en','Озеленение территории ','2024-06-18 14:59:14','2024-06-18 14:59:14'),(432,'complex_advantages','title',18,'en','Дизайн','2024-06-18 15:01:02','2024-06-18 15:01:02'),(433,'complex_advantages','description',18,'en','Авторский дизайн холлов и лестничных площадок','2024-06-18 15:01:02','2024-06-18 15:01:02'),(434,'complex_advantages','title',19,'en','Прибльность','2024-06-18 15:02:26','2024-06-18 15:02:26'),(435,'complex_advantages','description',19,'en','Высокая доходность и Быстрая окупаемость','2024-06-18 15:02:26','2024-06-18 15:02:26'),(436,'complex_advantages','title',19,'kz','Прибльность','2024-06-18 15:02:52','2024-06-18 15:02:52'),(437,'complex_advantages','description',19,'kz','Высокая доходность и Быстрая окупаемость','2024-06-18 15:02:52','2024-06-18 15:02:52'),(438,'complex_advantages','title',16,'kz','Расположение','2024-06-18 15:03:17','2024-06-18 15:03:17'),(439,'complex_advantages','description',16,'kz','Рядом расположен парк им. 28 Гвардейцев-Панфиловцев, Зеленый базар, Центральная мечеть, Вознесенский собор, значимые культурные и исторические объекты.','2024-06-18 15:03:17','2024-06-18 15:03:17'),(440,'complex_advantages','title',20,'en','Расположение','2024-06-20 05:02:12','2024-06-20 05:02:12'),(441,'complex_advantages','description',20,'en','Халык Арена 5 мин - 2км, Aport Mall 7 мин - 5 км, Аэропорт Алматы 10 мин - 8км','2024-06-20 05:02:12','2024-06-20 05:02:12'),(442,'complex_advantages','title',21,'en','Сейсмостойкость','2024-06-20 05:05:10','2024-06-20 05:05:10'),(443,'complex_advantages','description',21,'en','9 баллов','2024-06-20 05:05:10','2024-06-20 05:05:10'),(444,'complex_advantages','title',22,'en','Пешеходный Бульвар','2024-06-20 05:07:43','2024-06-20 05:07:43'),(445,'complex_advantages','description',22,'en','Бульвар с просторными аллеями и скамейками','2024-06-20 05:07:43','2024-06-20 05:07:43'),(446,'complex_advantages','title',23,'en','Инфраструктура','2024-06-20 05:11:14','2024-06-20 05:11:14'),(447,'complex_advantages','description',23,'en','Детский сад, школы и поликлиника','2024-06-20 05:11:14','2024-06-20 05:11:14'),(448,'complex_advantages','title',24,'en','Транспорт','2024-06-20 05:13:42','2024-06-20 05:13:42'),(449,'complex_advantages','description',24,'en','15 минут до станции метро Бауыржан Момышулы','2024-06-20 05:13:42','2024-06-20 05:13:42'),(450,'complex_advantages','title',25,'en','Улучшенная отделка','2024-06-20 05:16:41','2024-06-20 05:16:41'),(451,'complex_advantages','description',25,'en','Повышение класса отделки ','2024-06-20 05:16:41','2024-06-20 05:16:41'),(452,'about_us_blocks','title',3,'kz','Меньше на 91%','2024-06-20 05:30:40','2024-06-20 05:30:40'),(453,'about_us_blocks','description',3,'kz','общая переплата','2024-06-20 05:30:40','2024-06-20 05:30:40'),(454,'about_us_blocks','title',1,'kz','Меньше на 91%','2024-06-20 05:31:42','2024-06-20 05:31:42'),(455,'about_us_blocks','description',1,'kz','общая переплата','2024-06-20 05:31:42','2024-06-20 05:31:42'),(456,'secondary_blocks','title',2,'kz','Коммерция','2024-07-02 17:13:44','2024-07-02 17:13:44'),(457,'secondary_blocks','description',2,'kz','Покупка коммерческих помещений под любой вид бизнеса','2024-07-02 17:13:44','2024-07-02 17:13:44'),(458,'data_rows','display_name',22,'kz','Id','2024-07-02 17:18:50','2024-07-02 17:18:50'),(459,'data_rows','display_name',23,'kz','Оглавление','2024-07-02 17:18:50','2024-07-02 17:18:50'),(460,'data_rows','display_name',24,'kz','Описание','2024-07-02 17:18:51','2024-07-02 17:18:51'),(461,'data_rows','display_name',25,'kz','Created At','2024-07-02 17:18:51','2024-07-02 17:18:51'),(462,'data_rows','display_name',26,'kz','Updated At','2024-07-02 17:18:51','2024-07-02 17:18:51'),(463,'data_rows','display_name',225,'kz','Ссылка','2024-07-02 17:18:51','2024-07-02 17:18:51'),(464,'data_types','display_name_singular',4,'kz','Ипотека','2024-07-02 17:18:51','2024-07-02 17:18:51'),(465,'data_types','display_name_plural',4,'kz','Ипотека','2024-07-02 17:18:51','2024-07-02 17:18:51'),(466,'data_rows','display_name',228,'en','Id','2024-07-02 17:40:48','2024-07-02 17:40:48'),(467,'data_rows','display_name',229,'en','Номер телефона','2024-07-02 17:40:48','2024-07-02 17:40:48'),(468,'data_rows','display_name',230,'en','Текст','2024-07-02 17:40:48','2024-07-02 17:40:48'),(469,'data_rows','display_name',231,'en','Дата создания','2024-07-02 17:40:48','2024-07-02 17:40:48'),(470,'data_rows','display_name',232,'en','Updated At','2024-07-02 17:40:48','2024-07-02 17:40:48'),(471,'data_types','display_name_singular',35,'en','Заявки','2024-07-02 17:40:48','2024-07-02 17:40:48'),(472,'data_types','display_name_plural',35,'en','Заявки','2024-07-02 17:40:48','2024-07-02 17:40:48'),(473,'data_rows','display_name',228,'kz','Id','2024-07-02 17:46:24','2024-07-02 17:46:24'),(474,'data_rows','display_name',229,'kz','Номер телефона','2024-07-02 17:46:24','2024-07-02 17:46:24'),(475,'data_rows','display_name',230,'kz','Текст','2024-07-02 17:46:24','2024-07-02 17:46:24'),(476,'data_rows','display_name',231,'kz','Дата создания','2024-07-02 17:46:24','2024-07-02 17:46:24'),(477,'data_rows','display_name',232,'kz','Updated At','2024-07-02 17:46:24','2024-07-02 17:46:24'),(478,'data_rows','display_name',305,'en','Страница','2024-07-02 17:46:24','2024-07-02 17:46:24'),(479,'data_types','display_name_singular',35,'kz','Заявки','2024-07-02 17:46:24','2024-07-02 17:46:24'),(480,'data_types','display_name_plural',35,'kz','Заявки','2024-07-02 17:46:24','2024-07-02 17:46:24'),(481,'data_rows','display_name',305,'kz','Страница','2024-07-02 17:46:47','2024-07-02 17:46:47'),(482,'data_rows','display_name',209,'kz','Id','2024-07-02 17:59:17','2024-07-02 17:59:17'),(483,'data_rows','display_name',210,'kz','Оглавление','2024-07-02 17:59:17','2024-07-02 17:59:17'),(484,'data_rows','display_name',212,'kz','Иконка','2024-07-02 17:59:17','2024-07-02 17:59:17'),(485,'data_rows','display_name',214,'kz','Created At','2024-07-02 17:59:17','2024-07-02 17:59:17'),(486,'data_rows','display_name',215,'kz','Updated At','2024-07-02 17:59:17','2024-07-02 17:59:17'),(487,'data_types','display_name_singular',33,'kz','Компания','2024-07-02 17:59:17','2024-07-02 17:59:17'),(488,'data_types','display_name_plural',33,'kz','Компания','2024-07-02 17:59:17','2024-07-02 17:59:17'),(489,'menu_items','title',43,'en','Партнеры','2024-07-02 17:59:58','2024-07-02 18:01:12'),(490,'menu_items','title',43,'kz','Партнеры','2024-07-02 18:01:12','2024-07-02 18:01:12'),(491,'about_us_companies','title',4,'en','asdas','2024-07-02 18:08:18','2024-07-02 18:08:18'),(492,'about_us_companies','title',4,'kz','asdas','2024-07-04 05:30:50','2024-07-04 05:30:50'),(493,'about_us_companies','title',17,'en','autodesk','2024-07-04 05:46:00','2024-07-04 05:46:00'),(494,'about_us_companies','title',26,'en','bcc','2024-07-04 05:54:17','2024-07-04 05:54:17'),(495,'about_us_companies','title',27,'en','portal','2024-07-04 06:05:29','2024-07-04 06:05:29');
+/*!40000 ALTER TABLE `translations` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Структура таблицы `user_roles`
+-- Table structure for table `user_roles`
 --
 
+DROP TABLE IF EXISTS `user_roles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user_roles` (
-  `user_id` bigint UNSIGNED NOT NULL,
-  `role_id` bigint UNSIGNED NOT NULL
+  `user_id` bigint unsigned NOT NULL,
+  `role_id` bigint unsigned NOT NULL,
+  PRIMARY KEY (`user_id`,`role_id`),
+  KEY `user_roles_user_id_index` (`user_id`),
+  KEY `user_roles_role_id_index` (`role_id`),
+  CONSTRAINT `user_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `user_roles_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Индексы сохранённых таблиц
+-- Dumping data for table `user_roles`
 --
 
---
--- Индексы таблицы `about_us_advantages`
---
-ALTER TABLE `about_us_advantages`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `about_us_banners`
---
-ALTER TABLE `about_us_banners`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `about_us_blocks`
---
-ALTER TABLE `about_us_blocks`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `about_us_companies`
---
-ALTER TABLE `about_us_companies`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `about_us_descriptions`
---
-ALTER TABLE `about_us_descriptions`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `about_us_geographies`
---
-ALTER TABLE `about_us_geographies`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `about_us_geography_districts`
---
-ALTER TABLE `about_us_geography_districts`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `appartments`
---
-ALTER TABLE `appartments`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `appartments_city_id_foreign` (`city_id`),
-  ADD KEY `appartments_complex_id_foreign` (`complex_id`);
-
---
--- Индексы таблицы `appartment_advantages`
---
-ALTER TABLE `appartment_advantages`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `appartment_advantages_appartment_id_foreign` (`appartment_id`);
-
---
--- Индексы таблицы `banners`
---
-ALTER TABLE `banners`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `cities`
---
-ALTER TABLE `cities`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `complexes`
---
-ALTER TABLE `complexes`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `complexes_city_id_foreign` (`city_id`);
-
---
--- Индексы таблицы `complex_advantages`
---
-ALTER TABLE `complex_advantages`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `complex_advantages_complex_id_foreign` (`complex_id`);
-
---
--- Индексы таблицы `complex_peculiarities`
---
-ALTER TABLE `complex_peculiarities`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `complex_peculiarities_complex_id_foreign` (`complex_id`);
-
---
--- Индексы таблицы `data_rows`
---
-ALTER TABLE `data_rows`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `data_rows_data_type_id_foreign` (`data_type_id`);
-
---
--- Индексы таблицы `data_types`
---
-ALTER TABLE `data_types`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `data_types_name_unique` (`name`),
-  ADD UNIQUE KEY `data_types_slug_unique` (`slug`);
-
---
--- Индексы таблицы `failed_jobs`
---
-ALTER TABLE `failed_jobs`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
-
---
--- Индексы таблицы `footers`
---
-ALTER TABLE `footers`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `helplines`
---
-ALTER TABLE `helplines`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `main_blocks`
---
-ALTER TABLE `main_blocks`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `menus`
---
-ALTER TABLE `menus`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `menus_name_unique` (`name`);
-
---
--- Индексы таблицы `menu_items`
---
-ALTER TABLE `menu_items`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `menu_items_menu_id_foreign` (`menu_id`);
-
---
--- Индексы таблицы `migrations`
---
-ALTER TABLE `migrations`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `mortgage_advantages`
---
-ALTER TABLE `mortgage_advantages`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `mortgage_banners`
---
-ALTER TABLE `mortgage_banners`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `mortgage_steps`
---
-ALTER TABLE `mortgage_steps`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `offices`
---
-ALTER TABLE `offices`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `offices_city_id_foreign` (`city_id`);
-
---
--- Индексы таблицы `password_reset_tokens`
---
-ALTER TABLE `password_reset_tokens`
-  ADD PRIMARY KEY (`email`);
-
---
--- Индексы таблицы `permissions`
---
-ALTER TABLE `permissions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `permissions_key_index` (`key`);
-
---
--- Индексы таблицы `permission_role`
---
-ALTER TABLE `permission_role`
-  ADD PRIMARY KEY (`permission_id`,`role_id`),
-  ADD KEY `permission_role_permission_id_index` (`permission_id`),
-  ADD KEY `permission_role_role_id_index` (`role_id`);
-
---
--- Индексы таблицы `personal_access_tokens`
---
-ALTER TABLE `personal_access_tokens`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
-  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
-
---
--- Индексы таблицы `purchasing_methods`
---
-ALTER TABLE `purchasing_methods`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `roles`
---
-ALTER TABLE `roles`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `roles_name_unique` (`name`);
-
---
--- Индексы таблицы `sales_departments`
---
-ALTER TABLE `sales_departments`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `secondary_blocks`
---
-ALTER TABLE `secondary_blocks`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `settings`
---
-ALTER TABLE `settings`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `settings_key_unique` (`key`);
-
---
--- Индексы таблицы `sliders`
---
-ALTER TABLE `sliders`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `translations`
---
-ALTER TABLE `translations`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `translations_table_name_column_name_foreign_key_locale_unique` (`table_name`,`column_name`,`foreign_key`,`locale`);
-
---
--- Индексы таблицы `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`),
-  ADD KEY `users_role_id_foreign` (`role_id`);
-
---
--- Индексы таблицы `user_roles`
---
-ALTER TABLE `user_roles`
-  ADD PRIMARY KEY (`user_id`,`role_id`),
-  ADD KEY `user_roles_user_id_index` (`user_id`),
-  ADD KEY `user_roles_role_id_index` (`role_id`);
-
---
--- AUTO_INCREMENT для сохранённых таблиц
---
-
---
--- AUTO_INCREMENT для таблицы `about_us_advantages`
---
-ALTER TABLE `about_us_advantages`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `about_us_banners`
---
-ALTER TABLE `about_us_banners`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `about_us_blocks`
---
-ALTER TABLE `about_us_blocks`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `about_us_companies`
---
-ALTER TABLE `about_us_companies`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `about_us_descriptions`
---
-ALTER TABLE `about_us_descriptions`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `about_us_geographies`
---
-ALTER TABLE `about_us_geographies`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `about_us_geography_districts`
---
-ALTER TABLE `about_us_geography_districts`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `appartments`
---
-ALTER TABLE `appartments`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT для таблицы `appartment_advantages`
---
-ALTER TABLE `appartment_advantages`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT для таблицы `banners`
---
-ALTER TABLE `banners`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT для таблицы `cities`
---
-ALTER TABLE `cities`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT для таблицы `complexes`
---
-ALTER TABLE `complexes`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT для таблицы `complex_advantages`
---
-ALTER TABLE `complex_advantages`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT для таблицы `complex_peculiarities`
---
-ALTER TABLE `complex_peculiarities`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT для таблицы `data_rows`
---
-ALTER TABLE `data_rows`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=228;
-
---
--- AUTO_INCREMENT для таблицы `data_types`
---
-ALTER TABLE `data_types`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
-
---
--- AUTO_INCREMENT для таблицы `failed_jobs`
---
-ALTER TABLE `failed_jobs`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `footers`
---
-ALTER TABLE `footers`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `helplines`
---
-ALTER TABLE `helplines`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `main_blocks`
---
-ALTER TABLE `main_blocks`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT для таблицы `menus`
---
-ALTER TABLE `menus`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT для таблицы `menu_items`
---
-ALTER TABLE `menu_items`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
-
---
--- AUTO_INCREMENT для таблицы `migrations`
---
-ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
-
---
--- AUTO_INCREMENT для таблицы `mortgage_advantages`
---
-ALTER TABLE `mortgage_advantages`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT для таблицы `mortgage_banners`
---
-ALTER TABLE `mortgage_banners`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT для таблицы `mortgage_steps`
---
-ALTER TABLE `mortgage_steps`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT для таблицы `offices`
---
-ALTER TABLE `offices`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `permissions`
---
-ALTER TABLE `permissions`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
-
---
--- AUTO_INCREMENT для таблицы `personal_access_tokens`
---
-ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `purchasing_methods`
---
-ALTER TABLE `purchasing_methods`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT для таблицы `roles`
---
-ALTER TABLE `roles`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT для таблицы `sales_departments`
---
-ALTER TABLE `sales_departments`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `secondary_blocks`
---
-ALTER TABLE `secondary_blocks`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT для таблицы `settings`
---
-ALTER TABLE `settings`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT для таблицы `sliders`
---
-ALTER TABLE `sliders`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT для таблицы `translations`
---
-ALTER TABLE `translations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `users`
---
-ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Ограничения внешнего ключа сохраненных таблиц
---
-
---
--- Ограничения внешнего ключа таблицы `appartments`
---
-ALTER TABLE `appartments`
-  ADD CONSTRAINT `appartments_city_id_foreign` FOREIGN KEY (`city_id`) REFERENCES `cities` (`id`) ON DELETE SET NULL,
-  ADD CONSTRAINT `appartments_complex_id_foreign` FOREIGN KEY (`complex_id`) REFERENCES `complexes` (`id`) ON DELETE SET NULL;
-
---
--- Ограничения внешнего ключа таблицы `appartment_advantages`
---
-ALTER TABLE `appartment_advantages`
-  ADD CONSTRAINT `appartment_advantages_appartment_id_foreign` FOREIGN KEY (`appartment_id`) REFERENCES `appartments` (`id`) ON DELETE SET NULL;
-
---
--- Ограничения внешнего ключа таблицы `complexes`
---
-ALTER TABLE `complexes`
-  ADD CONSTRAINT `complexes_city_id_foreign` FOREIGN KEY (`city_id`) REFERENCES `cities` (`id`) ON DELETE SET NULL;
-
---
--- Ограничения внешнего ключа таблицы `complex_advantages`
---
-ALTER TABLE `complex_advantages`
-  ADD CONSTRAINT `complex_advantages_complex_id_foreign` FOREIGN KEY (`complex_id`) REFERENCES `complexes` (`id`) ON DELETE SET NULL;
-
---
--- Ограничения внешнего ключа таблицы `complex_peculiarities`
---
-ALTER TABLE `complex_peculiarities`
-  ADD CONSTRAINT `complex_peculiarities_complex_id_foreign` FOREIGN KEY (`complex_id`) REFERENCES `complexes` (`id`) ON DELETE SET NULL;
-
---
--- Ограничения внешнего ключа таблицы `data_rows`
---
-ALTER TABLE `data_rows`
-  ADD CONSTRAINT `data_rows_data_type_id_foreign` FOREIGN KEY (`data_type_id`) REFERENCES `data_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ограничения внешнего ключа таблицы `menu_items`
---
-ALTER TABLE `menu_items`
-  ADD CONSTRAINT `menu_items_menu_id_foreign` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE;
+LOCK TABLES `user_roles` WRITE;
+/*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Ограничения внешнего ключа таблицы `offices`
+-- Table structure for table `users`
 --
-ALTER TABLE `offices`
-  ADD CONSTRAINT `offices_city_id_foreign` FOREIGN KEY (`city_id`) REFERENCES `cities` (`id`) ON DELETE SET NULL;
 
---
--- Ограничения внешнего ключа таблицы `permission_role`
---
-ALTER TABLE `permission_role`
-  ADD CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `role_id` bigint unsigned DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT 'users/default.png',
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `settings` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`),
+  KEY `users_role_id_foreign` (`role_id`),
+  CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Ограничения внешнего ключа таблицы `users`
+-- Dumping data for table `users`
 --
-ALTER TABLE `users`
-  ADD CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
 
---
--- Ограничения внешнего ключа таблицы `user_roles`
---
-ALTER TABLE `user_roles`
-  ADD CONSTRAINT `user_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `user_roles_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-COMMIT;
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,1,'admin','admin@gmail.com','users/default.png',NULL,'$2y$12$AksRqmdtQgZavOHKKuF9aucvsIcrAjb9iDLRC6i4vLIir86KSuTiC','zAKrXD7h5TLnUR5zD9PxLo3FGQlxs3M33IEdAAShdoQHK7OYugGUx7DJqSwS',NULL,'2024-03-09 18:56:15','2024-03-09 18:56:15'),(2,2,'moderator','moderator@gmail.com','users/default.png',NULL,'$2y$12$clfYUlr/Zp3vCqb5NhFjFObKAg99DjPSslm/6osswXB4W8qltkBtC',NULL,'{\"locale\":\"ru\"}','2024-04-03 20:09:40','2024-04-03 20:09:40');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-10-24 20:12:09
